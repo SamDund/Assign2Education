@@ -1,16 +1,43 @@
 ---
-title: "Source1"
-author: "Sam"
+title: "The Country-level Impact of Educational Patterns on the Rate of Entrepreneurship"
 date: "October 17, 2014"
+author: "Sam Dundon and Thierry Racaud"
 output: html_document
-bibliography
+bibliography:
   - Main.bib
 ---
 
-Education and Entrepreurship
-Thierry Racuad and Sam Dundon
-Introduction to Collaborative Social Science Data Analysis
+*Introduction to Collaborative Social Science Data Analysis*
 
+###Research Question  
+Drawing a comparison between three different welfare systems, id est Sweden, France and Britain, to what extent do the behavioural characteristics of a given education system - more or less individualistic, more or less group focused, more or less reinforcing self-confidence - affect the rate of entrepreneurship in that country?!
+
+###Research design
+My thesis [@Scott1996] research project consists in a comparative study of educations policies in at least two or three EU countries and their specific economic impact, or its absence, on GDP through a detailed causal chain.
+Too often, at least in France, when it comes to public budgeting and allocating funds for education policies, the decision process does not seem to be very rational. Very often, it does not seem to take into account the return on investment that should be expected in the long run. Perhaps because many policy makers have no inside knowledge from the field, thus it could be that they do not have all the tools or do not know how to assess the potential impact, therefore, they just do not take this into their decision-making process.
+
+
+###Analytical Method
+The causal chain would be the following:  
+
+More positive feedback and more self-confidence reinforcement, either within the organisation or directly between teachers and students should impact positively both the entrepreneurship rate and the career-change rate of the given country.  
+
+More group-oriented and team-building practices, either within the organisation or as the staff strategy/policy towards strudents should lead to more of the same supportive approach to management in businesses throughout the given country.  
+
+Should these three indicators indeed be impacted, then there could be some positive impact on GDP at large, of course controlling for more favourable environments, similar business perspectives, etc.  
+
+The specific variables to trace this potential causal chain still need to be determined.  
+
+###Concepts that I may need for my research
+
+####Return on Investment
+Self-confidence: It is difficult to obtain a credible measurement of self confidence, how should I measure this?  
+
+Positive reinforcement is more easily defined but is also culture-dependent
+Individual-focused systems vs group-oriented ones, how do you delimitate?
+Types of management
+
+Return on Investment, how do you evaluate euros of tomorrow or value for money rate, perhaps using the social discount rate for some part, but also considering the potential GDP that could result from another education system management and culture vs what you would get carrying on like now.
 
 
 ```{r, echo=FALSE, include=FALSE}
@@ -21,14 +48,5 @@ library(repmis)
 pkgs <- c('dplyr','ggplot2')
 repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
-
-summary(cars)
 ```
 
-You can also embed plots, for example:
-
-```{r, echo=FALSE}
-plot(cars)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
