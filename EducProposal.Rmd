@@ -12,13 +12,12 @@ bibliography:
 ###Research Question  
 Drawing a comparison between three different welfare systems, id est Sweden, France and Britain, to what extent do the behavioural characteristics of a given education system - more or less individualistic, more or less group focused, more or less reinforcing self-confidence - affect the rate of entrepreneurship in that country?!
 
-###Research design
-My thesis [@Scott1996] research project consists in a comparative study of educations policies in at least two or three EU countries and their specific economic impact, or its absence, on GDP through a detailed causal chain.
+###Research Justification
 Too often, at least in France, when it comes to public budgeting and allocating funds for education policies, the decision process does not seem to be very rational. Very often, it does not seem to take into account the return on investment that should be expected in the long run. Perhaps because many policy makers have no inside knowledge from the field, thus it could be that they do not have all the tools or do not know how to assess the potential impact, therefore, they just do not take this into their decision-making process.
 
 
 ###Analytical Method
-The causal chain would be the following:  
+####Causal Chain
 
 More positive feedback and more self-confidence reinforcement, either within the organisation or directly between teachers and students should impact positively both the entrepreneurship rate and the career-change rate of the given country.  
 
@@ -26,15 +25,47 @@ More group-oriented and team-building practices, either within the organisation 
 
 Should these three indicators indeed be impacted, then there could be some positive impact on GDP at large, of course controlling for more favourable environments, similar business perspectives, etc.  
 
-The specific variables to trace this potential causal chain still need to be determined.  
+The specific variables to trace this potential causal chain still need to be determined.
+
+
+####Estimation Strategy  
+The estimation strategy will consist of using cross-sectional data about Sweden, France and Britain in different points in time regarding the sense of belonging to a group, the self-confidence patterns and the entrepreneurship features of each country.
+
+The dependent variable would be the rate of entrepreneurship with its related activities or attitudes as defined by the Global Entrepreneurship Monitor, or GEM [link](http://www.gemconsortium.org).  
+- Established Business Ownership Rate   
+- Entrepreneurial intention  
+- Entrepreneurship as desirable career choice  
+
+The explanatory variables would be the sense of belonging to the group as defined by OECD PISA (Data from 2012), the sense of individuality as an index constructed from World Value Survey items (Data from 2005 /2006), the degree of self confidence as an index again gathered from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
+
+We will obviously need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. But we will also need to control for nine key entrepreneurship conditions as defined in the National Experts Survey (NES) that may affect the rate of entrepreneurship.  
+
+These nine conditions are the following:
+- Finance   
+- Government policies  
+- Government programmes  
+- Entrepreneurial Education and Training  
+- Research and Development Transfer (R & D)  
+- Commercial and professional infrastructure  
+- Internal Market openness  
+- Physical infrastructure and services  
+- Cultural and social norms  
+
+The first step will be to see what the different behavioural and cultural patterns are in each country as observed among students. The differences observed may require some cultural explanations, including explanations regarding the type of welfare state in the given country.  
+
+Then, should indeed different patterns be observed, we will need to proceed to an Ordinary Least Square (OLS) Regression in order to check to what extent these characteristics affect the rate of entrepreneurship in the country.  
+
+Our main hypothesis would be that the more culturally group-oriented and the more self-confident a population is, the higher should entrepreneurship in that country be.  
+
+Aside the sense of belonging as defined by OECD PISA study, here are some of the items from the World Value Survey 2005-2009 wave I could use to build the indexes about “sense of belonging to a group“, “sense of individuality” and “degree of self confidence”.  
 
 ###Concepts that I may need for my research
 
 ####Return on Investment
 Self-confidence: It is difficult to obtain a credible measurement of self confidence, how should I measure this?  
 
-Positive reinforcement is more easily defined but is also culture-dependent
-Individual-focused systems vs group-oriented ones, how do you delimitate?
+Positive reinforcement is more easily defined but is also culture-dependent. Individual-focused systems vs group-oriented ones, how do you delimitate?  
+
 Types of management
 
 Return on Investment, how do you evaluate euros of tomorrow or value for money rate, perhaps using the social discount rate for some part, but also considering the potential GDP that could result from another education system management and culture vs what you would get carrying on like now.
@@ -50,3 +81,6 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 ```
 
+###Literature Review  
+
+###References
