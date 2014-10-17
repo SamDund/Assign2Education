@@ -31,16 +31,17 @@ The specific variables to trace this potential causal chain still need to be det
 ####Estimation Strategy  
 The estimation strategy will consist of using cross-sectional data about Sweden, France and Britain in different points in time regarding the sense of belonging to a group, the self-confidence patterns and the entrepreneurship features of each country.
 
-The dependent variable would be the rate of entrepreneurship with its related activities or attitudes as defined by the Global Entrepreneurship Monitor, or GEM [link](http://www.gemconsortium.org).  
+The dependent variable would be the rate of entrepreneurship with its related activities or attitudes as defined by the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org).  
+
 - Established Business Ownership Rate   
 - Entrepreneurial intention  
 - Entrepreneurship as desirable career choice  
 
-The explanatory variables would be the sense of belonging to the group as defined by OECD PISA (Data from 2012), the sense of individuality as an index constructed from World Value Survey items (Data from 2005 /2006), the degree of self confidence as an index again gathered from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
+The explanatory variables would be the sense of belonging to the group as defined by OECD [Program for International Student Assessment (PISA)](http://www.oecd.org/pisa/) (Data from 2012), the sense of individuality as an index constructed from [World Value Survey](http://www.worldvaluessurvey.org/wvs.jsp) items (Data from 2005 /2006), the degree of self confidence as an index again gathered from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
 
-We will obviously need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. But we will also need to control for nine key entrepreneurship conditions as defined in the National Experts Survey (NES) that may affect the rate of entrepreneurship.  
+We will obviously need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. But we will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship.  
 
-These nine conditions are the following:
+These nine conditions are the following:  
 - Finance   
 - Government policies  
 - Government programmes  
