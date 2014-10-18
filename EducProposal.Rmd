@@ -7,29 +7,24 @@ bibliography:
   - Main.bib
 ---
 * * * 
-```{r echo=FALSE,cache=TRUE}
+```{r echo=FALSE,cache=TRUE,include=FALSE}
+# Set working directory
+setwd('~/DataAnalysis/')
+
 # Install necessary packages
-library(maps)
-library(mapdata)
+# Install rempis from Christpher Gandrud's website
+devtools::install_github('christophergandrud/repmis')
+library(repmis)
+# Load citation package
+pkgs <- c('dplyr','ggplot2')
+repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
+
 ```
 
 *Introduction to Collaborative Social Science Data Analysis*
 
 ###Research Question  
 Drawing a comparison between Sweden, France, and Britain, to what extent do the behavioural characteristics of the education system - individualistic, group-focused, or focused on positive reinforcement - affect the rate of entrepreneurship in each country?
-
-```{r echo=FALSE,cache=TRUE}
-map('worldHires', 'sweden', col="gray90", fill=TRUE)
-
-map('worldHires',
-    c('UK', 'Ireland', 'Isle of Man','Isle of Wight','Wales:Anglesey'),
-    xlim=c(-11,3), ylim=c(49,60.9),
-    col="gray90", fill=TRUE)
-
-map('worldHires','France', xlim=c(-8.2,8.5), ylim=c(42.2,51.1),
-    col="gray90", fill=TRUE)
-
-```
 
 ###Research Justification
 Often, when it comes to public budgeting for education policies, the decision process does not appear to be rational. Very often, it does not seem to take into account the return on investment that should be expected in the long run. Perhaps this is because many policy makers have no inside knowledge of the field.  Thus, it may be that they do not have all of the neccesary tools or do not know how to assess the potential impact of their funding decisions, leading to the exclusion of this consideration from their decision-making process.
@@ -87,16 +82,6 @@ Types of management
 
 Return on Investment, how do you evaluate euros of tomorrow or value for money rate, perhaps using the social discount rate for some part, but also considering the potential GDP that could result from another education system management and culture vs what you would get carrying on like now.
 
-
-```{r, echo=FALSE, include=FALSE, cache=TRUE}
-# Install rempis from Christpher Gandrud's website
-devtools::install_github('christophergandrud/repmis')
-library(repmis)
-# Load citation package
-pkgs <- c('dplyr','ggplot2')
-repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
-
-```
 
 ###Literature Review  
 

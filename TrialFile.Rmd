@@ -5,6 +5,8 @@ date: "October 18, 2014"
 output: html_document
 ---
 
+This is an extra file for trying out features including making maps for the proposal.
+
 ```{r echo=FALSE, cache=TRUE}
 install.packages('maptools')
 library(maptools)

@@ -14,3 +14,5 @@ This is a proposal for Thierry Racaud's thesis titled: "The Country-level Impact
 The proposal includes dynamically linked academic references and citations for R packages.
 
 Comments on the proposal can be submitted to [Thierry Racaud](mailto: thierry.racaud@sciencespo.fr(thierry.racaud@sciencespo.fr)) or [Sam Dundon](mailto: s.dundon@mpp.hertie-school.org(s.dundon@mpp.hertie-school.org)).
+
+Note: Please ignore TrialFile.Rmd, it was used to explore other features in R, including making maps that may be helpful in the future.
