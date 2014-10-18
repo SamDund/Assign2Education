@@ -1,0 +1,36 @@
+---
+title: "Untitled"
+author: "Sam"
+date: "October 18, 2014"
+output: html_document
+---
+
+```{r echo=FALSE, cache=TRUE}
+install.packages('maptools')
+library(maptools)
+install.packages('maps')
+library(maps)
+install.packages('mapproj')
+library(mapproj)
+install.packages('ggmap')
+library(ggmap)
+install.packages('mapdata')
+library(mapdata)
+
+library(sp)
+library(lattice)
+install.packages('latticeExtra')
+library(latticeExtra)
+library(colorspace)
+
+# Create maps of Sweden, France, and the UK using maps and mapdata packages
+map('worldHires', 'sweden', col="gray90", fill=TRUE)
+
+map('worldHires',
+    c('UK', 'Ireland', 'Isle of Man','Isle of Wight','Wales:Anglesey'),
+    xlim=c(-11,3), ylim=c(49,60.9),
+    col="gray90", fill=TRUE)
+
+map('worldHires','France', xlim=c(-8.2,8.5), ylim=c(42.2,51.1),
+    col="gray90", fill=TRUE)
+```
