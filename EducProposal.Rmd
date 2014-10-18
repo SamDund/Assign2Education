@@ -7,7 +7,7 @@ bibliography:
   - Main.bib
 ---
 * * * 
-```{r echo=FALSE,cache=TRUE,include=FALSE}
+```{r echo=FALSE, cache=TRUE, include=FALSE}
 # Set working directory
 setwd('~/DataAnalysis/')
 
@@ -53,7 +53,8 @@ The explanatory variables will be the sense of belonging to the group as defined
 
 As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:
 
-1. Finance
+
+1. Finance  
 2. Government policies  
 3. Government programmes  
 4. Entrepreneurial Education and Training  
