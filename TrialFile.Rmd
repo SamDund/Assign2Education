@@ -25,6 +25,7 @@ install.packages('latticeExtra')
 library(latticeExtra)
 library(colorspace)
 
+
 # Create maps of Sweden, France, and the UK using maps and mapdata packages
 map('worldHires', 'sweden', col="gray90", fill=TRUE)
 
@@ -35,6 +36,12 @@ map('worldHires',
 
 map('worldHires','France', xlim=c(-8.2,8.5), ylim=c(42.2,51.1),
     col="gray90", fill=TRUE)
+
+### Need a map of 3 kinds of welfare states
+### Scandanavian
+### Market oriented (UK)
+### France/Germany - state established historical welfare state
+
 ```
 
 

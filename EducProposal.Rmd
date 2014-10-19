@@ -33,7 +33,7 @@ Often, when it comes to public budgeting for education policies, the decision pr
 ###Analytical Method
 ####Causal Chain
 
-A higher degree of positive feedback and self-confidence reinforcement, either within organisations or directly between teachers and students is expected to positively impact both the  entrepreneurship rate and the rate of career-change within a given country.  
+A higher degree of positive feedback and self-confidence reinforcement, either within organisations or directly between teachers and students is expected to positively impact both the  entrepreneurship rate and the rate of career-change within a given country.   
 
 More group-oriented and team-building practices, either within organisations or as a staff strategy/policy towards students is expected to lead to more of the same supportive approach in a team member-manager context within a given country.  
 
@@ -51,7 +51,7 @@ The dependent variable will be the rate of entrepreneurship with its related act
 
 The explanatory variables will be the sense of belonging to the group as defined by OECD [Program for International Student Assessment (PISA)](http://www.oecd.org/pisa/) (Data from 2012), the sense of individuality as an index constructed from [World Value Survey](http://www.worldvaluessurvey.org/wvs.jsp) items (Data from 2005 /2006), the degree of self confidence as an index again gathered from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
 
-As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:
+As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
 
 
 1. Finance  
@@ -62,7 +62,8 @@ As mentioned above, we will need to control for the economic outlook at the time
 6. Commercial and professional infrastructure  
 7. Internal Market openness  
 8. Physical infrastructure and services  
-9. Cultural and social norms  
+9. Cultural and social norms
+
 
 The first step will be to see what the different behavioural and cultural patterns are in each country as observed among students. The differences observed may require some cultural explanations, including explanations regarding the type of welfare state in the given country.  
 
