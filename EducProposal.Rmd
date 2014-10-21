@@ -41,7 +41,7 @@ If these assumptions are correct, the positive impact of these practices may inc
 
 
 ####Estimation Strategy  
-The estimation strategy will consist of using cross-sectional data about Sweden, France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.
+The estimation strategy will consist of using cross-sectional data about Portugal, Sweden, France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.
 
 The dependent variable will be the rate of entrepreneurship with its related activities or attitudes as defined by the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org):
 
