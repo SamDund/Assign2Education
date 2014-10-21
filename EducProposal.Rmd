@@ -24,7 +24,7 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 *Introduction to Collaborative Social Science Data Analysis*
 
 ###Research Question  
-Drawing a comparison between Portugal, Sweden, France, and Britain, to what extent do the behavioural characteristics of the education system - individualistic, group-oriented, or focused on positive reinforcement - affect the rate of entrepreneurship in each country?
+Drawing a comparison between Portugal, Sweden, France, and Britain, to what extent do the behavioural characteristics of the education system - the degree of reliance on positive reinforcement in teaching - affect the rate of entrepreneurship in each country?
 
 ###Research Justification
 When it comes to public budgeting for education policies, the decision process often does not appear to be rational. That is, it does not seem to take into account the return on investment that should be expected in the long run. Despite this, many claims have been made in the entrepreneurship literature that start-up activities at a country-level are affected by factors other than structural and economic, including cultural and educational. However only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, while almost none explored how cultural patterns affected these dispositions.  
@@ -41,7 +41,7 @@ Strentghening Entrepreneurship and economic development in East Germany: Lessons
 ###Analytical Method
 ####Causal Chain
 
-A higher degree of positive feedback and self-confidence reinforcement, either within organisations or directly between teachers and students is expected to positively impact both the  entrepreneurship rate and the rate of career-change within a given country.   
+A higher degree of positive feedback and self-confidence reinforcement, either within organisations or directly between teachers and students is expected to positively impact the rate of entrepreneurship within the country.   
 
 More group-oriented and team-building practices, either within organisations or as a staff strategy/policy towards students is expected to lead to more of the same supportive approach in a team member-manager context within a given country.  
 
