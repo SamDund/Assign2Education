@@ -44,23 +44,4 @@ map('worldHires','France', xlim=c(-8.2,8.5), ylim=c(42.2,51.1),
 
 ```
 
-
-<table>
-<tr class="header">
-<th align="left"> </th>
-<th align="left"> </th>
-</tr>
-<tr class="odd">
-<td align="left">Finance</td>
-<td align="left">Government Policy</td>
-<td align="left">Entrepreneurial Education and Training</td>
-<td align="left">Research and Development Transfer (R & D)</td>
-
-</tr>
-<tr class="even">
-<td align="left">Commercial and professional infrastructure</td>
-<td align="left">Internal Market openness</td>
-<td align="left">Physical infrastructure and services</td>
-<td align="left">Cultural and social norms </td>
-</tr>
-</table>
+![Untitled.png](~/DataAnalysis)
