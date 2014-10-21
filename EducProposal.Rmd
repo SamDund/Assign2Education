@@ -27,7 +27,7 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 Drawing a comparison between Portugal, Sweden, France, and Britain, to what extent do the behavioural characteristics of the education system - individualistic, group-oriented, or focused on positive reinforcement - affect the rate of entrepreneurship in each country?
 
 ###Research Justification
-Often, when it comes to public budgeting for education policies, the decision process does not appear to be rational. Very often, it does not seem to take into account the return on investment that should be expected in the long run. Still many claimns have been made in the literature that start-up and entrepreneurship activities at a country-level are affected by factors other than structural and economic, that is cultural or educational. However only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, almost none explored how cultural patterns affected these dispositions. 
+Often, when it comes to public budgeting for education policies, the decision process does not appear to be rational, it does not seem to take into account the return on investment that should be expected in the long run. Still many claims have been made in the literature that start-up and entrepreneurship activities at a country-level are affected by factors other than structural and economic, that is cultural or educational. However only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, almost none explored how cultural patterns affected these dispositions. 
 
 
 ###Analytical Method
