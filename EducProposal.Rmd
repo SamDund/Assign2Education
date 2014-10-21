@@ -81,7 +81,8 @@ Our main hypothesis is that the more culturally group-oriented and the more self
 
 4. Types of management: This study focuses on social issues and how these factors affect entrepreneurship, but management styles can transcend social norms. Control variables will need to be identified to address this.
 
-
+Here is a picture:
+![here](https://github.com/SamDund/Assign2Education/blob/master/Untitled.png)
 
 ###Literature Review  
 
