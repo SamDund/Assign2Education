@@ -41,11 +41,9 @@ Strentghening Entrepreneurship and economic development in East Germany: Lessons
 ###Analytical Method
 ####Causal Chain
 
-A higher degree of positive feedback and self-confidence reinforcement, either within organisations or directly between teachers and students is expected to positively impact the rate of entrepreneurship within the country.   
+Stronger culture of positive reinforcement ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level
 
-More group-oriented and team-building practices, either within organisations or as a staff strategy/policy towards students is expected to lead to more of the same supportive approach in a team member-manager context within a given country.  
-
-If these assumptions are correct, the positive impact of these practices may increase productivity and country GDP. This project will identify variables that may be used to conduct this analysis and appropriate control variables to account for other business conditions and social conditions. The specific variables to trace this potential causal chain still need to be determined.
+The specific variables to trace this potential causal chain still need to be determined.
 
 
 ####Estimation Strategy  
