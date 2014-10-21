@@ -24,7 +24,7 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 *Introduction to Collaborative Social Science Data Analysis*
 
 ###Research Question  
-Drawing a comparison between Portugal, Sweden, France, and Britain, to what extent do the behavioural characteristics of the education system - the degree of reliance on positive reinforcement in teaching - affect the rate of entrepreneurship in each country?
+Drawing a comparison between France and Britain, to what extent do the behavioural characteristics of the education system - the degree of reliance on positive reinforcement in teaching - affect the rate of entrepreneurship in each country?
 
 ###Research Justification
 When it comes to public budgeting for education policies, the decision process often does not appear to be rational. That is, it does not seem to take into account the return on investment that should be expected in the long run. Despite this, many claims have been made in the entrepreneurship literature that start-up activities at a country-level are affected by factors other than structural and economic, including cultural and educational. However only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, while almost none explored how cultural patterns affected these dispositions.  
@@ -46,7 +46,7 @@ Stronger culture of positive reinforcement ---> higher degree of individual self
 
 
 ####Estimation Strategy  
-The estimation strategy will consist of using cross-sectional data about Portugal, Sweden, France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.
+The estimation strategy will consist of using cross-sectional data about France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.
 
 The dependent variable will be the rate of entrepreneurship with its related activities or attitudes as defined by the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org):
 
@@ -54,7 +54,7 @@ The dependent variable will be the rate of entrepreneurship with its related act
 - Entrepreneurial intention; and  
 - Entrepreneurship as desirable career choice.  
 
-The explanatory variables will be the sense of belonging to the group as defined by OECD [Program for International Student Assessment (PISA)](http://www.oecd.org/pisa/) (Data from 2012), the sense of individuality as an index constructed from [World Value Survey](http://www.worldvaluessurvey.org/wvs.jsp) items (Data from 2005 /2006), the degree of self confidence as an index again gathered from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
+The key explanatory variable will be the degree of self confidence as an index that we will compute from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
 
 As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
 
@@ -70,11 +70,11 @@ As mentioned above, we will need to control for the economic outlook at the time
 9. Cultural and social norms
 
 
-The first step will be to see what the different behavioural and cultural patterns are in each country as observed among students. The differences observed may require some cultural explanations, including explanations regarding the type of welfare state in the given country.  
+The first step will be to see if, regarding self-confidence, different patterns can be observed in each country. In which case, we may need to call on cultural explanations.
 
 Then, should indeed different patterns be observed, we will need to proceed to an Ordinary Least Square (OLS) Regression in order to check to what extent these characteristics affect the rate of entrepreneurship in the country.  
 
-Our main hypothesis is that the more culturally group-oriented and the more self-confident a population is, the higher entrepreneurship in that country will be.  
+Our main hypothesis is that the more self-confident a population is on average, the higher entrepreneurship in that country will be.  
  
 
 ###Neccesary Concepts  
