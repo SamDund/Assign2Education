@@ -86,11 +86,5 @@ Our main hypothesis is that the more culturally group-oriented and the more self
 
 ###Literature Review  
 
-```{r fig.width=1, fig.height=10}
-install.packages('png')
-library(png)
-img <- readPNG("DataAnalysis/Untitled.png)
-               
-```
 
 ###References
