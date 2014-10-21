@@ -77,12 +77,12 @@ Then, should indeed different patterns be observed, we will need to proceed to a
 Our main hypothesis is that the more self-confident a population is on average, the higher entrepreneurship in that country will be.  
  
 
-###Neccesary Concepts  
+###Necessary Concepts  
 1. Return on Investment: Assigning a future Euro value to a present-day investment. This may require the use of a social discount rate, but will also need to consider the potential GDP increase brought about by improved education policies.  
 
 2. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach to measuring this factor.
 
-3. Positive reinforcement: This is easier to define than self-confience, but it is also culture-dependent (individual-focused systems vs group-oriented ones). This will also need to be quantified for the qualitative portion of this project.    
+3. Positive reinforcement: This can possibly be computed as an index and characterized on a scale even if this is not easy to quantify.    
 
 
 ###Literature Review  
