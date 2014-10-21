@@ -16,3 +16,5 @@ The proposal includes dynamically linked academic references and citations for R
 Comments on the proposal can be submitted to [Thierry Racaud](mailto: thierry.racaud@sciencespo.fr(thierry.racaud@sciencespo.fr)) or [Sam Dundon](mailto: s.dundon@mpp.hertie-school.org(s.dundon@mpp.hertie-school.org)).
 
 Note: Please ignore TrialFile.Rmd, it was used to explore other features in R, including making maps that may be helpful in the future.
+
+Comment-test
