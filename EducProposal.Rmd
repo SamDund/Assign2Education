@@ -118,7 +118,7 @@ V200 How justifiable can cheating on taxes be?
 
 ##### Other classic determinants of entrepreneurship as control variables
 
-As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
+We will obviously need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
 
 1. Finance  
 2. Government policies  
@@ -141,12 +141,17 @@ Then, should indeed different patterns be observed, we will need to proceed to a
 
 ### Necessary Concepts  
 
+1. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach in measuring this factor.
 
-1. Return on Investment: Assigning a future Euro value to a present-day investment. This may require the use of a social discount rate, but will also need to consider the potential GDP increase brought about by improved education policies.  
+2. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute an index and characterize it on a scale.  
 
-2. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach in measuring this factor.
+3. Culture: Key concept broadly understood here as the ensemble of beliefs, values, norms and practices of a given society.
 
-3. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute as an index and characterize it on a scale.  
+4. Education: Here education is understood as the process of apprenticeship that takes place in schools throughout compulsory years (from the age of 6 to 16). Thus we examine the average potential effect of these years of "shaping" on individuals throughout the entire population of a country.
+
+5. Return on Investment: Assigning a future Euro value to a present-day investment. This may require the use of a social discount rate, but will also need to consider the potential GDP increase brought about by improved education policies.  
+
+
 
 
 Chart about factors that affect entrepreneurship.
