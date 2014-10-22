@@ -104,7 +104,7 @@ Our main hypothesis is that the more self-confident a population is on average, 
 
 3. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute as an index and characterize it on a scale.    
 
-[<img src="img/OECDChart.png" alt="Factors Affecting Entrepreneurship" align="center" height="400" height=300 width=600 />](img/OECDChart.png)
+[<img src="img/OECDCchart.png" align="center" height="400"/>](img/OECDChart.png)
 
 
 
