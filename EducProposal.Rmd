@@ -23,16 +23,15 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 *Introduction to Collaborative Social Science Data Analysis*
 
-### Research Question  
-Drawing a comparison between France and Britain, to what extent do the behavioural characteristics of the education system - individualistic, group-oriented, more or less positive reinforcement in teaching - affect the rate of entrepreneurship in each country?
-
-### Research Justification
+### Research Design
 When it comes to public budgeting for education policies, the decision process often does not appear to be rational. That is, it does not seem to take into account the return on investment that should be expected in the long run. Despite this, many claims have been made in the entrepreneurship literature that start-up activities at a country-level are affected by factors other than structural and economic, including cultural and educational. However only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, while almost none explored how cultural patterns affected these dispositions.  
 
 When cultural factors are examined, they are considered as a given feature that can hardly be traced. By having a closer look at education systems, we intend to explore the processes through which some of these cultural patterns are enhanced and passed from one generation to the next. Aside from parental education, schools are indeed the very place where children are taught how to fit into society. This research is an attempt at looking at one trait in particular, self-confidence.
 
-Chart about factors that affect entrepreneurship.
-Strengthening entrepreneurship and economic development in East Germany: Lessons from local approaches.
+
+### Research Question  
+Drawing a comparison between France and Britain, to what extent do the behavioural characteristics of the education system - individualistic, group-oriented, more or less positive reinforcement in teaching - affect the rate of entrepreneurship in each country?
+
 
 
 
@@ -106,6 +105,9 @@ Our main hypothesis is that the more self-confident a population is on average, 
 
 3. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute as an index and characterize it on a scale.  
 
+
+Chart about factors that affect entrepreneurship.
+Strengthening entrepreneurship and economic development in East Germany: Lessons from local approaches.
 
 <p align="center">
 [<img align="center" src="img/OECDChart.png" alt="Factors Affecting Entrepreneurship" height=350 width=450 />](img/OECDChart.png)</br>
