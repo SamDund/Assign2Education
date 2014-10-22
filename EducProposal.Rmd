@@ -80,7 +80,7 @@ The dependent variable will be the rate of entrepreneurship with its related act
 GEM measure of entrepreneurship is often used or refered to in OECD studies.
 
 
-The key explanatory variable will be the degree of self confidence. As we did not find so far any satisfactory proxy for self-confidence in the way we intend to define it, we will need to compute an index. In order to do so, we will rely on both [OECD PISA](http://www.oecd.org/pisa/keyfindings/pisa-2012-results.htm), World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).
+The key explanatory variable will be the degree of self confidence. As we did not find so far any satisfactory proxy for self-confidence in the way we intend to define it, we will need to compute an index. In order to do so, we will rely on both [OECD PISA 2012](http://www.oecd.org/pisa/keyfindings/pisa-2012-results.htm), [World Value Survey 2005-2006](http://www.worldvaluessurvey.org/WVSOnline.jsp) and [GEM](http://www.gemconsortium.org) (Fear of failure rate, perceived capabilities).
 
 
 
