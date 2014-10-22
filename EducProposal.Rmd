@@ -23,7 +23,7 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 *Introduction to Collaborative Social Science Data Analysis*
 
-### Research Design
+### Research Interest
 When it comes to public budgeting for education policies, the decision process often does not appear to be rational. That is, it does not seem to take into account the return on investment that should be expected in the long run. Although many claims have been made in the entrepreneurship literature that start-up activities at a country-level are affected by factors other than structural and economic, including cultural and educational. However only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, while almost none explored how cultural patterns affected these dispositions.  
 
 When cultural factors are examined, they are considered as a given feature that can hardly be traced. By having a closer look at education systems, we intend to explore the processes through which some of these cultural patterns are enhanced and passed from one generation to the next. Aside from parental education, schools are indeed the very place where children are taught how to fit into society. This research is an attempt at looking at one trait in particular, self-confidence.
