@@ -54,7 +54,7 @@ The dependent variable will be the rate of entrepreneurship with its related act
 - Entrepreneurial intention; and  
 - Entrepreneurship as desirable career choice.  
 
-The key explanatory variable will be the degree of self confidence as an index that we will compute from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
+The key explanatory variable will be the degree of self confidence. We will compute an index from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
 
 As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
 
