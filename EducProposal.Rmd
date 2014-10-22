@@ -108,7 +108,8 @@ Our main hypothesis is that the more self-confident a population is on average, 
 <br>
 <p align="center">
 [<img align="center" src="img/OECDChart.png" alt="Factors Affecting Entrepreneurship" height=350 width=450 />](img/OECDChart.png)</br>
+</p>
+<p align="center">
 Source: OECD Local Entrepreneurship Reviews [@OECD2009]
 </p>
-
 ### References
