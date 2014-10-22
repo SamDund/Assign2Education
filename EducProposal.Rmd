@@ -79,9 +79,7 @@ The dependent variable will be the rate of entrepreneurship with its related act
 
 The key explanatory variable will be the degree of self confidence. As we did not find so far any satisfactory proxy for self-confidence in the way we intend to define it, we will need to compute an index. In order to do so, we will rely on both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).
 
-
 V86   How important are adventure and taking risks to the person surveyed?  
-
 V119 How good is competition?
 
 
@@ -90,19 +88,12 @@ Please note that data was collected at different dates in Britain (2005) and in 
 As we mentioned that self-confidence also depends on the integration in social networks, we will rely on the sense of belonging as defined by OECD PISA study. Again we will need to compute an index. In order to do so, we will also rely on the following items from the World Value Survey 2005-2009 wave about “sense of belonging to a group“ and “sense of individuality” and “degree of self confidence”.  
 
 V65   I seek to be myself rather than to follow others  
-
 V66   I live up to what my friends expect  
-
 V67   I decide my goals in life by myself  
-
 V78   How good / bad is greater respect for authority to the person surveyed?  
-
 V186 How often do you attend religious services?  
-
 V198 How justifiable can claiming government benefits be?  
-
 V199 How justifiable can avoiding a fare on public transport be?  
-
 V200 How justifiable can cheating on taxes be?
 
 As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
