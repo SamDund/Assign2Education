@@ -66,10 +66,16 @@ Besides direct or indirect school effects, we will necessarily look into entrepr
 Stronger culture of positive reinforcement ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level
 
 
+#### Hypothesis
+
+Our main hypothesis is that the more self-confident a population is on average, the higher entrepreneurship in that country will be. 
+
 
 #### Estimation Strategy  
 
 The estimation strategy will consist of using cross-sectional data about France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.
+
+##### Entrepreneurship as a dependent variable
 
 The dependent variable will be the rate of entrepreneurship with its related activities or attitudes as defined by the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org):
 
@@ -79,6 +85,8 @@ The dependent variable will be the rate of entrepreneurship with its related act
 
 GEM measure of entrepreneurship is often used or refered to in OECD studies.
 
+
+##### Self-confidence as the key explanatory variable
 
 The key explanatory variable will be the degree of self confidence. As we did not find so far any satisfactory proxy for self-confidence in the way we intend to define it, we will need to compute an index. In order to do so, we will rely on both [OECD PISA 2012](http://www.oecd.org/pisa/keyfindings/pisa-2012-results.htm), [World Value Survey 2005-2009](http://www.worldvaluessurvey.org/WVSOnline.jsp) and [GEM](http://www.gemconsortium.org) 
 
@@ -93,6 +101,7 @@ From GEM, we will use the most recent data available regarding the fear of failu
 To compute these data together is quite a challenge and we are not yet fully sure on how to proceed. But at least, these multiple reliable measures from well-recognised sources should give us a composite but also comprehensive indicator about the average degree of self-confidence of individuals in each country.
 
 
+##### Social inclusion as a complementary explanatory variable
 
 As we mentioned that self-confidence also depends on the integration in social networks, we will rely on the sense of belonging as defined by OECD PISA study. Again we will need to compute an index. In order to do so, we will also rely on the following items from the World Value Survey 2005-2009 wave about “sense of belonging to a group“ and “sense of individuality” and “degree of self confidence”.  
 
@@ -105,8 +114,10 @@ V198 How justifiable can claiming government benefits be?
 V199 How justifiable can avoiding a fare on public transport be?  
 V200 How justifiable can cheating on taxes be?
 
-As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
 
+##### Other classic determinants of entrepreneurship as control variables
+
+As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
 
 1. Finance  
 2. Government policies  
@@ -119,11 +130,12 @@ As mentioned above, we will need to control for the economic outlook at the time
 9. Cultural and social norms
 
 
+#### Process
+
 The first step will be to see if, regarding self-confidence, different patterns can be observed in each country. In which case, we may need to call on cultural explanations.
 
 Then, should indeed different patterns be observed, we will need to proceed to an Ordinary Least Square (OLS) Regression in order to check to what extent these characteristics affect the rate of entrepreneurship in the country.  
-
-Our main hypothesis is that the more self-confident a population is on average, the higher entrepreneurship in that country will be.  
+ 
  
 
 ### Necessary Concepts  
