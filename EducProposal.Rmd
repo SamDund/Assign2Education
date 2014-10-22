@@ -1,10 +1,9 @@
 ---
 title: "The Country-level Impact of Educational Patterns on the Rate of Entrepreneurship"
-date: "October 17, 2014"
 author: "Sam Dundon and Thierry Racaud"
-output: html_document
-bibliography:
-  - Main.bib
+date: "October 17, 2014"
+output: pdf_document
+bibliography: Main.bib
 ---
 * * * 
 ```{r echo=FALSE, cache=TRUE, include=FALSE}
@@ -24,7 +23,7 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 *Introduction to Collaborative Social Science Data Analysis*
 
 ###Research Question  
-Drawing a comparison between France and Britain, to what extent do the behavioural characteristics of the education system - the degree of reliance on positive reinforcement in teaching - affect the rate of entrepreneurship in each country?
+Drawing a comparison between France and Britain, to what extent do the behavioural characteristics of the education system - individualistic, group-oriented, more or less positive reinforcement in teaching - affect the rate of entrepreneurship in each country?
 
 ###Research Justification
 When it comes to public budgeting for education policies, the decision process often does not appear to be rational. That is, it does not seem to take into account the return on investment that should be expected in the long run. Despite this, many claims have been made in the entrepreneurship literature that start-up activities at a country-level are affected by factors other than structural and economic, including cultural and educational. However only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, while almost none explored how cultural patterns affected these dispositions.  
@@ -34,7 +33,6 @@ When cultural factors are examined, they are considered as a given feature that 
 Chart about factors that affect entrepreneurship.
 Source: OECD Local Entrepreneurship Reviews
 Strengthening entrepreneurship and economic development in East Germany: Lessons from local approaches.
-![here](https://github.com/SamDund/Assign2Education/blob/master/Untitled.png)
 
 
 ###Analytical Method
@@ -53,7 +51,7 @@ The dependent variable will be the rate of entrepreneurship with its related act
 - Entrepreneurial intention; and  
 - Entrepreneurship as desirable career choice.  
 
-The key explanatory variable will be the degree of self confidence as an index that we will compute from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
+The key explanatory variable will be the degree of self confidence. We will compute an index from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
 
 As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
 
@@ -79,20 +77,30 @@ Our main hypothesis is that the more self-confident a population is on average, 
 ###Necessary Concepts  
 1. Return on Investment: Assigning a future Euro value to a present-day investment. This may require the use of a social discount rate, but will also need to consider the potential GDP increase brought about by improved education policies.  
 
-2. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach to measuring this factor.
+2. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach in measuring this factor.
 
-3. Positive reinforcement: This can possibly be computed as an index and characterized on a scale even if this is not easy to quantify.    
+3. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute as an index and characterize it on a scale.    
 
 
 ###Literature Review  
 
+<<<<<<< HEAD
 What determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. However, as Freytag and Thurik stated in 2007, “the relative stability of differences in entrepreneurship across countries suggests that other than economic factors are at play” [@Freytag2007]. Even if “in recent years research has increasingly devoted itself to the subject” (OECD Report 2009), a lot still needs to be done as the few studies that explored the relationship between attitudes and foundation activities barely searched what determined these attitudes.
+=======
+What determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. However, as Freytag and Thurik stated in 2007, “the relative stability of differences in entrepreneurship across countries suggests that other than economic factors are at play” [(Freytag Andreas, Thurik Roy, 2007)](Freytag2007). Even if “in recent years research has increasingly devoted itself to the subject” (OECD Report 2009), a lot still needs to be done as the few studies that explored the relationship between attitudes and foundation activities barely searched what determined these attitudes.
+>>>>>>> 1724e8c8717c7e1fc409832e32d0776c63105cd0
 
 Over a hundred years have passed since Max Weber tried to explicit how religious-ethical motivations affect entrepreneurship (Max Weber, 1905), and religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” (OECD Report 2009).
 
 Despite various claims of the existence of a cultural effect, few empirical studies have actually been carried out. It took a few decades more before Davidsson, along with Delmar at first (1992), then alone (1995), then with Wiklund (Davidsson and Wiklund study 1997), at his turn, laid a stepping stone by investigating the relationship between structural factors, mainly economic, and cultural factors. As they compared two Swedish regions similar in terms of structure, and observed different outcomes, they concluded on the possibility of a small cultural effect.
 
-This thesis is an attempt at finding out if different patterns in education lead to different outcomes in terms of start-up activities. More specifically, we intend to look at self-esteem as partially the product of an education pattern, which would affect the whole population, even if so far, "self-confidence in one's own capabilities to start a business has been found to depend almost exclusively on the individual features of the respective person and his or her integration into social networks" (OECD Report 2009).
+This thesis is an attempt at finding out if different patterns in education lead to different outcomes in terms of start-up activities. Indeed, like many in the education literature tend to assert, we believe there is an effect of school personnel on student self-esteem (Scott, Dustin, Mertens, Murray, 1996). We will explore further the way this mechanism works. Now, entrepreneurship literature generally acknowledges the influence of self-confidence on start-up activities although “self-confidence in one’s own capabilities to start a business has been found to depend almost exclusively on the individual features of the respective person and his or her integration into social networks” (OECD Report 2009). We intend to show that these individual characteristics are partly shaped at an institutional collective level through the education systems and their staff attitudes.
+
+Of course, King and Sobel (2008), among others, have already tried to show how school choice can increase the rate of youth entrepreneurship but their perspective was slightly different. They  asserted that more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of cultural and educational patterns. David Watkins (2010) cross-cultural perspective on teaching and learning shall be useful in that respect. Kai-Ming Cheng and Kam-Cheung Wong’s study about school effectiveness in East Asia (2006) could also be of help.
+
+Also, as self-confidence is considered to rely partly on one’s integration within social networks (OECD Report 2009), we will also refer to cross-cultural studies such as that of Green, Deschamps and Páez (2005) about individualism and collectivism, or what Freeman (1997) called idiocentrism and allocentrism. Raeff, Greenfield and Quiroz (2000) have also conceptualised interpersonal relationships in both cultural contexts. More school-focused, Yamauchi (1998) as well as Davies and Aurini (2003) have looked at individualism and collectivism in the classroom and in pedagogy respectively. All these will be precious on the way.
+
+Besides direct or indirect school effects, we will necessarily look into entrepreneurship and its determinants at large. Thus we will refer to Grilo and Thurik’s research (2005 and 2006) about what determines entrepreneurship engagement levels throughout the European Union, and also to Wennekers Sander, Ulhaner Lorraine and Thurik Roy’s explanation of variation across countries (2002). Eventtually, with Gartner (1990) we will have a closer look at entrepreneurship’s underlying meanings in research and, along with Acs, Desai and Klapper (2008), we will asks ourselves what “entrepreneurship” data really shows.
 
 
 
