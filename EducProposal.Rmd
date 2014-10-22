@@ -80,9 +80,9 @@ Our main hypothesis is that the more self-confident a population is on average, 
 ###Necessary Concepts  
 1. Return on Investment: Assigning a future Euro value to a present-day investment. This may require the use of a social discount rate, but will also need to consider the potential GDP increase brought about by improved education policies.  
 
-2. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach to measuring this factor.
+2. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach in measuring this factor.
 
-3. Positive reinforcement: This can possibly be computed as an index and characterized on a scale even if this is not easy to quantify.    
+3. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute as an index and characterize it on a scale.    
 
 
 ###Literature Review  
