@@ -26,7 +26,7 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 ### Research Interest
 
 
-When it comes to public budgeting for education policies, the decision process often does not appear to be rational. That is, it does not seem to take into account the return on investment that should be expected in the long run. Although many claims have been made in the entrepreneurship literature that start-up activities at a country-level are affected by factors other than structural and economic, including cultural and educational. However only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, while almost none explored how cultural patterns affected these dispositions.  
+When it comes to public budgeting for education policies, the decision process often does not appear to be rational. That is, it does not seem to take into account the return on investment that should be expected in the long run. Although many claims have been made in the entrepreneurship literature that start-up activities at a country-level are affected by factors other than structural and economic, including cultural and educational. As a matter of fact, only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, while almost none explored how cultural patterns affected these dispositions.  
 
 When cultural factors are examined, they are considered as a given feature that can hardly be traced. By having a closer look at education systems, we intend to explore the processes through which some of these cultural patterns are enhanced and passed from one generation to the next. Aside from parental education, schools are indeed the very place where children are taught how to fit into society. This research is an attempt at looking at one trait in particular, self-confidence.
 
@@ -43,7 +43,6 @@ Drawing a comparison between France and Britain, to what extent do the behaviour
 
 
 What determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. However, as Freytag and Thurik stated in 2007, “the relative stability of differences in entrepreneurship across countries suggests that other than economic factors are at play” [@Freytag2007] . Even if “in recent years research has increasingly devoted itself to the subject” [@OECD2009], a lot still needs to be done as the few studies that explored the relationship between attitudes and foundation activities barely searched what determined these attitudes.
-
 
 Over a hundred years have passed since Max Weber tried to explicit how religious-ethical motivations affect entrepreneurship (Max Weber, 1905), and religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” [@OECD2009].
 
@@ -69,6 +68,7 @@ Stronger culture of positive reinforcement ---> higher degree of individual self
 
 
 #### Estimation Strategy  
+
 The estimation strategy will consist of using cross-sectional data about France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.
 
 The dependent variable will be the rate of entrepreneurship with its related activities or attitudes as defined by the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org):
@@ -77,7 +77,12 @@ The dependent variable will be the rate of entrepreneurship with its related act
 - Entrepreneurial intention; and  
 - Entrepreneurship as desirable career choice.  
 
-The key explanatory variable will be the degree of self confidence. As we did not find so far any satisfactory proxy for self-confidence in the way we intend to define it, we will need to compute an index. In order to do so, we will rely on both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).
+GEM measure of entrepreneurship is often used or refered to in OECD studies.
+
+
+The key explanatory variable will be the degree of self confidence. As we did not find so far any satisfactory proxy for self-confidence in the way we intend to define it, we will need to compute an index. In order to do so, we will rely on both [OECD PISA](http://www.oecd.org/pisa/keyfindings/pisa-2012-results.htm), World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).
+
+
 
 V86   How important are adventure and taking risks to the person surveyed?  
 V119 How good is competition?
