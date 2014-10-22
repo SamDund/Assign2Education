@@ -61,14 +61,15 @@ Besides direct or indirect school effects, we will necessarily look into entrepr
 
 ### Analytical Method
 
-#### Causal Chain
-
-Stronger culture of positive reinforcement ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level
-
 
 #### Hypothesis
 
 Our main hypothesis is that the more self-confident a population is on average, the higher entrepreneurship in that country will be. 
+
+
+#### Causal Chain
+
+Stronger culture of positive reinforcement ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level
 
 
 #### Estimation Strategy  
@@ -130,7 +131,7 @@ As mentioned above, we will need to control for the economic outlook at the time
 9. Cultural and social norms
 
 
-#### Process
+##### Process
 
 The first step will be to see if, regarding self-confidence, different patterns can be observed in each country. In which case, we may need to call on cultural explanations.
 
