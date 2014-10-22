@@ -3,7 +3,8 @@ title: "The Country-level Impact of Educational Patterns on the Rate of Entrepre
 author: "Sam Dundon and Thierry Racaud"
 date: "October 24, 2014"
 output: html_document
-bibliography: Main.bib
+bibliography: 
+  - Main.bib
 ---
 * * * 
 ```{r echo=FALSE, cache=TRUE, include=FALSE}
