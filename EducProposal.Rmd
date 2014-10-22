@@ -31,7 +31,6 @@ When it comes to public budgeting for education policies, the decision process o
 When cultural factors are examined, they are considered as a given feature that can hardly be traced. By having a closer look at education systems, we intend to explore the processes through which some of these cultural patterns are enhanced and passed from one generation to the next. Aside from parental education, schools are indeed the very place where children are taught how to fit into society. This research is an attempt at looking at one trait in particular, self-confidence.
 
 Chart about factors that affect entrepreneurship.
-Source: OECD Local Entrepreneurship Reviews
 Strengthening entrepreneurship and economic development in East Germany: Lessons from local approaches.
 
 
@@ -98,15 +97,18 @@ Our main hypothesis is that the more self-confident a population is on average, 
  
 
 ### Necessary Concepts  
+
+
 1. Return on Investment: Assigning a future Euro value to a present-day investment. This may require the use of a social discount rate, but will also need to consider the potential GDP increase brought about by improved education policies.  
 
 2. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach in measuring this factor.
 
-3. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute as an index and characterize it on a scale.    
+3. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute as an index and characterize it on a scale.  
 
-[<img src="img/OECDCchart.png" align="center" height="400"/>](img/OECDChart.png)
-
-
-
+<br>
+<p align="center">
+[<img align="center" src="img/OECDChart.png" alt="Factors Affecting Entrepreneurship" height=350 width=450 />](img/OECDChart.png)</br>
+Source: OECD Local Entrepreneurship Reviews [@OECD2009]
+</p>
 
 ### References
