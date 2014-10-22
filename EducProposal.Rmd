@@ -31,7 +31,6 @@ When it comes to public budgeting for education policies, the decision process o
 
 When cultural factors are examined, they are considered as a given feature that can hardly be traced. By having a closer look at education systems, we intend to explore the processes through which some of these cultural patterns are enhanced and passed from one generation to the next. Aside from parental education, schools are indeed the very place where children are taught how to fit into society. This research is an attempt at looking at one trait in particular, self-confidence.
 
-
 Chart about factors that affect entrepreneurship.
 Source: OECD Local Entrepreneurship Reviews
 Strengthening entrepreneurship and economic development in East Germany: Lessons from local approaches.
@@ -87,7 +86,7 @@ Our main hypothesis is that the more self-confident a population is on average, 
 
 ###Literature Review  
 
-What determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. However, as Freytag and Thurik stated in 2007, “the relative stability of differences in entrepreneurship across countries suggests that other than economic factors are at play” (Freytag Andreas, Thurik Roy, 2007). Even if “in recent years research has increasingly devoted itself to the subject” (OECD Report 2009), a lot still needs to be done as the few studies that explored the relationship between attitudes and foundation activities barely searched what determined these attitudes.
+What determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. However, as Freytag and Thurik stated in 2007, “the relative stability of differences in entrepreneurship across countries suggests that other than economic factors are at play” [@Freytag2007]. Even if “in recent years research has increasingly devoted itself to the subject” (OECD Report 2009), a lot still needs to be done as the few studies that explored the relationship between attitudes and foundation activities barely searched what determined these attitudes.
 
 Over a hundred years have passed since Max Weber tried to explicit how religious-ethical motivations affect entrepreneurship (Max Weber, 1905), and religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” (OECD Report 2009).
 
