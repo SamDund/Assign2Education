@@ -22,10 +22,10 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 *Introduction to Collaborative Social Science Data Analysis*
 
-###Research Question  
+### Research Question  
 Drawing a comparison between France and Britain, to what extent do the behavioural characteristics of the education system - individualistic, group-oriented, more or less positive reinforcement in teaching - affect the rate of entrepreneurship in each country?
 
-###Research Justification
+### Research Justification
 When it comes to public budgeting for education policies, the decision process often does not appear to be rational. That is, it does not seem to take into account the return on investment that should be expected in the long run. Despite this, many claims have been made in the entrepreneurship literature that start-up activities at a country-level are affected by factors other than structural and economic, including cultural and educational. However only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, while almost none explored how cultural patterns affected these dispositions.  
 
 When cultural factors are examined, they are considered as a given feature that can hardly be traced. By having a closer look at education systems, we intend to explore the processes through which some of these cultural patterns are enhanced and passed from one generation to the next. Aside from parental education, schools are indeed the very place where children are taught how to fit into society. This research is an attempt at looking at one trait in particular, self-confidence.
@@ -36,7 +36,7 @@ Strengthening entrepreneurship and economic development in East Germany: Lessons
 
 
 
-###Literature Review  
+### Literature Review  
 
 
 What determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. However, as Freytag and Thurik stated in 2007, “the relative stability of differences in entrepreneurship across countries suggests that other than economic factors are at play” [@Freytag2007]. Even if “in recent years research has increasingly devoted itself to the subject” (OECD Report 2009), a lot still needs to be done as the few studies that explored the relationship between attitudes and foundation activities barely searched what determined these attitudes.
@@ -65,7 +65,7 @@ Stronger culture of positive reinforcement ---> higher degree of individual self
 
 
 
-####Estimation Strategy  
+#### Estimation Strategy  
 The estimation strategy will consist of using cross-sectional data about France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.
 
 The dependent variable will be the rate of entrepreneurship with its related activities or attitudes as defined by the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org):
@@ -97,7 +97,7 @@ Then, should indeed different patterns be observed, we will need to proceed to a
 Our main hypothesis is that the more self-confident a population is on average, the higher entrepreneurship in that country will be.  
  
 
-###Necessary Concepts  
+### Necessary Concepts  
 1. Return on Investment: Assigning a future Euro value to a present-day investment. This may require the use of a social discount rate, but will also need to consider the potential GDP increase brought about by improved education policies.  
 
 2. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach in measuring this factor.
@@ -107,4 +107,4 @@ Our main hypothesis is that the more self-confident a population is on average, 
 
 
 
-###References
+### References
