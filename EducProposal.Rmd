@@ -73,7 +73,8 @@ Stronger culture of positive reinforcement ---> higher degree of individual self
 
 #### Estimation Strategy  
 
-The estimation strategy will consist of using cross-sectional data about France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.
+The estimation strategy will consist of using cross-sectional data about France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.  
+
 
 ##### Entrepreneurship as a dependent variable
 
@@ -90,10 +91,12 @@ GEM measure of entrepreneurship is often used or refered to in OECD studies.
 
 The key explanatory variable will be the degree of self confidence. As we did not find so far any satisfactory proxy for self-confidence in the way we intend to define it, we will need to compute an index. In order to do so, we will rely on both [OECD PISA 2012](http://www.oecd.org/pisa/keyfindings/pisa-2012-results.htm), [World Value Survey 2005-2009](http://www.worldvaluessurvey.org/WVSOnline.jsp) and [GEM](http://www.gemconsortium.org) 
 
-From PISA 2012, we will use the items regarding engagement, drive and self-beliefs (Table III.2.3.a). More specifically we will compute data regarding the sense of belonging to measure the strength of inclusion in social networks. We also process measures of self-perception. They all come as a percentage of the country-representative student population.
+From PISA 2012, we will use the items regarding engagement, drive and self-beliefs (Table III.2.3.a). More specifically we will compute data regarding the sense of belonging to measure the strength of inclusion in social networks. We will also process measures of self-perception. They all come as a percentage of the country-representative student population.
 
-From World Value Survey, we will use the last data available, that of the fifth wave (2005-2009). Our main issue is that data was collected at different points in time in Britain (2005) and in France (2006), but in both cases before the economic crisis, which might have affected people’s prospects and values differently. We will specifically look at the following items:
+From World Value Survey, we will use the last data available, that of the fifth wave (2005-2009). Our main issue is that data was collected at different points in time in Britain (2005) and in France (2006), but in both cases before the economic crisis, which might have affected people’s prospects and values differently. We will specifically look at the following items:  
+
 V86   How important are adventure and taking risks to the person surveyed?  
+
 V119 How good is competition?
 
 From GEM, we will use the most recent data available regarding the fear of failure rate and perceived capabilities).
@@ -103,7 +106,7 @@ To compute these data together is quite a challenge and we are not yet fully sur
 
 ##### Social inclusion as a complementary explanatory variable
 
-As we mentioned that self-confidence also depends on the integration in social networks, we will rely on the sense of belonging as defined by OECD PISA study. Again we will need to compute an index. In order to do so, we will also rely on the following items from the World Value Survey 2005-2009 wave about “sense of belonging to a group“ and “sense of individuality” and “degree of self confidence”.  
+As we mentioned that self-confidence also depends on the integration in social networks, we will partly rely on the sense of belonging as defined by OECD PISA study but again we will need to compute an index. In order to do so, we will also rely on the following items from the World Value Survey 2005-2009 wave about “sense of belonging to a group“ and “sense of individuality”.  
 
 V65   I seek to be myself rather than to follow others  
 V66   I live up to what my friends expect  
@@ -129,6 +132,8 @@ We will obviously need to control for the economic outlook at the time of data c
 8. Physical infrastructure and services  
 9. Cultural and social norms
 
+We are not yet fully sure on how to control for all these though.  
+
 
 ##### Process
 
@@ -142,13 +147,13 @@ Then, should indeed different patterns be observed, we will need to proceed to a
 
 1. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach in measuring this factor.
 
-2. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute an index and characterize it on a scale.  
+2. Positive reinforcement: Again even if this is not easy to characterize quantify, we will attempt to compute an index and characterize it on a scale. Should we eventually consider there is a lot of positive reinforcement in one country and very little in another, perhaps we could go as far as using a dummy variable.  
 
-3. Culture: Key concept broadly understood here as the ensemble of beliefs, values, norms and practices of a given society.
+3. Culture: Key concept broadly understood here as the set of beliefs, values, norms and practices of a given society.
 
-4. Education: Here education is understood as the process of apprenticeship that takes place in schools throughout compulsory years (from the age of 6 to 16). Thus we examine the average potential effect of these years of "shaping" on individuals throughout the entire population of a country.
+4. Education: Here education is understood as the process of apprenticeship that takes place in school throughout compulsory years (from the age of 6 to 16). Thus we examine the average potential effect of these years of "shaping" on individuals for the entire population of a country.
 
-5. Return on Investment: Assigning a future Euro value to a present-day investment. This may require the use of a social discount rate, but will also need to consider the potential GDP increase brought about by improved education policies.  
+5. Return on Investment: Future benefits of a euro spent at present. Here return on investment would only start to be visible after some time, once most of a generation has got into active life which may take up to five to ten years. But even then, not all the expected propensity to start a business will be palpable. When you add ot it the mechanism of the social discount rate, that huge distance in time as of now seem to prevent any calculations of return on investment when it comes to public budgeting for education policies.  
 
 
 
