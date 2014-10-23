@@ -23,50 +23,60 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 *Introduction to Collaborative Social Science Data Analysis*
 
-### Research Question  
-Drawing a comparison between France and Britain, to what extent do the behavioural characteristics of the education system - individualistic, group-oriented, more or less positive reinforcement in teaching - affect the rate of entrepreneurship in each country?
+### Research Interest
 
-### Research Justification
-When it comes to public budgeting for education policies, the decision process often does not appear to be rational. That is, it does not seem to take into account the return on investment that should be expected in the long run. Despite this, many claims have been made in the entrepreneurship literature that start-up activities at a country-level are affected by factors other than structural and economic, including cultural and educational. However only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, while almost none explored how cultural patterns affected these dispositions.  
+
+When it comes to public budgeting for education policies, the decision process often does not appear to be rational. That is, it does not seem to take into account the return on investment that should be expected in the long run. Although many claims have been made in the entrepreneurship literature that start-up activities at a country-level are affected by factors other than structural and economic, including cultural and educational. As a matter of fact, only a few empirical studies have actually been carried out and most of them focused on which attitudes were favourable to starting a business, while almost none explored how cultural patterns affected these dispositions.  
 
 When cultural factors are examined, they are considered as a given feature that can hardly be traced. By having a closer look at education systems, we intend to explore the processes through which some of these cultural patterns are enhanced and passed from one generation to the next. Aside from parental education, schools are indeed the very place where children are taught how to fit into society. This research is an attempt at looking at one trait in particular, self-confidence.
 
-Chart about factors that affect entrepreneurship.
-Strengthening entrepreneurship and economic development in East Germany: Lessons from local approaches.
+
+### Research Question 
+
+
+Drawing a comparison between France and Britain, to what extent do the behavioural characteristics of the education system - individualistic, group-oriented, more or less positive reinforcement in teaching - affect the rate of entrepreneurship in each country?
+
 
 
 
 ### Literature Review  
 
 
-What determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. However, as Freytag and Thurik stated in 2007, “the relative stability of differences in entrepreneurship across countries suggests that other than economic factors are at play” [@Freytag2007]. Even if “in recent years research has increasingly devoted itself to the subject” (OECD Report 2009), a lot still needs to be done as the few studies that explored the relationship between attitudes and foundation activities barely searched what determined these attitudes.
+What determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. However, as Freytag and Thurik stated in 2007, “the relative stability of differences in entrepreneurship across countries suggests that other than economic factors are at play” [@Freytag2007] . Even if “in recent years research has increasingly devoted itself to the subject” [@OECD2009], a lot still needs to be done as the few studies that explored the relationship between attitudes and foundation activities barely searched what determined these attitudes.
 
+Over a hundred years have passed since Max Weber tried to explicit how religious-ethical motivations affect entrepreneurship (Max Weber, 1905), and religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” [@OECD2009].
 
-Over a hundred years have passed since Max Weber tried to explicit how religious-ethical motivations affect entrepreneurship (Max Weber, 1905), and religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” (OECD Report 2009).
+Despite various claims of the existence of a cultural effect, few empirical studies have actually been carried out. It took a few decades more before Davidsson, along with Delmar at first (1992), then alone (1995), then with Wiklund [@davidsson1997values], at his turn, laid a stepping stone by investigating the relationship between structural factors, mainly economic, and cultural factors. As they compared two Swedish regions similar in terms of structure, and observed different outcomes, they concluded on the possibility of a small cultural effect.
 
-Despite various claims of the existence of a cultural effect, few empirical studies have actually been carried out. It took a few decades more before Davidsson, along with Delmar at first (1992), then alone (1995), then with Wiklund (Davidsson and Wiklund study 1997), at his turn, laid a stepping stone by investigating the relationship between structural factors, mainly economic, and cultural factors. As they compared two Swedish regions similar in terms of structure, and observed different outcomes, they concluded on the possibility of a small cultural effect.
+This thesis is an attempt at finding out if different patterns in education lead to different outcomes in terms of start-up activities. Indeed, like many in the education literature tend to assert, we believe there is an effect of school personnel on student self-esteem [@Scott1996]. We will explore further the way this mechanism works. As for entrepreneurship literature, it generally acknowledges the influence of self-confidence on start-up activities although “self-confidence in one’s own capabilities to start a business has been found to depend almost exclusively on the individual features of the respective person and his or her integration into social networks” [@OECD2009]. We intend to show that these individual characteristics are partly shaped at an institutional and collective level through the education systems and staff attitudes.
 
-This thesis is an attempt at finding out if different patterns in education lead to different outcomes in terms of start-up activities. Indeed, like many in the education literature tend to assert, we believe there is an effect of school personnel on student self-esteem (Scott, Dustin, Mertens, Murray, 1996). We will explore further the way this mechanism works. Now, entrepreneurship literature generally acknowledges the influence of self-confidence on start-up activities although “self-confidence in one’s own capabilities to start a business has been found to depend almost exclusively on the individual features of the respective person and his or her integration into social networks” (OECD Report 2009). We intend to show that these individual characteristics are partly shaped at an institutional collective level through the education systems and their staff attitudes.
+Of course, King and Sobel [@Kerry2008], among others, have already tried to show how school choice can increase the rate of youth entrepreneurship but their perspective was slightly different. They  asserted that more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of cultural and educational patterns. David Watkins [@Watkins2010] cross-cultural perspective on teaching and learning shall be useful in that respect. Kai-Ming Cheng and Kam-Cheung Wong’s study about school effectiveness in East Asia [@Cheng2006] could also be of help.
 
-Of course, King and Sobel (2008), among others, have already tried to show how school choice can increase the rate of youth entrepreneurship but their perspective was slightly different. They  asserted that more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of cultural and educational patterns. David Watkins (2010) cross-cultural perspective on teaching and learning shall be useful in that respect. Kai-Ming Cheng and Kam-Cheung Wong’s study about school effectiveness in East Asia (2006) could also be of help.
+Also, as self-confidence is considered to rely partly on one’s integration within social networks [@OECD2009], we will refer to cross-cultural studies such as that of Green, Deschamps and Páez [@green2005variation] about individualism and collectivism, what Freeman [@freeman1997demographic] called idiocentrism and allocentrism. Raeff, Greenfield and Quiroz [@raeff2000conceptualizing] have also conceptualised interpersonal relationships in both contexts. More school-focused, Yamauchi [@yamauchi1998individualism] as well as Davies and Aurini [@davies2003homeschooling] have looked at individualism and collectivism in the classroom and in pedagogy respectively. All these will be precious on the way.
 
-Also, as self-confidence is considered to rely partly on one’s integration within social networks (OECD Report 2009), we will also refer to cross-cultural studies such as that of Green, Deschamps and Páez (2005) about individualism and collectivism, or what Freeman (1997) called idiocentrism and allocentrism. Raeff, Greenfield and Quiroz (2000) have also conceptualised interpersonal relationships in both cultural contexts. More school-focused, Yamauchi (1998) as well as Davies and Aurini (2003) have looked at individualism and collectivism in the classroom and in pedagogy respectively. All these will be precious on the way.
-
-Besides direct or indirect school effects, we will necessarily look into entrepreneurship and its determinants at large. Thus we will refer to Grilo and Thurik’s research (2005 and 2006) about what determines entrepreneurship engagement levels throughout the European Union, and also to Wennekers Sander, Ulhaner Lorraine and Thurik Roy’s explanation of variation across countries (2002). Eventtually, with Gartner (1990) we will have a closer look at entrepreneurship’s underlying meanings in research and, along with Acs, Desai and Klapper (2008), we will asks ourselves what “entrepreneurship” data really shows.
+Besides direct or indirect school effects, we will necessarily look into entrepreneurship and its determinants at large. Thus we will quote Grilo and Thurik’s research [@Grilo2005b] about what determines entrepreneurship engagement levels throughout the European Union, and also Wennekers Sander, Ulhaner Lorraine and Thurik Roy’s explanation of variation across countries [@Wennekers2002]. Eventually, with Gartner [@Gartner1990] we will have a closer look at entrepreneurship’s underlying meanings in research and, along with Acs, Desai and Klapper [@Acs2008], we will ask ourselves what “entrepreneurship” data really shows.
 
 
 
 
 ### Analytical Method
 
+
+#### Hypothesis
+
+Our main hypothesis is that the more self-confident a population is on average, the higher entrepreneurship in that country will be. 
+
+
 #### Causal Chain
 
 Stronger culture of positive reinforcement ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level
 
 
-
 #### Estimation Strategy  
+
 The estimation strategy will consist of using cross-sectional data about France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.
+
+##### Entrepreneurship as a dependent variable
 
 The dependent variable will be the rate of entrepreneurship with its related activities or attitudes as defined by the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org):
 
@@ -74,10 +84,41 @@ The dependent variable will be the rate of entrepreneurship with its related act
 - Entrepreneurial intention; and  
 - Entrepreneurship as desirable career choice.  
 
-The key explanatory variable will be the degree of self confidence. We will compute an index from both OECD PISA, World Value Survey (Data from 2012 and 2005/2006 respectively) and GEM (Fear of failure rate, perceived capabilities).  
+GEM measure of entrepreneurship is often used or refered to in OECD studies.
 
-As mentioned above, we will need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
 
+##### Self-confidence as the key explanatory variable
+
+The key explanatory variable will be the degree of self confidence. As we did not find so far any satisfactory proxy for self-confidence in the way we intend to define it, we will need to compute an index. In order to do so, we will rely on both [OECD PISA 2012](http://www.oecd.org/pisa/keyfindings/pisa-2012-results.htm), [World Value Survey 2005-2009](http://www.worldvaluessurvey.org/WVSOnline.jsp) and [GEM](http://www.gemconsortium.org) 
+
+From PISA 2012, we will use the items regarding engagement, drive and self-beliefs (Table III.2.3.a). More specifically we will compute data regarding the sense of belonging to measure the strength of inclusion in social networks. We also process measures of self-perception. They all come as a percentage of the country-representative student population.
+
+From World Value Survey, we will use the last data available, that of the fifth wave (2005-2009). Our main issue is that data was collected at different points in time in Britain (2005) and in France (2006), but in both cases before the economic crisis, which might have affected people’s prospects and values differently. We will specifically look at the following items:
+V86   How important are adventure and taking risks to the person surveyed?  
+V119 How good is competition?
+
+From GEM, we will use the most recent data available regarding the fear of failure rate and perceived capabilities).
+
+To compute these data together is quite a challenge and we are not yet fully sure on how to proceed. But at least, these multiple reliable measures from well-recognised sources should give us a composite but also comprehensive indicator about the average degree of self-confidence of individuals in each country.
+
+
+##### Social inclusion as a complementary explanatory variable
+
+As we mentioned that self-confidence also depends on the integration in social networks, we will rely on the sense of belonging as defined by OECD PISA study. Again we will need to compute an index. In order to do so, we will also rely on the following items from the World Value Survey 2005-2009 wave about “sense of belonging to a group“ and “sense of individuality” and “degree of self confidence”.  
+
+V65   I seek to be myself rather than to follow others  
+V66   I live up to what my friends expect  
+V67   I decide my goals in life by myself  
+V78   How good / bad is greater respect for authority to the person surveyed?  
+V186 How often do you attend religious services?  
+V198 How justifiable can claiming government benefits be?  
+V199 How justifiable can avoiding a fare on public transport be?  
+V200 How justifiable can cheating on taxes be?
+
+
+##### Other classic determinants of entrepreneurship as control variables
+
+We will obviously need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://www.gemiran.ir/sec/gem/?@=28) that may affect the rate of entrepreneurship. These nine conditions are the following:  
 
 1. Finance  
 2. Government policies  
@@ -90,22 +131,31 @@ As mentioned above, we will need to control for the economic outlook at the time
 9. Cultural and social norms
 
 
+##### Process
+
 The first step will be to see if, regarding self-confidence, different patterns can be observed in each country. In which case, we may need to call on cultural explanations.
 
 Then, should indeed different patterns be observed, we will need to proceed to an Ordinary Least Square (OLS) Regression in order to check to what extent these characteristics affect the rate of entrepreneurship in the country.  
-
-Our main hypothesis is that the more self-confident a population is on average, the higher entrepreneurship in that country will be.  
+ 
  
 
 ### Necessary Concepts  
 
+1. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach in measuring this factor.
 
-1. Return on Investment: Assigning a future Euro value to a present-day investment. This may require the use of a social discount rate, but will also need to consider the potential GDP increase brought about by improved education policies.  
+2. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute an index and characterize it on a scale.  
 
-2. Self-confidence: It is difficult to obtain a credible measurement of self confidence, but we will compute an index  to include some quantiative approach in measuring this factor.
+3. Culture: Key concept broadly understood here as the ensemble of beliefs, values, norms and practices of a given society.
 
-3. Positive reinforcement: Again even if this is not easy to quantify, we will attempt to compute as an index and characterize it on a scale.  
+4. Education: Here education is understood as the process of apprenticeship that takes place in schools throughout compulsory years (from the age of 6 to 16). Thus we examine the average potential effect of these years of "shaping" on individuals throughout the entire population of a country.
 
+5. Return on Investment: Assigning a future Euro value to a present-day investment. This may require the use of a social discount rate, but will also need to consider the potential GDP increase brought about by improved education policies.  
+
+
+
+
+Chart about factors that affect entrepreneurship.
+Strengthening entrepreneurship and economic development in East Germany: Lessons from local approaches.
 
 <p align="center">
 [<img align="center" src="img/OECDChart.png" alt="Factors Affecting Entrepreneurship" height=350 width=450 />](img/OECDChart.png)</br>

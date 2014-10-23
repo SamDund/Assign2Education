@@ -3,11 +3,11 @@
 
 This is a proposal for Thierry Racaud's thesis titled: "The Country-level Impact of Educational Patterns on the Rate of Entrepreneurship."  The proposal has been divided into the following sections:  
 
-1. Research Question  
-2. Research Justification  
-3. Analytical Method  
-4. Key Concepts  
-5. Literature Review  
+1. Research Interest  
+2. Research Question 
+3. Literature Review 
+4. Analytical Method  
+5. Key Concepts  
 6. References    
 
 
@@ -17,4 +17,7 @@ Comments on the proposal can be submitted to [Thierry Racaud](mailto: thierry.ra
 
 Note: Please ignore TrialFile.Rmd, it was used to explore other features in R, including making maps that may be helpful in the future.
 
+<<<<<<< HEAD
 Test ?  ggmap and rmarkdown
+=======
+>>>>>>> 39a38218e5cfa3c98edefc5c19ee37b93c0c6881
