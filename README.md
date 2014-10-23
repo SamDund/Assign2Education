@@ -17,7 +17,5 @@ Comments on the proposal can be submitted to [Thierry Racaud](mailto: thierry.ra
 
 Note: Please ignore TrialFile.Rmd, it was used to explore other features in R, including making maps that may be helpful in the future.
 
-<<<<<<< HEAD
+
 Test ?  ggmap and rmarkdown
-=======
->>>>>>> 39a38218e5cfa3c98edefc5c19ee37b93c0c6881
