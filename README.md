@@ -15,7 +15,7 @@ This is a proposal for Thierry Racaud's thesis titled: "The Country-level Impact
 The proposal includes dynamically linked academic references and citations for R packages.
 
 #### Proposal File
-The project proposal is located in the folling file:  
+The project proposal is EducProposal.Rmd.  Please click here to access the html for the RMarkdown file and open it in Chrome or a similar application: 
 - [EducProposal.Rmd](https://raw.githubusercontent.com/SamDund/Assign2Education/master/EducProposal.Rmd)
 
 
