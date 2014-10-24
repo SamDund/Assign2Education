@@ -59,22 +59,22 @@ Besides direct or indirect school effects, we will necessarily look into entrepr
 ### Analytical Method
 
 
-#### Hypothesis
+#### Hypothesis  
 
 Our main hypothesis is that the more self-confident a population is on average, the higher entrepreneurship in that country will be.  
 
 
-#### Causal Chain
+#### Causal Chain  
 
 Stronger culture of positive reinforcement ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level.  
 
 
-#### Estimation Strategy  
+#### Estimation Strategy    
 
 The estimation strategy will consist of using cross-sectional data about France and Britain at different points in time regarding the sense of belonging to a group, self-confidence patterns and the entrepreneurship features of each country.  
 
 
-##### Entrepreneurship as a dependent variable
+##### Entrepreneurship as a dependent variable  
 
 The dependent variable will be the rate of entrepreneurship with its related activities or attitudes as defined by the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org):
 
@@ -82,7 +82,7 @@ The dependent variable will be the rate of entrepreneurship with its related act
 - Entrepreneurial intention; and  
 - Entrepreneurship as desirable career choice.  
 
-Note: The GEM measure of entrepreneurship is often used or referred to in OECD studies.
+Note: The GEM measure of entrepreneurship is often used or referred to in OECD studies.  
 
 
 ##### Self-confidence as the key explanatory variable
@@ -98,7 +98,7 @@ V119 How good is competition?
 
 From GEM, we will use the most recent data available regarding the fear of failure rate and perceived capabilities.
 
-To compute these data together is quite a challenge and we are not yet fully sure on how to proceed. But at least, these multiple reliable measures from well-recognized sources should give us a composite but also comprehensive indicator about the average degree of self-confidence of individuals in each country.
+To compute these data together is quite a challenge and we are not yet fully sure on how to proceed. But at least, these multiple reliable measures from well-recognized sources should give us a composite but also comprehensive indicator about the average degree of self-confidence of individuals in each country.  
 
 
 ##### Social inclusion as a complementary explanatory variable
