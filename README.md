@@ -10,13 +10,14 @@ This is a proposal for Thierry Racaud's thesis titled: "The Country-level Impact
 3. Literature Review 
 4. Analytical Method  
 5. Key Concepts  
-6. References    
+6. Conclusion
+7. References    
 
 The proposal includes dynamically linked academic references and citations for R packages.
 
 #### Proposal File
-The project proposal is EducProposal.Rmd.  Please click here to access the html for the RMarkdown file and open it in Chrome or a similar application (some features are not availble in the html version saved on GitHub): 
-- [EducProposal.Rmd](https://raw.githubusercontent.com/SamDund/Assign2Education/master/EducProposal.html)
+The project proposal is EducProposal.Rmd.  Please click [here](https://raw.githubusercontent.com/SamDund/Assign2Education/master/EducProposal.html)to access the html for the RMarkdown file and open it in Chrome or a similar application (some features are not availble in the html version saved on GitHub): 
+
 
 
 #### Other Repository Contents
@@ -24,7 +25,7 @@ The project proposal is EducProposal.Rmd.  Please click here to access the html 
 - RpackageCitations.bib: Bibliography file dynamically linked to EducProposal.Rmd with citations for R and packages
 - Misc: A file with an extra source file used for exploring other R features.  This file will likely be used for the next class assignment
 - Img: A file containing the OECD chart in the EducProposal.Rmd file
-- Other: A project file, cached files, a gitignore, .RData, and .Rhistory files
+- Other: A project file, cached files, gitignore, .RData, and .Rhistory files
 
 
 #### Contact
