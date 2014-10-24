@@ -94,7 +94,6 @@ From PISA 2012, we will use the items regarding engagement, drive and self-belie
 From World Value Survey, we will use the last data available, that of the fifth wave (2005-2009). Our main issue is that data was collected at different points in time in Britain (2005) and in France (2006), but in both cases before the economic crisis, which might have affected people’s prospects and values differently. We will specifically look at the following items:  
 
 V86   How important are adventure and taking risks to the person surveyed?  
-
 V119 How good is competition?
 
 From GEM, we will use the most recent data available regarding the fear of failure rate and perceived capabilities.
