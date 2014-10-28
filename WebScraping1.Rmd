@@ -1,0 +1,55 @@
+---
+title: "WebScraping1"
+author: "Sam"
+date: "October 27, 2014"
+output: html_document
+---
+
+```{r}
+
+library(httr)
+library(dplyr)
+install.packages("XML")
+library(XML)
+
+URL <- 'http://www.bbc.com/sport/winter-olympics/2014/medals/countries'
+
+# Get and parse all tables on page
+tables <- URL %>% GET() %>%
+  content(as = 'parsed') %>%
+  readHTMLTable()
+
+# Gather content and parse all tables (only one on this page)
+names(tables)
+medals <- as.data.frame(tables)
+
+### Clean ###
+# Drop unwanted variables
+medals
+
+MedalsTable <- tables[]
+
+head(MedalsTable)
+summary(MedalsTable)
+arrange <- arrange()
+```
+
+```{r}
+
+# Install Foreign for accessing STATA file
+install.packages("foreign")
+library(foreign)
+library(help=foreign)
+
+# Load data locally
+dataSPSS<-read.spss("/Users/samdundon/Desktop/2010GEMNES.sav", to.data.frame=TRUE)
+
+### Clean ###
+
+head(dataSPSS)
+head(dataSPSS)[1,1:387]
+
+
+
+```
+
