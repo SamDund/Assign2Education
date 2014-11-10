@@ -43,11 +43,16 @@ install.packages("foreign")
 library(foreign)
 library(help=foreign)
 
+<<<<<<< HEAD
+# Load data locally
+dataSPSS<-read.spss("/Users/thierryracaud/Desktop/2010GEMNES.sav", to.data.frame=TRUE)
+=======
 # Loading NES data locally
 dataSPSS<-read.spss("/Users/samdundon/Desktop/2010GEMNES.sav", use.value.labels=TRUE, to.data.frame=TRUE)
 
 # Ordering data by country
 dataSPSS2 <- dataSPSS2[order(dataSPSS$)]
+>>>>>>> FETCH_HEAD
 
 ### Clean ###
 

@@ -2,7 +2,11 @@
 title: "The Country-level Impact of Educational Patterns on the Rate of Entrepreneurship"
 author: "Sam Dundon and Thierry Racaud"
 date: "October 24, 2014"
+<<<<<<< HEAD:EducProposal.Rmd
+output: html_document
+=======
 output: word_document
+>>>>>>> FETCH_HEAD:Proposal/EducProposal.Rmd
 bibliography: Main.bib
 ---
 * * * 
