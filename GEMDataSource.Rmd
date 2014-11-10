@@ -9,11 +9,136 @@ output: html_document
 # Set working directory
 setwd('~/Assign2Education/')
 
-# Library Repmis package
+# Library Repmis, Tidy, Reshape2, and plyr packages
 library(repmis)
+library(tidyr)
+library(reshape2)
+library(plyr)
 
-### Import data from GEM Survey ###
+#### Import data from GEM Survey ####
 
 # Import fear of failure data
-FearFail <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_FearFail.csv", header = TRUE) 
+FearFail <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_FearFail.csv", header = TRUE, cache = TRUE) 
+
+# Import current owner data
+CurrentOwner <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_CurrentOwner.csv", header = TRUE, cache = TRUE) 
+
+# Import entrepreneurial intention data
+EntreIntention <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_EntreIntention.csv", header = TRUE, cache = TRUE) 
+
+# Import nascent entrepreneur data
+NascentEntre <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_NascentEntre.csv", header = TRUE, cache = TRUE) 
+
+# Import perceived capabilities data
+PerceivedCapabilities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_PerceivedCapabilities.csv", header = TRUE, cache = TRUE) 
+
+#### Clean data using tidy ####
+
+### Clean FearFail ###
+
+# Remove X's in FearFail year columns
+names(FearFail) <- gsub("X", "", names(FearFail))
+
+
+# Change years from columns to rows and create CFearFail
+CFearFail <- melt(data = FearFail,
+                  id.vars = c("Country"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010", "2011", "2012",
+                                   "2013"))
+
+# Rename columns
+CFearFail <- plyr::rename(x = CFearFail, 
+                                      replace = c("variable" = "Year",
+                                                  "value" = "Percent Fear"))
+
+### Clean CurrentOwner ###
+# Remove X's in CurrentOwner year columns
+names(CurrentOwner) <- gsub("X", "", names(CurrentOwner))
+
+
+# Change years from columns to rows and create CCurrentOwner
+CCurrentOwner <- melt(data = CurrentOwner,
+                  id.vars = c("Country"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010", "2011", "2012",
+                                   "2013"))
+
+# Rename columns
+CCurrentOwner <- plyr::rename(x = CCurrentOwner, 
+                                      replace = c("variable" = "Year",
+                                                  "value" = "Percent Owner"))
+
+### Clean EntreIntention ###
+# Remove X's in EntreIntention year columns
+names(EntreIntention) <- gsub("X", "", names(EntreIntention))
+
+
+# Change years from columns to rows and create CEntreIntention (No 2001 data available)
+CEntreIntention <- melt(data = EntreIntention,
+                  id.vars = c("Country"),
+                  measure.vars = c("2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010", "2011", "2012",
+                                   "2013"))
+
+# Rename columns
+CEntreIntention <- plyr::rename(x = CEntreIntention, 
+                                      replace = c("variable" = "Year",
+                                                  "value" = "Percent Intention"))
+
+### Clean NascentEntre ###
+# Remove X's in NascentEntre year columns
+names(NascentEntre) <- gsub("X", "", names(NascentEntre))
+
+
+# Change years from columns to rows and create CNascentEntre
+CNascentEntre <- melt(data = NascentEntre,
+                  id.vars = c("Country"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010", "2011", "2012",
+                                   "2013"))
+
+# Rename columns
+CNascentEntre <- plyr::rename(x = CNascentEntre, 
+                                      replace = c("variable" = "Year",
+                                                  "value" = "Percent Nascent"))
+
+### Clean PerceivedCapabilities ###
+# Remove X's in PerceivedCapabilities year columns
+names(PerceivedCapabilities) <- gsub("X", "", names(PerceivedCapabilities))
+
+
+
+# Change years from columns to rows and create CPreceivedCapabilities
+CPerceivedCapabilities<- melt(data = PerceivedCapabilities,
+                  id.vars = c("Country"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010", "2011", "2012",
+                                   "2013"))
+
+# Rename columns
+CPerceivedCapabilities <- plyr::rename(x = CPerceivedCapabilities, 
+                                      replace = c("variable" = "Year",
+                                                  "value" = "Percent Perceived"))
+
+# Merge the data
+MergedGEM <- merge(CCurrentOwner, CEntreIntention,
+                   union("Country", "Year"),
+                   all = TRUE)
+
+MergedGem2 <- merge(CFearFail, CNascentEntre,
+                   union("Country", "Year"),
+                   all = TRUE) 
+
+MergedGem3 <- merge(CPerceivedCapabilities, MergedGEM,
+                   union("Country", "Year"),
+                   all = TRUE) 
+
+FinalMerge <- merge(MergedGem2, MergedGem3,
+                   union("Country", "Year"),
+                   all = TRUE) 
+
+
+
+
 ```
