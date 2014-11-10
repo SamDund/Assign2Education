@@ -8,7 +8,7 @@ bibliography: Main.bib
 * * * 
 ```{r echo=FALSE, cache=TRUE, include=FALSE}
 # Set working directory
-setwd('~/Assign2Education/')
+setwd('~/Assign2Education/Proposal')
 
 # Install necessary packages
 # Install rempis from Christpher Gandrud's website
