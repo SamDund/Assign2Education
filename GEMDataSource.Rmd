@@ -9,8 +9,11 @@ output: html_document
 # Set working directory
 setwd('~/Assign2Education/')
 
+# Library Repmis package
+library(repmis)
+
 ### Import data from GEM Survey ###
 
 # Import fear of failure data
-FearFail <- repmiss::source_data("", 
+FearFail <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_FearFail.csv", header = TRUE) 
 ```
