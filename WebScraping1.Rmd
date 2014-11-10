@@ -42,7 +42,7 @@ library(foreign)
 library(help=foreign)
 
 # Load data locally
-dataSPSS<-read.spss("/Users/samdundon/Desktop/2010GEMNES.sav", to.data.frame=TRUE)
+dataSPSS<-read.spss("/Users/thierryracaud/Desktop/2010GEMNES.sav", to.data.frame=TRUE)
 
 ### Clean ###
 
