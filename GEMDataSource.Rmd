@@ -155,4 +155,6 @@ summary(R1)
 # Calculate confidence intervals
 confint(R1)
 
+car::scatterplotMatrix(FinalMerge)
+
 ```
