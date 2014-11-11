@@ -9,6 +9,9 @@ output: html_document
 # Set working directory
 setwd('~/Assign2Education/')
 
+# Install rempis from Christpher Gandrud's website
+
+
 # Library Repmis, Tidy, Reshape2, and plyr packages
 library(repmis)
 library(tidyr)
@@ -149,12 +152,31 @@ FinalMerge[,"PercentIntention"] <- as.numeric(FinalMerge[,"PercentIntention"])
 summary(FinalMerge)
 
 # Run a linear regression
-R1 <- lm(PercentNascent ~ PercentPerceived + PercentIntention, data = FinalMerge)
+R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear, data = FinalMerge)
 summary(R1)
 
 # Calculate confidence intervals
 confint(R1)
 
+<<<<<<< HEAD
 car::scatterplotMatrix(FinalMerge)
 
+=======
+# Run a linear regression
+R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear, data = FinalMerge)
+summary(R2)
+
+# Calculate confidence intervals
+confint(R2)
+
+# Run a linear regression
+R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear, data = FinalMerge)
+summary(R3)
+
+# Calculate confidence intervals
+confint(R3)
+
+# Plot graph
+car::scatterplotMatrix(FinalMerge)
+>>>>>>> 76d58f5ab57d1c2b06a696ea5768eb2ab9bfdae7
 ```
