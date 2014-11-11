@@ -5,7 +5,7 @@ date: "November 10, 2014"
 output: html_document
 ---
 
-```{r}
+```{r echo =FALSE, cache=TRUE, include=FALSE}
 # Set working directory
 setwd('~/Assign2Education/')
 
@@ -50,7 +50,7 @@ CFearFail <- melt(data = FearFail,
 # Rename columns
 CFearFail <- plyr::rename(x = CFearFail, 
                                       replace = c("variable" = "Year",
-                                                  "value" = "Percent Fear"))
+                                                  "value" = "PercentFear"))
 
 ### Clean CurrentOwner ###
 # Remove X's in CurrentOwner year columns
@@ -67,7 +67,7 @@ CCurrentOwner <- melt(data = CurrentOwner,
 # Rename columns
 CCurrentOwner <- plyr::rename(x = CCurrentOwner, 
                                       replace = c("variable" = "Year",
-                                                  "value" = "Percent Owner"))
+                                                  "value" = "PercentOwner"))
 
 ### Clean EntreIntention ###
 # Remove X's in EntreIntention year columns
@@ -84,7 +84,7 @@ CEntreIntention <- melt(data = EntreIntention,
 # Rename columns
 CEntreIntention <- plyr::rename(x = CEntreIntention, 
                                       replace = c("variable" = "Year",
-                                                  "value" = "Percent Intention"))
+                                                  "value" = "PercentIntention"))
 
 ### Clean NascentEntre ###
 # Remove X's in NascentEntre year columns
@@ -101,7 +101,7 @@ CNascentEntre <- melt(data = NascentEntre,
 # Rename columns
 CNascentEntre <- plyr::rename(x = CNascentEntre, 
                                       replace = c("variable" = "Year",
-                                                  "value" = "Percent Nascent"))
+                                                  "value" = "PercentNascent"))
 
 ### Clean PerceivedCapabilities ###
 # Remove X's in PerceivedCapabilities year columns
@@ -119,9 +119,9 @@ CPerceivedCapabilities<- melt(data = PerceivedCapabilities,
 # Rename columns
 CPerceivedCapabilities <- plyr::rename(x = CPerceivedCapabilities, 
                                       replace = c("variable" = "Year",
-                                                  "value" = "Percent Perceived"))
+                                                  "value" = "PercentPerceived"))
 
-# Merge the data
+#### Merge the data ####
 MergedGEM <- merge(CCurrentOwner, CEntreIntention,
                    union("Country", "Year"),
                    all = TRUE)
@@ -138,7 +138,14 @@ FinalMerge <- merge(MergedGem2, MergedGem3,
                    union("Country", "Year"),
                    all = TRUE) 
 
+# Convert year columns to numeric
+FinalMerge[,2001:2012] <- as.numeric(FinalMerge[,2001:2012])
 
+# Need to figure out how to get rid of "-" in data
 
+summary(FinalMerge)
+# Run a regression
+R1 <- lm(PercentNascent ~ PercentPerceived + PercentIntention, data = FinalMerge)
+R1
 
 ```
