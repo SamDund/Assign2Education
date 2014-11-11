@@ -9,9 +9,6 @@ output: html_document
 # Set working directory
 setwd('~/Assign2Education/')
 
-# Install rempis from Christpher Gandrud's website
-
-
 # Library Repmis, Tidy, Reshape2, and plyr packages
 library(repmis)
 library(tidyr)
@@ -178,5 +175,5 @@ confint(R3)
 
 # Plot graph
 car::scatterplotMatrix(FinalMerge)
->>>>>>> 76d58f5ab57d1c2b06a696ea5768eb2ab9bfdae7
+
 ```
