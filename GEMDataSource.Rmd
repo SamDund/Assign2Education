@@ -138,14 +138,21 @@ FinalMerge <- merge(MergedGem2, MergedGem3,
                    union("Country", "Year"),
                    all = TRUE) 
 
-# Convert year columns to numeric
-FinalMerge[,2001:2012] <- as.numeric(FinalMerge[,2001:2012])
+# Convert percent columns from character to numeric
+FinalMerge[,"PercentPerceived"] <- as.numeric(FinalMerge[,"PercentPerceived"])
+FinalMerge[,"PercentFear"] <- as.numeric(FinalMerge[,"PercentFear"])
+FinalMerge[,"PercentNascent"] <- as.numeric(FinalMerge[,"PercentNascent"])
+FinalMerge[,"PercentOwner"] <- as.numeric(FinalMerge[,"PercentOwner"])
+FinalMerge[,"PercentIntention"] <- as.numeric(FinalMerge[,"PercentIntention"])
 
-# Need to figure out how to get rid of "-" in data
-
+# Check data to confirm change
 summary(FinalMerge)
-# Run a regression
+
+# Run a linear regression
 R1 <- lm(PercentNascent ~ PercentPerceived + PercentIntention, data = FinalMerge)
-R1
+summary(R1)
+
+# Calculate confidence intervals
+confint(R1)
 
 ```
