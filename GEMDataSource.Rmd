@@ -302,7 +302,13 @@ To find out, we need to gather quantitative data about entrepreneurship on the o
 
 We intend to look into three dimensions of entrepreneurship. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We will study them successively as we may well observe different effects.  
 
+To measure these three dimensions of entrepreneurship, we will use three [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) indicators:
 
+- Established Business Ownership Rate (Percentage) 
+- Nascent Entrepreneurship Rate (Percentage)
+- Entrepreneurial intention Rate (Percentage)
+
+We chose the GEM measure of entrepreneurship, as it is often referred to, especially in OECD studies.
 
 
 
