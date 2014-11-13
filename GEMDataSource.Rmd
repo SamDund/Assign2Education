@@ -148,7 +148,7 @@ CPerceivedOpportunities<- melt(data = PerceivedOpportunities,
                                    "2013"))
 
 # Rename columns
-CPerceivedCapabilities <- plyr::rename(x = CPerceivedCapabilities, 
+CPerceivedOpportunities <- plyr::rename(x = CPerceivedOpportunities, 
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentOpportunities"))
 
