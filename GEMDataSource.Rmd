@@ -256,16 +256,12 @@ car::scatterplotMatrix(CompleteDataset)
 
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis'} 
 # Create regression output table
-labels <- c('(Intercept)', 'Percent Perceived', 'Percent Fear',
-            'Annual GDP Growth', 'Percent Opportunities')
+labels <- c('Percent Perceived', 'Percent Fear',
+            'Annual GDP Growth', 'Percent Opportunities', '(Intercept)')
 
-stargazer::stargazer(R1, R2, R3, covariate.lables = labels, title = 'Linear Regression Estimates', digits = 2, type = 'html')
+stargazer::stargazer(R1, R2, R3, covariate.labels = labels, 
+                     title = 'Linear Regression Estimates', digits = 2, type = 'html')
 
-```
-
-
-<<<<<<< HEAD
-=======
 ```
 
 *Introduction to Collaborative Social Science Data Analysis*
