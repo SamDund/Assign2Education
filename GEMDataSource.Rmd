@@ -270,7 +270,8 @@ stargazer::stargazer(R1, R2, R3, covariate.labels = labels,
 
 To what extent do the behavioural characteristics of the education system - individualistic, group-oriented, self-esteem reinforcing - affect the rate of entrepreneurship in OECD countries?
 
-
+  
+  
 ### Estimation Strategy
 
 ### Causal Chain  
