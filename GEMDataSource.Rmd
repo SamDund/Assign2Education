@@ -226,14 +226,16 @@ summary(R1)
 confint(R1)
 
 # Run a linear regression
-R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear, data = FinalGEM)
+R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear + AnnualGDPGrowth + 
+           PercentOpportunities, data = CompleteDataset)
 summary(R2)
 
 # Calculate confidence intervals
 confint(R2)
 
 # Run a linear regression
-R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear, data = FinalGEM)
+R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear + AnnualGDPGrowth + 
+           PercentOpportunities, data = CompleteDataset)
 summary(R3)
 
 # Calculate confidence intervals
