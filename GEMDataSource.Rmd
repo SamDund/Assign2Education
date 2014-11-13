@@ -17,6 +17,7 @@ library(reshape2)
 library(plyr)
 library(WDI)
 library(stargazer)
+library(Zelig)
 
 # Load citation package
 pkgs <- c('repmis', 'tidyr', 'reshape2', 'plyr', 'WDI')
@@ -214,9 +215,6 @@ CompleteDataset <- merge(FinalGEM, GDPGrowth,
                    union("Country", "Year"),
                    all = TRUE) 
 
-CompleteDataset[,"AnnualGDPGrowth"] <- as.numeric(CompleteDataset[,"AnnualGDPGrowth"])
-
-
 # Remove unncessary data from environment
 remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
 
@@ -265,48 +263,16 @@ stargazer::stargazer(R1, R2, R3, covariate.labels = labels,
 ```
 
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis'}
-
-library(zoo)
-library(sandwich)
-library(MCMCpack)
-library(coda)
-library(lattice)
-library(mvtnorm)
-library(VGAM)
-library(sna)
-library(systemfit)
-library(nnet)
-library(gee)
-library(mgcv)
 library(Zelig)
-library(ZeligChoice)
-
-VectorData <- as.vector(CompleteDataset)
-
-class(CompleteDataset$GDPGrowth)
-
-z.out <- zelig(as.factor(PercentIntention) ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, cite = FALSE, data = VectorData, model = "oprobit")
 
 
-x.out1 <- setx(z.out, PercentPerceived=10)
+Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, cite = FALSE,
+            data = CompleteDataset, model = 'ls', param = function(z.out))
 
-x.out2 <- setx(z.out, PercentPerceived=100)
+z5 <- zls$new()
 
-s.out <- sim(z.out)
+summary(Z1)
 
-summary(s.out)
-
-plot(s.out)
-
-names(Z1)
-
-plot(Z1)
-
-Z1$result
-
-sim(Z1)
-
-source("http://r.iq.harvard.edu/install_zelig.R")
 Z1$sim()
 
 sim(setz1)
@@ -331,12 +297,6 @@ Education system / Teaching reinforcing self-esteem ---> higher degree of indivi
 
 To find out, we need to gather quantitative data about entrepreneurship on the one hand, and some measures of these behavioural characteristics on the other hand.
 
-<<<<<<< HEAD
-
-Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We may well observe different effects, studying them successively.
-
-Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We will study them successively as we may well observe different effects.
-=======
 ##### The rate of entrepreneurship at country-level is the variable we intend to explain  
 
 
@@ -357,9 +317,15 @@ The closest data we found so far is one of the six items / questions that GEM us
 
 For now, we use two GEM indicators that relate to self-esteem and confidence.
 
-We look at the average "perceived capabilities" of an individual (18-64) of a given country to start a business.
+We look at the average "perceived capabilities" of an individual (18-64) of a given country to start a business. The data consists of average percentage at country-level.
 
-We also take into account how likely the "fear of failure" could deter the average individual (18-64) of a country to become an entrepreneur.  
+We also take into account how the "fear of failure" could deter the average individual (18-64) of a country to become an entrepreneur. The data consists of average percentage at country-level.  
+
+
+
+##### We will include measures to check how individualistic and group-oriented a given education system is
+
+Literature generally admits that self-confidence partly depends on the integration in social networks. Therefore, as we try to determine how supportive of students' self-esteem a given education system, we will look at how individualistic or group-oriented it is. To quantify such a behavioural feature is not easy, which is why we will have to rely on another measure: how individualistic or group-oriented an average student is by the end of compulsory education. Since OECD PISA collects data about students at the end of compulsory education, we will rely on "the sense of belonging" it defines.  
 
 
 
@@ -384,7 +350,6 @@ As for now, as a substitute to all these conditions together, we use GEM indicat
 
 Besides these nine conditions and the GEM "perceived opportunities" measure, we also intend to control for the economic outlook at the time of data collection which is why we chose to include growth rate for each country from 2001 until 2013. This is our only data that does not originates from the GEM collection.
 
->>>>>>> 669f5e9ecb2c19a4150a5416abf37d616e8a76b4
 
 ### Conclusion  
 
@@ -394,3 +359,4 @@ The impact of cultural factors in education on the rate of entrepreneurship in a
 
 ### References
 
+>>>>>>> 648e7ea9f4a5614384d90351f0cd6454bd142647
