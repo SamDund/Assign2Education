@@ -304,14 +304,19 @@ We intend to look into three dimensions of entrepreneurship. We intend to look a
 
 
 
+
+
 ##### Self-esteem will be our key explanatory variable  
+
 
 
 
 ##### We will control for classic determinants of entrepreneurship  
 
 
-We will obviously need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://http://www.gemconsortium.org/Data-Collection) that may affect the rate of entrepreneurship. These nine conditions are the following:  
+
+
+We will intend to control for the classic determinants of entrepreneurship, that is for economic and structural determinants. More specifically, we will control for nine key entrepreneurship conditions as defined in the GEM [National Experts Survey (NES)](http://http://www.gemconsortium.org/Data-Collection) that may affect the rate of entrepreneurship. These nine conditions are the following:  
 
 1. Finance  
 2. Government policies  
@@ -323,11 +328,11 @@ We will obviously need to control for the economic outlook at the time of data c
 8. Physical infrastructure and services  
 9. Cultural and social norms
 
-We are not yet fully sure on how to best control for all these variables though as GEM data does not seem to be available in dataset format as such. We may need to build up our own dataset, collecting data from the many national GEM NES reports. We will work on this in the coming weeks.  
+We are not yet fully sure on how to best control for all these variables though, esspecially as GEM data does not seem to be available in dataset format as such. We may need to build up our own dataset, collecting data from the many national GEM NES reports. We will work on this in the coming weeks.  
 
-As for now, as a substitute to all these conditions together, we use GEM indicator called "Perceived Opportunities". For each country, it is the average percentage of individuals who believe there are opportunities to start a business in the area they live in. This is not equivalent to controlling for all the conditions above but it actually tells about all of them from the potential entrepreneur's point of view. Since we look at average individual self-esteem in every OECD country, we believe it is consistent to look at the opportunities perceived by the average individual of these countries.
+As for now, as a substitute to all these conditions together, we use GEM indicator called "Perceived Opportunities". For each country, it is the average percentage of individuals who believe there are opportunities to start a business in the area they live in. This is not equivalent to controlling for all the conditions above but it actually tells about all of them from the potential entrepreneur's point of view. Since we look at average individual self-esteem in every OECD country, we believe it is consistent to look at the opportunities perceived by the same potential entrepreneur, that is by the average 18-64-year-old individual of these countries.
 
-
+Besides these nine conditions and the GEM "perceived opportunities" measure, we also intend to control for the economic outlook at the time of data collection which is why we chose to include growth rate for each country from 2001 until 2013. This is our only data that does not originates from the GEM collection.
 
 
 ### Conclusion  
