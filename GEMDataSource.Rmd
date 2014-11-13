@@ -17,6 +17,7 @@ library(reshape2)
 library(plyr)
 library(WDI)
 library(stargazer)
+library(Zelig)
 
 # Load citation package
 pkgs <- c('repmis', 'tidyr', 'reshape2', 'plyr', 'WDI')
@@ -214,9 +215,6 @@ CompleteDataset <- merge(FinalGEM, GDPGrowth,
                    union("Country", "Year"),
                    all = TRUE) 
 
-CompleteDataset[,"AnnualGDPGrowth"] <- as.numeric(CompleteDataset[,"AnnualGDPGrowth"])
-
-
 # Remove unncessary data from environment
 remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
 
@@ -264,6 +262,7 @@ stargazer::stargazer(R1, R2, R3, covariate.labels = labels,
 
 ```
 
+<<<<<<< HEAD
 ```{r echo = FALSE, cache=TRUE, include=FALSE, results='asis'}
 
 # Omit omitted data from simulation
@@ -316,6 +315,20 @@ simz3 <- sim(Z1, x = x.out3)
 
 # Adjust margins
 par(mar=c(2,3,2,2))
+=======
+```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis'}
+library(Zelig)
+
+
+Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, cite = FALSE,
+            data = CompleteDataset, model = 'ls', param = function(z.out))
+
+z5 <- zls$new()
+
+summary(Z1)
+
+Z1$sim()
+>>>>>>> 730efabc11f004a4de3d0b34b79fafed4335af1d
 
 # Plot simulation
 plot(simz3)
@@ -337,22 +350,22 @@ To what extent do the behavioural characteristics of education systems - individ
 
 Education system / Teaching reinforcing self-esteem ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level.
 
-#### Data
+#### Data Collection
 
 To find out, we need to gather quantitative data about entrepreneurship on the one hand, and some measures of these behavioural characteristics on the other hand.
 
-<<<<<<< HEAD
-
-Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We may well observe different effects, studying them successively.
-
-Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We will study them successively as we may well observe different effects.
-=======
 ##### The rate of entrepreneurship at country-level is the variable we intend to explain  
 
 
 We intend to look into three dimensions of entrepreneurship. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We will study them successively as we may well observe different effects.  
 
+To measure these three dimensions of entrepreneurship, we will use three [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) indicators:
 
+- Established Business Ownership Rate (Percentage) 
+- Nascent Entrepreneurship Rate (Percentage)
+- Entrepreneurial intention Rate (Percentage)
+
+We chose the GEM measure of entrepreneurship, as it is often referred to, especially in OECD studies.
 
 
 
@@ -367,9 +380,15 @@ The closest data we found so far is one of the six items / questions that GEM us
 
 For now, we use two GEM indicators that relate to self-esteem and confidence.
 
-We look at the average "perceived capabilities" of an individual (18-64) of a given country to start a business.
+We look at the average "perceived capabilities" of an individual (18-64) of a given country to start a business. The data consists of average percentage at country-level.
 
-We also take into account how likely the "fear of failure" could deter the average individual (18-64) of a country to become an entrepreneur.  
+We also take into account how the "fear of failure" could deter the average individual (18-64) of a country to become an entrepreneur. The data consists of average percentage at country-level.  
+
+
+
+##### We will include measures to check how individualistic and group-oriented a given education system is
+
+Literature generally admits that self-confidence partly depends on the integration in social networks. Therefore, as we try to determine how supportive of students' self-esteem a given education system, we will look at how individualistic or group-oriented it is. To quantify such a behavioural feature is not easy, which is why we will have to rely on another measure: how individualistic or group-oriented an average student is by the end of compulsory education. Since OECD PISA collects data about students at the end of compulsory education, we will rely on "the sense of belonging" it defines.  
 
 
 
@@ -392,11 +411,38 @@ We are not yet fully sure on how best to control for all these variables, especi
 
 As for now, as a substitute to all these conditions together, we use GEM indicator called "Perceived Opportunities". For each country, it is the average percentage of individuals who believe there are opportunities to start a business in the area they live in. This is not equivalent to controlling for all the conditions above but it actually tells about all of them from the potential entrepreneur's point of view. Since we look at average individual self-esteem in every OECD country, we believe it is consistent to look at the opportunities perceived by the average 18-64-year-old individual of these countries.
 
-Besides these nine conditions and the GEM "perceived opportunities" measure, we also intend to control for the economic outlook at the time of data collection which is why we chose to include growth rate for each country from 2001 until 2013. This is our only data that does not originates from the GEM collection.
+Besides these nine conditions and the GEM "perceived opportunities" measure, we also intend to control for the economic outlook at the time of data collection which is why we chose to include GDP annual growth rate for each country from 2001 until 2013. This is our only data that does not originates from the GEM collection.  
 
->>>>>>> 669f5e9ecb2c19a4150a5416abf37d616e8a76b4
 
-### Conclusion  
+#### Data Scraping and Cleaning  
+
+
+In order to scrape our data, we used repmis, tidyr, reshape2, plyr, WDI, stargazer and Zelig packages before importing one dataset per variable mentioned above:  
+
+
+GEM Established Entrepreneurship Rate  
+GEM Nascent Entrepreneurship Rate  
+GEM Entrepreneurial Intention  
+GEM Perceived Capabilities  
+GEM Fear of Failure   
+GEM Perceived Opportunities  
+GDP Annual Growth Rate  
+
+
+We cleaned our data by getting rid of unnecessary characters like the "X" to which we substituted ""nothing. We called the new versions with different names.
+
+One issue we then faced was to merge our datasets all together into a two-dimension table whilst we had three dimensions to take into account: country, year and variable. Therefore, for each dataset, we moved the years from columns to rows, without getting rid of the country labels of course. Thus the first column would be the list of countries, the second the list of years (same for each country: 2001 ... 2013), the third the variable of interest.  
+
+We merged the datasets two by two until we we obtained the final dataset that would allow us to test the data and have an attempt at one or two regressions. 
+
+
+
+
+
+
+
+
+### Summary  
 
 
 The impact of cultural factors in education on the rate of entrepreneurship in a given country is an important and under-researched topic that should be considered by policymakers constructing public education budgets. Through this project, we hope to encourage the consideration of these cultural factors by providing a qualitative and quantitative method for understanding the impact of these factors. Although several challenges remain to compiling the indexes discussed in this report, we are confident we can produce a helpful framework for examining and understanding these factors.
@@ -404,3 +450,4 @@ The impact of cultural factors in education on the rate of entrepreneurship in a
 
 ### References
 
+>>>>>>> 648e7ea9f4a5614384d90351f0cd6454bd142647
