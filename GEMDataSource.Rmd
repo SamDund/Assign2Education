@@ -233,7 +233,7 @@ GDPGrowth$Country[GDPGrowth$Country == "Korea, Rep."] <- "Korea (South)"
 # Remove iso2c data to ease merge with FinalMerge data
 GDPGrowth$iso2c <- NULL
 
-# Merge GDPGrowth and FinalMerge
+# Merge GDPGrowth and FinalGEM
 CompeteDataset <- merge(FinalGEM, GDPGrowth,
                    union("Country", "Year"),
                    all = TRUE) 
