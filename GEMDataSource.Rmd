@@ -264,54 +264,64 @@ stargazer::stargazer(R1, R2, R3, covariate.labels = labels,
 
 ```
 
-```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis'}
+```{r echo = FALSE, cache=TRUE, include=FALSE, results='asis'}
 
-library(zoo)
-library(sandwich)
-library(MCMCpack)
-library(coda)
-library(lattice)
-library(mvtnorm)
-library(VGAM)
-library(sna)
-library(systemfit)
-library(nnet)
-library(gee)
-library(mgcv)
-library(Zelig)
-library(ZeligChoice)
+# Omit omitted data from simulation
+CompleteData_omit <- na.omit(CompleteDataset)
 
-VectorData <- as.vector(CompleteDataset)
+# Run a least squares regression with Zelig
+Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteData_omit, model = "ls")
+```
 
-class(CompleteDataset$GDPGrowth)
+```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis' }
 
-z.out <- zelig(as.factor(PercentIntention) ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, cite = FALSE, data = VectorData, model = "oprobit")
+# Set range of PercentPerceived values in simulation
+x.out2 <- setx(Z1, PercentPerceived = 20:100)
 
+# Run simulation (default 1000 trials)
+simz2 <- sim(Z1, x = x.out2)
 
-x.out1 <- setx(z.out, PercentPerceived=10)
+# Adjust margins
+par(mar=c(2,3,2,2))
 
-x.out2 <- setx(z.out, PercentPerceived=100)
-
-s.out <- sim(z.out)
-
-summary(s.out)
-
-plot(s.out)
-
-names(Z1)
-
-plot(Z1)
-
-Z1$result
-
-sim(Z1)
-
-source("http://r.iq.harvard.edu/install_zelig.R")
-Z1$sim()
-
-sim(setz1)
+# Plot simulation
+plot(simz2)
 
 ```
+
+
+```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis' }
+
+# Set range of PercentFear values in simulation
+x.out <- setx(Z1, PercentFear = 20:100)
+
+# Run simulation (default 1000 trials)
+simz1 <- sim(Z1, x = x.out)
+
+# Adjust margins
+par(mar=c(2,3,2,2))
+
+# Plot simulation
+plot(simz1)
+
+```
+
+```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis' }
+
+# Set range of PercentFear values in simulation
+x.out3 <- setx(Z1, PercentOpportunities = 20:100)
+
+# Run simulation (default 1000 trials)
+simz3 <- sim(Z1, x = x.out3)
+
+# Adjust margins
+par(mar=c(2,3,2,2))
+
+# Plot simulation
+plot(simz3)
+
+```
+
 
 *Introduction to Collaborative Social Science Data Analysis*
 
