@@ -307,7 +307,7 @@ plot(simz1)
 
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis' }
 
-# Set range of PercentFear values in simulation
+# Set range of PercentOpportunities values in simulation
 x.out3 <- setx(Z1, PercentOpportunities = 20:100)
 
 # Run simulation (default 1000 trials)
