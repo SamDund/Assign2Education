@@ -289,26 +289,43 @@ To what extent do the behavioural characteristics of education systems - individ
   
 ### Estimation Strategy
 
-### Causal Chain  
+#### Causal Chain  
 
 Education system / Teaching reinforcing self-esteem ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level.
 
-### Data
+#### Data
 
 To find out, we need to gather quantitative data about entrepreneurship on the one hand, and some measures of these behavioural characteristics on the other hand.
 
-#### The rate of entrepreneurship at country-level is the variable we intend to explain  
+##### The rate of entrepreneurship at country-level is the variable we intend to explain  
 
 
 We intend to look into three dimensions of entrepreneurship. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We will study them successively as we may well observe different effects.  
 
 
 
-#### Self-esteem will be our key explanatory variable  
+##### Self-esteem will be our key explanatory variable  
 
 
 
-#### We will control for classic determinants of entrepreneurship  
+##### We will control for classic determinants of entrepreneurship  
+
+
+We will obviously need to control for the economic outlook at the time of data collection about entrepreneurship characteristics. We will also need to control for nine key entrepreneurship conditions as defined in the [National Experts Survey (NES)](http://http://www.gemconsortium.org/Data-Collection) that may affect the rate of entrepreneurship. These nine conditions are the following:  
+
+1. Finance  
+2. Government policies  
+3. Government programs  
+4. Entrepreneurial Education and Training  
+5. Research and Development Transfer (R & D)  
+6. Commercial and professional infrastructure  
+7. Internal Market openness  
+8. Physical infrastructure and services  
+9. Cultural and social norms
+
+We are not yet fully sure on how to best control for all these variables though as GEM data does not seem to be available in dataset format as such. We may need to build up our own dataset, collecting data from the many national GEM NES reports. We will work on this in the coming weeks.  
+
+As for now, as a substitute to all these conditions together, we use GEM indicator called "Perceived Opportunities". For each country, it is the average percentage of individuals who believe there are opportunities to start a business in the area they live in. This is not equivalent to controlling for all the conditions above but it actually tells about all of them from the potential entrepreneur's point of view. Since we look at average individual self-esteem in every OECD country, we believe it is consistent to look at the opportunities perceived by the average individual of these countries.
 
 
 
