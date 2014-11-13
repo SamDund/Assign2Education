@@ -229,24 +229,22 @@ summary(R1)
 confint(R1)
 
 # Run a linear regression
-<<<<<<< HEAD
 R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear + AnnualGDPGrowth, data = CompleteDataset)
-=======
+
 R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear + AnnualGDPGrowth + 
            PercentOpportunities, data = CompleteDataset)
->>>>>>> d492a8dcde27e8a4480f0504d410e52e7c2d7e6e
+
 summary(R2)
 
 # Calculate confidence intervals
 confint(R2)
 
 # Run a linear regression
-<<<<<<< HEAD
 R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear + AnnualGDPGrowth, data = CompleteDataset)
-=======
+
 R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear + AnnualGDPGrowth + 
            PercentOpportunities, data = CompleteDataset)
->>>>>>> d492a8dcde27e8a4480f0504d410e52e7c2d7e6e
+ 
 summary(R3)
 
 # Calculate confidence intervals
