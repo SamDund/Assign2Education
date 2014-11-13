@@ -22,20 +22,23 @@ repmis::LoadandCite(pkgs, file= 'DataRpackageCitations.bib')
 
 #### Import data from GEM Survey ####
 
-# Import fear of failure data
+# Import GEM fear of failure data
 FearFail <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_FearFail.csv", header = TRUE, cache = FALSE) 
 
-# Import current owner data
+# Import GEM estblished entrepreneurship - current owner data
 CurrentOwner <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_CurrentOwner.csv", header = TRUE, cache = FALSE) 
 
-# Import entrepreneurial intention data
+# Import GEM entrepreneurial intention data
 EntreIntention <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_EntreIntention.csv", header = TRUE, cache = FALSE) 
 
-# Import nascent entrepreneur data
+# Import GEM nascent entrepreneur data
 NascentEntre <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_NascentEntre.csv", header = TRUE, cache = FALSE) 
 
-# Import perceived capabilities data
+# Import GEM perceived capabilities data
 PerceivedCapabilities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_PerceivedCapabilities.csv", header = TRUE, cache = FALSE) 
+
+# Import GEM perceived opportunities data as a proxy for potential control variables
+PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_PerceivedOpportunities.csv", header = TRUE, cache = FALSE)
 
 #### Clean data using tidy ####
 
@@ -130,6 +133,26 @@ CPerceivedCapabilities<- melt(data = PerceivedCapabilities,
 CPerceivedCapabilities <- plyr::rename(x = CPerceivedCapabilities, 
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentPerceived"))
+
+### Clean PerceivedOpportunities ###
+# Percentage of 18-64 population who see good opportunities to start a firm in the area where they live
+
+# Remove X's in PerceivedOpportunities year columns
+names(PerceivedOpportunities) <- gsub("X", "", names(PerceivedOpportunities))
+
+# Change years from columns to rows and create CPreceivedCapabilities
+CPerceivedOpportunities<- melt(data = PerceivedOpportunities,
+                  id.vars = c("Country"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010", "2011", "2012",
+                                   "2013"))
+
+# Rename columns
+CPerceivedCapabilities <- plyr::rename(x = CPerceivedCapabilities, 
+                                      replace = c("variable" = "Year",
+                                                  "value" = "PercentOpportunities"))
+
+
 
 #### Merge the data ####
 MergedGEM <- merge(CCurrentOwner, CEntreIntention,
