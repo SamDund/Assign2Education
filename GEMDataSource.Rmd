@@ -283,7 +283,7 @@ sim(setz1)
 
 ### Research Question
 
-To what extent do the behavioural characteristics of the education system - individualistic, group-oriented, self-esteem reinforcing - affect the rate of entrepreneurship in OECD countries?
+To what extent do the behavioural characteristics of education systems - individualistic, group-oriented, self-esteem reinforcing - affect the rate of entrepreneurship in OECD countries?
 
   
   
@@ -297,10 +297,21 @@ Education system / Teaching reinforcing self-esteem ---> higher degree of indivi
 
 To find out, we need to gather quantitative data about entrepreneurship on the one hand, and some measures of these behavioural characteristics on the other hand.
 
-<<<<<<< HEAD
-Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We may well observe different effects, studying them successively.
-=======
-Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We will study them successively as we may well observe different effects.
+#### The rate of entrepreneurship at country-level is the variable we intend to explain  
+
+
+We intend to look into three dimensions of entrepreneurship. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We will study them successively as we may well observe different effects.  
+
+
+
+#### Self-esteem will be our key explanatory variable  
+
+
+
+#### We will control for classic determinants of entrepreneurship  
+
+
+
 
 ### Conclusion  
 
