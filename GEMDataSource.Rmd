@@ -14,6 +14,7 @@ library(repmis)
 library(tidyr)
 library(reshape2)
 library(plyr)
+library(WDI)
 
 #### Import data from GEM Survey ####
 
@@ -35,6 +36,7 @@ PerceivedCapabilities <- repmis::source_data("https://raw.githubusercontent.com/
 #### Clean data using tidy ####
 
 ### Clean FearFail ###
+# Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from seeting up a business.
 
 # Remove X's in FearFail year columns
 names(FearFail) <- gsub("X", "", names(FearFail))
@@ -53,6 +55,8 @@ CFearFail <- plyr::rename(x = CFearFail,
                                                   "value" = "PercentFear"))
 
 ### Clean CurrentOwner ###
+# Percentage of 18-64 population who are currently owner-manager of an established business, i.e., owning and managing a running business that has paid sallaries, wages, or any other payments to the owners for more than 42 months
+
 # Remove X's in CurrentOwner year columns
 names(CurrentOwner) <- gsub("X", "", names(CurrentOwner))
 
@@ -70,6 +74,8 @@ CCurrentOwner <- plyr::rename(x = CCurrentOwner,
                                                   "value" = "PercentOwner"))
 
 ### Clean EntreIntention ###
+# Percentage of 18-64 population (individuals involved in any stage of entrepenerurial activity excluded) who intend to start a business within three years.
+
 # Remove X's in EntreIntention year columns
 names(EntreIntention) <- gsub("X", "", names(EntreIntention))
 
@@ -104,10 +110,10 @@ CNascentEntre <- plyr::rename(x = CNascentEntre,
                                                   "value" = "PercentNascent"))
 
 ### Clean PerceivedCapabilities ###
+# Percentage of 18-64 population who believe to have the required skills and knowledge to start a business
+
 # Remove X's in PerceivedCapabilities year columns
 names(PerceivedCapabilities) <- gsub("X", "", names(PerceivedCapabilities))
-
-
 
 # Change years from columns to rows and create CPreceivedCapabilities
 CPerceivedCapabilities<- melt(data = PerceivedCapabilities,
@@ -155,10 +161,6 @@ summary(R1)
 # Calculate confidence intervals
 confint(R1)
 
-<<<<<<< HEAD
-car::scatterplotMatrix(FinalMerge)
-
-=======
 # Run a linear regression
 R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear, data = FinalMerge)
 summary(R2)
@@ -175,5 +177,10 @@ confint(R3)
 
 # Plot graph
 car::scatterplotMatrix(FinalMerge)
+
+
+#### Import WDI Annual GDP Growth Data ####
+WDIsearch('gdp')
+dat = WDI(indicator='GDP growth (annual %)', country=c('MX','CA','US',), start=2001, end=2013)
 
 ```
