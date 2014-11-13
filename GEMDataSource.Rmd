@@ -312,12 +312,16 @@ We intend to look into three dimensions of entrepreneurship. We intend to look a
 Inglehart showed how personal values are shaped before the age of 20, we will try to show how compulsory education (from 6 to 16 years of age) does shape the individual, especially in terms of self-esteem. Of course, is is not easy to quantify how supportive of students' self-esteem a given education system can be and we are still looking for the most adequate measure.  
 
 
-The closest data we found so far is one of the six items / questions that GEM uses to measure the importance of entrepreneurial education at country-level in its NES Survey. Item D01 states:  
-
-In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative.
+The closest data we found so far is one of the six items / questions that GEM uses to measure the importance of entrepreneurial education at country-level in its NES Survey. Item D01 states: "In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative".
 
 
-For now, we use two GEM indicators that relate to self-esteem and confidence. We look at the average "perceived capabilities" of an individual of a given country.
+For now, we use two GEM indicators that relate to self-esteem and confidence.
+
+We look at the average "perceived capabilities" of an individual (18-64) of a given country to start a business.
+
+We also take into account how likely the "fear of failure" could deter the average individual (18-64) of a country to become an entrepreneur.  
+
+
 
 ##### We will control for classic determinants of entrepreneurship  
 
