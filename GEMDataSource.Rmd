@@ -140,7 +140,7 @@ CPerceivedCapabilities <- plyr::rename(x = CPerceivedCapabilities,
 # Remove X's in PerceivedOpportunities year columns
 names(PerceivedOpportunities) <- gsub("X", "", names(PerceivedOpportunities))
 
-# Change years from columns to rows and create CPreceivedCapabilities
+# Change years from columns to rows and create CPreceivedOpportunities
 CPerceivedOpportunities<- melt(data = PerceivedOpportunities,
                   id.vars = c("Country"),
                   measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
@@ -148,7 +148,7 @@ CPerceivedOpportunities<- melt(data = PerceivedOpportunities,
                                    "2013"))
 
 # Rename columns
-CPerceivedCapabilities <- plyr::rename(x = CPerceivedCapabilities, 
+CPerceivedOpportunities <- plyr::rename(x = CPerceivedOpportunities, 
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentOpportunities"))
 
@@ -165,43 +165,48 @@ MergedGem3 <- merge(CPerceivedCapabilities, MergedGEM,
                    union("Country", "Year"),
                    all = TRUE) 
 
-FinalMerge <- merge(MergedGem2, MergedGem3,
+MergedGem4 <- merge(MergedGem2, MergedGem3,
                    union("Country", "Year"),
                    all = TRUE) 
 
+FinalGEM <- merge(MergedGem4, CPerceivedOpportunities,
+                   union("Country", "Year"),
+                   all = TRUE)
+
 # Convert percent columns from character to numeric
-FinalMerge[,"PercentPerceived"] <- as.numeric(FinalMerge[,"PercentPerceived"])
-FinalMerge[,"PercentFear"] <- as.numeric(FinalMerge[,"PercentFear"])
-FinalMerge[,"PercentNascent"] <- as.numeric(FinalMerge[,"PercentNascent"])
-FinalMerge[,"PercentOwner"] <- as.numeric(FinalMerge[,"PercentOwner"])
-FinalMerge[,"PercentIntention"] <- as.numeric(FinalMerge[,"PercentIntention"])
+FinalGEM[,"PercentPerceived"] <- as.numeric(FinalGEM[,"PercentPerceived"])
+FinalGEM[,"PercentFear"] <- as.numeric(FinalGEM[,"PercentFear"])
+FinalGEM[,"PercentNascent"] <- as.numeric(FinalGEM[,"PercentNascent"])
+FinalGEM[,"PercentOwner"] <- as.numeric(FinalGEM[,"PercentOwner"])
+FinalGEM[,"PercentIntention"] <- as.numeric(FinalGEM[,"PercentIntention"])
+FinalGEM[,"PercentOpportunities"] <- as.numeric(FinalGEM[,"PercentOpportunities"])
 
 # Check data to confirm change
-summary(FinalMerge)
+summary(FinalGEM)
 
 # Run a linear regression
-R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear, data = FinalMerge)
+R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear, data = FinalGEM)
 summary(R1)
 
 # Calculate confidence intervals
 confint(R1)
 
 # Run a linear regression
-R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear, data = FinalMerge)
+R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear, data = FinalGEM)
 summary(R2)
 
 # Calculate confidence intervals
 confint(R2)
 
 # Run a linear regression
-R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear, data = FinalMerge)
+R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear, data = FinalGEM)
 summary(R3)
 
 # Calculate confidence intervals
 confint(R3)
 
 # Plot graph
-car::scatterplotMatrix(FinalMerge)
+car::scatterplotMatrix(FinalGEM)
 
 
 #### Import WDI Annual GDP Growth Data ####
@@ -229,7 +234,7 @@ GDPGrowth$Country[GDPGrowth$Country == "Korea, Rep."] <- "Korea (South)"
 GDPGrowth$iso2c <- NULL
 
 # Merge GDPGrowth and FinalMerge
-CompeteDataset <- merge(FinalMerge, GDPGrowth,
+CompeteDataset <- merge(FinalGEM, GDPGrowth,
                    union("Country", "Year"),
                    all = TRUE) 
 
