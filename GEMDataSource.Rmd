@@ -360,13 +360,21 @@ Besides these nine conditions and the GEM "perceived opportunities" measure, we 
 #### Data Scraping and Cleaning  
 
 
-In order to scrape our data, we used repmis, tidyr, reshape2, plyr, WDI, stargazer and Zelig packages. We then imported one dataset per variable mentioned above:
-GEM Established Entrepreneurship Rate
-GEM Nascent Entrepreneurship Rate
-GEM Entrepreneurial Intention
-GEM Perceived Capabilities
-GEM Fear of Failure
-GEM Perceived Opportunities
+In order to scrape our data, we used repmis, tidyr, reshape2, plyr, WDI, stargazer and Zelig packages. We then imported one dataset per variable mentioned above:  
+
+
+GEM Established Entrepreneurship Rate  
+
+GEM Nascent Entrepreneurship Rate  
+
+GEM Entrepreneurial Intention  
+
+GEM Perceived Capabilities  
+
+GEM Fear of Failure   
+
+GEM Perceived Opportunities  
+
 GDP Annual Growth Rate
 
 .
