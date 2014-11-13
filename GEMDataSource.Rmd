@@ -5,7 +5,8 @@ date: "November 10, 2014"
 output: html_document
 ---
 
-```{r echo =FALSE, cache=TRUE, include=FALSE}
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
+
 # Set working directory
 setwd('~/Assign2Education/')
 
@@ -15,6 +16,7 @@ library(tidyr)
 library(reshape2)
 library(plyr)
 library(WDI)
+library(stargazer)
 
 # Load citation package
 pkgs <- c('repmis', 'tidyr', 'reshape2', 'plyr', 'WDI')
@@ -43,7 +45,7 @@ PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com
 #### Clean data using tidy ####
 
 ### Clean FearFail ###
-# Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from seeting up a business.
+# Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from setting up a business.
 
 # Remove X's in FearFail year columns
 names(FearFail) <- gsub("X", "", names(FearFail))
@@ -100,6 +102,8 @@ CEntreIntention <- plyr::rename(x = CEntreIntention,
                                                   "value" = "PercentIntention"))
 
 ### Clean NascentEntre ###
+# Percentage of 18-64 population who are currently a nascent entrepreneur, i.e., actively involved in setting up a business they will own or co-own; this business has not paid salaries, wages, or any other payments to the owners for more than three months.
+
 # Remove X's in NascentEntre year columns
 names(NascentEntre) <- gsub("X", "", names(NascentEntre))
 
@@ -183,7 +187,6 @@ FinalGEM[,"PercentOpportunities"] <- as.numeric(FinalGEM[,"PercentOpportunities"
 
 
 #### Import WDI Annual GDP Growth Data ####
-WDIsearch('gdp')
 GDPGrowth = WDI(indicator='NY.GDP.MKTP.KD.ZG', country=c('MX','CA','US','FR','AU','AT','BE',
                                                          'CL','CZ','DK','EE','FI','DE','HU', 
                                                          'IS','IE','IL','IT','JP','KR','LU',
@@ -226,14 +229,14 @@ summary(R1)
 confint(R1)
 
 # Run a linear regression
-R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear, data = FinalGEM)
+R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear + AnnualGDPGrowth, data = CompleteDataset)
 summary(R2)
 
 # Calculate confidence intervals
 confint(R2)
 
 # Run a linear regression
-R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear, data = FinalGEM)
+R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear + AnnualGDPGrowth, data = CompleteDataset)
 summary(R3)
 
 # Calculate confidence intervals
@@ -241,5 +244,15 @@ confint(R3)
 
 # Plot graph
 car::scatterplotMatrix(CompleteDataset)
+```                           
+
+```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis'} 
+# Create regression output table
+labels <- c('(Intercept)', 'Percent Perceived', 'Percent Fear',
+            'Annual GDP Growth', 'Percent Opportunities')
+
+stargazer::stargazer(R1, R2, R3, covariate.lables = labels, title = 'Linear Regression Estimates', digits = 2, type = 'html')
 
 ```
+
+
