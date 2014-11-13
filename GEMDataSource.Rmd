@@ -148,11 +148,9 @@ CPerceivedOpportunities<- melt(data = PerceivedOpportunities,
                                    "2013"))
 
 # Rename columns
-CPerceivedOpportunities <- plyr::rename(x = CPerceivedOpportunities, 
+CPerceivedCapabilities <- plyr::rename(x = CPerceivedCapabilities, 
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentOpportunities"))
-
-
 
 #### Merge the data ####
 MergedGEM <- merge(CCurrentOwner, CEntreIntention,
