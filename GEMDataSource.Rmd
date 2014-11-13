@@ -317,24 +317,74 @@ sim(setz1)
 
 ### Research Question
 
-To what extent do the behavioural characteristics of the education system - individualistic, group-oriented, self-esteem reinforcing - affect the rate of entrepreneurship in OECD countries?
+To what extent do the behavioural characteristics of education systems - individualistic, group-oriented, self-esteem reinforcing - affect the rate of entrepreneurship in OECD countries?
 
   
   
 ### Estimation Strategy
 
-### Causal Chain  
+#### Causal Chain  
 
 Education system / Teaching reinforcing self-esteem ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level.
 
-### Data
+#### Data
 
 To find out, we need to gather quantitative data about entrepreneurship on the one hand, and some measures of these behavioural characteristics on the other hand.
 
+<<<<<<< HEAD
 
 Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We may well observe different effects, studying them successively.
 
 Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We will study them successively as we may well observe different effects.
+=======
+##### The rate of entrepreneurship at country-level is the variable we intend to explain  
+
+
+We intend to look into three dimensions of entrepreneurship. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We will study them successively as we may well observe different effects.  
+
+
+
+
+
+##### Degree of Self-esteem reinforcement within the education system will be our key explanatory variable  
+
+
+Inglehart showed how personal values are shaped before the age of 20, we will try to show how compulsory education (from 6 to 16 years of age) does shape the individual, especially in terms of self-esteem. Of course, is is not easy to quantify how supportive of students' self-esteem a given education system can be and we are still looking for the most adequate measure.  
+
+
+The closest data we found so far is one of the six items / questions that GEM uses to measure the importance of entrepreneurial education at country-level in its NES Survey. Item D01 states: "In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative".
+
+
+For now, we use two GEM indicators that relate to self-esteem and confidence.
+
+We look at the average "perceived capabilities" of an individual (18-64) of a given country to start a business.
+
+We also take into account how likely the "fear of failure" could deter the average individual (18-64) of a country to become an entrepreneur.  
+
+
+
+##### We will control for classic determinants of entrepreneurship  
+
+
+We will intend to control for the classic determinants of entrepreneurship, that is for economic and structural determinants. More specifically, we will control for nine key entrepreneurship conditions as defined in the GEM [National Experts Survey (NES)](http://http://www.gemconsortium.org/Data-Collection) that may affect the rate of entrepreneurship. These nine conditions are the following:  
+
+1. Finance  
+2. Government policies  
+3. Government programs  
+4. Entrepreneurial Education and Training  
+5. Research and Development Transfer (R & D)  
+6. Commercial and professional infrastructure  
+7. Internal Market openness  
+8. Physical infrastructure and services  
+9. Cultural and social norms
+
+We are not yet fully sure on how best to control for all these variables, especially as GEM NES data does not seem to be available in dataset format as such. We may need to build up our own dataset, collecting data from the many national GEM NES reports. We will work on this in the coming weeks.  
+
+As for now, as a substitute to all these conditions together, we use GEM indicator called "Perceived Opportunities". For each country, it is the average percentage of individuals who believe there are opportunities to start a business in the area they live in. This is not equivalent to controlling for all the conditions above but it actually tells about all of them from the potential entrepreneur's point of view. Since we look at average individual self-esteem in every OECD country, we believe it is consistent to look at the opportunities perceived by the average 18-64-year-old individual of these countries.
+
+Besides these nine conditions and the GEM "perceived opportunities" measure, we also intend to control for the economic outlook at the time of data collection which is why we chose to include growth rate for each country from 2001 until 2013. This is our only data that does not originates from the GEM collection.
+
+>>>>>>> 669f5e9ecb2c19a4150a5416abf37d616e8a76b4
 
 ### Conclusion  
 
