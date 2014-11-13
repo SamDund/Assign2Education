@@ -1,7 +1,7 @@
 ---
-title: "DataGatheringandAnalysis"
-author: "Sam"
-date: "November 10, 2014"
+title: "The Country-level Impact of Educational Features on the Rate of Entrepreneurship - Data Gathering and Analysis"
+author: "Samuel Dundon and Thierry Racaud"
+date: "November 14, 2014"
 output: html_document
 ---
 
@@ -245,3 +245,23 @@ confint(R3)
 car::scatterplotMatrix(CompleteDataset)
 
 ```
+
+*Introduction to Collaborative Social Science Data Analysis*
+
+### Research Question
+
+To what extent do the behavioural characteristics of the education system - individualistic, group-oriented, self-esteem reinforcing - affect the rate of entrepreneurship in OECD countries?
+
+
+### Estimation Strategy
+
+### Causal Chain  
+
+Stronger culture of positive reinforcement ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level.
+
+### Data
+
+To find out, we need to gather quantitative data about entrepreneurship on the one hand, and some measures of these behavioural characteristics on the other hand.
+
+Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We may well observe different effects, studying them successively.
+
