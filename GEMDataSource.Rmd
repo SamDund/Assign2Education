@@ -17,6 +17,7 @@ library(reshape2)
 library(plyr)
 library(WDI)
 library(stargazer)
+library(Zelig)
 
 # Load citation package
 pkgs <- c('repmis', 'tidyr', 'reshape2', 'plyr', 'WDI')
@@ -221,33 +222,30 @@ remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapab
 summary(CompleteDataset)
 
 # Run a linear regression
-R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear + AnnualGDPGrowth + 
-           PercentOpportunities, data = CompleteDataset)
+R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
+
+# Obtain summary statistics of R1
 summary(R1)
 
-# Calculate confidence intervals
+# Calculate confidence intervals of R1
 confint(R1)
 
-# Run a linear regression
-R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear + AnnualGDPGrowth, data = CompleteDataset)
+# Run a linear regression of R2
+R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
 
-R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear + AnnualGDPGrowth + 
-           PercentOpportunities, data = CompleteDataset)
-
+# Obtain summary statistics of R2
 summary(R2)
 
-# Calculate confidence intervals
+# Calculate confidence intervals of R2
 confint(R2)
 
-# Run a linear regression
-R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear + AnnualGDPGrowth, data = CompleteDataset)
-
-R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear + AnnualGDPGrowth + 
-           PercentOpportunities, data = CompleteDataset)
+# Run a linear regression of R3
+R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
  
+# Obtain summary statistics of R3
 summary(R3)
 
-# Calculate confidence intervals
+# Calculate confidence intervals of R3
 confint(R3)
 
 # Plot graph
@@ -257,10 +255,27 @@ car::scatterplotMatrix(CompleteDataset)
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis'} 
 # Create regression output table
 labels <- c('Percent Perceived', 'Percent Fear',
-            'Annual GDP Growth', 'Percent Opportunities', '(Intercept)')
+            'Annual GDP Growth', 'Percent Opportunities', 'Percent Fear x Percent Opportunities','(Intercept)')
 
 stargazer::stargazer(R1, R2, R3, covariate.labels = labels, 
                      title = 'Linear Regression Estimates', digits = 2, type = 'html')
+
+```
+
+```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis'}
+library(Zelig)
+
+
+Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, cite = FALSE,
+            data = CompleteDataset, model = 'ls', param = function(z.out))
+
+z5 <- zls$new()
+
+summary(Z1)
+
+Z1$sim()
+
+sim(setz1)
 
 ```
 
@@ -282,5 +297,3 @@ Stronger culture of positive reinforcement ---> higher degree of individual self
 To find out, we need to gather quantitative data about entrepreneurship on the one hand, and some measures of these behavioural characteristics on the other hand.
 
 Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We may well observe different effects, studying them successively.
-
->>>>>>> d492a8dcde27e8a4480f0504d410e52e7c2d7e6e
