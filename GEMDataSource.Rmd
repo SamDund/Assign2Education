@@ -16,6 +16,10 @@ library(reshape2)
 library(plyr)
 library(WDI)
 
+# Load citation package
+pkgs <- c('repmis', 'tidyr', 'reshape2', 'plyr', 'WDI')
+repmis::LoadandCite(pkgs, file= 'DataRpackageCitations.bib')
+
 #### Import data from GEM Survey ####
 
 # Import fear of failure data
@@ -181,6 +185,31 @@ car::scatterplotMatrix(FinalMerge)
 
 #### Import WDI Annual GDP Growth Data ####
 WDIsearch('gdp')
-dat = WDI(indicator='GDP growth (annual %)', country=c('MX','CA','US',), start=2001, end=2013)
+GDPGrowth = WDI(indicator='NY.GDP.MKTP.KD.ZG', country=c('MX','CA','US','FR','AU','AT','BE',
+                                                         'CL','CZ','DK','EE','FI','DE','HU', 
+                                                         'IS','IE','IL','IT','JP','KR','LU',
+                                                         'NL','NZ','NO','PL','PT','SK','SI',
+                                                         'ES','SE','CH','TR','GB','US','GR'), 
+                start=2001, end=2013)
+# Rename columns
+GDPGrowth <- plyr::rename(x = GDPGrowth, 
+                                      replace = c("year" = "Year",
+                                                  "NY.GDP.MKTP.KD.ZG" = "AnnualGDPGrowth",
+                                                  "country" = "Country"))
+
+
+# Recode country == "United States" to "United States of America" and Korea, Rep. to Korea (South)
+GDPGrowth$Country[GDPGrowth$Country == "United States"] <- "United States of America"
+
+# Recode country == "Korea, Rep."" to "Korea (South)"
+GDPGrowth$Country[GDPGrowth$Country == "Korea, Rep."] <- "Korea (South)"
+
+# Remove iso2c data to ease merge with FinalMerge data
+GDPGrowth$iso2c <- NULL
+
+# Merge GDPGrowth and FinalMerge
+CompeteDataset <- merge(FinalMerge, GDPGrowth,
+                   union("Country", "Year"),
+                   all = TRUE) 
 
 ```
