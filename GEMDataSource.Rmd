@@ -38,7 +38,7 @@ NascentEntre <- repmis::source_data("https://raw.githubusercontent.com/SamDund/A
 PerceivedCapabilities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_PerceivedCapabilities.csv", header = TRUE, cache = FALSE) 
 
 # Import GEM perceived opportunities data as a proxy for potential control variables
-PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_PerceivedOpportunities.csv", header = TRUE, cache = FALSE)
+PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE)
 
 #### Clean data using tidy ####
 
@@ -181,33 +181,6 @@ FinalGEM[,"PercentOwner"] <- as.numeric(FinalGEM[,"PercentOwner"])
 FinalGEM[,"PercentIntention"] <- as.numeric(FinalGEM[,"PercentIntention"])
 FinalGEM[,"PercentOpportunities"] <- as.numeric(FinalGEM[,"PercentOpportunities"])
 
-# Check data to confirm change
-summary(FinalGEM)
-
-# Run a linear regression
-R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear, data = FinalGEM)
-summary(R1)
-
-# Calculate confidence intervals
-confint(R1)
-
-# Run a linear regression
-R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear, data = FinalGEM)
-summary(R2)
-
-# Calculate confidence intervals
-confint(R2)
-
-# Run a linear regression
-R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear, data = FinalGEM)
-summary(R3)
-
-# Calculate confidence intervals
-confint(R3)
-
-# Plot graph
-car::scatterplotMatrix(FinalGEM)
-
 
 #### Import WDI Annual GDP Growth Data ####
 WDIsearch('gdp')
@@ -234,8 +207,39 @@ GDPGrowth$Country[GDPGrowth$Country == "Korea, Rep."] <- "Korea (South)"
 GDPGrowth$iso2c <- NULL
 
 # Merge GDPGrowth and FinalGEM
-CompeteDataset <- merge(FinalGEM, GDPGrowth,
+CompleteDataset <- merge(FinalGEM, GDPGrowth,
                    union("Country", "Year"),
                    all = TRUE) 
+
+# Remove unncessary data from environment
+remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
+
+# Check data to confirm change
+summary(CompleteDataset)
+
+# Run a linear regression
+R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear + AnnualGDPGrowth + 
+           PercentOpportunities, data = CompleteDataset)
+summary(R1)
+
+# Calculate confidence intervals
+confint(R1)
+
+# Run a linear regression
+R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear, data = FinalGEM)
+summary(R2)
+
+# Calculate confidence intervals
+confint(R2)
+
+# Run a linear regression
+R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear, data = FinalGEM)
+summary(R3)
+
+# Calculate confidence intervals
+confint(R3)
+
+# Plot graph
+car::scatterplotMatrix(CompleteDataset)
 
 ```
