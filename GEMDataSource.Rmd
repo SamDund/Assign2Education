@@ -315,20 +315,6 @@ simz3 <- sim(Z1, x = x.out3)
 
 # Adjust margins
 par(mar=c(2,3,2,2))
-=======
-```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis'}
-library(Zelig)
-
-
-Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, cite = FALSE,
-            data = CompleteDataset, model = 'ls', param = function(z.out))
-
-z5 <- zls$new()
-
-summary(Z1)
-
-Z1$sim()
->>>>>>> 730efabc11f004a4de3d0b34b79fafed4335af1d
 
 # Plot simulation
 plot(simz3)
