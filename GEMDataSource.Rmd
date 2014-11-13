@@ -17,7 +17,6 @@ library(reshape2)
 library(plyr)
 library(WDI)
 library(stargazer)
-library(Zelig)
 
 # Load citation package
 pkgs <- c('repmis', 'tidyr', 'reshape2', 'plyr', 'WDI')
@@ -215,6 +214,9 @@ CompleteDataset <- merge(FinalGEM, GDPGrowth,
                    union("Country", "Year"),
                    all = TRUE) 
 
+CompleteDataset[,"AnnualGDPGrowth"] <- as.numeric(CompleteDataset[,"AnnualGDPGrowth"])
+
+
 # Remove unncessary data from environment
 remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
 
@@ -263,16 +265,48 @@ stargazer::stargazer(R1, R2, R3, covariate.labels = labels,
 ```
 
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis'}
+
+library(zoo)
+library(sandwich)
+library(MCMCpack)
+library(coda)
+library(lattice)
+library(mvtnorm)
+library(VGAM)
+library(sna)
+library(systemfit)
+library(nnet)
+library(gee)
+library(mgcv)
 library(Zelig)
+library(ZeligChoice)
+
+VectorData <- as.vector(CompleteDataset)
+
+class(CompleteDataset$GDPGrowth)
+
+z.out <- zelig(as.factor(PercentIntention) ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, cite = FALSE, data = VectorData, model = "oprobit")
 
 
-Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, cite = FALSE,
-            data = CompleteDataset, model = 'ls', param = function(z.out))
+x.out1 <- setx(z.out, PercentPerceived=10)
 
-z5 <- zls$new()
+x.out2 <- setx(z.out, PercentPerceived=100)
 
-summary(Z1)
+s.out <- sim(z.out)
 
+summary(s.out)
+
+plot(s.out)
+
+names(Z1)
+
+plot(Z1)
+
+Z1$result
+
+sim(Z1)
+
+source("http://r.iq.harvard.edu/install_zelig.R")
 Z1$sim()
 
 sim(setz1)
@@ -297,9 +331,9 @@ Education system / Teaching reinforcing self-esteem ---> higher degree of indivi
 
 To find out, we need to gather quantitative data about entrepreneurship on the one hand, and some measures of these behavioural characteristics on the other hand.
 
-<<<<<<< HEAD
+
 Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We may well observe different effects, studying them successively.
-=======
+
 Regarding entrepreneurship, we intend to look into three dimensions. We intend to look at established entrepreneurship in the country, whether it is successful or not, nascent entrepreneurship (less than three months), again whether it is successful or not, and entrepreneurial intention. We will study them successively as we may well observe different effects.
 
 ### Conclusion  
@@ -310,4 +344,3 @@ The impact of cultural factors in education on the rate of entrepreneurship in a
 
 ### References
 
->>>>>>> 648e7ea9f4a5614384d90351f0cd6454bd142647
