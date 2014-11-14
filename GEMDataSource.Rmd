@@ -60,7 +60,7 @@ In the future, we may revise this to include lagged GDP growth in recognition of
 9. Cultural and social norms  
 
 
-#### Regressions
+##### Regressions
 
 
 The following equations were used to determine the relationship between our dependent and explanatory variables:  
