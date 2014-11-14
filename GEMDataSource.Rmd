@@ -6,6 +6,24 @@ output: html_document
 ---
 ***  
 
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE}
+
+# Set working directory
+setwd('~/Assign2Education/')
+
+# Library required packages repmis, ridy, reshape2, plyr and WDI packages
+library(plyr)
+library(repmis)
+library(tidyr)
+library(reshape2)
+library(WDI)
+
+# Load citation package
+pkgs <- c('plyr','repmis', 'tidyr', 'reshape2', 'WDI', 'stargazer', 'Zelig')
+repmis::LoadandCite(pkgs, file= 'DataRpackageCitations.bib')
+
+```
+
 *Introduction to Collaborative Social Science Data Analysis*
 
 #### Research Question  
@@ -87,11 +105,11 @@ To collect the data necessary to run these regression equations, we downloaded *
 
 The following packages were needed to complete the data collection portion of this assignment:
 
-* repmis  
-* tidyr  
-* reshape  
-* plyr  
-* WDI  
+- repmis  
+- tidyr  
+- reshape  
+- plyr  
+- WDI  
 
 
 **GEM Data**  
@@ -115,20 +133,6 @@ Finally, we merged the annual GDP growth data with the *FinalGEM* data set to cr
 
 <br>
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE}
-
-# Set working directory
-setwd('~/Assign2Education/')
-
-# Library required packages repmis, ridy, reshape2, plyr and WDI packages
-library(plyr)
-library(repmis)
-library(tidyr)
-library(reshape2)
-library(WDI)
-
-# Load citation package
-pkgs <- c('plyr','repmis', 'tidyr', 'reshape2', 'WDI', 'stargazer', 'Zelig')
-repmis::LoadandCite(pkgs, file= 'DataRpackageCitations.bib')
 
 #### Import data from GEM Survey ####
 
