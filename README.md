@@ -3,13 +3,13 @@
 #### Sam Dundon and Thierry Racaud
 * * * 
 #### Project Introduction
-This is a data cleaning and analysis overview for Thierry Racaud's thesis titled: "The Country-level Impact of Educational Patterns on the Rate of Entrepreneurship."  The overview has been divided into the following sections:  
+This is a data cleaning and analysis overview for Thierry Racaud's thesis titled: "The Country-level Impact of Educational Features on the Rate of Entrepreneurship." The overview has been divided into the following sections:  
 
 1. Research Question  
-2. Causal Chain 
+2. Estimation Strategy 
 3. Data Collection and Cleaning
 4. Data Analysis  
-5. Summary   
+5. Outlook   
     
 The overview includes dynamically linked [citations for R packages](https://raw.githubusercontent.com/SamDund/Assign2Education/master/DataRpackageCitations.bib).
 
