@@ -429,7 +429,7 @@ We replaced the few missing values by NA.
 #### Data Description
 
 
-For all 33 OECD countries we should have 13 observations, one per year from 2001 to 2013, for each variable. Of course, there are a few missing values, especially regarding the perceived opportunities for some countries Estonia, Luxembourg and Slovak Republic.
+For all 33 OECD countries we should have 13 observations, one per year from 2001 to 2013, for each variable. Of course, there are a few missing values, especially regarding the perceived opportunities for some countries, namely Estonia, Luxembourg and Slovak Republic.
 
 
 #### First regressions
