@@ -221,7 +221,7 @@ remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapab
 # Check data to confirm change
 summary(CompleteDataset)
 
-# Run a linear regression
+# Run linear regression R1
 R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
 
 # Obtain summary statistics of R1
@@ -230,7 +230,7 @@ summary(R1)
 # Calculate confidence intervals of R1
 confint(R1)
 
-# Run a linear regression of R2
+# Run linear regression R2
 R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
 
 # Obtain summary statistics of R2
@@ -239,7 +239,7 @@ summary(R2)
 # Calculate confidence intervals of R2
 confint(R2)
 
-# Run a linear regression of R3
+# Run linear regression R3
 R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
  
 # Obtain summary statistics of R3
@@ -419,12 +419,16 @@ We cleaned our data by getting rid of unnecessary characters like the "X" to whi
 
 One issue we then faced was to merge our datasets all together into a two-dimension table whilst we had three dimensions to take into account: country, year and variable. Therefore, for each dataset, we moved the years from columns to rows, without getting rid of the country labels of course. Thus the first column remained be the list of countries, the second became the iterative list of years (same list for each country: 2001 ... 2013), the third was the variable for the variable of interest.  
 
-We merged the datasets two by two until we obtained the final dataset that would allow us to test the data with some linear regressions.  
+We merged the datasets two by two until we obtained the final GEM data set.
+
+To merge that final GEM dataset with the annual GDP Growth dataset, we had to recode some country labels that differed (USA, South Korea) and to remove the iso2c data.
 
 
 
 #### Data Description
 
+
+We replace the few missing values by NA. There are more regarding the perceived opportunities for some countries Estonia, Luxembourg and Slovak Republic.
 
 
 #### First regressions
