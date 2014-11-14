@@ -60,6 +60,8 @@ In the future, we may revise this to include lagged GDP growth in recognition of
 9. Cultural and social norms  
 
 
+#### Regressions
+
 
 The following equations were used to determine the relationship between our dependent and explanatory variables:  
 
@@ -79,7 +81,9 @@ The variables *Percent Fear* and *Percent Opportunities* were included as an int
 >The Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from setting up a business.  
 
 <br>
-
+  
+  
+  
 #### Data Collection and Cleaning
 
 To collect the data necessary to run these regression equations, we downloaded *.csv* data from GEM and used the WDI API to obtain the necessary annual GDP growth of OECD Countries.   
