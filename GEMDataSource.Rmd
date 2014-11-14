@@ -121,15 +121,15 @@ Finally, we merged the annual GDP growth data with the *FinalGEM* data set to cr
 setwd('~/Assign2Education/')
 
 # Library required packages repmis, ridy, reshape2, plyr, WDI, and stargazer packages
+library(plyr)
 library(repmis)
 library(tidyr)
 library(reshape2)
-library(plyr)
 library(WDI)
 library(stargazer)
 
 # Load citation package
-pkgs <- c('repmis', 'tidyr', 'reshape2', 'plyr', 'WDI')
+pkgs <- c('plyr','repmis', 'tidyr', 'reshape2', 'WDI', 'stargazer', 'Zelig')
 repmis::LoadandCite(pkgs, file= 'DataRpackageCitations.bib')
 
 #### Import data from GEM Survey ####
