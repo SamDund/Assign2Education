@@ -417,9 +417,19 @@ GDP Annual Growth Rate
 
 We cleaned our data by getting rid of unnecessary characters like the "X" to which we substituted ""nothing. We called the new versions with different names.
 
-One issue we then faced was to merge our datasets all together into a two-dimension table whilst we had three dimensions to take into account: country, year and variable. Therefore, for each dataset, we moved the years from columns to rows, without getting rid of the country labels of course. Thus the first column would be the list of countries, the second the list of years (same for each country: 2001 ... 2013), the third the variable of interest.  
+One issue we then faced was to merge our datasets all together into a two-dimension table whilst we had three dimensions to take into account: country, year and variable. Therefore, for each dataset, we moved the years from columns to rows, without getting rid of the country labels of course. Thus the first column remained be the list of countries, the second became the iterative list of years (same list for each country: 2001 ... 2013), the third was the variable for the variable of interest.  
 
-We merged the datasets two by two until we we obtained the final dataset that would allow us to test the data and have an attempt at one or two regressions. 
+We merged the datasets two by two until we obtained the final dataset that would allow us to test the data with some linear regressions.  
+
+
+
+#### Data Description
+
+
+
+#### First regressions
+
+
 
 
 
