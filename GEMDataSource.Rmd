@@ -39,8 +39,6 @@ To measure these three dimensions of entrepreneurship, we have used three [Globa
 
 As Inglehart has shown how personal values are shaped before the age of 20, we will try to show how compulsory education (from 6 to 16 years of age) shapes individuals, especially in terms of self-esteem. To do so, we decided to incorporate GEM indicators that relate to self-esteem and confidence. First, we included GEM survey data on the average "perceived capabilities" of an individual (18-64) in a given country to start a business. Second, we included additional GEM data on how the "fear of failure" could deter an average individual (18-64) in a country to become an entrepreneur. Both of these data sets indicate the average percentage for each characteristic at the country-level.  
 
-Going forward, we are considering adding one of the six questions used by GEM to measure the importance of entrepreneurial education at country-level in its NES Survey. Item D01 states: "In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative."     
-
 
 ##### Control Variables: Controlling for Classic Determinants of Entrepreneurship  
 
@@ -126,13 +124,12 @@ Finally, we merged the annual GDP growth data with the *FinalGEM* data set to cr
 # Set working directory
 setwd('~/Assign2Education/')
 
-# Library required packages repmis, ridy, reshape2, plyr, WDI, and stargazer packages
+# Library required packages repmis, ridy, reshape2, plyr and WDI packages
 library(plyr)
 library(repmis)
 library(tidyr)
 library(reshape2)
 library(WDI)
-library(stargazer)
 
 # Load citation package
 pkgs <- c('plyr','repmis', 'tidyr', 'reshape2', 'WDI', 'stargazer', 'Zelig')
@@ -348,13 +345,14 @@ To review, the three regression equations run for this assignment are the follow
 3. $PercentOwner = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth$  
 
 
-To examine the relationship between these variables, we used least square estimation, the results of which can be found in the following table.  The package *stargazer* was required to generate this table.  As evidenced by the equation results, the individual variables selected are statistically significant, but the model only explains a relatively small degree of the variation in the dependent variable.  For example, the adjusted $R^2$ of regression equation one is 0.29, the adjusted $R^2$ of regression equation two is 0.38, and the adjusted $R^2$ is 0.13.  
+To examine the relationship between these variables, we used least square estimation, the results of which can be found in the following table. The package *stargazer* was required to generate this table.  As evidenced by the equation results, the individual variables selected are statistically significant, but the model only explains a relatively small degree of the variation in the dependent variable.  For example, the adjusted $R^2$ of regression equation one is 0.29, the adjusted $R^2$ of regression equation two is 0.38, and the adjusted $R^2$ is 0.13.  
 <br>
 
 
 
 
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
+
 
 # Run linear regression R1
 R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
@@ -377,6 +375,9 @@ summary(R3)
   
 
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis'} 
+
+# Library Stargazer for regression output tables
+library(stargazer)
 
 # Create regression output table
 labels <- c('Percent Perceived', 'Percent Fear',
@@ -434,7 +435,11 @@ plot(simz2)
 
 
 
-#### Summary  
+#### Outlook 
 
 
-The impact of cultural factors in education on the rate of entrepreneurship in a given country is an important and under-researched topic that should be considered by policymakers constructing public education budgets. Through this project, we hope to encourage the consideration of these cultural factors by providing a qualitative and quantitative method for understanding the impact of these factors. Although several challenges remain to compiling the indexes discussed in this report, we are confident we can produce a helpful framework for examining and understanding these factors.
+Going forward, we are considering adding one of the six questions used by GEM to measure the importance of entrepreneurial education at country-level in its NES Survey. Item D01 states: "In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative." This could be a proxy to get a sense of how supportive of self-esteem a given education system is.
+
+We may also want to quantify how individualistic or group-oriented an average student is by the end of compulsory education, as the literature holds social inclusion as an explanatory factor for self-esteem. We will use OECD PISA data on "the sense of belonging" for this. 
+
+Next steps will also include looking more thoroughly into control variables. To do so we may need to extract data from various national NES reports and put together a table, as it does not seem to exist as such.
