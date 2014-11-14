@@ -20,7 +20,7 @@ The data analysis overview is [GEMDataSource.Rmd](https://raw.githubusercontent.
 
 #### Other Repository Contents
 - Proposal: A file with assignment two information including a README, RMarkdown proposal file, knitted PDF and html versions of the proposal file, Main bibliography file dynamically linked to EducProposal.Rmd, and a Bibliography file dynamically linked to EducProposal.Rmd with citations for R and packages
-- Misc: A file with an extra source file used for exploring other R features.  This file will likely be used for the next class assignment
+- Misc: A folder with extra source files used for exploring other R features.  This file will likely be used for the next class assignment
 - Img: A file containing the OECD chart in the EducProposal.Rmd file
 - Other: A project file, cached files, gitignore, .RData, and .Rhistory files
 
