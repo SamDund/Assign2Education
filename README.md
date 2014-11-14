@@ -1,28 +1,25 @@
-### Assignment 2: Proposal for Collaborative Research Project
+### Assignment 3: Data Cleaning and Analysis
 
 #### Sam Dundon and Thierry Racaud
 * * * 
 #### Project Introduction
-This is a proposal for Thierry Racaud's thesis titled: "The Country-level Impact of Educational Patterns on the Rate of Entrepreneurship."  The proposal has been divided into the following sections:  
+This is a data cleaning and analysis overview for Thierry Racaud's thesis titled: "The Country-level Impact of Educational Patterns on the Rate of Entrepreneurship."  The overview has been divided into the following sections:  
 
-1. Research Interest  
-2. Research Question 
-3. Literature Review 
-4. Analytical Method  
-5. Key Concepts  
-6. Conclusion
-7. References    
-
-The proposal includes dynamically linked academic references and citations for R packages.
+1. Research Question  
+2. Causal Chain 
+3. Data Collection and Cleaning
+4. Data Analysis  
+5. Summary   
+    
+The overview includes dynamically linked [citations for R packages](https://raw.githubusercontent.com/SamDund/Assign2Education/master/DataRpackageCitations.bib).
 
 #### Proposal File
-The project proposal is EducProposal.Rmd.  Please click [here](https://raw.githubusercontent.com/SamDund/Assign2Education/master/EducProposal.html) to access the html for the RMarkdown file and open it in Chrome or a similar application (some features are not availble in the html version saved on GitHub): 
+The data analysis overview is [GEMDataSource.Rmd](https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMDataSource.Rmd).  Please click [here](https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMDataSource.html) to access the html for the RMarkdown file and open it in Chrome or a similar application. 
 
 
 
 #### Other Repository Contents
-- Main.bib: Main bibliography file dynamically linked to EducProposal.Rmd
-- RpackageCitations.bib: Bibliography file dynamically linked to EducProposal.Rmd with citations for R and packages
+- Proposal: A file with assignment two information including a README, RMarkdown proposal file, knitted PDF and html versions of the proposal file, Main bibliography file dynamically linked to EducProposal.Rmd, and a Bibliography file dynamically linked to EducProposal.Rmd with citations for R and packages
 - Misc: A file with an extra source file used for exploring other R features.  This file will likely be used for the next class assignment
 - Img: A file containing the OECD chart in the EducProposal.Rmd file
 - Other: A project file, cached files, gitignore, .RData, and .Rhistory files
