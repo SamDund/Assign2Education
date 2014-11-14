@@ -423,16 +423,25 @@ We merged the datasets two by two until we obtained the final GEM data set.
 
 To merge that final GEM dataset with the annual GDP Growth dataset, we had to recode some country labels that differed (USA, South Korea) and to remove the iso2c data.
 
+We replaced the few missing values by NA.  
 
 
 #### Data Description
 
 
-We replace the few missing values by NA. There are more regarding the perceived opportunities for some countries Estonia, Luxembourg and Slovak Republic.
+For all 33 OECD countries we should have 13 observations, one per year from 2001 to 2013, for each variable. Of course, there are a few missing values, especially regarding the perceived opportunities for some countries Estonia, Luxembourg and Slovak Republic.
 
 
 #### First regressions
 
+
+R1  
+
+
+R2  
+
+
+R3  
 
 
 
