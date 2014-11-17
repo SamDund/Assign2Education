@@ -416,8 +416,11 @@ Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportuniti
 
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE }
 
+# Find appropriate range for PercentPerceived
+summary(CompleteData_omit$PercentPerceived)
+
 # Set range of PercentPerceived values in simulation
-x.out2 <- setx(Z1, PercentPerceived = 20:100)
+x.out2 <- setx(Z1, PercentPerceived = 9:67)
 
 # Run simulation (default 1000 trials)
 simz2 <- sim(Z1, x = x.out2)
