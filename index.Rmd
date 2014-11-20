@@ -1,8 +1,8 @@
 ---
-title: 'Index'
+title: 'index.html'
 author: "Sam"
 date: "November 20, 2014"
 output: html_document
 ---
 
-### Under Construction
+### Under construction, will be up and running soon
