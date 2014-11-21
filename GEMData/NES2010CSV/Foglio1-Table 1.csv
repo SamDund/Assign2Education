@@ -1,0 +1,387 @@
+ID;Case identificator
+NES10COUNTRY;NES participating countries, regions (numeric code)
+NES10CRNAME;NES participating countries, regions (name of the country, region)
+NES10PAÍS;Países: denominación en español
+COU_OR_REG;Country (1) or Region (2)
+MEANS;MEAN VALUE OF EACH PARTICIPATING COUNTRY OR REGION IN GEM 2008 FOR THE VARIABLES:
+NES10_A01_MEAN;In my country, there is sufficient equity funding available for new and growing firms
+NES10_A02_MEAN;In my country, there is sufficient debt funding available for new and growing firms
+NES10_A03_MEAN;In my country, there are sufficient government subsidies available for new and growing firms
+NES10_A04_MEAN;In my country, there is sufficient funding available from private individuals (other than founders) for new and growing firms
+NES10_A05_MEAN;In my country, there is sufficient venture capitalist funding available for new and growing firms )
+NES10_A06_MEAN;In my country, there is sufficient funding available through initial public offerings (IPOs) for new and growing firms
+NES10_B01_MEAN;In my country, Government policies (e g , public procurement) consistently favor new firms
+NES10_B02_MEAN;In my country, the support for new and growing firms is a high priority for policy at the national government level
+NES10_B03_MEAN;In my country, the support for new and growing firms is a high priority for policy at the local government level
+NES10_B04_MEAN;In my country, new firms can get most of the required permits and licenses in about a week
+NES10_B05_MEAN;In my country, the amount of taxes is NOT a burden for new and growing firms
+NES10_B06_MEAN;In my country, taxes and other government regulations are applied to new and growing firms in a predictable and consistent way
+NES10_B07_MEAN;In my country, coping with government bureaucracy, regulations, and licensing requirements it is not unduly difficult for new and growing firms
+NES10_C01_MEAN;In my country, a wide range of government assistance for new and growing firms can be obtained through contact with a single agency
+NES10_C02_MEAN;In my country, science parks and business incubators provide effective support for new and growing firms
+NES10_C03_MEAN;In my country, there are an adequate number of government programs for new and growing businesses
+NES10_C04_MEAN;In my country, the people working for government agencies are competent and effective in supporting new and growing firms
+NES10_C05_MEAN;In my country, almost anyone who needs help from a government program for a new or growing business can find what they need
+NES10_C06_MEAN;In my country, Government programs aimed at supporting new and growing firms are effective
+NES10_D01_MEAN;In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative
+NES10_D02_MEAN;In my country, teaching in primary and secondary education provides adequate instruction in market economic principles
+NES10_D03_MEAN;In my country, teaching in primary and secondary education provides adequate attention to entrepreneurship and new firm creation
+NES10_D04_MEAN;In my country, Colleges and universities provide good and adequate preparation for starting up and growing new firms
+NES10_D05_MEAN;In my country, the level of business and management education provide good and adequate preparation for starting up and growing new firms
+NES10_D06_MEAN;In my country, the vocational, professional, and continuing education systems provide good and adequate preparation for starting up and growing new firms
+NES10_E01_MEAN;In my country, new technology, science, and other knowledge are efficiently transferred from universities and public research centers to new and growing firms
+NES10_E02_MEAN;In my country, new and growing firms have just as much access to new research and technology as large, established firms
+NES10_E03_MEAN;In my country, new and growing firms can afford the latest technology
+NES10_E04_MEAN;In my country, there are adequate government subsidies for new and growing firms to acquire new technology
+NES10_E05_MEAN;In my country, the science and technology base efficiently supports the creation of world-class new technology-based ventures in at least one area
+NES10_E06_MEAN;In my country, there is good support available for engineers and scientists to have their ideas commercialized through new and growing firms
+NES10_F01_MEAN;In my country, there are enough subcontractors, suppliers, and consultants to support new and growing firms
+NES10_F02_MEAN;In my country, new and growing firms can afford the cost of using subcontractors, suppliers, and consultants
+NES10_F03_MEAN;In my country, it is easy for new and growing firms to get good subcontractors, suppliers, and consultants
+NES10_F04_MEAN;In my country, it is easy for new and growing firms to get good, professional legal and accounting services
+NES10_F05_MEAN;In my country, it is easy for new and growing firms to get good banking services (checking accounts, foreign exchange transactions, letters of credit, and the like)
+NES10_G01_MEAN;In my country, the markets for consumer goods and services change dramatically from year to year
+NES10_G02_MEAN;In my country, the markets for business-to-business goods and services change dramatically from year to year
+NES10_G03_MEAN;In my country, new and growing firms can easily enter new markets
+NES10_G04_MEAN;In my country, the new and growing firms can afford the cost of market entry
+NES10_G05_MEAN;In my country, new and growing firms can enter markets without being unfairly blocked by established firms
+NES10_G06_MEAN;In my country, the anti-trust legislation is effective and well enforced
+NES10_H01_MEAN;In my country, the physical infrastructure (roads, utilities, communications, waste disposal) provides good support for new and growing firms
+NES10_H02_MEAN;In my country, it is not too expensive for a new or growing firm to get good access to communications (phone, Internet, etc )
+NES10_H03_MEAN;In my country, a new or growing firm can get good access to communications (telephone, internet, etc ) in about a week
+NES10_H04_MEAN;In my country, new and growing firms can afford the cost of basic utilities (gas, water, electricity, sewer)
+NES10_H05_MEAN;In my country, new or growing firms can get good access to utilities (gas, water, electricity, sewer) in about a month
+NES10_I01_MEAN;In my country, the national culture is highly supportive of individual success achieved through own personal efforts
+NES10_I02_MEAN;In my country, the national culture emphasizes self-sufficiency, autonomy, and personal initiative
+NES10_I03_MEAN;In my country, the national culture encourages entrepreneurial risk-taking
+NES10_I04_MEAN;In my country, the national culture encourages creativity and innovativeness
+NES10_I05_MEAN;In my country, the national culture emphasizes the responsibility that the individual (rather than the collective) has in managing his or her own life
+NES10_K01_MEAN;In my country, there are plenty of good opportunities for the creation of new firms
+NES10_K02_MEAN;In my country, there are more good opportunities for the creation of new firms than there are people able to take advantage of them
+NES10_K03_MEAN;In my country, good opportunities for new firms have considerably increased in the past five years
+NES10_K04_MEAN;In my country, individuals can easily pursue entrepreneurial opportunities
+NES10_K05_MEAN;In my country, there are plenty of good opportunities to create truly high growth firms
+NES10_L01_MEAN;In my country, many people know how to start and manage a high-growth business
+NES10_L02_MEAN;In my country, many people know how to start and manage a small business
+NES10_L03_MEAN;In my country, many people have experience in starting a new business
+NES10_L04_MEAN;In my country, many people can react quickly to good opportunities for a new business
+NES10_L05_MEAN;In my country, many people have the ability to organize the resources required for a new business
+NES10_M01_MEAN;In my country, the creation of new ventures is considered an appropriate way to become rich
+NES10_M02_MEAN;In my country, most people consider becoming an entrepreneur as a desirable career choice
+NES10_M03_MEAN;In my country, successful entrepreneurs have a high level of status and respect
+NES10_M04_MEAN;In my country, you will often see stories in the public media about successful entrepreneurs
+NES10_M05_MEAN;In my country, most people think of entrepreneurs as competent, resourceful individuals
+NES10_N01_MEAN;In my country, the Intellectual Property Rights (IPR) legislation is comprehensive
+NES10_N02_MEAN;In my country, the Intellectual Property Rights (IPR) legislation is efficiently enforced
+NES10_N03_MEAN;In my country, the illegal sales of 'pirated' software, videos, CDs, and other copyrighted or trademarked products is not extensive
+NES10_N04_MEAN;In my country, new and growing firms can trust that their patents, copyrights, and trademarks will be respected
+NES10_N05_MEAN;In my country, it is widely recognized that inventors' rights for their inventions should be respected
+NES10_P01_MEAN;In my country, there are sufficient social services available so that women can continue to work even after they start a family
+NES10_P02_MEAN;In my country, starting a new business is a socially acceptable career option for women
+NES10_P03_MEAN;In my country, women are encouraged to become self-employed or start a new business
+NES10_P04_MEAN;In my country, men and women get equally exposed to good opportunities to start a new business
+NES10_P05_MEAN;In my country, men and women have the same level of knowledge and skills to start a new business
+NES10_Q01_MEAN;In my country, there are many support initiatives that are specially tailored for high-growth entrepreneurial activity
+NES10_Q02_MEAN;In my country, policy-makers are aware of the importance of high-growth entrepreneurial activity
+NES10_Q03_MEAN;In my country, people working in entrepreneurship support initiatives have sufficient skills and competence to support high-growth firms
+NES10_Q04_MEAN;In my country, potential for rapid growth is often used as a selection criterion when choosing recipients of entrepreneurship support
+NES10_Q05_MEAN;In my country, supporting rapid firm growth is a high priority in entrepreneurship policy
+NES10_R01_MEAN;In my country, companies like to experiment with new technologies and with new ways of doing things
+NES10_R02_MEAN;In my country, consumers like to try out new products and services
+NES10_R03_MEAN;In my country, innovation is highly valued by companies
+NES10_R04_MEAN;In my country, innovation is highly valued by consumers
+NES10_R05_MEAN;In my country, established companies are open to using new, entrepreneurial companies as suppliers
+NES10_R06_MEAN;In my country, consumers are open to buying products and services from new, entrepreneurial companies
+STDDEV;STANDARD DEVIATIONS FOR EACH VARIABLE OF THE CLOSED PART OF THE NES QUESTIONNAIRE
+NES10_A01_SD;In my country, there is sufficient equity funding available for new and growing firms
+NES10_A02_SD;In my country, there is sufficient debt funding available for new and growing firms
+NES10_A03_SD;In my country, there are sufficient government subsidies available for new and growing firms
+NES10_A04_SD;In my country, there is sufficient funding available from private individuals (other than founders) for new and growing firms
+NES10_A05_SD;In my country, there is sufficient venture capitalist funding available for new and growing firms )
+NES10_A06_SD;In my country, there is sufficient funding available through initial public offerings (IPOs) for new and growing firms
+NES10_B01_SD;In my country, Government policies (e g , public procurement) consistently favor new firms
+NES10_B02_SD;In my country, the support for new and growing firms is a high priority for policy at the national government level
+NES10_B03_SD;In my country, the support for new and growing firms is a high priority for policy at the local government level
+NES10_B04_SD;In my country, new firms can get most of the required permits and licenses in about a week
+NES10_B05_SD;In my country, the amount of taxes is NOT a burden for new and growing firms
+NES10_B06_SD;In my country, taxes and other government regulations are applied to new and growing firms in a predictable and consistent way
+NES10_B07_SD;In my country, coping with government bureaucracy, regulations, and licensing requirements it is not unduly difficult for new and growing firms
+NES10_C01_SD;In my country, a wide range of government assistance for new and growing firms can be obtained through contact with a single agency
+NES10_C02_SD;In my country, science parks and business incubators provide effective support for new and growing firms
+NES10_C03_SD;In my country, there are an adequate number of government programs for new and growing businesses
+NES10_C04_SD;In my country, the people working for government agencies are competent and effective in supporting new and growing firms
+NES10_C05_SD;In my country, almost anyone who needs help from a government program for a new or growing business can find what they need
+NES10_C06_SD;In my country, Government programs aimed at supporting new and growing firms are effective
+NES10_D01_SD;In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative
+NES10_D02_SD;In my country, teaching in primary and secondary education provides adequate instruction in market economic principles
+NES10_D03_SD;In my country, teaching in primary and secondary education provides adequate attention to entrepreneurship and new firm creation
+NES10_D04_SD;In my country, Colleges and universities provide good and adequate preparation for starting up and growing new firms
+NES10_D05_SD;In my country, the level of business and management education provide good and adequate preparation for starting up and growing new firms
+NES10_D06_SD;In my country, the vocational, professional, and continuing education systems provide good and adequate preparation for starting up and growing new firms
+NES10_E01_SD;In my country, new technology, science, and other knowledge are efficiently transferred from universities and public research centers to new and growing firms
+NES10_E02_SD;In my country, new and growing firms have just as much access to new research and technology as large, established firms
+NES10_E03_SD;In my country, new and growing firms can afford the latest technology
+NES10_E04_SD;In my country, there are adequate government subsidies for new and growing firms to acquire new technology
+NES10_E05_SD;In my country, the science and technology base efficiently supports the creation of world-class new technology-based ventures in at least one area
+NES10_E06_SD;In my country, there is good support available for engineers and scientists to have their ideas commercialized through new and growing firms
+NES10_F01_SD;In my country, there are enough subcontractors, suppliers, and consultants to support new and growing firms
+NES10_F02_SD;In my country, new and growing firms can afford the cost of using subcontractors, suppliers, and consultants
+NES10_F03_SD;In my country, it is easy for new and growing firms to get good subcontractors, suppliers, and consultants
+NES10_F04_SD;In my country, it is easy for new and growing firms to get good, professional legal and accounting services
+NES10_F05_SD;In my country, it is easy for new and growing firms to get good banking services (checking accounts, foreign exchange transactions, letters of credit, and the like)
+NES10_G01_SD;In my country, the markets for consumer goods and services change dramatically from year to year
+NES10_G02_SD;In my country, the markets for business-to-business goods and services change dramatically from year to year
+NES10_G03_SD;In my country, new and growing firms can easily enter new markets
+NES10_G04_SD;In my country, the new and growing firms can afford the cost of market entry
+NES10_G05_SD;In my country, new and growing firms can enter markets without being unfairly blocked by established firms
+NES10_G06_SD;In my country, the anti-trust legislation is effective and well enforced
+NES10_H01_SD;In my country, the physical infrastructure (roads, utilities, communications, waste disposal) provides good support for new and growing firms
+NES10_H02_SD;In my country, it is not too expensive for a new or growing firm to get good access to communications (phone, Internet, etc )
+NES10_H03_SD;In my country, a new or growing firm can get good access to communications (telephone, internet, etc ) in about a week
+NES10_H04_SD;In my country, new and growing firms can afford the cost of basic utilities (gas, water, electricity, sewer)
+NES10_H05_SD;In my country, new or growing firms can get good access to utilities (gas, water, electricity, sewer) in about a month
+NES10_I01_SD;In my country, the national culture is highly supportive of individual success achieved through own personal efforts
+NES10_I02_SD;In my country, the national culture emphasizes self-sufficiency, autonomy, and personal initiative
+NES10_I03_SD;In my country, the national culture encourages entrepreneurial risk-taking
+NES10_I04_SD;In my country, the national culture encourages creativity and innovativeness
+NES10_I05_SD;In my country, the national culture emphasizes the responsibility that the individual (rather than the collective) has in managing his or her own life
+NES10_K01_SD;In my country, there are plenty of good opportunities for the creation of new firms
+NES10_K02_SD;In my country, there are more good opportunities for the creation of new firms than there are people able to take advantage of them
+NES10_K03_SD;In my country, good opportunities for new firms have considerably increased in the past five years
+NES10_K04_SD;In my country, individuals can easily pursue entrepreneurial opportunities
+NES10_K05_SD;In my country, there are plenty of good opportunities to create truly high growth firms
+NES10_L01_SD;In my country, many people know how to start and manage a high-growth business
+NES10_L02_SD;In my country, many people know how to start and manage a small business
+NES10_L03_SD;In my country, many people have experience in starting a new business
+NES10_L04_SD;In my country, many people can react quickly to good opportunities for a new business
+NES10_L05_SD;In my country, many people have the ability to organize the resources required for a new business
+NES10_M01_SD;In my country, the creation of new ventures is considered an appropriate way to become rich
+NES10_M02_SD;In my country, most people consider becoming an entrepreneur as a desirable career choice
+NES10_M03_SD;In my country, successful entrepreneurs have a high level of status and respect
+NES10_M04_SD;In my country, you will often see stories in the public media about successful entrepreneurs
+NES10_M05_SD;In my country, most people think of entrepreneurs as competent, resourceful individuals
+NES10_N01_SD;In my country, the Intellectual Property Rights (IPR) legislation is comprehensive
+NES10_N02_SD;In my country, the Intellectual Property Rights (IPR) legislation is efficiently enforced
+NES10_N03_SD;In my country, the illegal sales of 'pirated' software, videos, CDs, and other copyrighted or trademarked products is not extensive
+NES10_N04_SD;In my country, new and growing firms can trust that their patents, copyrights, and trademarks will be respected
+NES10_N05_SD;In my country, it is widely recognized that inventors' rights for their inventions should be respected
+NES10_P01_SD;In my country, there are sufficient social services available so that women can continue to work even after they start a family
+NES10_P02_SD;In my country, starting a new business is a socially acceptable career option for women
+NES10_P03_SD;In my country, women are encouraged to become self-employed or start a new business
+NES10_P04_SD;In my country, men and women get equally exposed to good opportunities to start a new business
+NES10_P05_SD;In my country, men and women have the same level of knowledge and skills to start a new business
+NES10_Q01_SD;In my country, there are many support initiatives that are specially tailored for high-growth entrepreneurial activity
+NES10_Q02_SD;In my country, policy-makers are aware of the importance of high-growth entrepreneurial activity
+NES10_Q03_SD;In my country, people working in entrepreneurship support initiatives have sufficient skills and competence to support high-growth firms
+NES10_Q04_SD;In my country, potential for rapid growth is often used as a selection criterion when choosing recipients of entrepreneurship support
+NES10_Q05_SD;In my country, supporting rapid firm growth is a high priority in entrepreneurship policy
+NES10_R01_SD;In my country, companies like to experiment with new technologies and with new ways of doing things
+NES10_R02_SD;In my country, consumers like to try out new products and services
+NES10_R03_SD;In my country, innovation is highly valued by companies
+NES10_R04_SD;In my country, innovation is highly valued by consumers
+NES10_R05_SD;In my country, established companies are open to using new, entrepreneurial companies as suppliers
+NES10_R06_SD;In my country, consumers are open to buying products and services from new, entrepreneurial companies
+MEDIANS;MEDIANS OF THE ORIGINAL VARIABLES: RECOMMENDED ALTERNATIVE FOR THE MEAN FOR LIKERT SCALES
+NES10_A01_MED;In my country, there is sufficient equity funding available for new and growing firms
+NES10_A02_MED;In my country, there is sufficient debt funding available for new and growing firms
+NES10_A03_MED;In my country, there are sufficient government subsidies available for new and growing firms
+NES10_A04_MED;In my country, there is sufficient funding available from private individuals (other than founders) for new and growing firms
+NES10_A05_MED;In my country, there is sufficient venture capitalist funding available for new and growing firms )
+NES10_A06_MED;In my country, there is sufficient funding available through initial public offerings (IPOs) for new and growing firms
+NES10_B01_MED;In my country, Government policies (e g , public procurement) consistently favor new firms
+NES10_B02_MED;In my country, the support for new and growing firms is a high priority for policy at the national government level
+NES10_B03_MED;In my country, the support for new and growing firms is a high priority for policy at the local government level
+NES10_B04_MED;In my country, new firms can get most of the required permits and licenses in about a week
+NES10_B05_MED;In my country, the amount of taxes is NOT a burden for new and growing firms
+NES10_B06_MED;In my country, taxes and other government regulations are applied to new and growing firms in a predictable and consistent way
+NES10_B07_MED;In my country, coping with government bureaucracy, regulations, and licensing requirements it is not unduly difficult for new and growing firms
+NES10_C01_MED;In my country, a wide range of government assistance for new and growing firms can be obtained through contact with a single agency
+NES10_C02_MED;In my country, science parks and business incubators provide effective support for new and growing firms
+NES10_C03_MED;In my country, there are an adequate number of government programs for new and growing businesses
+NES10_C04_MED;In my country, the people working for government agencies are competent and effective in supporting new and growing firms
+NES10_C05_MED;In my country, almost anyone who needs help from a government program for a new or growing business can find what they need
+NES10_C06_MED;In my country, Government programs aimed at supporting new and growing firms are effective
+NES10_D01_MED;In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative
+NES10_D02_MED;In my country, teaching in primary and secondary education provides adequate instruction in market economic principles
+NES10_D03_MED;In my country, teaching in primary and secondary education provides adequate attention to entrepreneurship and new firm creation
+NES10_D04_MED;In my country, Colleges and universities provide good and adequate preparation for starting up and growing new firms
+NES10_D05_MED;In my country, the level of business and management education provide good and adequate preparation for starting up and growing new firms
+NES10_D06_MED;In my country, the vocational, professional, and continuing education systems provide good and adequate preparation for starting up and growing new firms
+NES10_E01_MED;In my country, new technology, science, and other knowledge are efficiently transferred from universities and public research centers to new and growing firms
+NES10_E02_MED;In my country, new and growing firms have just as much access to new research and technology as large, established firms
+NES10_E03_MED;In my country, new and growing firms can afford the latest technology
+NES10_E04_MED;In my country, there are adequate government subsidies for new and growing firms to acquire new technology
+NES10_E05_MED;In my country, the science and technology base efficiently supports the creation of world-class new technology-based ventures in at least one area
+NES10_E06_MED;In my country, there is good support available for engineers and scientists to have their ideas commercialized through new and growing firms
+NES10_F01_MED;In my country, there are enough subcontractors, suppliers, and consultants to support new and growing firms
+NES10_F02_MED;In my country, new and growing firms can afford the cost of using subcontractors, suppliers, and consultants
+NES10_F03_MED;In my country, it is easy for new and growing firms to get good subcontractors, suppliers, and consultants
+NES10_F04_MED;In my country, it is easy for new and growing firms to get good, professional legal and accounting services
+NES10_F05_MED;In my country, it is easy for new and growing firms to get good banking services (checking accounts, foreign exchange transactions, letters of credit, and the like)
+NES10_G01_MED;In my country, the markets for consumer goods and services change dramatically from year to year
+NES10_G02_MED;In my country, the markets for business-to-business goods and services change dramatically from year to year
+NES10_G03_MED;In my country, new and growing firms can easily enter new markets
+NES10_G04_MED;In my country, the new and growing firms can afford the cost of market entry
+NES10_G05_MED;In my country, new and growing firms can enter markets without being unfairly blocked by established firms
+NES10_G06_MED;In my country, the anti-trust legislation is effective and well enforced
+NES10_H01_MED;In my country, the physical infrastructure (roads, utilities, communications, waste disposal) provides good support for new and growing firms
+NES10_H02_MED;In my country, it is not too expensive for a new or growing firm to get good access to communications (phone, Internet, etc )
+NES10_H03_MED;In my country, a new or growing firm can get good access to communications (telephone, internet, etc ) in about a week
+NES10_H04_MED;In my country, new and growing firms can afford the cost of basic utilities (gas, water, electricity, sewer)
+NES10_H05_MED;In my country, new or growing firms can get good access to utilities (gas, water, electricity, sewer) in about a month
+NES10_I01_MED;In my country, the national culture is highly supportive of individual success achieved through own personal efforts
+NES10_I02_MED;In my country, the national culture emphasizes self-sufficiency, autonomy, and personal initiative
+NES10_I03_MED;In my country, the national culture encourages entrepreneurial risk-taking
+NES10_I04_MED;In my country, the national culture encourages creativity and innovativeness
+NES10_I05_MED;In my country, the national culture emphasizes the responsibility that the individual (rather than the collective) has in managing his or her own life
+NES10_K01_MED;In my country, there are plenty of good opportunities for the creation of new firms
+NES10_K02_MED;In my country, there are more good opportunities for the creation of new firms than there are people able to take advantage of them
+NES10_K03_MED;In my country, good opportunities for new firms have considerably increased in the past five years
+NES10_K04_MED;In my country, individuals can easily pursue entrepreneurial opportunities
+NES10_K05_MED;In my country, there are plenty of good opportunities to create truly high growth firms
+NES10_L01_MED;In my country, many people know how to start and manage a high-growth business
+NES10_L02_MED;In my country, many people know how to start and manage a small business
+NES10_L03_MED;In my country, many people have experience in starting a new business
+NES10_L04_MED;In my country, many people can react quickly to good opportunities for a new business
+NES10_L05_MED;In my country, many people have the ability to organize the resources required for a new business
+NES10_M01_MED;In my country, the creation of new ventures is considered an appropriate way to become rich
+NES10_M02_MED;In my country, most people consider becoming an entrepreneur as a desirable career choice
+NES10_M03_MED;In my country, successful entrepreneurs have a high level of status and respect
+NES10_M04_MED;In my country, you will often see stories in the public media about successful entrepreneurs
+NES10_M05_MED;In my country, most people think of entrepreneurs as competent, resourceful individuals
+NES10_N01_MED;In my country, the Intellectual Property Rights (IPR) legislation is comprehensive
+NES10_N02_MED;In my country, the Intellectual Property Rights (IPR) legislation is efficiently enforced
+NES10_N03_MED;In my country, the illegal sales of 'pirated' software, videos, CDs, and other copyrighted or trademarked products is not extensive
+NES10_N04_MED;In my country, new and growing firms can trust that their patents, copyrights, and trademarks will be respected
+NES10_N05_MED;In my country, it is widely recognized that inventors' rights for their inventions should be respected
+NES10_P01_MED;In my country, there are sufficient social services available so that women can continue to work even after they start a family
+NES10_P02_MED;In my country, starting a new business is a socially acceptable career option for women
+NES10_P03_MED;In my country, women are encouraged to become self-employed or start a new business
+NES10_P04_MED;In my country, men and women get equally exposed to good opportunities to start a new business
+NES10_P05_MED;In my country, men and women have the same level of knowledge and skills to start a new business
+NES10_Q01_MED;In my country, there are many support initiatives that are specially tailored for high-growth entrepreneurial activity
+NES10_Q02_MED;In my country, policy-makers are aware of the importance of high-growth entrepreneurial activity
+NES10_Q03_MED;In my country, people working in entrepreneurship support initiatives have sufficient skills and competence to support high-growth firms
+NES10_Q04_MED;In my country, potential for rapid growth is often used as a selection criterion when choosing recipients of entrepreneurship support
+NES10_Q05_MED;In my country, supporting rapid firm growth is a high priority in entrepreneurship policy
+NES10_R01_MED;In my country, companies like to experiment with new technologies and with new ways of doing things
+NES10_R02_MED;In my country, consumers like to try out new products and services
+NES10_R03_MED;In my country, innovation is highly valued by companies
+NES10_R04_MED;In my country, innovation is highly valued by consumers
+NES10_R05_MED;In my country, established companies are open to using new, entrepreneurial companies as suppliers
+NES10_R06_MED;In my country, consumers are open to buying products and services from new, entrepreneurial companies
+PRINCIPAL_COMP;AVERAGE VALUES OF THE SUMMARIZED BLOCKS OF VARIABLES BY PRINCIPAL COMPONENTS:
+NES10ASUM_MEAN;Financial environment related with entrepreneurship (summary)
+NES10B1SUM_MEAN;Government concrete policies, priority and support (summary)
+NES10B2SUM_MEAN;Government policies bureaucracy, taxes (summary)
+NES10CSUM_MEAN;Government programs (summary)
+NES10D1SUM_MEAN;Entrepreneurial level of education at Primary and Secondary (summary)
+NES10D2SUM_MEAN;Entrepreneurial level of education at Vocational, Professional, College and University (summary)
+NES10ESUM_MEAN;R&D level of transference (summary)
+NES10FSUM_MEAN;Professional and commercial infrastructure access (summary)
+NES10G1SUM_MEAN;Internal market dynamics (summary)
+NES10G2SUM_MEAN;Internal market burdens (summary)
+NES10HSUM_MEAN;Physical infrastructures and services access (summary)
+NES10ISUM_MEAN;Cultural, social norms and society support (summary)
+NES10KSUM_MEAN;Opportunities existence perception (summary)
+NES10LSUM_MEAN;Degree of skills and abilities to start up in the population (summary)
+NES10MSUM_MEAN;Degree of motivation and valuation of entrepreneurs and its role (summary)
+NES10NSUM_MEAN;Intellectual property rights situation (summary)
+NES10PSUM_MEAN;Vision of women entrepreneurship and its support (summary)
+NES10QSUM_MEAN;High growth businesses support and encouragement (summary)
+NES10R1SUM_MEAN;Valuation of innovation from the companies point of view (summary)
+NES10R2SUM_MEAN;Valuation of innovation from the consumer point of view (summary)
+STD_ERR;STANDARD ERRORS OF SUMMARY VARIABLES MEANS
+NES10ASUM_STDE;Financial environment related with entrepreneurship (std err)
+NES10B1SUM_STDE;Government concrete policies, priority and support (std err)
+NES10B2SUM_STDE;Government policies bureaucracy, taxes (std err)
+NES10CSUM_STDE;Government programs (std err)
+NES10D1SUM_STDE;Entrepreneurial level of education at Primary and Secondary (std err)
+NES10D2SUM_STDE;Entrepreneurial level of education at Vocational, Professional, College and University (std err)
+NES10ESUM_STDE;R&D level of transference (std err)
+NES10FSUM_STDE;Professional and commercial infrastructure access (std err)
+NES10G1SUM_STDE;Internal market dynamics (std err)
+NES10G2SUM_STDE;Internal market burdens (std err)
+NES10HSUM_STDE;Physical infrastructures and services access (std err)
+NES10ISUM_STDE;Cultural, social norms and society support (std err)
+NES10KSUM_STDE;Opportunities existence perception (std err)
+NES10LSUM_STDE;Degree of skills and abilities to start up in the population (std err)
+NES10MSUM_STDE;Degree of motivation and valuation of entrepreneurs and its role (std err)
+NES10NSUM_STDE;Intellectual property rights situation (std err)
+NES10PSUM_STDE;Vision of women entrepreneurship and its support (std err)
+NES10QSUM_STDE;High growth businesses support and encouragement (std err)
+NES10R1SUM_STDE;Valuation of innovation from the companies point of view (std err)
+NES10R2SUM_STDE;Valuation of innovation from the consumers point of view (std err)
+SUM_VAR_STD;SUMMARY VARIABLES STANDARDIZED MEANS
+ZNES10ASUM_MEAN;Zscore:  Financial environment related with entrepreneurship (summary)
+ZNES10B1SUM_MEAN;Zscore:  Government concrete policies, priority and support (summary)
+ZNES10B2SUM_MEAN;Zscore:  Government policies bureaucracy, taxes (summary)
+ZNES10CSUM_MEAN;Zscore:  Government programs (summary)
+ZNES10D1SUM_MEAN;Zscore:  Entrepreneurial level of education at Primary and Secondary (summary)
+ZNES10D2SUM_MEAN;Zscore:  Entrepreneurial level of education at Vocational, Professional, College and University (summary)
+ZNES10ESUM_MEAN;Zscore:  R&D level of transference (summary)
+ZNES10FSUM_MEAN;Zscore:  Professional and commercial infrastructure access (summary)
+ZNES10G1SUM_MEAN;Zscore:  Internal market dynamics (summary)
+ZNES10G2SUM_MEAN;Zscore:  Internal market burdens (summary)
+ZNES10HSUM_MEAN;Zscore:  Physical infrastructures and services access (summary)
+ZNES10ISUM_MEAN;Zscore:  Cultural, social norms and society support (summary)
+ZNES10KSUM_MEAN;Puntua:  Opportunities existence perception (summary)
+ZNES10LSUM_MEAN;Puntua:  Degree of skills and abilities to start up in the population (summary)
+ZNES10MSUM_MEAN;Puntua:  Degree of motivation and valuation of entrepreneurs and its role (summary)
+ZNES10NSUM_MEAN;Zscore:  Intellectual property rights situation (summary)
+ZNES10PSUM_MEAN;Zscore:  Vision of women entrepreneurship and its support (summary)
+ZNES10QSUM_MEAN;Zscore:  High growth businesses support and encouragement (summary)
+ZNES10R1SUM_MEAN;Zscore:  Valuation of innovation from the companies point of view (summary)
+ZNES10R2SUM_MEAN;Zscore:  Valuation of innovation from the consumer point of view (summary)
+N_BREAK;NUMBER OF COUNTRY OR REGION INTERVIEWS (SAMPLE OF EXPERTS)
+CONSTRAINS;% OF CITED CONSTRAINS (MULTIRESPONSE VARIABLES)
+CFS;Constrains Financial support
+CGPL;Constrains Government policies
+CGPR;Constrains Government programs
+CET;Constrains E&T
+CRD;Constrains R&D transfer
+CCPI;Constrains Commercial Infrastructure
+CMKO;Constrains Internal Market Openess
+CPIA;Constrains Physical Infrastructure Access
+CCSN;Constrains Cultural & Social Norms
+CEC;Constrains Capacity for Entrepreneurship
+CECCL;Constrains Economic climate
+CWFF;Constrains Work Force Features
+CPPC;Constrains Perceived Population Composition
+CPIS;Constrains Political, Institutional and Social Context
+COTH;Constrains other, don't know
+SUPPORTS;% OF CITED SUPPORTS (MULTIRESPONSE VARIABLES)
+SFS;Supports Financial support
+SGPL;Supports Government policies
+SGPR;Supports Government programs
+SET;Supports E&T
+SRD;Supports R&D transfer
+SCPI;Supports Commercial Infrastructure
+SMKO;Supports Internal Market Openess
+SOIA;Supports Physical Infrastructure Access
+SCSN;Supports Cultural & Social Norms
+SEC;Supports Capacity for Entrepreneurship
+SECCL;Supports Economic climate
+SWFF;Supports Work Force Features
+SPPC;Supports Perceived Population Composition
+SPIS;Supports Political, Institutional and Social Context
+SOTH;Supports other, don't know
+RECOM;% OF CITED RECOMMENDATIONS (MULTIRESPONSE VARIABLES)
+RFS;Recommended Financial support
+RGPL;Recommended Government policies
+RGPR;Recommended Government programs
+RET;Recommended E&T
+RRD;Recommended R&D transfer
+RCPI;Recommended Commercial Infrastructure
+RMKO;Recommended Internal Market Openess
+ROIA;Recommended Physical Infrastructure Access
+RCSN;Recommended Cultural & Social Norms
+REC;Recommended Capacity for Entrepreneurship
+RECCL;Recommended Economic climate
+RWFF;Recommended Work Force Features
+RPPC;Recommended Perceived Population Composition
+RPIS;Recommended Political, Institutional and Social Context
+ROTH;Recommended other, don't know
+CLASSIFICATION;GEM COUNTRIES CLASSIFICATION VARIABLES 2008
+CAT_GCR1;COUNTRY GROUP GCR REPORT 2009-2010 - 5 CAT
+CAT_GCR2;COUNTRY GROUP GCR REPORT 2009-2010 - 3 CAT
