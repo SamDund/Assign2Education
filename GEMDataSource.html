@@ -139,7 +139,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <h4>Data Analysis</h4>
 <p>To review, the three regression equations used for this assignment are included below.</p>
 <ol style="list-style-type: decimal">
-<li><p><span class="math">\(PercentIntention = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth\)</span></p></li>
+<li><p><span class="math">\(PercentIntention = PercentPerceived(Perceived Capabilities) + GEM D01 way of teaching + PercentOpportunities(Perceived Opportunities)\)</span></p></li>
 <li><p><span class="math">\(PercentNascent = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth\)</span></p></li>
 <li><p><span class="math">\(PercentOwner = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth\)</span></p></li>
 </ol>
@@ -169,13 +169,13 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <td style="text-align:left">
 </td>
 <td>
-PercentIntention
+National Level Average Percent Entrepreneurial Intention
 </td>
 <td>
-PercentNascent
+National Level Nascent Entrepreneural Activity
 </td>
 <td>
-PercentOwner
+National Level Average Percent Owning a Business
 </td>
 </tr>
 <tr>
@@ -197,7 +197,7 @@ PercentOwner
 </tr>
 <tr>
 <td style="text-align:left">
-Percent Perceived
+National Level Avg Perceived Capabilities
 </td>
 <td>
 0.31<sup>***</sup>
@@ -234,7 +234,7 @@ Percent Perceived
 </tr>
 <tr>
 <td style="text-align:left">
-Percent Fear
+National Level Avg Fear of Failure
 </td>
 <td>
 0.45<sup>***</sup>
@@ -308,7 +308,7 @@ Annual GDP Growth
 </tr>
 <tr>
 <td style="text-align:left">
-Percent Opportunities
+National Level Avg Perceived Good Opportunities
 </td>
 <td>
 0.42<sup>***</sup>
@@ -345,7 +345,7 @@ Percent Opportunities
 </tr>
 <tr>
 <td style="text-align:left">
-Percent Fear x Percent Opportunities
+National Level Avg Fear of Failure x National Level Avg Perceived Good Opportunities
 </td>
 <td>
 -0.01<sup>***</sup>
@@ -504,7 +504,7 @@ F Statistic
 </td>
 </tr>
 </table>
-<p><br></p>
+<p><br><br />National-level average of people perceiving opportunities but acknowledging fear of failure will prevent them from creating a business (FF)</p>
 <p><strong>Simulation Package and Cleaning</strong></p>
 <p>In addition to the output table, a simulation is helpful to visually illustrate the relationship the probability of obtaining a given value in the dependent variables conditional on change in the independent variable. We used the <em>Zelig</em> package to run a least square regression and generate a simulation of equation 1. Prior to running this regression, however, we ran the na.omit command to remove omitted variables from the equation.</p>
 <p>To examine the probabilities of achieving given outcomes, we generated three simulations for the first regression equation. To demonstrate this method, we have included one simulation below.</p>
@@ -518,6 +518,182 @@ F Statistic
 <p>Going forward, we are considering adding one of the six questions used by GEM to measure the importance of entrepreneurial education at the country level in its NES Survey. Item D01 states “in my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative.” This could be a proxy to get a sense of how supportive of self esteem a given education system is.</p>
 <p>We may also want to quantify how individualistic or group-oriented an average student is by the end of compulsory education, as the literature holds social inclusion as an explanatory factor for self-esteem. We will use OECD PISA data on “the sense of belonging” for this.</p>
 <p>Next steps will also include looking more thoroughly into control variables and determining the most appropriate way to present our results. To do so we may need to extract data from various national NES reports and put together a table, as it does not seem to exist as such.</p>
+% latex table generated in R 3.1.1 by xtable 1.7-4 package % Fri Nov 21 10:48:22 2014
+
+<table style="text-align:center">
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Statistic
+</td>
+<td>
+N
+</td>
+<td>
+Mean
+</td>
+<td>
+St. Dev.
+</td>
+<td>
+Min
+</td>
+<td>
+Max
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+PercentFear
+</td>
+<td>
+318
+</td>
+<td>
+33.928
+</td>
+<td>
+7.982
+</td>
+<td>
+10
+</td>
+<td>
+61
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+PercentNascent
+</td>
+<td>
+318
+</td>
+<td>
+4.329
+</td>
+<td>
+2.505
+</td>
+<td>
+0.400
+</td>
+<td>
+15.400
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+PercentPerceived
+</td>
+<td>
+318
+</td>
+<td>
+43.186
+</td>
+<td>
+11.065
+</td>
+<td>
+9
+</td>
+<td>
+67
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+PercentOwner
+</td>
+<td>
+317
+</td>
+<td>
+6.414
+</td>
+<td>
+2.931
+</td>
+<td>
+0.400
+</td>
+<td>
+28.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+PercentIntention
+</td>
+<td>
+295
+</td>
+<td>
+10.299
+</td>
+<td>
+6.951
+</td>
+<td>
+0.700
+</td>
+<td>
+46.500
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+PercentOpportunities
+</td>
+<td>
+318
+</td>
+<td>
+33.931
+</td>
+<td>
+15.168
+</td>
+<td>
+3
+</td>
+<td>
+71
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+AnnualGDPGrowth
+</td>
+<td>
+442
+</td>
+<td>
+2.037
+</td>
+<td>
+3.071
+</td>
+<td>
+-14.098
+</td>
+<td>
+10.494
+</td>
+</tr>
+<tr>
+<td colspan="6" style="border-bottom: 1px solid black">
+</td>
+</tr>
+</table>
 </div>
 
 

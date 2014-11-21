@@ -337,7 +337,7 @@ remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapab
 To review, the three regression equations used for this assignment are included below.
 
 
-1. $PercentIntention = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth$  
+1. $PercentIntention = PercentPerceived(Perceived Capabilities) + GEM D01 way of teaching + PercentOpportunities(Perceived Opportunities)$  
 
 2. $PercentNascent = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth$
 
@@ -379,14 +379,16 @@ summary(R3)
 library(stargazer)
 
 # Create regression output table
-labels <- c('Percent Perceived', 'Percent Fear',
-            'Annual GDP Growth', 'Percent Opportunities', 'Percent Fear x Percent Opportunities','(Intercept)')
+labels <- c('National Level Avg Perceived Capabilities', 'National Level Avg Fear of Failure',
+            'Annual GDP Growth', 'National Level Avg Perceived Good Opportunities', 'National Level Avg Fear of Failure x National Level Avg Perceived Good Opportunities','(Intercept)')
 
-stargazer::stargazer(R1, R2, R3, covariate.labels = labels, 
+dlables <- c('National Level Average Percent Entrepreneurial Intention', 'National Level Nascent Entrepreneural Activity', 'National Level Average Percent Owning a Business')
+
+stargazer::stargazer(R1, R2, R3, covariate.labels = labels, dep.var.labels = dlables,
                      title = 'Linear Regression Estimates', digits = 2, type = 'html')
 ```
 <br>  
-
+National-level average of people perceiving opportunities but acknowledging fear of failure will prevent them from creating a business (FF)
   
 **Simulation Package and Cleaning**
 
@@ -446,3 +448,12 @@ We may also want to quantify how individualistic or group-oriented an average st
 
 Next steps will also include looking more thoroughly into control variables and determining the most appropriate way to present our results. To do so we may need to extract data from various national NES reports and put together a table, as it does not seem to exist as such.
 
+```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE}
+library(xtable)
+Table1 <- xtable(summary(CompleteDataset))
+xtable(CompleteDataset, type = 'html')
+
+library(stargazer)
+stargazer(CompleteDataset, column.sep.width = "20pt", type = 'html')
+
+```
