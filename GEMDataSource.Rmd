@@ -154,6 +154,7 @@ PerceivedCapabilities <- repmis::source_data("https://raw.githubusercontent.com/
 # Import GEM perceived opportunities data as a proxy for potential control variables
 PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE)
 
+
 #### Clean data using tidy ####
 
 ### Clean FearFail ###
@@ -449,11 +450,8 @@ We may also want to quantify how individualistic or group-oriented an average st
 Next steps will also include looking more thoroughly into control variables and determining the most appropriate way to present our results. To do so we may need to extract data from various national NES reports and put together a table, as it does not seem to exist as such.
 
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE}
-library(xtable)
-Table1 <- xtable(summary(CompleteDataset))
-xtable(CompleteDataset, type = 'html')
 
 library(stargazer)
-stargazer(CompleteDataset, column.sep.width = "20pt", type = 'html')
+stargazer(CompleteDataset, column.separate = TRUE, type = 'html')
 
 ```
