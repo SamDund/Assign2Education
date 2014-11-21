@@ -156,7 +156,7 @@ PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com
 
 # Import GEM supportive teaching data as a proxy for how favourable to self-confidence a given education system is
 
-
+SupportiveTeaching <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEMAvgIndicators.csv", header = TRUE, cache = FALSE)
 
 #### Clean data using tidy ####
 
@@ -271,6 +271,11 @@ CPerceivedOpportunities<- melt(data = PerceivedOpportunities,
 CPerceivedOpportunities <- plyr::rename(x = CPerceivedOpportunities, 
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentOpportunities"))
+
+### Clean SupportiveTeaching
+
+#  
+
 
 #### Merge the data ####
 MergedGEM <- merge(CCurrentOwner, CEntreIntention,
@@ -455,6 +460,6 @@ Next steps will also include looking more thoroughly into control variables and 
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE}
 
 library(stargazer)
-stargazer(CompleteDataset, column.separate = TRUE, type = 'html')
+stargazer(CompleteDataset, type = 'html')
 
 ```
