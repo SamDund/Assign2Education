@@ -332,7 +332,7 @@ names(Clean08) <- gsub("NES08_D01_MEAN", "2008", names(Clean08))
 names(Clean08) <- gsub("NES08COUNTRY", "Country", names(Clean08))
 names(Clean09) <- gsub("NES09_D01_MEAN", "2009", names(Clean09))
 names(Clean09) <- gsub("NES09COUNTRY", "Country", names(Clean09))
-names(Clean10) <- gsub("NES10_D01_MEAN", "2009", names(Clean10))
+names(Clean10) <- gsub("NES10_D01_MEAN", "2010", names(Clean10))
 names(Clean10) <- gsub("NES10CRNAME", "Country", names(Clean10))
 
 
@@ -399,19 +399,93 @@ CompleteDataset <- merge(FinalGEM, GDPGrowth,
 remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
 
 
+
+
 # Merge GEMNES country level data
-Merged1 <- merge(Clean01, Clean02,
-                   union("Country")
-                   all = TRUE)
+Merged1 <- merge(Clean01, Clean02, all = TRUE)
+Merged2 <- merge(Clean03, Clean04, all = TRUE)
+Merged3 <- merge(Clean05, Clean06, all = TRUE)
+Merged4 <- merge(Clean07, Clean08, all = TRUE)
+Merged5 <- merge(Clean09, Clean10, all = TRUE)
+Merged6 <- merge(Merged1, Merged2, all = TRUE)
+Merged7 <- merge(Merged3, Merged4, all = TRUE)
+Merged8 <- merge(Merged5, Merged6, all = TRUE)
+Merged9 <- merge(Merged7, Merged8, all = TRUE)
 
 
+# Recode countries
+Merged9$Country[Merged9$Country == "AUSTRALIA"] <- "Australia"
+Merged9$Country[Merged9$Country == "AUSTRIA"] <- "Austria"
+Merged9$Country[Merged9$Country == "BELGIUM"] <- "Belgium"
+Merged9$Country[Merged9$Country == "CANADA"] <- "Canada"
+Merged9$Country[Merged9$Country == "CHILE"] <- "Chile"
+Merged9$Country[Merged9$Country == "CZECH REPUBLIC"] <- "Czech Republic"
+Merged9$Country[Merged9$Country == "DENMARK"] <- "Denmark"
+Merged9$Country[Merged9$Country == "ESTONIA"] <- "Estonia"
+Merged9$Country[Merged9$Country == "FINLAND"] <- "Finland"
+Merged9$Country[Merged9$Country == "FRANCE"] <- "France"
+Merged9$Country[Merged9$Country == "GERMANY"] <- "Germany"
+Merged9$Country[Merged9$Country == "GREECE"] <- "Greece"
+Merged9$Country[Merged9$Country == "HUNGARY"] <- "Hungary"
+Merged9$Country[Merged9$Country == "ICELAND"] <- "Iceland"
+Merged9$Country[Merged9$Country == "IRELAND"] <- "Ireland"
+Merged9$Country[Merged9$Country == "ISRAEL"] <- "Israel"
+Merged9$Country[Merged9$Country == "ITALY"] <- "Italy"
+Merged9$Country[Merged9$Country == "JAPAN"] <- "Japan"
+Merged9$Country[Merged9$Country == "KOREA"] <- "South Korea"
+Merged9$Country[Merged9$Country == "LUXEMBURG"] <- "Luxemburg"
+Merged9$Country[Merged9$Country == "MEXICO"] <- "Mexico"
+Merged9$Country[Merged9$Country == "NETHERLANDS"] <- "Netherlands"
+Merged9$Country[Merged9$Country == "NEW ZEALAND"] <- "New Zealand"
+Merged9$Country[Merged9$Country == "NORWAY"] <- "Norway"
+Merged9$Country[Merged9$Country == "POLAND"] <- "Poland"
+Merged9$Country[Merged9$Country == "PORTUGAL"] <- "Portugal"
+Merged9$Country[Merged9$Country == "SLOVAK REPUBLIC"] <- "Slovak Republic"
+Merged9$Country[Merged9$Country == "SLOVENIA"] <- "SLOVENIA"
+Merged9$Country[Merged9$Country == "SPAIN"] <- "Spain"
+Merged9$Country[Merged9$Country == "SWEDEN"] <- "Sweden"
+Merged9$Country[Merged9$Country == "SWITZERLAND"] <- "Switzerland"
+Merged9$Country[Merged9$Country == "TURKEY"] <- "Turkey"
+Merged9$Country[Merged9$Country == "UNITED KINGDOM"] <- "United Kingdom"
+Merged9$Country[Merged9$Country == "UK"] <- "United Kingdom"
+Merged9$Country[Merged9$Country == "USA"] <- "United States"
+Merged9$Country[Merged9$Country == "UNITED STATES"] <- "United States"
+
+LongGEM<- melt(data = Merged9,
+                  id.vars = c("Country"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010"))
+
+# Rename columns
+names(LongGEM) <- gsub("variable", "Year", names(LongGEM))
+names(LongGEM) <- gsub("value", "Support", names(LongGEM))
+
+
+
+################### Difficult Section #####################
 
 # Grab the rows we need
 myvars <- c("Australia", "Austria", "Belgium", "Canada", "Chile", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Israel", "Italy", "Japan", "Korea", "Luxemburg", "Mexico", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "United Kingdom", "United States")
 
+MYVARS1 <- c("AUSTRALIA", "AUSTRIA", "BELGIUM", "CANADA", "CHILE", "CZECH REPUBLIC", "DENMARK", "ESTONIA", "FINLAND", "FRANCE", "GERMANY", "GREECE", "HUNGARY", "ICELAND", "IRELAND", "ISRAEL", "ITALY", "JAPAN", "KOREA", "LUXEMBURG", "MEXICO", "NETHERLANDS", "NEW ZEALAND", "NORWAY", "POLAND", "PORTUGAL", "SLOVAK REPUBLIC", "SLOVENIA", "SPAIN", "SWEDEN", "SWITZERLAND", "TURKEY", "UNITED KINGDOM", "UNITED STATES")
 
-NewData <- Data[myvars, 1]
 
+
+Long2[,"Support"] <- as.numeric(Long2[,"Support"])
+Long2[,"Year"] <- as.numeric(Long2[,"Year"])
+Long2[,"Country"] <- as.factor(Long2[,"Country"])
+
+Long2
+
+Long2[c("Australia", "Austria", "Belgium", "Canada", "Chile", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Israel", "Italy", "Japan", "Korea", "Luxemburg", "Mexico", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "United Kingdom", "United States"), ]
+
+# Grab only countries we need
+NewData <- Long2[rownames = myvars, 
+                 colnames = mystats]
+
+mystats <- c("Country", "Year", "Support")
+
+NewData1 <- data.frame(NewData)
 
 ```
 
