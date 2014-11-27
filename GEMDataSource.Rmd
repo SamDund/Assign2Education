@@ -274,7 +274,13 @@ CPerceivedOpportunities <- plyr::rename(x = CPerceivedOpportunities,
 
 ### Clean SupportiveTeaching
 
-#  
+### Create new data frame without unnecessary data
+WayOfTeaching <- SupportiveTeaching[, c("NES10CRNAME", "NES10_D01_MEAN")]
+
+## as.factor("WayOfTeaching")
+
+
+##TWayofTeaching <- SupportiveTeaching[c("Australia", "Austria", "Belgium", "Canada", "Chile", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Israel", "Italy", "Japan", "Korea", "Luxemburg", "Mexico", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "United Kingdom", "United States"),])
 
 
 #### Merge the data ####
