@@ -161,20 +161,18 @@ SupportiveTeaching <- repmis::source_data("https://raw.githubusercontent.com/Sam
 # Import GEM 2009 supportive teaching data
 setwd('~/Assign2Education/GEMData')
 
+GEM2001 <- read.spss('2001GEMNES.sav', to.data.frame = TRUE)
+GEM2002 <- read.spss('2002GEMNES.sav', to.data.frame = TRUE)
+GEM2003 <- read.spss('2003GEMNES.sav', to.data.frame = TRUE)
+GEM2004 <- read.spss('2004GEMNES.sav', to.data.frame = TRUE)
+GEM2005 <- read.spss('2005GEMNES.sav', to.data.frame = TRUE)
 GEM2006 <- read.spss('2006GEMNES.sav', to.data.frame = TRUE)
 GEM2007 <- read.spss('2007GEMNES.sav', to.data.frame = TRUE)
 GEM2008 <- read.spss('2008GEMNES.sav', to.data.frame = TRUE)
 GEM2009 <- read.spss('2009GEMNESMDS.sav', to.data.frame = TRUE)
 GEM2010 <- read.spss('2010GEMNES.sav', to.data.frame = TRUE)
 
-Clean06 <- GEM2006[,c("KI06CTRY", "KI06D01_mean")]
-Clean07 <- GEM2007[,c("ki07ctry", "ki07d01_")]
-Clean08 <- GEM2008[,c("NES08COUNTRY", "NES08_D01_MEAN")]
-Clean09 <- GEM2009[,c("NES09COUNTRY", "NES09_D01_MEAN")]
-Clean10 <- GEM2010[,c("NES10CRNAME", "NES10_D01_MEAN")]
 
-names(Clean06) <- gsub("KI06D01_mean", "2006", names(Clean06))
-names(Clean07) <- gsub("ki07d01_", "2007", names(Clean07))
 
 #### Clean data using tidy ####
 
@@ -301,6 +299,45 @@ WayOfTeaching <- SupportiveTeaching[, c("NES10CRNAME", "NES10_D01_MEAN")]
 ##TWayofTeaching <- SupportiveTeaching[c("Australia", "Austria", "Belgium", "Canada", "Chile", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Israel", "Italy", "Japan", "Korea", "Luxemburg", "Mexico", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "United Kingdom", "United States"),])
 
 
+### Clean GEM NES Datasets
+# Draw out Country and D01 only
+Clean01 <- GEM2001[,c("country", "ki01d01")]
+Clean02 <- GEM2002[,c("country", "ki02d01")]
+Clean03 <- GEM2003[,c("country", "ki03d01")]
+Clean04 <- GEM2004[,c("ki04ctry", "ki04d01")]
+Clean05 <- GEM2005[,c("KI05ctry", "KI05D01")]
+Clean06 <- GEM2006[,c("KI06CTRY", "KI06D01_mean")]
+Clean07 <- GEM2007[,c("ki07ctry", "ki07d01_")]
+Clean08 <- GEM2008[,c("NES08COUNTRY", "NES08_D01_MEAN")]
+Clean09 <- GEM2009[,c("NES09COUNTRY", "NES09_D01_MEAN")]
+Clean10 <- GEM2010[,c("NES10CRNAME", "NES10_D01_MEAN")]
+
+remove(GEM2001, GEM2002, GEM2003, GEM2004, GEM2005, GEM2006, GEM2007, GEM2008, GEM2009, GEM2010)
+
+# Edit column names for each dataframe
+names(Clean01) <- gsub("ki01d01", "2001", names(Clean01))
+names(Clean01) <- gsub("country", "Country", names(Clean01))
+names(Clean02) <- gsub("ki02d01", "2002", names(Clean02))
+names(Clean02) <- gsub("country", "Country", names(Clean02))
+names(Clean03) <- gsub("ki03d01", "2003", names(Clean03))
+names(Clean03) <- gsub("country", "Country", names(Clean03))
+names(Clean04) <- gsub("ki04d01", "2004", names(Clean04))
+names(Clean04) <- gsub("ki04ctry", "Country", names(Clean04))
+names(Clean05) <- gsub("KI05D01", "2005", names(Clean05))
+names(Clean05) <- gsub("KI05ctry", "Country", names(Clean05))
+names(Clean06) <- gsub("KI06D01_mean", "2006", names(Clean06))
+names(Clean06) <- gsub("KI06CTRY", "Country", names(Clean06))
+names(Clean07) <- gsub("ki07d01_", "2007", names(Clean07))
+names(Clean07) <- gsub("ki07ctry", "Country", names(Clean07))
+names(Clean08) <- gsub("NES08_D01_MEAN", "2008", names(Clean08))
+names(Clean08) <- gsub("NES08COUNTRY", "Country", names(Clean08))
+names(Clean09) <- gsub("NES09_D01_MEAN", "2009", names(Clean09))
+names(Clean09) <- gsub("NES09COUNTRY", "Country", names(Clean09))
+names(Clean10) <- gsub("NES10_D01_MEAN", "2009", names(Clean10))
+names(Clean10) <- gsub("NES10CRNAME", "Country", names(Clean10))
+
+
+
 #### Merge the data ####
 MergedGEM <- merge(CCurrentOwner, CEntreIntention,
                    union("Country", "Year"),
@@ -362,6 +399,21 @@ CompleteDataset <- merge(FinalGEM, GDPGrowth,
 # Remove unncessary data from environment
 remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
 
+
+# Merge GEMNES country level data
+Merged1 <- merge(Clean01, Clean02,
+                   union("Country")
+                   all = TRUE)
+
+
+
+# Grab the rows we need
+myvars <- c("Australia", "Austria", "Belgium", "Canada", "Chile", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Israel", "Italy", "Japan", "Korea", "Luxemburg", "Mexico", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "United Kingdom", "United States")
+
+
+NewData <- Data[myvars, 1]
+
+
 ```
 
 #### Data Analysis  
@@ -377,16 +429,17 @@ To examine the relationship between these variables, we used least square estima
 
 
 # Run linear regression R1
-R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
+R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + Country, data = CompleteDataset)
 
 # Obtain summary statistics of R1
 summary(R1)
 
 # Run linear regression R2
-R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
+R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear*PercentOpportunities + Country, data = CompleteDataset)
 
 # Obtain summary statistics of R2
 summary(R2)
+
 
 # Run linear regression R3
 R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
@@ -477,3 +530,7 @@ library(stargazer)
 stargazer(CompleteDataset, type = 'html')
 
 ```
+
+Estonia
+Luxemburg
+Slovak Republic 
