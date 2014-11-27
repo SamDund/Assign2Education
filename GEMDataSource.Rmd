@@ -467,8 +467,6 @@ names(LongGEM) <- gsub("value", "Support", names(LongGEM))
 # Grab the rows we need
 myvars <- c("Australia", "Austria", "Belgium", "Canada", "Chile", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Israel", "Italy", "Japan", "Korea", "Luxemburg", "Mexico", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "United Kingdom", "United States")
 
-MYVARS1 <- c("AUSTRALIA", "AUSTRIA", "BELGIUM", "CANADA", "CHILE", "CZECH REPUBLIC", "DENMARK", "ESTONIA", "FINLAND", "FRANCE", "GERMANY", "GREECE", "HUNGARY", "ICELAND", "IRELAND", "ISRAEL", "ITALY", "JAPAN", "KOREA", "LUXEMBURG", "MEXICO", "NETHERLANDS", "NEW ZEALAND", "NORWAY", "POLAND", "PORTUGAL", "SLOVAK REPUBLIC", "SLOVENIA", "SPAIN", "SWEDEN", "SWITZERLAND", "TURKEY", "UNITED KINGDOM", "UNITED STATES")
-
 
 
 Long2[,"Support"] <- as.numeric(Long2[,"Support"])
