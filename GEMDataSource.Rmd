@@ -17,6 +17,7 @@ library(repmis)
 library(tidyr)
 library(reshape2)
 library(WDI)
+library(foreign)
 
 # Load citation package
 pkgs <- c('plyr','repmis', 'tidyr', 'reshape2', 'WDI', 'stargazer', 'Zelig')
@@ -82,12 +83,11 @@ The following equations were used to determine the relationship between our depe
 
 <br>
 
-1. $PercentIntention = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth$  
+1. $PercentIntention = PercentPerceived(Perceived Capabilities) + Way of Teaching + PercentOpportunities(Perceived Opportunities)$  
 
 2. $PercentNascent = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth$
 
 3. $PercentOwner = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth$  
-<br>
 
 The variables *Percent Fear* and *Percent Opportunities* were included as an interaction term $PercentFear*PercentOpportunities$ because of the design of the survey. PercentFear is: "the Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from setting up a business."  
 
@@ -154,9 +154,27 @@ PerceivedCapabilities <- repmis::source_data("https://raw.githubusercontent.com/
 # Import GEM perceived opportunities data as a proxy for potential control variables
 PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE)
 
-# Import GEM supportive teaching data as a proxy for how favourable to self-confidence a given education system is
+# Import 2010GEM supportive teaching data as a proxy for how favourable to self-confidence a given education system is
 
 SupportiveTeaching <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEMAvgIndicators.csv", header = TRUE, cache = FALSE)
+
+# Import GEM 2009 supportive teaching data
+setwd('~/Assign2Education/GEMData')
+
+GEM2006 <- read.spss('2006GEMNES.sav', to.data.frame = TRUE)
+GEM2007 <- read.spss('2007GEMNES.sav', to.data.frame = TRUE)
+GEM2008 <- read.spss('2008GEMNES.sav', to.data.frame = TRUE)
+GEM2009 <- read.spss('2009GEMNESMDS.sav', to.data.frame = TRUE)
+GEM2010 <- read.spss('2010GEMNES.sav', to.data.frame = TRUE)
+
+Clean06 <- GEM2006[,c("KI06CTRY", "KI06D01_mean")]
+Clean07 <- GEM2007[,c("ki07ctry", "ki07d01_")]
+Clean08 <- GEM2008[,c("NES08COUNTRY", "NES08_D01_MEAN")]
+Clean09 <- GEM2009[,c("NES09COUNTRY", "NES09_D01_MEAN")]
+Clean10 <- GEM2010[,c("NES10CRNAME", "NES10_D01_MEAN")]
+
+names(Clean06) <- gsub("KI06D01_mean", "2006", names(Clean06))
+names(Clean07) <- gsub("ki07d01_", "2007", names(Clean07))
 
 #### Clean data using tidy ####
 
@@ -347,16 +365,6 @@ remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapab
 ```
 
 #### Data Analysis  
-
-
-To review, the three regression equations used for this assignment are included below.
-
-
-1. $PercentIntention = PercentPerceived(Perceived Capabilities) + GEM D01 way of teaching + PercentOpportunities(Perceived Opportunities)$  
-
-2. $PercentNascent = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth$
-
-3. $PercentOwner = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth$  
 
 
 To examine the relationship between these variables, we used least square estimation, the results of which can be found in the following table. The package *stargazer* was required to generate this table.  As evidenced by the equation results, the individual variables selected are statistically significant, but the model only explains a relatively small degree of the variation in the dependent variable.  For example, the adjusted $R^2$ of regression equation one is 0.29, the adjusted $R^2$ of regression equation two is 0.38, and the adjusted $R^2$ is 0.13.  

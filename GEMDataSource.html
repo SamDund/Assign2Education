@@ -106,9 +106,9 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <p>The following equations were used to determine the relationship between our dependent and explanatory variables:</p>
 <p><br></p>
 <ol style="list-style-type: decimal">
-<li><p><span class="math">\(PercentIntention = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth\)</span></p></li>
+<li><p><span class="math">\(PercentIntention = PercentPerceived(Perceived Capabilities) + Way of Teaching + PercentOpportunities(Perceived Opportunities)\)</span></p></li>
 <li><p><span class="math">\(PercentNascent = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth\)</span></p></li>
-<li><p><span class="math">\(PercentOwner = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth\)</span><br /><br></p></li>
+<li><p><span class="math">\(PercentOwner = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth\)</span></p></li>
 </ol>
 <p>The variables <em>Percent Fear</em> and <em>Percent Opportunities</em> were included as an interaction term <span class="math">\(PercentFear*PercentOpportunities\)</span> because of the design of the survey. PercentFear is: “the Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from setting up a business.”</p>
 <p><br></p>
@@ -137,12 +137,6 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 <div id="data-analysis" class="section level4">
 <h4>Data Analysis</h4>
-<p>To review, the three regression equations used for this assignment are included below.</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math">\(PercentIntention = PercentPerceived(Perceived Capabilities) + GEM D01 way of teaching + PercentOpportunities(Perceived Opportunities)\)</span></p></li>
-<li><p><span class="math">\(PercentNascent = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth\)</span></p></li>
-<li><p><span class="math">\(PercentOwner = PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth\)</span></p></li>
-</ol>
 <p>To examine the relationship between these variables, we used least square estimation, the results of which can be found in the following table. The package <em>stargazer</em> was required to generate this table. As evidenced by the equation results, the individual variables selected are statistically significant, but the model only explains a relatively small degree of the variation in the dependent variable. For example, the adjusted <span class="math">\(R^2\)</span> of regression equation one is 0.29, the adjusted <span class="math">\(R^2\)</span> of regression equation two is 0.38, and the adjusted <span class="math">\(R^2\)</span> is 0.13.<br /><br></p>
 <table style="text-align:center">
 <caption>

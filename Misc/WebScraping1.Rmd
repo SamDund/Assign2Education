@@ -120,5 +120,12 @@ confint(Logit1)
 exp(cbind(OddsRatio = coef(Logit1), confint(Logit1)))
 
 
+# Import GEM 2009 supportive teaching data
+setwd('~/Assign2Education/GEMData')
+
+GEM2009 <- read.spss('2009GEMNESMDS.sav', to.data.frame = TRUE)
+GEM2010 <- read.spss('2010GEMNES.sav', to.data.frame = TRUE)
+
+
 
 ```
