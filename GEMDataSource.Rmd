@@ -450,7 +450,11 @@ Merged9$Country[Merged9$Country == "UNITED KINGDOM"] <- "United Kingdom"
 Merged9$Country[Merged9$Country == "UK"] <- "United Kingdom"
 Merged9$Country[Merged9$Country == "USA"] <- "United States"
 Merged9$Country[Merged9$Country == "UNITED STATES"] <- "United States"
+Merged9$Country[Merged9$Country == "Korea"] <- "South Korea"
 
+
+
+# Change merged data from wide to long
 LongGEM<- melt(data = Merged9,
                   id.vars = c("Country"),
                   measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
@@ -461,29 +465,23 @@ names(LongGEM) <- gsub("variable", "Year", names(LongGEM))
 names(LongGEM) <- gsub("value", "Support", names(LongGEM))
 
 
+# Create a vector with OECD countries
+myvars <- c('Australia', 'Austria', 'Belgium', 'Canada', 'Chile', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Japan', 'Korea', 'Luxemburg', 'Mexico', 'Netherlands', 'New Zealand', 'Norway', 'Poland', 'Portugal', 'Slovak Republic', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'United Kingdom', 'United States')
 
-################### Difficult Section #####################
+# Subset LongGEM with the countries we need
+subset_data <- subset(LongGEM, Country %in% myvars)
 
-# Grab the rows we need
-myvars <- c("Australia", "Austria", "Belgium", "Canada", "Chile", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Israel", "Italy", "Japan", "Korea", "Luxemburg", "Mexico", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "United Kingdom", "United States")
+# Delete unnecessary column
+subset_data$row.name <- NULL
 
+# Arrange subset_data by country and year
+GrandData <- arrange(subset_data, Country, Year)                  
 
+########### STUCK #############
 
-Long2[,"Support"] <- as.numeric(Long2[,"Support"])
-Long2[,"Year"] <- as.numeric(Long2[,"Year"])
-Long2[,"Country"] <- as.factor(Long2[,"Country"])
-
-Long2
-
-Long2[c("Australia", "Austria", "Belgium", "Canada", "Chile", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Israel", "Italy", "Japan", "Korea", "Luxemburg", "Mexico", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "United Kingdom", "United States"), ]
-
-# Grab only countries we need
-NewData <- Long2[rownames = myvars, 
-                 colnames = mystats]
-
-mystats <- c("Country", "Year", "Support")
-
-NewData1 <- data.frame(NewData)
+FinalData <- merge(CompleteDataset, subset_data,
+                   union("Country", "Year"),
+                   all = TRUE) 
 
 ```
 
