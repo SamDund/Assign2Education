@@ -547,6 +547,7 @@ R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + An
  
 # Obtain summary statistics of R3
 summary(R3)
+
 ```                           
   
 
