@@ -1,6 +1,6 @@
 ---
 title: "From Education To Entrepreneurship"
-author: "Thierry Racaud"
+author: "Sam Dundon and Thierry Racaud"
 date: "29 novembre 2014"
 output: html_document
 ---
@@ -9,4 +9,20 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
+* * * 
+```{r echo=FALSE, cache=TRUE, include=FALSE}
 
+# Set working directory
+setwd('~/Assign2Education/Proposal')
+
+# Install necessary packages
+
+# Install rempis from Christpher Gandrud's website
+devtools::install_github('christophergandrud/repmis')
+library(repmis)
+
+# Load citation package
+pkgs <- c('repmis')
+repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
+
+```
