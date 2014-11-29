@@ -378,8 +378,41 @@ FinalGEM[,"PercentOpportunities"] <- as.numeric(FinalGEM[,"PercentOpportunities"
 # Remove unncessary data from environment
 remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
 
+# Import tempfix for GEM data (created this by copying data frame, editing outide R, and saving .csv in repository)
+
+GEMAnnualData <- repmis::source_data("https://github.com/SamDund/Assign2Education/raw/master/GEMData/Gemyears.csv", header = TRUE, cache = FALSE) 
 
 
+##### Clean and merge tempfix GEM Data ####
+
+# Change column names
+names(GEMAnnualData) <- gsub("Year01", "2001", names(GEMAnnualData))
+names(GEMAnnualData) <- gsub("Year02", "2002", names(GEMAnnualData))
+names(GEMAnnualData) <- gsub("Year03", "2003", names(GEMAnnualData))
+names(GEMAnnualData) <- gsub("Year04", "2004", names(GEMAnnualData))
+names(GEMAnnualData) <- gsub("Year05", "2005", names(GEMAnnualData))
+names(GEMAnnualData) <- gsub("Year06", "2006", names(GEMAnnualData))
+names(GEMAnnualData) <- gsub("Year07", "2007", names(GEMAnnualData))
+names(GEMAnnualData) <- gsub("Year08", "2008", names(GEMAnnualData))
+names(GEMAnnualData) <- gsub("Year09", "2009", names(GEMAnnualData))
+names(GEMAnnualData) <- gsub("Year10", "2010", names(GEMAnnualData))
+
+
+# Change years from columns to rows and create CleanGEM
+CleanGEM <- melt(data = GEMAnnualData,
+                 id.vars = c("Country"),
+                 measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010"))
+
+# Rename columns
+CleanGEM <- plyr::rename(x = CleanGEM,
+                         replace = c("variable" = "Year",
+                                     "value" = "WayofTeach"))
+
+# Merge Clean CleanGEM with FinalGEM 
+CompleteData <- merge(CleanGEM, FinalGEM,
+                   union("Country", "Year"),
+                   all = TRUE)
 
 ```
 
@@ -396,20 +429,20 @@ To examine the relationship between these variables, we used least square estima
 
 
 # Run linear regression R1
-R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + Country, data = CompleteDataset)
+R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach + Country, data = CompleteData)
 
 # Obtain summary statistics of R1
 summary(R1)
 
 # Run linear regression R2
-R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear*PercentOpportunities + Country, data = CompleteDataset)
+R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach + Country, data = CompleteData)
 
 # Obtain summary statistics of R2
 summary(R2)
 
 
 # Run linear regression R3
-R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteDataset)
+R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + lm(WayofTeach) + Country, data = CompleteData)
  
 # Obtain summary statistics of R3
 summary(R3)
