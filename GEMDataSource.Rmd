@@ -343,7 +343,6 @@ Clean10 <- plyr::rename(x = Clean10,
                                                   "NES10CRNAME" = "Country"))
 
 
-
 #### Merge the data ####
 MergedGEM <- merge(CCurrentOwner, CEntreIntention,
                    union("Country", "Year"),
@@ -380,103 +379,6 @@ FinalGEM[,"PercentOpportunities"] <- as.numeric(FinalGEM[,"PercentOpportunities"
 remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
 
 
-
-CleanMerge <- cbind(names = c(rownames(Clean01), rownames(Clean02), rownames(Clean03),
-                              rownames(Clean04), rownames(Clean05), rownames(Clean06),
-                              rownames(Clean07), rownames(Clean08), rownames(Clean09),
-                              rownames(Clean10)),
-                    rbind.fill(list(Clean01, Clean02, Clean03, Clean04, Clean05, Clean06,
-                                    Clean07, Clean08, Clean09, Clean10)))
-
-# Recode countries
-CleanMerge$Country[CleanMerge$Country == "AUSTRALIA"] <- "Australia"
-CleanMerge$Country[CleanMerge$Country == "AUSTRIA"] <- "Austria"
-CleanMerge$Country[CleanMerge$Country == "BELGIUM"] <- "Belgium"
-CleanMerge$Country[CleanMerge$Country == "CANADA"] <- "Canada"
-CleanMerge$Country[CleanMerge$Country == "CHILE"] <- "Chile"
-CleanMerge$Country[CleanMerge$Country == "CZECH REPUBLIC"] <- "Czech Republic"
-CleanMerge$Country[CleanMerge$Country == "DENMARK"] <- "Denmark"
-CleanMerge$Country[CleanMerge$Country == "ESTONIA"] <- "Estonia"
-CleanMerge$Country[CleanMerge$Country == "FINLAND"] <- "Finland"
-CleanMerge$Country[CleanMerge$Country == "FRANCE"] <- "France"
-CleanMerge$Country[CleanMerge$Country == "GERMANY"] <- "Germany"
-CleanMerge$Country[CleanMerge$Country == "GREECE"] <- "Greece"
-CleanMerge$Country[CleanMerge$Country == "HUNGARY"] <- "Hungary"
-CleanMerge$Country[CleanMerge$Country == "ICELAND"] <- "Iceland"
-CleanMerge$Country[CleanMerge$Country == "IRELAND"] <- "Ireland"
-CleanMerge$Country[CleanMerge$Country == "ISRAEL"] <- "Israel"
-CleanMerge$Country[CleanMerge$Country == "ITALY"] <- "Italy"
-CleanMerge$Country[CleanMerge$Country == "JAPAN"] <- "Japan"
-CleanMerge$Country[CleanMerge$Country == "KOREA"] <- "South Korea"
-CleanMerge$Country[CleanMerge$Country == "LUXEMBURG"] <- "Luxemburg"
-CleanMerge$Country[CleanMerge$Country == "MEXICO"] <- "Mexico"
-CleanMerge$Country[CleanMerge$Country == "NETHERLANDS"] <- "Netherlands"
-CleanMerge$Country[CleanMerge$Country == "NEW ZEALAND"] <- "New Zealand"
-CleanMerge$Country[CleanMerge$Country == "NORWAY"] <- "Norway"
-CleanMerge$Country[CleanMerge$Country == "POLAND"] <- "Poland"
-CleanMerge$Country[CleanMerge$Country == "PORTUGAL"] <- "Portugal"
-CleanMerge$Country[CleanMerge$Country == "SLOVAK REPUBLIC"] <- "Slovak Republic"
-CleanMerge$Country[CleanMerge$Country == "SLOVENIA"] <- "SLOVENIA"
-CleanMerge$Country[CleanMerge$Country == "SPAIN"] <- "Spain"
-CleanMerge$Country[CleanMerge$Country == "SWEDEN"] <- "Sweden"
-CleanMerge$Country[CleanMerge$Country == "SWITZERLAND"] <- "Switzerland"
-CleanMerge$Country[CleanMerge$Country == "TURKEY"] <- "Turkey"
-CleanMerge$Country[CleanMerge$Country == "UNITED KINGDOM"] <- "United Kingdom"
-CleanMerge$Country[CleanMerge$Country == "UK"] <- "United Kingdom"
-CleanMerge$Country[CleanMerge$Country == "USA"] <- "United States"
-CleanMerge$Country[CleanMerge$Country == "UNITED STATES"] <- "United States"
-CleanMerge$Country[CleanMerge$Country == "Korea"] <- "South Korea"
-CleanMerge$Country[CleanMerge$Country == "US"] <- "United States"
-
-
-# Set columns to numeric
-CleanMerge[,"Year01"] <- as.numeric(CleanMerge[,"Year01"])
-CleanMerge[,"Year02"] <- as.numeric(CleanMerge[,"Year02"])
-CleanMerge[,"Year03"] <- as.numeric(CleanMerge[,"Year03"])
-CleanMerge[,"Year04"] <- as.numeric(CleanMerge[,"Year04"])
-CleanMerge[,"Year05"] <- as.numeric(CleanMerge[,"Year05"])
-CleanMerge[,"Year04"] <- as.numeric(CleanMerge[,"Year06"])
-CleanMerge[,"Year04"] <- as.numeric(CleanMerge[,"Year07"])
-CleanMerge[,"Year08"] <- as.numeric(CleanMerge[,"Year08"])
-CleanMerge[,"Year09"] <- as.numeric(CleanMerge[,"Year09"])
-CleanMerge[,"Year10"] <- as.numeric(CleanMerge[,"Year10"])
-
-
-ddply(pp, .(names), function(x) colSums(x[,-1], na.rm = TRUE))
-
-ddply(CleanMerge, .(names), function(x) colSums(x[,-1], na.rm = TRUE))
-
-arrange()
-
-# Change merged data from wide to long
-LongGEM<- melt(data = Merged9,
-                  id.vars = c("Country"),
-                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
-                                   "2007", "2008", "2009", "2010"))
-
-# Rename columns
-names(LongGEM) <- gsub("variable", "Year", names(LongGEM))
-names(LongGEM) <- gsub("value", "Support", names(LongGEM))
-
-
-# Create a vector with OECD countries
-myvars <- c('Australia', 'Austria', 'Belgium', 'Canada', 'Chile', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Japan', 'Korea', 'Luxemburg', 'Mexico', 'Netherlands', 'New Zealand', 'Norway', 'Poland', 'Portugal', 'Slovak Republic', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'United Kingdom', 'United States')
-
-# Subset LongGEM with the countries we need
-subset_data <- subset(LongGEM, Country %in% myvars)
-
-# Delete unnecessary column
-subset_data$row.names <- NULL
-
-# Arrange subset_data by country and year
-GrandData <- arrange(subset_data, Country, Year) 
-
-GrandData1 <- GrandData[order("Country",)]
-
-########### STUCK #############
-
-FinalData <- merge(FinalGEM, GrandData,
-                   union("Country", "Year"))
 
 
 ```

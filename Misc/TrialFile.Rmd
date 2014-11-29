@@ -84,3 +84,46 @@ CompleteDataset <- merge(FinalGEM, GDPGrowth,
                    union("Country", "Year"),
                    all = TRUE) 
 
+```
+
+``` {r}
+
+CleanMerge <- cbind(names = c(rownames(Clean01), rownames(Clean02), rownames(Clean03),
+                              rownames(Clean04), rownames(Clean05), rownames(Clean06),
+                              rownames(Clean07), rownames(Clean08), rownames(Clean09),
+                              rownames(Clean10)),
+                    rbind.fill(list(Clean01, Clean02, Clean03, Clean04, Clean05, Clean06,
+                                    Clean07, Clean08, Clean09, Clean10)))
+
+
+
+# Change merged data from wide to long
+LongGEM<- melt(data = Merged9,
+                  id.vars = c("Country"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010"))
+
+# Rename columns
+names(LongGEM) <- gsub("variable", "Year", names(LongGEM))
+names(LongGEM) <- gsub("value", "Support", names(LongGEM))
+
+
+# Create a vector with OECD countries
+myvars <- c('Australia', 'Austria', 'Belgium', 'Canada', 'Chile', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Japan', 'South Korea', 'Luxemburg', 'Mexico', 'Netherlands', 'New Zealand', 'Norway', 'Poland', 'Portugal', 'Slovak Republic', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'United Kingdom', 'United States')
+
+# Subset LongGEM with the countries we need
+subset_data <- subset(LongGEM, Country %in% myvars)
+
+# Delete unnecessary column
+subset_data$row.names <- NULL
+
+# Arrange subset_data by country and year
+GrandData <- arrange(subset_data, Country, Year) 
+
+GrandData1 <- GrandData[order("Country",)]
+
+########### STUCK #############
+
+FinalData <- merge(FinalGEM, GrandData,
+                   union("Country", "Year"))
+```
