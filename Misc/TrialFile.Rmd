@@ -52,3 +52,35 @@ Source: OECD Local Entrepreneurship Reviews [@OECD2009]
 </p>
 
 ![Untitled.png](~/DataAnalysis)
+
+``` {r}
+
+#### Import WDI Annual GDP Growth Data ####
+GDPGrowth = WDI(indicator='NY.GDP.MKTP.KD.ZG', country=c('MX','CA','US','FR','AU','AT','BE',
+                                                         'CL','CZ','DK','EE','FI','DE','HU', 
+                                                         'IS','IE','IL','IT','JP','KR','LU',
+                                                         'NL','NZ','NO','PL','PT','SK','SI',
+                                                         'ES','SE','CH','TR','GB','US','GR'), 
+                start=2001, end=2013)
+# Rename columns
+GDPGrowth <- plyr::rename(x = GDPGrowth, 
+                                      replace = c("year" = "Year",
+                                                  "NY.GDP.MKTP.KD.ZG" = "AnnualGDPGrowth",
+                                                  "country" = "Country"))
+
+
+# Recode country == "United States" to "United States of America" and Korea, Rep. to Korea (South)
+GDPGrowth$Country[GDPGrowth$Country == "United States"] <- "United States of America"
+
+# Recode country == "Korea, Rep."" to "Korea (South)"
+GDPGrowth$Country[GDPGrowth$Country == "Korea, Rep."] <- "Korea (South)"
+
+# Remove iso2c data to ease merge with FinalMerge data
+GDPGrowth$iso2c <- NULL
+
+
+# Merge GDPGrowth and FinalGEM
+CompleteDataset <- merge(FinalGEM, GDPGrowth,
+                   union("Country", "Year"),
+                   all = TRUE) 
+

@@ -11,16 +11,15 @@ output: html_document
 # Set working directory
 setwd('~/Assign2Education/')
 
-# Library required packages repmis, ridy, reshape2, plyr and WDI packages
+# Library required packages repmis, ridy, reshape2, and plyr packages
 library(plyr)
 library(repmis)
 library(tidyr)
 library(reshape2)
-library(WDI)
 library(foreign)
 
 # Load citation package
-pkgs <- c('plyr','repmis', 'tidyr', 'reshape2', 'WDI', 'stargazer', 'Zelig')
+pkgs <- c('plyr','repmis', 'tidyr', 'reshape2', 'stargazer', 'Zelig')
 repmis::LoadandCite(pkgs, file= 'DataRpackageCitations.bib')
 
 ```
@@ -154,7 +153,6 @@ PerceivedCapabilities <- repmis::source_data("https://raw.githubusercontent.com/
 PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE)
 
 # Import 2010GEM supportive teaching data as a proxy for how favourable to self-confidence a given education system is
-
 SupportiveTeaching <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEMAvgIndicators.csv", header = TRUE, cache = FALSE)
 
 # Import GEM 2009 supportive teaching data
@@ -287,16 +285,6 @@ CPerceivedOpportunities <- plyr::rename(x = CPerceivedOpportunities,
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentOpportunities"))
 
-### Clean SupportiveTeaching
-
-### Create new data frame without unnecessary data
-WayOfTeaching <- SupportiveTeaching[, c("NES10CRNAME", "NES10_D01_MEAN")]
-
-## as.factor("WayOfTeaching")
-
-
-##TWayofTeaching <- SupportiveTeaching[c("Australia", "Austria", "Belgium", "Canada", "Chile", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Israel", "Italy", "Japan", "Korea", "Luxemburg", "Mexico", "Netherlands", "New Zealand", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "United Kingdom", "United States"),])
-
 
 ### Clean GEM NES Datasets
 # Draw out Country and D01 only
@@ -314,26 +302,45 @@ Clean10 <- GEM2010[,c("NES10CRNAME", "NES10_D01_MEAN")]
 remove(GEM2001, GEM2002, GEM2003, GEM2004, GEM2005, GEM2006, GEM2007, GEM2008, GEM2009, GEM2010)
 
 # Edit column names for each dataframe
-names(Clean01) <- gsub("ki01d01", "2001", names(Clean01))
-names(Clean01) <- gsub("country", "Country", names(Clean01))
-names(Clean02) <- gsub("ki02d01", "2002", names(Clean02))
-names(Clean02) <- gsub("country", "Country", names(Clean02))
-names(Clean03) <- gsub("ki03d01", "2003", names(Clean03))
-names(Clean03) <- gsub("country", "Country", names(Clean03))
-names(Clean04) <- gsub("ki04d01", "2004", names(Clean04))
-names(Clean04) <- gsub("ki04ctry", "Country", names(Clean04))
-names(Clean05) <- gsub("KI05D01", "2005", names(Clean05))
-names(Clean05) <- gsub("KI05ctry", "Country", names(Clean05))
-names(Clean06) <- gsub("KI06D01_mean", "2006", names(Clean06))
-names(Clean06) <- gsub("KI06CTRY", "Country", names(Clean06))
-names(Clean07) <- gsub("ki07d01_", "2007", names(Clean07))
-names(Clean07) <- gsub("ki07ctry", "Country", names(Clean07))
-names(Clean08) <- gsub("NES08_D01_MEAN", "2008", names(Clean08))
-names(Clean08) <- gsub("NES08COUNTRY", "Country", names(Clean08))
-names(Clean09) <- gsub("NES09_D01_MEAN", "2009", names(Clean09))
-names(Clean09) <- gsub("NES09COUNTRY", "Country", names(Clean09))
-names(Clean10) <- gsub("NES10_D01_MEAN", "2010", names(Clean10))
-names(Clean10) <- gsub("NES10CRNAME", "Country", names(Clean10))
+
+Clean01 <- plyr::rename(x = Clean01, 
+                                      replace = c("ki01d01" = "Year01",
+                                                  "country" = "Country"))
+
+Clean02 <- plyr::rename(x = Clean02, 
+                                      replace = c("ki02d01" = "Year02",
+                                                  "country" = "Country"))
+
+Clean03 <- plyr::rename(x = Clean03, 
+                                      replace = c("ki03d01" = "Year03",
+                                                  "country" = "Country"))
+
+Clean04 <- plyr::rename(x = Clean04, 
+                                      replace = c("ki04d01" = "Year04",
+                                                  "ki04ctry" = "Country"))
+
+Clean05 <- plyr::rename(x = Clean05, 
+                                      replace = c("KI05D01" = "Year05",
+                                                  "KI05ctry" = "Country"))
+
+Clean06 <- plyr::rename(x = Clean06, 
+                                      replace = c("KI06D01_mean" = "Year06",
+                                                  "KI06CTRY" = "Country"))
+Clean07 <- plyr::rename(x = Clean07, 
+                                      replace = c("ki07d01_" = "Year07",
+                                                  "ki07ctry" = "Country"))
+
+Clean08 <- plyr::rename(x = Clean08, 
+                                      replace = c("NES08_D01_MEAN" = "Year08",
+                                                  "NES08COUNTRY" = "Country"))
+
+Clean09 <- plyr::rename(x = Clean09, 
+                                      replace = c("NES09_D01_MEAN" = "Year09",
+                                                  "NES09COUNTRY" = "Country"))
+
+Clean10 <- plyr::rename(x = Clean10, 
+                                      replace = c("NES10_D01_MEAN" = "Year10",
+                                                  "NES10CRNAME" = "Country"))
 
 
 
@@ -358,6 +365,7 @@ FinalGEM <- merge(MergedGem4, CPerceivedOpportunities,
                    union("Country", "Year"),
                    all = TRUE)
 
+
 # Convert percent columns from character to numeric
 FinalGEM[,"PercentPerceived"] <- as.numeric(FinalGEM[,"PercentPerceived"])
 FinalGEM[,"PercentFear"] <- as.numeric(FinalGEM[,"PercentFear"])
@@ -367,92 +375,78 @@ FinalGEM[,"PercentIntention"] <- as.numeric(FinalGEM[,"PercentIntention"])
 FinalGEM[,"PercentOpportunities"] <- as.numeric(FinalGEM[,"PercentOpportunities"])
 
 
-#### Import WDI Annual GDP Growth Data ####
-GDPGrowth = WDI(indicator='NY.GDP.MKTP.KD.ZG', country=c('MX','CA','US','FR','AU','AT','BE',
-                                                         'CL','CZ','DK','EE','FI','DE','HU', 
-                                                         'IS','IE','IL','IT','JP','KR','LU',
-                                                         'NL','NZ','NO','PL','PT','SK','SI',
-                                                         'ES','SE','CH','TR','GB','US','GR'), 
-                start=2001, end=2013)
-# Rename columns
-GDPGrowth <- plyr::rename(x = GDPGrowth, 
-                                      replace = c("year" = "Year",
-                                                  "NY.GDP.MKTP.KD.ZG" = "AnnualGDPGrowth",
-                                                  "country" = "Country"))
-
-
-# Recode country == "United States" to "United States of America" and Korea, Rep. to Korea (South)
-GDPGrowth$Country[GDPGrowth$Country == "United States"] <- "United States of America"
-
-# Recode country == "Korea, Rep."" to "Korea (South)"
-GDPGrowth$Country[GDPGrowth$Country == "Korea, Rep."] <- "Korea (South)"
-
-# Remove iso2c data to ease merge with FinalMerge data
-GDPGrowth$iso2c <- NULL
-
-# Merge GDPGrowth and FinalGEM
-CompleteDataset <- merge(FinalGEM, GDPGrowth,
-                   union("Country", "Year"),
-                   all = TRUE) 
 
 # Remove unncessary data from environment
 remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
 
 
 
-
-# Merge GEMNES country level data
-Merged1 <- merge(Clean01, Clean02, all = TRUE)
-Merged2 <- merge(Clean03, Clean04, all = TRUE)
-Merged3 <- merge(Clean05, Clean06, all = TRUE)
-Merged4 <- merge(Clean07, Clean08, all = TRUE)
-Merged5 <- merge(Clean09, Clean10, all = TRUE)
-Merged6 <- merge(Merged1, Merged2, all = TRUE)
-Merged7 <- merge(Merged3, Merged4, all = TRUE)
-Merged8 <- merge(Merged5, Merged6, all = TRUE)
-Merged9 <- merge(Merged7, Merged8, all = TRUE)
-
+CleanMerge <- cbind(names = c(rownames(Clean01), rownames(Clean02), rownames(Clean03),
+                              rownames(Clean04), rownames(Clean05), rownames(Clean06),
+                              rownames(Clean07), rownames(Clean08), rownames(Clean09),
+                              rownames(Clean10)),
+                    rbind.fill(list(Clean01, Clean02, Clean03, Clean04, Clean05, Clean06,
+                                    Clean07, Clean08, Clean09, Clean10)))
 
 # Recode countries
-Merged9$Country[Merged9$Country == "AUSTRALIA"] <- "Australia"
-Merged9$Country[Merged9$Country == "AUSTRIA"] <- "Austria"
-Merged9$Country[Merged9$Country == "BELGIUM"] <- "Belgium"
-Merged9$Country[Merged9$Country == "CANADA"] <- "Canada"
-Merged9$Country[Merged9$Country == "CHILE"] <- "Chile"
-Merged9$Country[Merged9$Country == "CZECH REPUBLIC"] <- "Czech Republic"
-Merged9$Country[Merged9$Country == "DENMARK"] <- "Denmark"
-Merged9$Country[Merged9$Country == "ESTONIA"] <- "Estonia"
-Merged9$Country[Merged9$Country == "FINLAND"] <- "Finland"
-Merged9$Country[Merged9$Country == "FRANCE"] <- "France"
-Merged9$Country[Merged9$Country == "GERMANY"] <- "Germany"
-Merged9$Country[Merged9$Country == "GREECE"] <- "Greece"
-Merged9$Country[Merged9$Country == "HUNGARY"] <- "Hungary"
-Merged9$Country[Merged9$Country == "ICELAND"] <- "Iceland"
-Merged9$Country[Merged9$Country == "IRELAND"] <- "Ireland"
-Merged9$Country[Merged9$Country == "ISRAEL"] <- "Israel"
-Merged9$Country[Merged9$Country == "ITALY"] <- "Italy"
-Merged9$Country[Merged9$Country == "JAPAN"] <- "Japan"
-Merged9$Country[Merged9$Country == "KOREA"] <- "South Korea"
-Merged9$Country[Merged9$Country == "LUXEMBURG"] <- "Luxemburg"
-Merged9$Country[Merged9$Country == "MEXICO"] <- "Mexico"
-Merged9$Country[Merged9$Country == "NETHERLANDS"] <- "Netherlands"
-Merged9$Country[Merged9$Country == "NEW ZEALAND"] <- "New Zealand"
-Merged9$Country[Merged9$Country == "NORWAY"] <- "Norway"
-Merged9$Country[Merged9$Country == "POLAND"] <- "Poland"
-Merged9$Country[Merged9$Country == "PORTUGAL"] <- "Portugal"
-Merged9$Country[Merged9$Country == "SLOVAK REPUBLIC"] <- "Slovak Republic"
-Merged9$Country[Merged9$Country == "SLOVENIA"] <- "SLOVENIA"
-Merged9$Country[Merged9$Country == "SPAIN"] <- "Spain"
-Merged9$Country[Merged9$Country == "SWEDEN"] <- "Sweden"
-Merged9$Country[Merged9$Country == "SWITZERLAND"] <- "Switzerland"
-Merged9$Country[Merged9$Country == "TURKEY"] <- "Turkey"
-Merged9$Country[Merged9$Country == "UNITED KINGDOM"] <- "United Kingdom"
-Merged9$Country[Merged9$Country == "UK"] <- "United Kingdom"
-Merged9$Country[Merged9$Country == "USA"] <- "United States"
-Merged9$Country[Merged9$Country == "UNITED STATES"] <- "United States"
-Merged9$Country[Merged9$Country == "Korea"] <- "South Korea"
+CleanMerge$Country[CleanMerge$Country == "AUSTRALIA"] <- "Australia"
+CleanMerge$Country[CleanMerge$Country == "AUSTRIA"] <- "Austria"
+CleanMerge$Country[CleanMerge$Country == "BELGIUM"] <- "Belgium"
+CleanMerge$Country[CleanMerge$Country == "CANADA"] <- "Canada"
+CleanMerge$Country[CleanMerge$Country == "CHILE"] <- "Chile"
+CleanMerge$Country[CleanMerge$Country == "CZECH REPUBLIC"] <- "Czech Republic"
+CleanMerge$Country[CleanMerge$Country == "DENMARK"] <- "Denmark"
+CleanMerge$Country[CleanMerge$Country == "ESTONIA"] <- "Estonia"
+CleanMerge$Country[CleanMerge$Country == "FINLAND"] <- "Finland"
+CleanMerge$Country[CleanMerge$Country == "FRANCE"] <- "France"
+CleanMerge$Country[CleanMerge$Country == "GERMANY"] <- "Germany"
+CleanMerge$Country[CleanMerge$Country == "GREECE"] <- "Greece"
+CleanMerge$Country[CleanMerge$Country == "HUNGARY"] <- "Hungary"
+CleanMerge$Country[CleanMerge$Country == "ICELAND"] <- "Iceland"
+CleanMerge$Country[CleanMerge$Country == "IRELAND"] <- "Ireland"
+CleanMerge$Country[CleanMerge$Country == "ISRAEL"] <- "Israel"
+CleanMerge$Country[CleanMerge$Country == "ITALY"] <- "Italy"
+CleanMerge$Country[CleanMerge$Country == "JAPAN"] <- "Japan"
+CleanMerge$Country[CleanMerge$Country == "KOREA"] <- "South Korea"
+CleanMerge$Country[CleanMerge$Country == "LUXEMBURG"] <- "Luxemburg"
+CleanMerge$Country[CleanMerge$Country == "MEXICO"] <- "Mexico"
+CleanMerge$Country[CleanMerge$Country == "NETHERLANDS"] <- "Netherlands"
+CleanMerge$Country[CleanMerge$Country == "NEW ZEALAND"] <- "New Zealand"
+CleanMerge$Country[CleanMerge$Country == "NORWAY"] <- "Norway"
+CleanMerge$Country[CleanMerge$Country == "POLAND"] <- "Poland"
+CleanMerge$Country[CleanMerge$Country == "PORTUGAL"] <- "Portugal"
+CleanMerge$Country[CleanMerge$Country == "SLOVAK REPUBLIC"] <- "Slovak Republic"
+CleanMerge$Country[CleanMerge$Country == "SLOVENIA"] <- "SLOVENIA"
+CleanMerge$Country[CleanMerge$Country == "SPAIN"] <- "Spain"
+CleanMerge$Country[CleanMerge$Country == "SWEDEN"] <- "Sweden"
+CleanMerge$Country[CleanMerge$Country == "SWITZERLAND"] <- "Switzerland"
+CleanMerge$Country[CleanMerge$Country == "TURKEY"] <- "Turkey"
+CleanMerge$Country[CleanMerge$Country == "UNITED KINGDOM"] <- "United Kingdom"
+CleanMerge$Country[CleanMerge$Country == "UK"] <- "United Kingdom"
+CleanMerge$Country[CleanMerge$Country == "USA"] <- "United States"
+CleanMerge$Country[CleanMerge$Country == "UNITED STATES"] <- "United States"
+CleanMerge$Country[CleanMerge$Country == "Korea"] <- "South Korea"
+CleanMerge$Country[CleanMerge$Country == "US"] <- "United States"
 
 
+# Set columns to numeric
+CleanMerge[,"Year01"] <- as.numeric(CleanMerge[,"Year01"])
+CleanMerge[,"Year02"] <- as.numeric(CleanMerge[,"Year02"])
+CleanMerge[,"Year03"] <- as.numeric(CleanMerge[,"Year03"])
+CleanMerge[,"Year04"] <- as.numeric(CleanMerge[,"Year04"])
+CleanMerge[,"Year05"] <- as.numeric(CleanMerge[,"Year05"])
+CleanMerge[,"Year04"] <- as.numeric(CleanMerge[,"Year06"])
+CleanMerge[,"Year04"] <- as.numeric(CleanMerge[,"Year07"])
+CleanMerge[,"Year08"] <- as.numeric(CleanMerge[,"Year08"])
+CleanMerge[,"Year09"] <- as.numeric(CleanMerge[,"Year09"])
+CleanMerge[,"Year10"] <- as.numeric(CleanMerge[,"Year10"])
+
+
+ddply(pp, .(names), function(x) colSums(x[,-1], na.rm = TRUE))
+
+ddply(CleanMerge, .(names), function(x) colSums(x[,-1], na.rm = TRUE))
+
+arrange()
 
 # Change merged data from wide to long
 LongGEM<- melt(data = Merged9,
@@ -472,16 +466,18 @@ myvars <- c('Australia', 'Austria', 'Belgium', 'Canada', 'Chile', 'Czech Republi
 subset_data <- subset(LongGEM, Country %in% myvars)
 
 # Delete unnecessary column
-subset_data$row.name <- NULL
+subset_data$row.names <- NULL
 
 # Arrange subset_data by country and year
-GrandData <- arrange(subset_data, Country, Year)                  
+GrandData <- arrange(subset_data, Country, Year) 
+
+GrandData1 <- GrandData[order("Country",)]
 
 ########### STUCK #############
 
-FinalData <- merge(CompleteDataset, subset_data,
-                   union("Country", "Year"),
-                   all = TRUE) 
+FinalData <- merge(FinalGEM, GrandData,
+                   union("Country", "Year"))
+
 
 ```
 
