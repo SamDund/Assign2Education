@@ -34,7 +34,7 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 ### Policy Relevance
 
 
-The process of allocating public funds for education is an opportunity to make calculated long-term investments in a nation's populace. The rationale for decisions made during this process, however, is often difficult to understand. That is, while many claims have been made in entrepreneurship literature regarding the importance of cultural and educational factors -- not just structural and economic factors -- in determining individual and societal tendencies to start a business, these factors are often not included in the decision-making process. Actually, only a few empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.  
+The process of allocating public funds for education is an opportunity to make calculated long-term investments in a nation's populace. The rationale for decisions made during this process, however, is often difficult to understand. That is, while many claims have been made in entrepreneurship literature regarding the importance of cultural and educational factors - not just structural and economic factors - in determining individual and societal tendencies to start a business, these factors are often not included in the decision-making process. Actually, only a few empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.  
 
 
 
@@ -42,7 +42,7 @@ The process of allocating public funds for education is an opportunity to make c
 #### Research Question  
 
 
-To what extent do the behavioral characteristics of education systems - individualistic, group-oriented, self-esteem reinforcing - affect the rate of entrepreneurship in OECD countries?  
+To what extent do the behavioral characteristics of education systems - individualistic, group-oriented, reinforcing self-confidence - affect the rate of entrepreneurship in OECD countries?  
     
 
 
