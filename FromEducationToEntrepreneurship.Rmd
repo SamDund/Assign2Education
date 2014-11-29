@@ -5,9 +5,6 @@ date: "29 novembre 2014"
 output: html_document
 ---
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 * * * 
 ```{r echo=FALSE, cache=TRUE, include=FALSE}
@@ -16,6 +13,11 @@ When you click the **Knit** button a document will be generated that includes bo
 setwd('~/Assign2Education/Proposal')
 
 # Install necessary packages
+library(plyr)
+library(repmis)
+library(tidyr)
+library(reshape2)
+library(foreign)
 
 # Install rempis from Christpher Gandrud's website
 devtools::install_github('christophergandrud/repmis')
@@ -478,11 +480,6 @@ CleanMerge[,"Year09"] <- as.numeric(CleanMerge[,"Year09"])
 CleanMerge[,"Year10"] <- as.numeric(CleanMerge[,"Year10"])
 
 
-ddply(pp, .(names), function(x) colSums(x[,-1], na.rm = TRUE))
-
-ddply(CleanMerge, .(names), function(x) colSums(x[,-1], na.rm = TRUE))
-
-arrange()
 
 # Change merged data from wide to long
 LongGEM<- melt(data = Merged9,
