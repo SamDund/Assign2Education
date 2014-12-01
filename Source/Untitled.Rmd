@@ -1,0 +1,45 @@
+---
+title: "Untitled"
+author: "Sam"
+date: "November 29, 2014"
+output: html_document
+---
+
+
+```{r}
+
+library(RCurl)
+library(devtools)
+install_github(c('rstudio/htmltools',
+            'ramnathv/htmlwidgets',
+            'christophergandrud/networkD3'))
+library(htmltools)
+library(htmlwidgets)
+library(networkD3)
+
+# Plot
+forceNetwork(Links = MisLinks, Nodes = MisNodes,
+            Source = "source", Target = "target",
+            Value = "value", NodeID = "name",
+            Group = "group", opacity = 0.8)
+```
+
+```{r}
+library(htmltools)
+library(htmlwidgets)
+library(networkD3)
+library(RCurl)
+library(devtools)
+library(repmis)
+
+Data1 <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, cache = FALSE)
+  
+
+DLinks <- Data1toDF(Data1$PercentPerceived = Energy,
+                    array = "links")
+DNodes <- Data1toDF(Data1$Country = Energy,
+                    array = "nodes")
+
+
+
+```

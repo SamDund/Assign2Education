@@ -55,6 +55,7 @@ Source: OECD Local Entrepreneurship Reviews [@OECD2009]
 
 ``` {r}
 
+
 #### Import WDI Annual GDP Growth Data ####
 GDPGrowth = WDI(indicator='NY.GDP.MKTP.KD.ZG', country=c('MX','CA','US','FR','AU','AT','BE',
                                                          'CL','CZ','DK','EE','FI','DE','HU', 
@@ -86,6 +87,11 @@ CompleteDataset <- merge(FinalGEM, GDPGrowth,
 
 ```
 
+
+
+
+### Data for final project
+
 ``` {r}
 
 CleanMerge <- cbind(names = c(rownames(Clean01), rownames(Clean02), rownames(Clean03),
@@ -98,21 +104,21 @@ CleanMerge <- cbind(names = c(rownames(Clean01), rownames(Clean02), rownames(Cle
 
 
 # Change merged data from wide to long
-LongGEM<- melt(data = Merged9,
+LongGEM<- melt(data = CleanMerge,
                   id.vars = c("Country"),
                   measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
                                    "2007", "2008", "2009", "2010"))
 
 # Rename columns
-names(LongGEM) <- gsub("variable", "Year", names(LongGEM))
-names(LongGEM) <- gsub("value", "Support", names(LongGEM))
+names(CleanMerge) <- gsub("variable", "Year", names(CleanMerge))
+names(CleanMerge) <- gsub("value", "Support", names(CleanMerge))
 
 
 # Create a vector with OECD countries
 myvars <- c('Australia', 'Austria', 'Belgium', 'Canada', 'Chile', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Japan', 'South Korea', 'Luxemburg', 'Mexico', 'Netherlands', 'New Zealand', 'Norway', 'Poland', 'Portugal', 'Slovak Republic', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'United Kingdom', 'United States')
 
-# Subset LongGEM with the countries we need
-subset_data <- subset(LongGEM, Country %in% myvars)
+# Subset LongGEM with the countries we need  (Why does 2001 and 2010 data disappear?)
+subset_data <- subset(CleanMerge, Country %in% myvars)
 
 # Delete unnecessary column
 subset_data$row.names <- NULL

@@ -330,43 +330,43 @@ remove(GEM2001, GEM2002, GEM2003, GEM2004, GEM2005, GEM2006, GEM2007, GEM2008, G
 
 # Edit column names for each dataframe
 Clean01 <- plyr::rename(x = Clean01, 
-                                      replace = c("ki01d01" = "Year01",
+                                      replace = c("ki01d01" = "2001",
                                                   "country" = "Country"))
 
 Clean02 <- plyr::rename(x = Clean02, 
-                                      replace = c("ki02d01" = "Year02",
+                                      replace = c("ki02d01" = "2002",
                                                   "country" = "Country"))
 
 Clean03 <- plyr::rename(x = Clean03, 
-                                      replace = c("ki03d01" = "Year03",
+                                      replace = c("ki03d01" = "2003",
                                                   "country" = "Country"))
 
 Clean04 <- plyr::rename(x = Clean04, 
-                                      replace = c("ki04d01" = "Year04",
+                                      replace = c("ki04d01" = "2004",
                                                   "ki04ctry" = "Country"))
 
 Clean05 <- plyr::rename(x = Clean05, 
-                                      replace = c("KI05D01" = "Year05",
+                                      replace = c("KI05D01" = "2005",
                                                   "KI05ctry" = "Country"))
 
 Clean06 <- plyr::rename(x = Clean06, 
-                                      replace = c("KI06D01_mean" = "Year06",
+                                      replace = c("KI06D01_mean" = "2006",
                                                   "KI06CTRY" = "Country"))
 
 Clean07 <- plyr::rename(x = Clean07, 
-                                      replace = c("ki07d01_" = "Year07",
+                                      replace = c("ki07d01_" = "2007",
                                                   "ki07ctry" = "Country"))
 
 Clean08 <- plyr::rename(x = Clean08, 
-                                      replace = c("NES08_D01_MEAN" = "Year08",
+                                      replace = c("NES08_D01_MEAN" = "2008",
                                                   "NES08COUNTRY" = "Country"))
 
 Clean09 <- plyr::rename(x = Clean09, 
-                                      replace = c("NES09_D01_MEAN" = "Year09",
+                                      replace = c("NES09_D01_MEAN" = "2009",
                                                   "NES09COUNTRY" = "Country"))
 
 Clean10 <- plyr::rename(x = Clean10, 
-                                      replace = c("NES10_D01_MEAN" = "Year10",
+                                      replace = c("NES10_D01_MEAN" = "2010",
                                                   "NES10CRNAME" = "Country"))
 
 
