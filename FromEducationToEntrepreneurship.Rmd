@@ -92,10 +92,32 @@ To measure these three dimensions of entrepreneurship, we have used three [Globa
 - Entrepreneurial intention Rate (Percentage)  
 
 
-#### Key Explanatory Variable: Degree of Self-esteem Reinforcement within the Education System    
+#### Key Explanatory Variable: Degree of Self-confidence Reinforcement within the Education System    
 
 
-As Inglehart has shown how personal values are shaped before the age of 20, we will try to show how compulsory education (from 6 to 16 years of age) shapes individuals, especially in terms of self-esteem. To do so, we decided to incorporate GEM indicators that relate to self-esteem and confidence. First, we included GEM survey data on the average "perceived capabilities" of an individual (18-64) in a given country to start a business. Second, we included additional GEM data on how the "fear of failure" could deter an average individual (18-64) in a country to become an entrepreneur. Both of these data sets indicate the average percentage for each characteristic at the country-level.  
+As Inglehart has shown how personal values are shaped before the age of 20, we will try to show how compulsory education (from 6 to 16 years of age) shapes individuals, especially in terms of self-esteem. To do so, we decided to incorporate GEM indicators that relate to self- confidence.  First, we included GEM survey data on the average "perceived capabilities" of an individual (18-64) in a given country to start a business. Second, we included additional GEM data on how the "fear of failure" could deter an average individual (18-64) in a country to become an entrepreneur. Both of these data sets indicate the average percentage for each characteristic at the country-level but they are solely describing a level of self-confidence in one's abilities to become an entrepreneur. We chose to use them as such even if they do not trace the specific causal chain between education systems and entrepreneurship that we intend to focus on.  
+
+
+In order to trace specifically how supportive of one's self-confidence a given education system is, we chose to use one specific item of the GEM [National Experts Survey (NES)](http://www.gemconsortium.org/Data-Collection) as a proxy, namely D01.  
+
+"In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative"
+
+
+Regarding this statement, the experts surveyed had to state whether it is:  
+
+
+1 completely false
+2 somewhat false
+3 neither true nor false
+4 somewhat true
+5 completely true
+
+97 do not know
+98 not applicable
+
+
+
+
 
 
 #### Control Variables: Controlling for Classic Determinants of Entrepreneurship  
@@ -154,13 +176,14 @@ The following packages were needed to complete the data collection portion of th
 **GEM Data**  
 
 
-GEM data was embedded in an interactive database and was difficult to extract automatically without writing a program. To simplify this process, we downloaded the necessary *.csv* files and saved them in our GitHub repository (to reduce complexity, we deleted the first three unnecessary rows before saving).  We then linked to the RAW version of the files and added the code required to load them from *R*.  The repmis package is required to load these documents from the repository.  
+GEM data was embedded in an interactive database and was difficult to extract automatically without writing a programme. To simplify this process, we downloaded the necessary *.csv* files and saved them in our GitHub repository (to reduce complexity, we deleted the first three unnecessary rows before saving).  We then linked to the RAW version of the files and added the code required to load them from *R*.  The repmis package is required to load these documents from the repository.  
 
 
-Cleaning the GEM data required deleting unnecessary characters in the year columns, changing the years from columns to rows (changing the data from wide to long), and changing the column names to describe which data was being analyzed.  In the process of doing this we created new data sets for each of these survey questions, which were called C*dataset* (clean followed by the data set name). This was done for each of the six GEM data sets before merging these sets two at a time to create the data set *FinalGEM*.  
+Cleaning the GEM data required deleting unnecessary characters in the year columns, changing the years from columns to rows (changing the data from wide to long), and changing the column names to describe which data was being analysed.  In the process of doing this we created new data sets for each of these survey questions, which were called C*dataset* (clean followed by the data set name). This was done for each of the six GEM data sets before merging these sets two at a time to create the data set *FinalGEM*.  
 
 
-For all 33 OECD countries we should have 13 observations, one per year from 2001 to 2013, for each variable. However, there are a few missing values, especially regarding the perceived opportunities for some countries, namely Estonia, Luxembourg and Slovak Republic.
+For all 33 OECD countries we should have 13 observations, one per year from 2001 to 2013, for each variable. However, there are a few missing values, especially regarding the perceived opportunities for some countries, namely Estonia, Luxembourg and Slovak Republic.   
+
 
 
 **World Bank Data**  
@@ -367,6 +390,7 @@ Clean05 <- plyr::rename(x = Clean05,
 Clean06 <- plyr::rename(x = Clean06, 
                                       replace = c("KI06D01_mean" = "Year06",
                                                   "KI06CTRY" = "Country"))
+
 Clean07 <- plyr::rename(x = Clean07, 
                                       replace = c("ki07d01_" = "Year07",
                                                   "ki07ctry" = "Country"))
