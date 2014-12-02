@@ -35,6 +35,7 @@ D4 <- plyr::rename(x = D3,
 # Remove X's in D4 year columns
 names(D4) <- gsub("X", "", names(D4))                  
 
+# STUCK HERE: Remove - in dataframe and replace with nothing
 names(D4) <- gsub("-", "", x = names(D4)
   
   
