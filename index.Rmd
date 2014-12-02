@@ -1,8 +1,99 @@
 ---
-title: 'index.html'
+title: 'From Education to Entrepreneurship'
 author: "Sam"
 date: "November 20, 2014"
 output: html_document
 ---
 
-### Under construction, will be up and running soon
+### Under construction, but here's a preview
+
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
+
+# Library required packages
+library(googleVis)
+library(countrycode)
+library(repmis)
+
+# Import GEM data frame
+PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE, na.strings = "-")
+
+
+## Add country codes and place new column at beginning of the data frame
+# Create a vector of country codes
+D2 <- countrycode(PerceivedOpportunities$Country, "country.name", "iso2c")
+
+# Create a new column and insert the country code vector
+PerceivedOpportunities$new.col <- D2
+
+# Reorder columns so country code is first
+D3 <- PerceivedOpportunities[,c(15,1:14)]
+
+# Rename first column
+D4 <- plyr::rename(x = D3, 
+                   replace = c("new.col" = "iso2c"))
+
+# Remove X's in D4 year columns
+names(D4) <- gsub("X", "", names(D4))                    
+  
+# Set columns as numeric
+D4[,"2001"] <- as.numeric(D4[,"2001"])
+D4[,"2002"] <- as.numeric(D4[,"2002"])
+D4[,"2003"] <- as.numeric(D4[,"2003"])
+D4[,"2004"] <- as.numeric(D4[,"2004"])
+D4[,"2005"] <- as.numeric(D4[,"2005"])
+D4[,"2006"] <- as.numeric(D4[,"2006"])
+D4[,"2007"] <- as.numeric(D4[,"2007"])
+D4[,"2008"] <- as.numeric(D4[,"2008"])
+D4[,"2009"] <- as.numeric(D4[,"2009"])
+D4[,"2010"] <- as.numeric(D4[,"2010"])
+D4[,"2011"] <- as.numeric(D4[,"2011"])
+D4[,"2012"] <- as.numeric(D4[,"2012"])
+D4[,"2013"] <- as.numeric(D4[,"2013"])
+
+# Generate a new column with mean of all other columns
+D4$mean <- rowMeans(subset(D4, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
+                                          "2009", "2010", "2011", "2012", "2013")), na.rm = TRUE)
+
+# Drop year columns, leaving only mean column
+D4$'2001' <- NULL
+D4$'2002' <- NULL
+D4$'2003' <- NULL
+D4$'2004' <- NULL
+D4$'2005' <- NULL
+D4$'2006' <- NULL
+D4$'2007' <- NULL
+D4$'2008' <- NULL
+D4$'2009' <- NULL
+D4$'2010' <- NULL
+D4$'2011' <- NULL
+D4$'2012' <- NULL
+D4$'2013' <- NULL
+
+# Create 
+D4[, 3] <- round(log(D4[, 3]), digits = 2)
+```
+
+
+# Variation in Perceived Opportunities in OECD
+```{r echo =FALSE, cache=TRUE, include=TRUE, results='asis'}
+# Plot
+Opp_map <- gvisGeoChart(D4, locationvar = 'iso2c',
+                      colorvar = 'mean',
+                      options = list(
+                        colors = "['#fff7bc', '#d95f0e']"
+))
+
+print(Opp_map, tag = 'chart')
+
+```
+
+
+
+# Distribution of Perceived Opportunities in OECD Countries
+
+```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+D4 %>% 
+  ggvis(~mean, fill := "#2c7fb8") %>% 
+  layer_histograms(width =  input_slider(0, 2, step = 0.10, label = "width"),
+                   center = input_slider(0, 2, step = 0.05, label = "center"))
