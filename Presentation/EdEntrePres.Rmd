@@ -1,11 +1,14 @@
 ---
-title: "EdEntrePres"
-author: "Sam"
+title: "The Impact of Education <br>
+on Entrepreneurship"
+author: "Sam Dundon and Thierry Racaud"
 date: "December 2, 2014"
 output: ioslides_presentation
 ---
 
-## Education -> Entrepreneurship
+## From Education to Entrepreneurship
+
+*Text from Thierry*
 
 ## Different Country-level Perceptions of Good Opportunities to Start a Business 
 
@@ -75,7 +78,7 @@ D4$'2013' <- NULL
 D4[, 3] <- round(log(D4[, 3]), digits = 2)
 ```
 
-```{r echo =FALSE, cache=TRUE, include=TRUE, results='asis'}
+```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
 # Plot
 Opp_map <- gvisGeoChart(D4, locationvar = 'iso2c',
                       colorvar = 'mean',
@@ -98,20 +101,49 @@ D4 %>% ggvis(~mean, fill := "#2c7fb8") %>% layer_histograms(width = 0.2)
 ```
 
 ## Slide with R Code and Output
-
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+library(stargazer)
 
-D4 %>% 
-  ggvis(~mean, fill := "#2c7fb8") %>% 
-  layer_histograms(width =  input_slider(0, 2, step = 0.10, label = "width"),
-                   center = input_slider(0, 2, step = 0.05, label = "center"))
+# Create new DF for PerceivedOpportunities
+D5 <- PerceivedOpportunities
+
+# Eliminate X's in header
+names(D5) <- gsub("X", "", names(D5))  
+D5$new.col <- NULL
+
+# Create descriptive statistics table
+T1 <- stargazer(D5, type = 'html', column.sep.width = "20pt", digits = 2)
+```
+## Slide with Plot
+
+```{r, echo =FALSE, cache=FALSE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+library(Zelig)
+library(ZeligMultilevel)
+
+# Import CompleteData
+CompleteData <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE)
+
+CompleteData_omit <- na.omit(CompleteData)
+
+# Run a RE regression
+Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach, data = CompleteData_omit, model = "ls")
+
+# Set range of PercentPerceived values in simulation
+x.out2 <- setx(Z1, PercentPerceived = 20:70)
+
+# Run simulation (default 1000 trials)
+simz2 <- sim(Z1, x = x.out2)
+
+# Adjust margins
+par(mar=c(5,5,5,5))
+
+
 
 ```
 
-## Slide with Plot
-
-```{r, echo=FALSE}
-
-
+```{r, echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+# Plot simulation
+plot(simz2, xlab = 'PercentPerceived', ylab = 'PercentIntention | PercentPerceived')
 ```
 
