@@ -87,11 +87,15 @@ print(Opp_map, tag = 'chart')
 
 ```
 
+<br>
 
+
+<br>
 
 # Distribution of Perceived Opportunities in OECD Countries
 
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+library(ggvis)
 
 D4 %>% 
   ggvis(~mean, fill := "#2c7fb8") %>% 
