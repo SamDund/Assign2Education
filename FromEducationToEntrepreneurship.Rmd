@@ -32,6 +32,9 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 *Introduction to Collaborative Social Science Data Analysis*
 
+(The impact of self confidence on entrepreneurship.)
+
+
 
 ### Policy Relevance
 

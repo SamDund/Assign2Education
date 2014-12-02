@@ -92,9 +92,31 @@ CompleteDataset <- merge(FinalGEM, GDPGrowth,
 
 ### Data for final project
 
-``` {r}
+``` {r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE}
 
-CleanMerge <- cbind(names = c(rownames(Clean01), rownames(Clean02), rownames(Clean03),
+# Country code
+rm(CleanGEM)
+dfs <- ls()[1:max(grep(pattern = 'Clean[0-1]*', x = ls()))]
+
+for (i in dfs){
+  message(i)
+  temp <- get(i)
+  names_temp <- names(temp)
+  temp[, 'year'] <- names_temp[2]
+  names(temp) <- c('Country', 'WayofTeaching', 'year')
+  
+    if (i == 'Clean01') {
+      cleaned <- temp
+  } else if (i != 'Clean01'){
+      cleaned <- rbind(cleaned, temp)
+  }
+}
+
+# Country code
+# Subset
+
+
+     CleanMerge <- cbind(names = c(rownames(Clean01), rownames(Clean02), rownames(Clean03),
                               rownames(Clean04), rownames(Clean05), rownames(Clean06),
                               rownames(Clean07), rownames(Clean08), rownames(Clean09),
                               rownames(Clean10)),
@@ -124,9 +146,9 @@ subset_data <- subset(CleanMerge, Country %in% myvars)
 subset_data$row.names <- NULL
 
 # Arrange subset_data by country and year
-GrandData <- arrange(subset_data, Country, Year) 
+GData <- arrange(subset_data, Country, Year) 
 
-GrandData1 <- GrandData[order("Country",)]
+GData <- GData[order("Country",)]
 
 ########### STUCK #############
 
