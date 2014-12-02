@@ -86,7 +86,19 @@ Opp_map <- gvisGeoChart(D4, locationvar = 'iso2c',
                         colors = "['#fff7bc', '#d95f0e']"
 ))
 
-print(Opp_map, tag = 'chart')
+# Duplicate D4 df
+Dropped4 <- D4
+
+# Drop iso2c in Dropped4
+Dropped4$iso2c <- NULL
+
+Table <- gvisTable(Dropped4, 
+               options=list(width=230, height=300))
+
+
+MT <- gvisMerge(Opp_map, Table, horizontal = TRUE)
+
+print(MT, tag = 'chart')
 
 ```
 
