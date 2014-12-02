@@ -33,8 +33,11 @@ D4 <- plyr::rename(x = D3,
                    replace = c("new.col" = "iso2c"))
 
 # Remove X's in D4 year columns
-names(D4) <- gsub("X", "", names(D4))
+names(D4) <- gsub("X", "", names(D4))                  
 
+names(D4) <- gsub("-", "", x = names(D4)
+  
+  
 # Set columns as numeric
 D4[,"2001"] <- as.numeric(D4[,"2001"])
 D4[,"2002"] <- as.numeric(D4[,"2002"])
