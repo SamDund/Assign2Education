@@ -12,3 +12,6 @@ Matrix
 Rcpp
 lme4
 ZeligMultilevel
+reshape2
+rCharts
+ggplot2
