@@ -93,9 +93,91 @@ CompleteDataset <- merge(FinalGEM, GDPGrowth,
 ### Data for final project
 
 ``` {r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE}
+library(plyr)
+library(repmis)
+library(tidyr)
+library(reshape2)
+library(foreign)
+library(countrycode)
 
-# Country code
-rm(CleanGEM)
+# Set working directory
+setwd('~/Assign2Education/GEMData')
+
+# Import GEM NES 2001-2010 Data
+GEM2001 <- read.spss('2001GEMNES.sav', to.data.frame = TRUE)
+GEM2002 <- read.spss('2002GEMNES.sav', to.data.frame = TRUE)
+GEM2003 <- read.spss('2003GEMNES.sav', to.data.frame = TRUE)
+GEM2004 <- read.spss('2004GEMNES.sav', to.data.frame = TRUE)
+GEM2005 <- read.spss('2005GEMNES.sav', to.data.frame = TRUE)
+GEM2006 <- read.spss('2006GEMNES.sav', to.data.frame = TRUE)
+GEM2007 <- read.spss('2007GEMNES.sav', to.data.frame = TRUE)
+GEM2008 <- read.spss('2008GEMNES.sav', to.data.frame = TRUE)
+GEM2009 <- read.spss('2009GEMNESMDS.sav', to.data.frame = TRUE)
+GEM2010 <- read.spss('2010GEMNES.sav', to.data.frame = TRUE)
+
+
+## Clean Annual GEM NES Datasets
+
+# Draw out Country and D01 only
+Clean01 <- GEM2001[,c("country", "ki01d01")]
+Clean02 <- GEM2002[,c("country", "ki02d01")]
+Clean03 <- GEM2003[,c("country", "ki03d01")]
+Clean04 <- GEM2004[,c("ki04ctry", "ki04d01")]
+Clean05 <- GEM2005[,c("KI05ctry", "KI05D01")]
+Clean06 <- GEM2006[,c("KI06CTRY", "KI06D01_mean")]
+Clean07 <- GEM2007[,c("ki07ctry", "ki07d01_")]
+Clean08 <- GEM2008[,c("NES08COUNTRY", "NES08_D01_MEAN")]
+Clean09 <- GEM2009[,c("NES09COUNTRY", "NES09_D01_MEAN")]
+Clean10 <- GEM2010[,c("NES10CRNAME", "NES10_D01_MEAN")]
+
+
+# Remove unnecessary dataframes from environment
+remove(GEM2001, GEM2002, GEM2003, GEM2004, GEM2005, GEM2006, GEM2007, GEM2008, GEM2009, GEM2010)
+
+
+# Edit column names for each dataframe
+Clean01 <- plyr::rename(x = Clean01, 
+                                      replace = c("ki01d01" = "2001",
+                                                  "country" = "Country"))
+
+Clean02 <- plyr::rename(x = Clean02, 
+                                      replace = c("ki02d01" = "2002",
+                                                  "country" = "Country"))
+
+Clean03 <- plyr::rename(x = Clean03, 
+                                      replace = c("ki03d01" = "2003",
+                                                  "country" = "Country"))
+
+Clean04 <- plyr::rename(x = Clean04, 
+                                      replace = c("ki04d01" = "2004",
+                                                  "ki04ctry" = "Country"))
+
+Clean05 <- plyr::rename(x = Clean05, 
+                                      replace = c("KI05D01" = "2005",
+                                                  "KI05ctry" = "Country"))
+
+Clean06 <- plyr::rename(x = Clean06, 
+                                      replace = c("KI06D01_mean" = "2006",
+                                                  "KI06CTRY" = "Country"))
+
+Clean07 <- plyr::rename(x = Clean07, 
+                                      replace = c("ki07d01_" = "2007",
+                                                  "ki07ctry" = "Country"))
+
+Clean08 <- plyr::rename(x = Clean08, 
+                                      replace = c("NES08_D01_MEAN" = "2008",
+                                                  "NES08COUNTRY" = "Country"))
+
+Clean09 <- plyr::rename(x = Clean09, 
+                                      replace = c("NES09_D01_MEAN" = "2009",
+                                                  "NES09COUNTRY" = "Country"))
+
+Clean10 <- plyr::rename(x = Clean10, 
+                                      replace = c("NES10_D01_MEAN" = "2010",
+                                                  "NES10CRNAME" = "Country"))
+
+
+# Clean Dataframes
 dfs <- ls()[1:max(grep(pattern = 'Clean[0-1]*', x = ls()))]
 
 for (i in dfs){
@@ -112,46 +194,33 @@ for (i in dfs){
   }
 }
 
-# Country code
-# Subset
 
+## Add country codes and place new column at beginning of the data frame
 
-     CleanMerge <- cbind(names = c(rownames(Clean01), rownames(Clean02), rownames(Clean03),
-                              rownames(Clean04), rownames(Clean05), rownames(Clean06),
-                              rownames(Clean07), rownames(Clean08), rownames(Clean09),
-                              rownames(Clean10)),
-                    rbind.fill(list(Clean01, Clean02, Clean03, Clean04, Clean05, Clean06,
-                                    Clean07, Clean08, Clean09, Clean10)))
+# Create a vector of country codes
+W1 <- countrycode(cleaned$Country, "country.name", "iso2c")
 
+# Create a new column and insert the country code vector
+cleaned$new.col <- W1
 
+# Change the order of columns so country code is first
+W2 <- cleaned[,c(4,1:3)]
 
-# Change merged data from wide to long
-LongGEM<- melt(data = CleanMerge,
-                  id.vars = c("Country"),
-                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
-                                   "2007", "2008", "2009", "2010"))
+# Change the name of new.col
+names(W2) <- gsub("new.col", "iso2c", names(W2))
 
-# Rename columns
-names(CleanMerge) <- gsub("variable", "Year", names(CleanMerge))
-names(CleanMerge) <- gsub("value", "Support", names(CleanMerge))
+## Subset W2 to OECD countries
 
+# Create matrix of OECD countries by iso2c code
+myvars <- c('MX','CA','US','FR','AU','AT','BE','CL','CZ','DK','EE','FI','DE','HU', 'IS','IE','IL',
+            'IT','JP','KR','LU', 'NL','NZ','NO','PL','PT','SK','SI', 'ES','SE','CH','TR','GB','US','GR')
 
-# Create a vector with OECD countries
-myvars <- c('Australia', 'Austria', 'Belgium', 'Canada', 'Chile', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Japan', 'South Korea', 'Luxemburg', 'Mexico', 'Netherlands', 'New Zealand', 'Norway', 'Poland', 'Portugal', 'Slovak Republic', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'United Kingdom', 'United States')
-
-# Subset LongGEM with the countries we need  (Why does 2001 and 2010 data disappear?)
-subset_data <- subset(CleanMerge, Country %in% myvars)
+# Subset W2 with myvars
+subW2 <- subset(W2, iso2c %in% myvars)
 
 # Delete unnecessary column
-subset_data$row.names <- NULL
+subW2$row.names <- NULL
 
-# Arrange subset_data by country and year
-GData <- arrange(subset_data, Country, Year) 
 
-GData <- GData[order("Country",)]
 
-########### STUCK #############
-
-FinalData <- merge(FinalGEM, GrandData,
-                   union("Country", "Year"))
 ```

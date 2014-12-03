@@ -1,0 +1,243 @@
+---
+title: "The Impact of Education <br>
+on Entrepreneurship"
+author: "Sam Dundon and Thierry Racaud"
+date: "December 2, 2014"
+output: ioslides_presentation
+---
+
+## From Education to Entrepreneurship
+
+*Text from Thierry*
+
+## Different Country-level Perceptions of Good Opportunities to Start a Business 
+
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
+
+# Library required packages
+library(googleVis)
+library(countrycode)
+library(repmis)
+
+
+# Import GEM data frame
+PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE, na.strings = "-")
+
+## Add country codes and place new column at beginning of the data frame
+# Create a vector of country codes
+D2 <- countrycode(PerceivedOpportunities$Country, "country.name", "iso2c")
+
+# Create a new column and insert the country code vector
+PerceivedOpportunities$new.col <- D2
+
+# Reorder columns so country code is first
+D3 <- PerceivedOpportunities[,c(15,1:14)]
+
+# Rename first column
+D4 <- plyr::rename(x = D3, 
+                   replace = c("new.col" = "iso2c"))
+
+# Remove X's in D4 year columns
+names(D4) <- gsub("X", "", names(D4))                    
+  
+# Set columns as numeric
+D4[,"2001"] <- as.numeric(D4[,"2001"])
+D4[,"2002"] <- as.numeric(D4[,"2002"])
+D4[,"2003"] <- as.numeric(D4[,"2003"])
+D4[,"2004"] <- as.numeric(D4[,"2004"])
+D4[,"2005"] <- as.numeric(D4[,"2005"])
+D4[,"2006"] <- as.numeric(D4[,"2006"])
+D4[,"2007"] <- as.numeric(D4[,"2007"])
+D4[,"2008"] <- as.numeric(D4[,"2008"])
+D4[,"2009"] <- as.numeric(D4[,"2009"])
+D4[,"2010"] <- as.numeric(D4[,"2010"])
+D4[,"2011"] <- as.numeric(D4[,"2011"])
+D4[,"2012"] <- as.numeric(D4[,"2012"])
+D4[,"2013"] <- as.numeric(D4[,"2013"])
+
+# Save cleaned df
+Opp1 <- D4
+
+# Generate a new column with mean of all other columns
+D4$mean <- rowMeans(subset(D4, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
+                                          "2009", "2010", "2011", "2012", "2013")), na.rm = TRUE)
+
+# Drop year columns, leaving only mean column
+D4$'2001' <- NULL
+D4$'2002' <- NULL
+D4$'2003' <- NULL
+D4$'2004' <- NULL
+D4$'2005' <- NULL
+D4$'2006' <- NULL
+D4$'2007' <- NULL
+D4$'2008' <- NULL
+D4$'2009' <- NULL
+D4$'2010' <- NULL
+D4$'2011' <- NULL
+D4$'2012' <- NULL
+D4$'2013' <- NULL
+
+# Create 
+D4[, 3] <- round(log(D4[, 3]), digits = 2)
+```
+
+```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
+
+# Plot perceived opportunties map
+Opp_map <- gvisGeoChart(D4, locationvar = 'iso2c',
+                      colorvar = 'mean',
+                      options = list(
+                        colors = "['#ece7f2', '#2b8cbe']"
+))
+
+# Duplicate D4 (perceived opportunities) df
+Dropped4 <- D4
+
+# Drop iso2c in Dropped4
+Dropped4$iso2c <- NULL
+
+# Print the table
+print(Opp_map, tag = 'chart')
+
+```
+
+## Distribution of Perception Differences
+```{r echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+library("ggplot2")
+
+# Create country vector to subset
+myvars2 <- c('US','FR','DE','JP','GB')
+
+# Subset Opp2
+Opp2 <- subset(Opp1, iso2c %in% myvars2)
+
+# Melt Opp2 df
+Opp3 <- melt(data = Opp2,
+                  id.vars = c("Country", "iso2c"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010"))
+
+# Edit column names
+names(Opp3) <- gsub("value", "WayofTeaching", names(Opp3))
+names(Opp3) <- gsub("variable", "Year", names(Opp3))
+
+Opp3$iso2c <- NULL
+
+# Create plot
+ggplot(Opp3,aes(x=Year,y=WayofTeaching,colour=Country,group=Country)) + geom_line()
+
+
+
+```
+
+subset
+ggplot1
+geom_line color each country
+colors by country 4-5
+
+## Slide with R Code and Output
+```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+
+```
+
+## WayofTeaching
+```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+# Import GEM data frame
+WayofTeaching <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/WayofTeaching", header = TRUE, cache = FALSE, na.strings = "NA")
+
+# Drop unnecessary column 1
+WayofTeaching$X <- NULL
+
+# Change data from long to wide format
+WT <- reshape(WayofTeaching, idvar = c("iso2c", "Country"), timevar = "Year", direction = "wide")
+
+# Delete variable name in Year columns
+names(WT) <- gsub("WayofTeaching.", "", names(WT))
+
+# Generate a new column with mean of all other columns
+WT$mean <- rowMeans(subset(WT, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
+                                          "2009", "2010")), na.rm = TRUE)
+
+# Drop year columns, leaving only mean column
+WT$'2001' <- NULL
+WT$'2002' <- NULL
+WT$'2003' <- NULL
+WT$'2004' <- NULL
+WT$'2005' <- NULL
+WT$'2006' <- NULL
+WT$'2007' <- NULL
+WT$'2008' <- NULL
+WT$'2009' <- NULL
+WT$'2010' <- NULL
+WT$'2011' <- NULL
+WT$'2012' <- NULL
+WT$'2013' <- NULL
+WT$row.names <- NULL
+
+# Create 
+WT[, 3] <- round(log(WT[, 3]), digits = 2)
+```
+
+```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
+library(googleVis)
+
+# Plot
+WT_map <- gvisGeoChart(WT, locationvar = 'iso2c',
+                      colorvar = 'mean',
+                      options = list(
+                        colors = "['#ece7f2', '#2b8cbe']"
+))
+ 
+
+Table2 <- gvisTable(WT, 
+               options=list(width=230, height=300))
+
+
+WTT <- gvisMerge(WT_map, Table, horizontal = TRUE)
+
+print(WT_map, tag = 'chart')
+
+```
+
+
+
+## Slide with Plot
+
+```{r, echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+library(Zelig)
+library(ZeligMultilevel)
+
+# Import CompleteData
+CompleteData <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE)
+
+CompleteData_omit <- na.omit(CompleteData)
+
+# Run a RE regression
+Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeaching, data = CompleteData_omit, model = "ls")
+
+# Set range of PercentPerceived values in simulation
+x.out2 <- setx(Z1, PercentPerceived = 20:70)
+
+# Run simulation (default 1000 trials)
+simz2 <- sim(Z1, x = x.out2)
+
+# Adjust margins
+par(mar=c(5,5,5,5))
+
+
+
+```
+
+```{r, echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+# Plot simulation
+plot(simz2, xlab = 'PercentPerceived', ylab = 'PercentIntention | PercentPerceived')
+```
+
+## New
+```{r, echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+
+```
+ 

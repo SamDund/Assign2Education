@@ -1,0 +1,115 @@
+---
+title: "Untitled"
+author: "Sam"
+date: "December 2, 2014"
+output: ioslides_presentation
+---
+
+## R Markdown
+```{r}
+# Create googleVis chart
+line_plot <- gvisLineChart(D1)
+plot(line_plot)
+
+# Create vector of OECD countries
+places <- c('Australia', 'Austria', 'Belgium', 'Canada', 'Chile', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Japan', 'Korea', 'Luxemburg', 'Mexico', 'Netherlands', 'New Zealand', 'Norway', 'Poland', 'Portugal', 'Slovak Republic', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'United Kingdom', 'United States')
+
+# Find latitude and longitude for OECD countries
+geocode(places)
+
+# Generate a map
+qmap(location = 'Australia', zoom = 4)
+```
+## Slide with Bullets
+
+```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+library("ggvis")
+# Interactive histgram (isn't interactive in knitted docs)
+D4 %>% 
+  ggvis(~mean, fill := "#2c7fb8") %>% 
+  layer_histograms(width =  input_slider(0, 2, step = 0.10, label = "width"),
+                   center = input_slider(0, 2, step = 0.05, label = "center"))
+
+```
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Code and Output
+
+```{r}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r, echo=FALSE}
+# sankeyNetwork
+library(RCurl)
+library(devtools)
+install_github(c('rstudio/htmltools',
+            'ramnathv/htmlwidgets',
+            'christophergandrud/networkD3'))
+library(htmltools)
+library(htmlwidgets)
+library(networkD3)
+
+URL <- "https://raw.githubusercontent.com/christophergandrud/d3Network/sankey/JSONdata/energy.json"
+Energy <- getURL(URL, ssl.verifypeer = FALSE)
+
+# Convert to data frame
+EngLinks <- JSONtoDF(jsonStr = Energy, array = "links")
+EngNodes <- JSONtoDF(jsonStr = Energy, array = "nodes")
+
+
+```
+
+```{r}
+# Histogram
+D4 %>% ggvis(~mean, fill := "#2c7fb8") %>% layer_histograms(width = 0.2)
+
+# Library stargazer
+library(stargazer)
+
+# Create new DF for PerceivedOpportunities
+D5 <- PerceivedOpportunities
+
+# Eliminate X's in header
+names(D5) <- gsub("X", "", names(D5))  
+D5$new.col <- NULL
+
+# Create descriptive statistics table
+T1 <- stargazer(D5, type = 'html', column.sep.width = "20pt", digits = 2)
+
+##################
+
+###################################################
+
+library(googleVis)
+library(reshape2)
+
+# Melt Opp1 (Perceived opportunities 2001:2013 OECD)
+dfChart1 <- melt(data = Opp2,
+                  id.vars = c("Country", "iso2c"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010"))
+
+# Change column name of value and variable
+names(dfChart1) <- gsub("value", "WayofTeaching", names(dfChart1))
+names(dfChart1) <- gsub("variable", "Year", names(dfChart1))
+
+
+library(rCharts)
+
+# rChart
+Try1 <- transform(dfChart1, Year = as.character('Year'))
+
+sub_aust <- subset(Try1, Country == "Australia")
+
+m1 <- mPlot(y = "WayofTeaching", x = "Year", type = "Line", data = Opp3)
+
+m1$set(pointSize = 0, lineWidth = 1)
+
+m1$print('chartTest')
+```

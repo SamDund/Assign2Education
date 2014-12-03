@@ -17,6 +17,7 @@ library(repmis)
 library(tidyr)
 library(reshape2)
 library(foreign)
+library(countrycode)
 
 # Load citation package
 pkgs <- c('plyr','repmis', 'tidyr', 'reshape2', 'stargazer', 'Zelig')
@@ -155,6 +156,7 @@ PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com
 # Import 2010GEM supportive teaching data as a proxy for how favourable to self-confidence a given education system is
 SupportiveTeaching <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEMAvgIndicators.csv", header = TRUE, cache = FALSE)
 
+<<<<<<< HEAD
 # Import GEM 2009 supportive teaching data
 setwd('~/Assign2Education/GEMData')
 
@@ -168,6 +170,8 @@ GEM2007 <- read.spss('2007GEMNES.sav', to.data.frame = TRUE)
 GEM2008 <- read.spss('2008GEMNES.sav', to.data.frame = TRUE)
 GEM2009 <- read.spss('2009GEMNESMDS.sav', to.data.frame = TRUE)
 GEM2010 <- read.spss('2010GEMNES.sav', to.data.frame = TRUE)
+=======
+>>>>>>> FETCH_HEAD
 
 
 
@@ -286,7 +290,86 @@ CPerceivedOpportunities <- plyr::rename(x = CPerceivedOpportunities,
                                                   "value" = "PercentOpportunities"))
 
 
+<<<<<<< HEAD
 ### Clean GEM NES Datasets
+=======
+
+##################### Merge GEM Survey Data  ###################
+
+MergedGEM <- merge(CCurrentOwner, CEntreIntention,
+                   union("Country", "Year"),
+                   all = TRUE)
+
+MergedGem2 <- merge(CFearFail, CNascentEntre,
+                   union("Country", "Year"),
+                   all = TRUE) 
+
+MergedGem3 <- merge(CPerceivedCapabilities, MergedGEM,
+                   union("Country", "Year"),
+                   all = TRUE) 
+
+MergedGem4 <- merge(MergedGem2, MergedGem3,
+                   union("Country", "Year"),
+                   all = TRUE) 
+
+FinalGEM <- merge(MergedGem4, CPerceivedOpportunities,
+                   union("Country", "Year"),
+                   all = TRUE)
+
+
+# Convert percent columns from character to numeric
+FinalGEM[,"PercentPerceived"] <- as.numeric(FinalGEM[,"PercentPerceived"])
+FinalGEM[,"PercentFear"] <- as.numeric(FinalGEM[,"PercentFear"])
+FinalGEM[,"PercentNascent"] <- as.numeric(FinalGEM[,"PercentNascent"])
+FinalGEM[,"PercentOwner"] <- as.numeric(FinalGEM[,"PercentOwner"])
+FinalGEM[,"PercentIntention"] <- as.numeric(FinalGEM[,"PercentIntention"])
+FinalGEM[,"PercentOpportunities"] <- as.numeric(FinalGEM[,"PercentOpportunities"])
+
+
+
+# Remove unncessary data from environment
+remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
+
+
+### Insert iso2c country code for easier merging
+
+## Add country codes and place new column at beginning of the data frame
+
+# Create a vector of country codes
+F1 <- countrycode(FinalGEM$Country, "country.name", "iso2c")
+
+# Create a new column and insert the country code vector
+FinalGEM$new.col <- F1
+
+# Change the order of columns so country code is first
+FinalGEM <- FinalGEM[,c(9,1:8)]
+
+# Change the name of new.col
+names(FinalGEM) <- gsub("new.col", "iso2c", names(FinalGEM))
+
+
+
+##################### Import GEM NES National Survey Data  ###################
+
+# Set working directory
+setwd('~/Assign2Education/GEMData')
+
+# Import GEM NES 2001-2010 Data
+GEM2001 <- read.spss('2001GEMNES.sav', to.data.frame = TRUE)
+GEM2002 <- read.spss('2002GEMNES.sav', to.data.frame = TRUE)
+GEM2003 <- read.spss('2003GEMNES.sav', to.data.frame = TRUE)
+GEM2004 <- read.spss('2004GEMNES.sav', to.data.frame = TRUE)
+GEM2005 <- read.spss('2005GEMNES.sav', to.data.frame = TRUE)
+GEM2006 <- read.spss('2006GEMNES.sav', to.data.frame = TRUE)
+GEM2007 <- read.spss('2007GEMNES.sav', to.data.frame = TRUE)
+GEM2008 <- read.spss('2008GEMNES.sav', to.data.frame = TRUE)
+GEM2009 <- read.spss('2009GEMNESMDS.sav', to.data.frame = TRUE)
+GEM2010 <- read.spss('2010GEMNES.sav', to.data.frame = TRUE)
+
+
+##################### Clean GEM NES National Survey Data  ###################
+
+>>>>>>> FETCH_HEAD
 # Draw out Country and D01 only
 Clean01 <- GEM2001[,c("country", "ki01d01")]
 Clean02 <- GEM2002[,c("country", "ki02d01")]
@@ -299,6 +382,8 @@ Clean08 <- GEM2008[,c("NES08COUNTRY", "NES08_D01_MEAN")]
 Clean09 <- GEM2009[,c("NES09COUNTRY", "NES09_D01_MEAN")]
 Clean10 <- GEM2010[,c("NES10CRNAME", "NES10_D01_MEAN")]
 
+
+# Remove unnecessary dataframes from environment
 remove(GEM2001, GEM2002, GEM2003, GEM2004, GEM2005, GEM2006, GEM2007, GEM2008, GEM2009, GEM2010)
 
 # Edit column names for each dataframe
@@ -343,77 +428,105 @@ Clean10 <- plyr::rename(x = Clean10,
                                                   "NES10CRNAME" = "Country"))
 
 
+<<<<<<< HEAD
 #### Merge the data ####
 MergedGEM <- merge(CCurrentOwner, CEntreIntention,
                    union("Country", "Year"),
                    all = TRUE)
+=======
+# Clean and cbind ataframes
+dfs <- ls()[1:max(grep(pattern = 'Clean[0-1]*', x = ls()))]
 
-MergedGem2 <- merge(CFearFail, CNascentEntre,
-                   union("Country", "Year"),
-                   all = TRUE) 
+for (i in dfs){
+  message(i)
+  temp <- get(i)
+  names_temp <- names(temp)
+  temp[, 'year'] <- names_temp[2]
+  names(temp) <- c('Country', 'WayofTeaching', 'year')
+  
+    if (i == 'Clean01') {
+      cleaned <- temp
+  } else if (i != 'Clean01'){
+      cleaned <- rbind(cleaned, temp)
+  }
+}
+>>>>>>> FETCH_HEAD
 
-MergedGem3 <- merge(CPerceivedCapabilities, MergedGEM,
-                   union("Country", "Year"),
-                   all = TRUE) 
 
-MergedGem4 <- merge(MergedGem2, MergedGem3,
-                   union("Country", "Year"),
-                   all = TRUE) 
+## Add country codes and place new column at beginning of the data frame
 
-FinalGEM <- merge(MergedGem4, CPerceivedOpportunities,
-                   union("Country", "Year"),
+# Create a vector of country codes
+W1 <- countrycode(cleaned$Country, "country.name", "iso2c")
+
+# Create a new column and insert the country code vector
+cleaned$new.col <- W1
+
+# Change the order of columns so country code is first
+W2 <- cleaned[,c(4,1:3)]
+
+# Change the name of new.col
+names(W2) <- gsub("new.col", "iso2c", names(W2))
+
+# Capitalize 'year' 
+names(W2) <- gsub("year", "Year", names(W2))
+
+## Subset W2 to OECD countries
+
+# Create matrix of OECD countries by iso2c code
+myvars <- c('MX','CA','US','FR','AU','AT','BE','CL','CZ','DK','EE','FI','DE','HU', 'IS','IE','IL',
+            'IT','JP','KR','LU', 'NL','NZ','NO','PL','PT','SK','SI', 'ES','SE','CH','TR','GB','US','GR')
+
+<<<<<<< HEAD
+# Import tempfix for GEM data (created this by copying data frame, editing outide R, and saving .csv in repository)
+=======
+# Subset W2 with myvars
+subW2 <- subset(W2, iso2c %in% myvars)
+
+# Delete unnecessary column
+subW2$row.names <- NULL
+
+write.csv(subW2, file = "WayofTeaching")
+>>>>>>> FETCH_HEAD
+
+
+
+##################### Merge two GEM Datasets  ###################
+
+# Merge subW2 and FinalGem
+CompleteData <- merge(subW2, FinalGEM,
+                   union("iso2c", "Year"),
                    all = TRUE)
 
+# Delete conflicting country names
+CompleteData$Country.x <- NULL
+CompleteData$Country.y <- NULL
 
-# Convert percent columns from character to numeric
-FinalGEM[,"PercentPerceived"] <- as.numeric(FinalGEM[,"PercentPerceived"])
-FinalGEM[,"PercentFear"] <- as.numeric(FinalGEM[,"PercentFear"])
-FinalGEM[,"PercentNascent"] <- as.numeric(FinalGEM[,"PercentNascent"])
-FinalGEM[,"PercentOwner"] <- as.numeric(FinalGEM[,"PercentOwner"])
-FinalGEM[,"PercentIntention"] <- as.numeric(FinalGEM[,"PercentIntention"])
-FinalGEM[,"PercentOpportunities"] <- as.numeric(FinalGEM[,"PercentOpportunities"])
+## Add a column with country names
+
+# Create a vector of names
+C1 <- countrycode(CompleteData$iso2c, "iso2c", "country.name")
+
+# Insert new row with C1
+CompleteData$new.col <- C1
+
+# Reorganize columns to make Country second
+CompleteData <- CompleteData[,c(1,10,2:9)]
+
+# Rename Country column
+names(CompleteData) <- gsub("new.col", "Country", names(CompleteData))
 
 
+
+<<<<<<< HEAD
+=======
 
 # Remove unncessary data from environment
-remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
-
-# Import tempfix for GEM data (created this by copying data frame, editing outide R, and saving .csv in repository)
-
-GEMAnnualData <- repmis::source_data("https://github.com/SamDund/Assign2Education/raw/master/GEMData/Gemyears.csv", header = TRUE, cache = FALSE) 
+remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre, Clean01, Clean02, Clean03, Clean04, Clean05, Clean06, Clean07, Clean08, Clean09, Clean10, CleanGEM, FinalGEM, GEMAnnualData, SupportiveTeaching)
 
 
-##### Clean and merge tempfix GEM Data ####
+write.csv(CompleteData, file = "CompleteData.csv")
 
-# Change column names
-names(GEMAnnualData) <- gsub("Year01", "2001", names(GEMAnnualData))
-names(GEMAnnualData) <- gsub("Year02", "2002", names(GEMAnnualData))
-names(GEMAnnualData) <- gsub("Year03", "2003", names(GEMAnnualData))
-names(GEMAnnualData) <- gsub("Year04", "2004", names(GEMAnnualData))
-names(GEMAnnualData) <- gsub("Year05", "2005", names(GEMAnnualData))
-names(GEMAnnualData) <- gsub("Year06", "2006", names(GEMAnnualData))
-names(GEMAnnualData) <- gsub("Year07", "2007", names(GEMAnnualData))
-names(GEMAnnualData) <- gsub("Year08", "2008", names(GEMAnnualData))
-names(GEMAnnualData) <- gsub("Year09", "2009", names(GEMAnnualData))
-names(GEMAnnualData) <- gsub("Year10", "2010", names(GEMAnnualData))
-
-
-# Change years from columns to rows and create CleanGEM
-CleanGEM <- melt(data = GEMAnnualData,
-                 id.vars = c("Country"),
-                 measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
-                                   "2007", "2008", "2009", "2010"))
-
-# Rename columns
-CleanGEM <- plyr::rename(x = CleanGEM,
-                         replace = c("variable" = "Year",
-                                     "value" = "WayofTeach"))
-
-# Merge Clean CleanGEM with FinalGEM 
-CompleteData <- merge(CleanGEM, FinalGEM,
-                   union("Country", "Year"),
-                   all = TRUE)
-
+>>>>>>> FETCH_HEAD
 ```
 
 #### Data Analysis  
@@ -429,20 +542,24 @@ To examine the relationship between these variables, we used least square estima
 
 
 # Run linear regression R1
-R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach + Country, data = CompleteData)
+R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeaching, data = CompleteData)
 
 # Obtain summary statistics of R1
 summary(R1)
 
 # Run linear regression R2
-R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach + Country, data = CompleteData)
+R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeaching, data = CompleteData)
 
 # Obtain summary statistics of R2
 summary(R2)
 
 
 # Run linear regression R3
+<<<<<<< HEAD
 R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + lm(WayofTeach) + Country, data = CompleteData)
+=======
+R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeaching, data = CompleteData)
+>>>>>>> FETCH_HEAD
  
 # Obtain summary statistics of R3
 summary(R3)
