@@ -132,38 +132,28 @@ Finally, we merged the annual GDP growth data with the *FinalGEM* data set to cr
 <br>
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE}
 
-
-############# Import data from GEM Survey #############
+#### Import data from GEM Survey ####
 
 # Import GEM fear of failure data
 FearFail <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_FearFail.csv", header = TRUE, cache = FALSE) 
 
-
 # Import GEM estblished entrepreneurship - current owner data
 CurrentOwner <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_CurrentOwner.csv", header = TRUE, cache = FALSE) 
-
 
 # Import GEM entrepreneurial intention data
 EntreIntention <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_EntreIntention.csv", header = TRUE, cache = FALSE) 
 
-
 # Import GEM nascent entrepreneur data
 NascentEntre <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_NascentEntre.csv", header = TRUE, cache = FALSE) 
-
 
 # Import GEM perceived capabilities data
 PerceivedCapabilities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_PerceivedCapabilities.csv", header = TRUE, cache = FALSE) 
 
-
 # Import GEM perceived opportunities data as a proxy for potential control variables
 PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE)
 
-
 # Import 2010GEM supportive teaching data as a proxy for how favourable to self-confidence a given education system is
 SupportiveTeaching <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEMAvgIndicators.csv", header = TRUE, cache = FALSE)
-
-
-############# Import Annual GEM Country Level Data (means) #############
 
 # Import GEM 2009 supportive teaching data
 setwd('~/Assign2Education/GEMData')
@@ -181,10 +171,10 @@ GEM2010 <- read.spss('2010GEMNES.sav', to.data.frame = TRUE)
 
 
 
-##################### Clean GEM Survey Data  ###################
+#### Clean data using tidy ####
 
 ### Clean FearFail ###
-# Question: Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from setting up a business.
+# Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from setting up a business.
 
 # Remove X's in FearFail year columns
 names(FearFail) <- gsub("X", "", names(FearFail))
@@ -197,15 +187,13 @@ CFearFail <- melt(data = FearFail,
                                    "2007", "2008", "2009", "2010", "2011", "2012",
                                    "2013"))
 
-
 # Rename columns
 CFearFail <- plyr::rename(x = CFearFail, 
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentFear"))
 
 ### Clean CurrentOwner ###
-# Question: Percentage of 18-64 population who are currently owner-manager of an established business, i.e., owning and managing a running business that has paid sallaries, wages, or any other payments to the owners for more than 42 months
-
+# Percentage of 18-64 population who are currently owner-manager of an established business, i.e., owning and managing a running business that has paid sallaries, wages, or any other payments to the owners for more than 42 months
 
 # Remove X's in CurrentOwner year columns
 names(CurrentOwner) <- gsub("X", "", names(CurrentOwner))
@@ -218,12 +206,10 @@ CCurrentOwner <- melt(data = CurrentOwner,
                                    "2007", "2008", "2009", "2010", "2011", "2012",
                                    "2013"))
 
-
 # Rename columns
 CCurrentOwner <- plyr::rename(x = CCurrentOwner, 
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentOwner"))
-
 
 ### Clean EntreIntention ###
 # Percentage of 18-64 population (individuals involved in any stage of entrepenerurial activity excluded) who intend to start a business within three years.
@@ -239,12 +225,10 @@ CEntreIntention <- melt(data = EntreIntention,
                                    "2007", "2008", "2009", "2010", "2011", "2012",
                                    "2013"))
 
-
 # Rename columns
 CEntreIntention <- plyr::rename(x = CEntreIntention, 
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentIntention"))
-
 
 ### Clean NascentEntre ###
 # Percentage of 18-64 population who are currently a nascent entrepreneur, i.e., actively involved in setting up a business they will own or co-own; this business has not paid salaries, wages, or any other payments to the owners for more than three months.
@@ -260,7 +244,6 @@ CNascentEntre <- melt(data = NascentEntre,
                                    "2007", "2008", "2009", "2010", "2011", "2012",
                                    "2013"))
 
-
 # Rename columns
 CNascentEntre <- plyr::rename(x = CNascentEntre, 
                                       replace = c("variable" = "Year",
@@ -269,10 +252,8 @@ CNascentEntre <- plyr::rename(x = CNascentEntre,
 ### Clean PerceivedCapabilities ###
 # Percentage of 18-64 population who believe to have the required skills and knowledge to start a business
 
-
 # Remove X's in PerceivedCapabilities year columns
 names(PerceivedCapabilities) <- gsub("X", "", names(PerceivedCapabilities))
-
 
 # Change years from columns to rows and create CPreceivedCapabilities
 CPerceivedCapabilities<- melt(data = PerceivedCapabilities,
@@ -281,20 +262,16 @@ CPerceivedCapabilities<- melt(data = PerceivedCapabilities,
                                    "2007", "2008", "2009", "2010", "2011", "2012",
                                    "2013"))
 
-
 # Rename columns
 CPerceivedCapabilities <- plyr::rename(x = CPerceivedCapabilities, 
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentPerceived"))
 
-
 ### Clean PerceivedOpportunities ###
 # Percentage of 18-64 population who see good opportunities to start a firm in the area where they live
 
-
 # Remove X's in PerceivedOpportunities year columns
 names(PerceivedOpportunities) <- gsub("X", "", names(PerceivedOpportunities))
-
 
 # Change years from columns to rows and create CPreceivedOpportunities
 CPerceivedOpportunities<- melt(data = PerceivedOpportunities,
@@ -303,16 +280,13 @@ CPerceivedOpportunities<- melt(data = PerceivedOpportunities,
                                    "2007", "2008", "2009", "2010", "2011", "2012",
                                    "2013"))
 
-
 # Rename columns
 CPerceivedOpportunities <- plyr::rename(x = CPerceivedOpportunities, 
                                       replace = c("variable" = "Year",
                                                   "value" = "PercentOpportunities"))
 
 
-
-########## Clean Annual GEM NES Datasets ##########
-
+### Clean GEM NES Datasets
 # Draw out Country and D01 only
 Clean01 <- GEM2001[,c("country", "ki01d01")]
 Clean02 <- GEM2002[,c("country", "ki02d01")]
@@ -327,51 +301,49 @@ Clean10 <- GEM2010[,c("NES10CRNAME", "NES10_D01_MEAN")]
 
 remove(GEM2001, GEM2002, GEM2003, GEM2004, GEM2005, GEM2006, GEM2007, GEM2008, GEM2009, GEM2010)
 
-
 # Edit column names for each dataframe
+
 Clean01 <- plyr::rename(x = Clean01, 
-                                      replace = c("ki01d01" = "2001",
+                                      replace = c("ki01d01" = "Year01",
                                                   "country" = "Country"))
 
 Clean02 <- plyr::rename(x = Clean02, 
-                                      replace = c("ki02d01" = "2002",
+                                      replace = c("ki02d01" = "Year02",
                                                   "country" = "Country"))
 
 Clean03 <- plyr::rename(x = Clean03, 
-                                      replace = c("ki03d01" = "2003",
+                                      replace = c("ki03d01" = "Year03",
                                                   "country" = "Country"))
 
 Clean04 <- plyr::rename(x = Clean04, 
-                                      replace = c("ki04d01" = "2004",
+                                      replace = c("ki04d01" = "Year04",
                                                   "ki04ctry" = "Country"))
 
 Clean05 <- plyr::rename(x = Clean05, 
-                                      replace = c("KI05D01" = "2005",
+                                      replace = c("KI05D01" = "Year05",
                                                   "KI05ctry" = "Country"))
 
 Clean06 <- plyr::rename(x = Clean06, 
-                                      replace = c("KI06D01_mean" = "2006",
+                                      replace = c("KI06D01_mean" = "Year06",
                                                   "KI06CTRY" = "Country"))
-
 Clean07 <- plyr::rename(x = Clean07, 
-                                      replace = c("ki07d01_" = "2007",
+                                      replace = c("ki07d01_" = "Year07",
                                                   "ki07ctry" = "Country"))
 
 Clean08 <- plyr::rename(x = Clean08, 
-                                      replace = c("NES08_D01_MEAN" = "2008",
+                                      replace = c("NES08_D01_MEAN" = "Year08",
                                                   "NES08COUNTRY" = "Country"))
 
 Clean09 <- plyr::rename(x = Clean09, 
-                                      replace = c("NES09_D01_MEAN" = "2009",
+                                      replace = c("NES09_D01_MEAN" = "Year09",
                                                   "NES09COUNTRY" = "Country"))
 
 Clean10 <- plyr::rename(x = Clean10, 
-                                      replace = c("NES10_D01_MEAN" = "2010",
+                                      replace = c("NES10_D01_MEAN" = "Year10",
                                                   "NES10CRNAME" = "Country"))
 
 
-#### Merge Annual GEM data 
-
+#### Merge the data ####
 MergedGEM <- merge(CCurrentOwner, CEntreIntention,
                    union("Country", "Year"),
                    all = TRUE)
@@ -406,9 +378,7 @@ FinalGEM[,"PercentOpportunities"] <- as.numeric(FinalGEM[,"PercentOpportunities"
 # Remove unncessary data from environment
 remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre)
 
-
-
-####### Import tempfix for GEM data (created this by copying data frame (extra code for generating data frame is in misc/TrialFile.Rmd), editing outide R, and saving .csv in repository)
+# Import tempfix for GEM data (created this by copying data frame, editing outide R, and saving .csv in repository)
 
 GEMAnnualData <- repmis::source_data("https://github.com/SamDund/Assign2Education/raw/master/GEMData/Gemyears.csv", header = TRUE, cache = FALSE) 
 
@@ -444,11 +414,6 @@ CompleteData <- merge(CleanGEM, FinalGEM,
                    union("Country", "Year"),
                    all = TRUE)
 
-write.csv(CompleteData, file = "CompleteData.csv")
-
-# Remove unncessary data from environment
-remove(CCurrentOwner, CEntreIntention, CFearFail, CNascentEntre, CPerceivedCapabilities, CPerceivedOpportunities, CurrentOwner, EntreIntention, FearFail, MergedGEM, MergedGem2, MergedGem3, MergedGem4, PerceivedCapabilities, PerceivedOpportunities, NascentEntre, Clean01, Clean02, Clean03, Clean04, Clean05, Clean06, Clean07, Clean08, Clean09, Clean10, CleanGEM, FinalGEM, GEMAnnualData, SupportiveTeaching)
-
 ```
 
 #### Data Analysis  
@@ -461,6 +426,7 @@ To examine the relationship between these variables, we used least square estima
 
 
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE}
+
 
 # Run linear regression R1
 R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach + Country, data = CompleteData)
@@ -476,11 +442,14 @@ summary(R2)
 
 
 # Run linear regression R3
-R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach + Country, data = CompleteData)
+R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + lm(WayofTeach) + Country, data = CompleteData)
  
 # Obtain summary statistics of R3
 summary(R3)
+
 ```                           
+
+
   
 
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE} 
@@ -490,12 +459,7 @@ library(stargazer)
 
 # Create regression output table
 labels <- c('National Level Avg Perceived Capabilities', 'National Level Avg Fear of Failure',
-            'National Level Avg Perceived Good Opportunities', 'Way of Teaching', 'Austria',
-            'Belgium', 'Canada', 'Chile', 'Czech Republic', 'Denmark', 'Finland', 'France',
-            'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Japan',
-            'Korea (South)', 'Mexico', 'Netherlands', 'New Zealand', 'Norway', 'Poland',
-            'Portugal', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey',
-            'United Kingdom','United States', 'National Level Avg Fear of Failure x National Level Avg Perceived Good Opportunities', '(Intercept)')
+            'Annual GDP Growth', 'National Level Avg Perceived Good Opportunities', 'National Level Avg Fear of Failure x National Level Avg Perceived Good Opportunities','(Intercept)')
 
 dlables <- c('National Level Average Percent Entrepreneurial Intention', 'National Level Nascent Entrepreneural Activity', 'National Level Average Percent Owning a Business')
 
@@ -525,12 +489,10 @@ First, we estimated a least square equation with variation in the variable *Perc
 library(Zelig)
 
 # Omit omitted data from simulation
-CompleteData_omit <- na.omit(CompleteData)
+CompleteData_omit <- na.omit(CompleteDataset)
 
 # Run a least squares regression with Zelig
-Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach, data = CompleteData_omit, model = "ls")
-
-
+Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + AnnualGDPGrowth, data = CompleteData_omit, model = "ls")
 ```
 
 ```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE }
@@ -538,19 +500,17 @@ Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportuniti
 # Find appropriate range for PercentPerceived
 summary(CompleteData_omit$PercentPerceived)
 
-H1 <- hist(CompleteData$PercentPerceived)
-
 # Set range of PercentPerceived values in simulation
-x.out2 <- setx(Z1, PercentPerceived = 20:70)
+x.out2 <- setx(Z1, PercentPerceived = 9:67)
 
 # Run simulation (default 1000 trials)
 simz2 <- sim(Z1, x = x.out2)
 
 # Adjust margins
-par(mar=c(5,5,5,5))
+par(mar=c(2,2,2,2))
 
 # Plot simulation
-plot(simz2, xlab = 'PercentPerceived', ylab = 'PercentIntention | PercentPerceived')
+plot(simz2, xlab= 'PercentPerceived')
 
 ```
 
@@ -574,4 +534,6 @@ stargazer(CompleteDataset, type = 'html')
 
 ```
 
-
+Estonia
+Luxemburg
+Slovak Republic 
