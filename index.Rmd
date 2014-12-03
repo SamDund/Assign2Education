@@ -122,3 +122,38 @@ print(
     chartid="Histogram")
 )
 ```
+
+```{r}
+library(googleVis)
+
+# Import CompleteData
+C1 <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", stringsAsFactors = TRUE)
+
+# Drop unecessary column in C1
+C1$X <- NULL
+
+C1$WayofTeach <- NULL
+C1$PercentFear <- NULL
+C1$PercentNascent <- NULL
+C1$PercentOwner <- NULL
+C1$PercentPerceived <- NULL
+C1$PercentIntention <- NULL
+
+
+# Change format of Year column
+C1[,"Year"] <- as.factor(C1[,"Year"])
+
+##### Can't get gsub to change date format
+names(C1$Year) <- gsub("2001", "2001-01-01", names(C1$Year))  
+
+C2 <- as.Date(C1$Year, origin = "2001-01-01")
+
+# Set value as numeric
+C1[,"PercentOpportunities"] <- as.numeric(C1[,"PercentOpportunities"])
+
+A1 <- gvisAnnotatedTimeLine(C1, datevar = "Year", numvar = "PerceivedOpportunities", idvar = "Country", 
+    titlevar = "Title", annotationvar = "Annotation", options = list(displayAnnotations = TRUE, 
+        legendPosition = "newRow", width = 600, height = 300), chartid = "ATL")
+
+plot(A1)
+```
