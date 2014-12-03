@@ -20,8 +20,6 @@ library(countrycode)
 library(repmis)
 
 
-#### Wrong Datasest
-
 # Import GEM data frame
 PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE, na.strings = "-")
 
@@ -56,6 +54,9 @@ D4[,"2010"] <- as.numeric(D4[,"2010"])
 D4[,"2011"] <- as.numeric(D4[,"2011"])
 D4[,"2012"] <- as.numeric(D4[,"2012"])
 D4[,"2013"] <- as.numeric(D4[,"2013"])
+
+# Save cleaned df
+Opp1 <- D4
 
 # Generate a new column with mean of all other columns
 D4$mean <- rowMeans(subset(D4, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
@@ -108,7 +109,8 @@ print(Opp_map, tag = 'chart')
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 library(ggvis)
 
-D4 %>% ggvis(~mean, fill := "#2c7fb8") %>% layer_histograms(width = 0.2)
+line_plot <- gvisLineChart(Opp1)
+print(line_plot, tag = 'chart')
 
 
 
@@ -117,18 +119,7 @@ D4 %>% ggvis(~mean, fill := "#2c7fb8") %>% layer_histograms(width = 0.2)
 ## Slide with R Code and Output
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 
-# Library stargazer
-library(stargazer)
 
-# Create new DF for PerceivedOpportunities
-D5 <- PerceivedOpportunities
-
-# Eliminate X's in header
-names(D5) <- gsub("X", "", names(D5))  
-D5$new.col <- NULL
-
-# Create descriptive statistics table
-T1 <- stargazer(D5, type = 'html', column.sep.width = "20pt", digits = 2)
 ```
 
 ## WayofTeaching
@@ -136,23 +127,8 @@ T1 <- stargazer(D5, type = 'html', column.sep.width = "20pt", digits = 2)
 # Import GEM data frame
 WayofTeaching <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, cache = FALSE, na.strings = "-")
 
-
-## Add country codes and place new column at beginning of the data frame
-# Create a vector of country codes
-W1 <- countrycode(WayofTeaching$Country, "country.name", "iso2c")
-
-# Create a new column and insert the country code vector
-WayofTeaching$new.col <- W1
-
 # Drop unnecessary column 1
 WayofTeaching$X <- NULL
-
-# Reorder columns so country code is first
-W2 <- WayofTeaching[,c(10,1:9)]
-
-# Rename first column
-W3 <- plyr::rename(x = W2, 
-                   replace = c("new.col" = "iso2c"))
 
 # Remove X's in D4 year columns
 names(D4) <- gsub("X", "", names(D4))                    
@@ -234,7 +210,7 @@ CompleteData <- repmis::source_data("https://raw.githubusercontent.com/SamDund/A
 CompleteData_omit <- na.omit(CompleteData)
 
 # Run a RE regression
-Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach, data = CompleteData_omit, model = "ls")
+Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeaching, data = CompleteData_omit, model = "ls")
 
 # Set range of PercentPerceived values in simulation
 x.out2 <- setx(Z1, PercentPerceived = 20:70)

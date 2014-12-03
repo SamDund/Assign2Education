@@ -65,3 +65,22 @@ EngNodes <- JSONtoDF(jsonStr = Energy, array = "nodes")
 
 ```
 
+```{r}
+# Histogram
+D4 %>% ggvis(~mean, fill := "#2c7fb8") %>% layer_histograms(width = 0.2)
+
+# Library stargazer
+library(stargazer)
+
+# Create new DF for PerceivedOpportunities
+D5 <- PerceivedOpportunities
+
+# Eliminate X's in header
+names(D5) <- gsub("X", "", names(D5))  
+D5$new.col <- NULL
+
+# Create descriptive statistics table
+T1 <- stargazer(D5, type = 'html', column.sep.width = "20pt", digits = 2)
+
+
+```

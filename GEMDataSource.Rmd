@@ -477,6 +477,8 @@ subW2 <- subset(W2, iso2c %in% myvars)
 # Delete unnecessary column
 subW2$row.names <- NULL
 
+write.csv(subW2, file = "WayofTeaching")
+
 
 
 ##################### Merge two GEM Datasets  ###################
@@ -527,20 +529,20 @@ To examine the relationship between these variables, we used least square estima
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE}
 
 # Run linear regression R1
-R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach + Country, data = CompleteData)
+R1 <- lm(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeaching, data = CompleteData)
 
 # Obtain summary statistics of R1
 summary(R1)
 
 # Run linear regression R2
-R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach + Country, data = CompleteData)
+R2 <- lm(PercentNascent ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeaching, data = CompleteData)
 
 # Obtain summary statistics of R2
 summary(R2)
 
 
 # Run linear regression R3
-R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeach + Country, data = CompleteData)
+R3 <- lm(PercentOwner ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeaching, data = CompleteData)
  
 # Obtain summary statistics of R3
 summary(R3)
