@@ -83,7 +83,7 @@ D4[, 3] <- round(log(D4[, 3]), digits = 2)
 Opp_map <- gvisGeoChart(D4, locationvar = 'iso2c',
                       colorvar = 'mean',
                       options = list(
-                        colors = "['#fff7bc', '#d95f0e']"
+                        colors = "['#ece7f2', '#2b8cbe']"
 ))
 
 # Duplicate D4 df
@@ -98,7 +98,7 @@ Table <- gvisTable(Dropped4,
 
 MT <- gvisMerge(Opp_map, Table, horizontal = TRUE)
 
-print(MT, tag = 'chart')
+print(Opp_map, tag = 'chart')
 
 ```
 
@@ -114,6 +114,8 @@ D4 %>% ggvis(~mean, fill := "#2c7fb8") %>% layer_histograms(width = 0.2)
 
 ## Slide with R Code and Output
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+# Library stargazer
 library(stargazer)
 
 # Create new DF for PerceivedOpportunities
@@ -128,7 +130,7 @@ T1 <- stargazer(D5, type = 'html', column.sep.width = "20pt", digits = 2)
 ```
 ## Slide with Plot
 
-```{r, echo =FALSE, cache=FALSE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+```{r, echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 
 library(Zelig)
 library(ZeligMultilevel)
@@ -159,3 +161,7 @@ par(mar=c(5,5,5,5))
 plot(simz2, xlab = 'PercentPerceived', ylab = 'PercentIntention | PercentPerceived')
 ```
 
+## New
+```{r, echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+```
