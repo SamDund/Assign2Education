@@ -45,6 +45,23 @@ summary(cars)
 ## Slide with Plot
 
 ```{r, echo=FALSE}
-plot(cars)
+# sankeyNetwork
+library(RCurl)
+library(devtools)
+install_github(c('rstudio/htmltools',
+            'ramnathv/htmlwidgets',
+            'christophergandrud/networkD3'))
+library(htmltools)
+library(htmlwidgets)
+library(networkD3)
+
+URL <- "https://raw.githubusercontent.com/christophergandrud/d3Network/sankey/JSONdata/energy.json"
+Energy <- getURL(URL, ssl.verifypeer = FALSE)
+
+# Convert to data frame
+EngLinks <- JSONtoDF(jsonStr = Energy, array = "links")
+EngNodes <- JSONtoDF(jsonStr = Energy, array = "nodes")
+
+
 ```
 
