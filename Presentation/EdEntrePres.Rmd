@@ -2,9 +2,13 @@
 title: "The Impact of Education <br>
 on Entrepreneurship"
 author: "Sam Dundon and Thierry Racaud"
-date: "December 2, 2014"
+date: "December 4, 2014"
 output: ioslides_presentation
 ---
+
+## Research Question
+
+- To what extent do teaching methods supporting self confidence affect the rate of entrepreneurship in OECD countries?
 
 ## Research Interest
 
@@ -20,7 +24,7 @@ output: ioslides_presentation
 
 ## Causal Chain
 
-1. Education System that reinforces Self-confidence  
+1. Education System that reinforces self-confidence  
 
 2. Higher degree of individual self-esteem  
 
@@ -51,9 +55,9 @@ Sense of belonging (PISA 2012) | 47% | 79%
 
 - Only 10 countries at first, now covering 75% of world population and 89% of world GDP  
 
-- GEM is being used is regularly refered to in research, including in OECD reports. 
+- GEM is being used is regularly referred to in research, including in OECD reports. 
 
-- GEM uses primary data collection which results in massive comprehensive datasets. That is the 2001-2010 multi-year APS Database covers over 1.3 million observations over 85 countries.  
+- GEM uses primary data collection which results in massive comprehensive data sets. That is the 2001-2010 multi-year APS Database covers over 1.3 million observations over 85 countries.  
 
 - NES or National Expert Survey looks at 9 entrepreneurial framework conditions (4 national experts for each)
 
@@ -63,14 +67,14 @@ Sense of belonging (PISA 2012) | 47% | 79%
 
 Variable | Indicator 
 -------------|---------------
-Y Dependent Vaiable | Rate of Entrepreneurship (Intention, Nascent, Established)
+Y Dependent Variable | Rate of Entrepreneurship (Intention, Nascent, Established)
 X1 Explanatory Variable | Way of Teaching
 X2 Control Variable | Perceived Capabilities
 X3 Control Variable | Fear of Failure / Perceived Opportunities
 X4 Control Variable | Perceived Opportunities
 
 
-## Explaining Way of Teaching
+## How Much the Way of Teaching Supports Self-Confidence
 
 - In the absence of an  indicator directly aligned with our research design, we turned to an item of the GEM NES survey as a proxy, question D01:
 
@@ -81,7 +85,7 @@ X4 Control Variable | Perceived Opportunities
 - Many flaws : scale, methodology for collection (poor time management, personal connections)
 
 
-## Variation in how well Education encourages Self Confidence in OECD Countries
+## Variation in how the Way of Teaching is Perceived to Support Self-Confidence
 
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 # Import GEM data frame
@@ -141,7 +145,7 @@ print(WT_map, tag = 'chart')
 
 
 
-## Variation in Impact of Education on Self Confidence
+## Variation in Perceived Impact of the Way of Teaching on Self Confidence
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 library("ggplot2")
 library("reshape2")
@@ -180,13 +184,13 @@ ggplot(Wdf2,aes(x = Year, y = WayofTeaching, colour = Country, group = Country))
 - "Percentage of 18-64 population who believe they have the required skills and knowledge to start a business"  
 
 
-- This figure is a national-level precentage
+- This figure is a national-level percentage
 
 
-- This measure was chosen to provide some insight on how personal values are shaped, especially in terms of self-confidence.
+- This measure was chosen to provide some insight on self-confidence at the country level
 
 
-## Differences in Perceived Capability in OECD Countries
+## Differences in Perceived Capabilities to start a Business 
 
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
 
@@ -278,7 +282,8 @@ print(PC_map, tag = 'chart')
 
 ```
 
-## Time Variation in Perceived Capabilities
+
+## Variation in Perceived Capabilities to Start a Business
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 library("ggplot2")
 library("reshape2")
@@ -309,13 +314,13 @@ ggplot(PC6,aes(x = Year, y = PerceivedCapabilities, colour = Country, group = Co
 
 ```
 
-## Fear of Failure
+## Fear of Failure Despite Good Perceived Opportunities
 
 - "Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from setting up a business."
  
 
 
-## Variation in Fear Perception in OECD Countries
+## Variation in Fear of Failure Despite Perceived Good Opportunities
 
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
 
@@ -406,7 +411,8 @@ print(FF_map, tag = 'chart')
 
 ```
 
-## Variation in Fear of Failure
+
+## Variation in Fear of Failure Despite Good Perceived Opportunities
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 library("ggplot2")
 library("reshape2")
@@ -437,7 +443,7 @@ ggplot(Fear3,aes(x = Year, y = FearFail, colour = Country, group = Country)) + g
 
 ```
 
-## Perceived Opportunities
+## Perceived Good Opportunities to Start a Business
 
 - "Percentage of 18-64 population who see good opportunities to start a firm in the area where they live"  
 
@@ -445,7 +451,7 @@ ggplot(Fear3,aes(x = Year, y = FearFail, colour = Country, group = Country)) + g
 
 
 
-## Varying Perceptions of Good Opportunities to Start a Business in OECD Countries
+## Varying Perceptions of Good Opportunities to Start a Business
 
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
 
@@ -573,7 +579,7 @@ ggplot(Opp3,aes(x = Year, y = PerceivedOpportunities, colour = Country, group = 
 
 - Our regression equations were run both with and without considering country-specific effects.  For the purposes of illustrating our results, we have chosen to ignore the country-specific effects.  
 
-- We decided to do this because the coefficients do not change signficantly when the country-specific effects are ignored.
+- We decided to do this because the coefficients do not change significantly when the country-specific effects are ignored.
 
 ## Results: PercentIntention as a Dependent Variable
 
@@ -632,9 +638,10 @@ par(mar=c(5,5,5,5))
 plot(simz3, xlab = 'PercentCapabilities', ylab = 'PercentIntention | PercentCapabilities')
 ```
 
+## Conclusions
 
-```{r, echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+- Some expected trends observed
 
+- Inconclusive results
 
-```
- 
+- Lack of reliable data
