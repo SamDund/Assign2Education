@@ -8,27 +8,28 @@ output: ioslides_presentation
 
 ## Research Interest
 
-What determines entrepreneurship?  
-Economic and structural factors - Already searched
-Educational and cultural factors - Hardly searched  
+**What determines entrepreneurship?**  
 
 
-Even when focused on attitudes / Entrepreneurship,  
-Studies look more at what attitudes are favourable  
-Almost none searched what determines these attitudes.
+- Economic and structural factors: Already searched  
+
+- Educational and cultural factors: Hardly searched  
+
+- Even when focused on attitudes / Entrepreneurship, studies look more at what attitudes are favourable, almost none searched what determines these attitudes.
 
 
 ## Causal Chain
 
-Education System that reinforces Self-confidence  
+1. Education System that reinforces Self-confidence  
 
-Higher degree of individual self-esteem  
+2. Higher degree of individual self-esteem  
 
-Higher probability an individual becomes an entrepreneur  
+3. Higher probability an individual becomes an entrepreneur  
 
-Higher rate of entrepreneurship at a country-level
+4. Higher rate of entrepreneurship at a country-level
 
-## Where our intuition came from
+
+## Where our Intuition Came From
 
 Variable | France | UK
 -------------|---------------|---------
@@ -54,8 +55,6 @@ Sense of belonging (PISA 2012) | 47% | 79%
 
 - GEM uses primary data collection which results in massive comprehensive datasets. That is the 2001-2010 multi-year APS Database covers over 1.3 million observations over 85 countries.  
 
-- APS or Adult Population Survey (at least 2000 sample size) looks at activity, attitudes and aspirations.  
-
 - NES or National Expert Survey looks at 9 entrepreneurial framework conditions (4 national experts for each)
 
 
@@ -73,13 +72,13 @@ X4 Control Variable | Perceived Opportunities
 
 ## Explaining Way of Teaching
 
-In the absence of indicator directly aligned with our research design, we turned to an item of the NES survey as a proxy, D01:
+- In the absence of an  indicator directly aligned with our research design, we turned to an item of the GEM NES survey as a proxy, question D01:
 
-"In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative"
+- "In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative"
 
-But there is a clear lack of consistency in the data.
+- But there is a clear lack of consistency in the data.
 
-Many flaws : scale, methodology for collection (poor time management, personal connections)
+- Many flaws : scale, methodology for collection (poor time management, personal connections)
 
 
 ## Variation in how well Education encourages Self Confidence in OECD Countries
@@ -178,9 +177,17 @@ ggplot(Wdf2,aes(x = Year, y = WayofTeaching, colour = Country, group = Country))
 
 ## Perceived Capabilities
 
-*What about it*
+- "Percentage of 18-64 population who believe they have the required skills and knowledge to start a business"  
 
-## Perceived Capabilities
+
+- This figure is a national-level precentage
+
+
+- This measure was chosen to provide some insight on how personal values are shaped, especially in terms of self-confidence.
+
+
+## Differences in Perceived Capability in OECD Countries
+
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
 
 # Library required packages
@@ -194,83 +201,84 @@ PerceivedCapabilities <- repmis::source_data("https://raw.githubusercontent.com/
 
 ## Add country codes and place new column at beginning of the data frame
 # Create a vector of country codes
-C2 <- countrycode(PerceivedCapabilities$Country, "country.name", "iso2c")
+PC1 <- countrycode(PerceivedCapabilities$Country, "country.name", "iso2c")
 
 # Create a new column and insert the country code vector
-PerceivedCapabilities$new.col <- C2
+PerceivedCapabilities$new.col <- PC1
 
 # Reorder columns so country code is first
-C3 <- PerceivedCapabilities[,c(15,1:14)]
+PC2 <- PerceivedCapabilities[,c(15,1:14)]
 
 # Rename first column
-C4 <- plyr::rename(x = C3, 
+PC3 <- plyr::rename(x = PC2, 
                    replace = c("new.col" = "iso2c"))
 
 # Remove X's in D4 year columns
-names(C4) <- gsub("X", "", names(C4))                    
+names(PC3) <- gsub("X", "", names(PC3))                    
   
 # Set columns as numeric
-C4[,"2001"] <- as.numeric(C4[,"2001"])
-C4[,"2002"] <- as.numeric(C4[,"2002"])
-C4[,"2003"] <- as.numeric(C4[,"2003"])
-C4[,"2004"] <- as.numeric(C4[,"2004"])
-C4[,"2005"] <- as.numeric(C4[,"2005"])
-C4[,"2006"] <- as.numeric(C4[,"2006"])
-C4[,"2007"] <- as.numeric(C4[,"2007"])
-C4[,"2008"] <- as.numeric(C4[,"2008"])
-C4[,"2009"] <- as.numeric(C4[,"2009"])
-C4[,"2010"] <- as.numeric(C4[,"2010"])
-C4[,"2011"] <- as.numeric(C4[,"2011"])
-C4[,"2012"] <- as.numeric(C4[,"2012"])
-C4[,"2013"] <- as.numeric(C4[,"2013"])
+PC3[,"2001"] <- as.numeric(PC3[,"2001"])
+PC3[,"2002"] <- as.numeric(PC3[,"2002"])
+PC3[,"2003"] <- as.numeric(PC3[,"2003"])
+PC3[,"2004"] <- as.numeric(PC3[,"2004"])
+PC3[,"2005"] <- as.numeric(PC3[,"2005"])
+PC3[,"2006"] <- as.numeric(PC3[,"2006"])
+PC3[,"2007"] <- as.numeric(PC3[,"2007"])
+PC3[,"2008"] <- as.numeric(PC3[,"2008"])
+PC3[,"2009"] <- as.numeric(PC3[,"2009"])
+PC3[,"2010"] <- as.numeric(PC3[,"2010"])
+PC3[,"2011"] <- as.numeric(PC3[,"2011"])
+PC3[,"2012"] <- as.numeric(PC3[,"2012"])
+PC3[,"2013"] <- as.numeric(PC3[,"2013"])
 
 # Save cleaned df
-Cap1 <- C4
+PC4 <- PC3
 
 # Generate a new column with mean of all other columns
-C4$mean <- rowMeans(subset(C4, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
-                                          "2009", "2010", "2011", "2012", "2013")), na.rm = TRUE)
+PC3$mean <- rowMeans(subset(PC3, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007",
+                                            "2008", "2009", "2010", "2011", "2012", "2013")),
+                     na.rm = TRUE)
 
 # Drop year columns, leaving only mean column
-C4$'2001' <- NULL
-C4$'2002' <- NULL
-C4$'2003' <- NULL
-C4$'2004' <- NULL
-C4$'2005' <- NULL
-C4$'2006' <- NULL
-C4$'2007' <- NULL
-C4$'2008' <- NULL
-C4$'2009' <- NULL
-C4$'2010' <- NULL
-C4$'2011' <- NULL
-C4$'2012' <- NULL
-C4$'2013' <- NULL
+PC3$'2001' <- NULL
+PC3$'2002' <- NULL
+PC3$'2003' <- NULL
+PC3$'2004' <- NULL
+PC3$'2005' <- NULL
+PC3$'2006' <- NULL
+PC3$'2007' <- NULL
+PC3$'2008' <- NULL
+PC3$'2009' <- NULL
+PC3$'2010' <- NULL
+PC3$'2011' <- NULL
+PC3$'2012' <- NULL
+PC3$'2013' <- NULL
 
 # Create 
-C4[, 3] <- round(log(C4[, 3]), digits = 2)
+PC3[, 3] <- round(log(PC3[, 3]), digits = 2)
 ```
 
 ```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
 
-# Plot perceived opportunties map
-Cap1_map <- gvisGeoChart(C4, locationvar = 'iso2c',
+# Plot perceived capabilities map
+PC_map <- gvisGeoChart(PC3, locationvar = 'iso2c',
                       colorvar = 'mean',
                       options = list(
                         colors = "['#ece7f2', '#2b8cbe']"
 ))
 
-# Duplicate D4 (perceived capabilities) df
-Cap4 <- C4
+# Duplicate F4 (perceived capabilities) df
+#DroppedPC4 <- PC4
 
 # Drop iso2c in Dropped4
-C4$iso2c <- NULL
+#DroppedF4$iso2c <- NULL
 
-# Print the table
-print(Cap1_map, tag = 'chart')
+# Print the map
+print(PC_map, tag = 'chart')
 
 ```
 
-## Variation in Perceived Opportunities to Start a Business
+## Time Variation in Perceived Capabilities
 ```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 library("ggplot2")
 library("reshape2")
@@ -278,29 +286,34 @@ library("reshape2")
 # Create country vector to subset
 myvars2 <- c('US','FR','DE','JP','GB')
 
-# Subset Cap4
-Cap5 <- subset(Cap4, iso2c %in% myvars2)
+# Subset Opp2
+PC5 <- subset(PC4, iso2c %in% myvars2)
 
 # Melt Opp2 df
-Cap6 <- melt(data = Cap5,
+PC6 <- melt(data = PC5,
                   id.vars = c("Country", "iso2c"),
                   measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
                                    "2007", "2008", "2009", "2010"))
 
 # Edit column names
-names(Cap6) <- gsub("value", "Capabilities", names(Cap6))
-names(Cap6) <- gsub("variable", "Year", names(Cap6))
+names(PC6) <- gsub("value", "PerceivedCapabilities", names(PC6))
+names(PC6) <- gsub("variable", "Year", names(PC6))
 
-Cap6$iso2c <- NULL
+PC6$iso2c <- NULL
 ``` 
 
 ```{r echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 
 # Create plot
-ggplot(Cap6,aes(x = Year, y = PerceivedCapabilities, colour = Country, group = Country)) + geom_line()
-
+ggplot(PC6,aes(x = Year, y = PerceivedCapabilities, colour = Country, group = Country)) + geom_line()
 
 ```
+
+## Fear of Failure
+
+- "Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from setting up a business."
+ 
+
 
 ## Variation in Fear Perception in OECD Countries
 
@@ -423,6 +436,14 @@ Fear3$iso2c <- NULL
 ggplot(Fear3,aes(x = Year, y = FearFail, colour = Country, group = Country)) + geom_line()
 
 ```
+
+## Perceived Opportunities
+
+- "Percentage of 18-64 population who see good opportunities to start a firm in the area where they live"  
+
+- Since we look at average individual self-esteem in every OECD country, we believe it is appropriate to look at the opportunities perceived by the average 18-64-year-old individual in these countries.
+
+
 
 ## Varying Perceptions of Good Opportunities to Start a Business in OECD Countries
 
@@ -550,7 +571,11 @@ ggplot(Opp3,aes(x = Year, y = PerceivedOpportunities, colour = Country, group = 
 
 ## Regression Results
 
-We decided to ignore country-specific effects because the change in the intercept resulting from fixed effects was small and the slope of the fixed effects and OLS models are very similar.
+- Our regression equations were run both with and without considering country-specific effects.  For the purposes of illustrating our results, we have chosen to ignore the country-specific effects.  
+
+- We decided to do this because the coefficients do not change signficantly when the country-specific effects are ignored.
+
+## Results: PercentIntention as a Dependent Variable
 
 ```{r, echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 
@@ -566,7 +591,7 @@ CompleteData_omit <- na.omit(CompleteData)
 Z1 <- zelig(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CompleteData_omit, model = "ls")
 
 # Set range of PercentPerceived values in simulation
-x.out2 <- setx(Z1, PercentPerceived = 20:70)
+x.out2 <- setx(Z1, WayofTeaching = 1.53:3.278)
 
 # Run simulation (default 1000 trials)
 simz2 <- sim(Z1, x = x.out2)
@@ -575,15 +600,39 @@ simz2 <- sim(Z1, x = x.out2)
 par(mar=c(5,5,5,5))
 
 
+```
+
+```{r, echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+# Plot simulation
+plot(simz2, xlab = 'WayofTeaching', ylab = 'PercentIntention | WayofTeaching')
+```
+
+## Results: PercentIntention as a Dependent Variable
+
+```{r, echo =FALSE, cache=FALSE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+library(Zelig)
+
+# Run a RE regression
+Z1 <- zelig(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CompleteData_omit, model = "ls")
+
+# Set range of PercentPerceived values in simulation
+x.out3 <- setx(Z1, PercentPerceived = 9:67)
+
+# Run simulation (default 1000 trials)
+simz3 <- sim(Z1, x = x.out3)
+
+# Adjust margins
+par(mar=c(5,5,5,5))
 
 ```
 
 ```{r, echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 # Plot simulation
-plot(simz2, xlab = 'PercentPerceived', ylab = 'PercentIntention | PercentPerceived')
+plot(simz3, xlab = 'PercentCapabilities', ylab = 'PercentIntention | PercentCapabilities')
 ```
 
-## New
+
 ```{r, echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 
 
