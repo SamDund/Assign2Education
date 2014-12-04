@@ -8,12 +8,25 @@ output: ioslides_presentation
 
 ## Research Interest
 
-*Text from Thierry*
+What determines entrepreneurship?  
+Economic and structural factors - Already searched
+Educational and cultural factors - Hardly searched  
+
+
+Even when focused on attitudes / Entrepreneurship,  
+Studies look more at what attitudes are favourable  
+Almost none searched what determines these attitudes.
 
 
 ## Causal Chain
 
+Education System that reinforces Self-confidence  
 
+Higher degree of individual self-esteem  
+
+Higher probability an individual becomes an entrepreneur  
+
+Higher rate of entrepreneurship at a country-level
 
 ## Where our intuition came from
 
@@ -28,13 +41,24 @@ Sense of belonging (PISA 2012) | 47% | 79%
 
 - PISA: "Programme for International Student Assessment is a triennial international survey which aims to evaluate education systems worldwide by testing the skills and knowledge of 15 year old students."
 
-- Data availability prevented us from using PISA data for this project
+- Data availability prevented us from using PISA data for this project. For instance, for 2015 PISA will be looking at science education.  
+
 
 ## What is GEM
 
-- GEM: Global Entrepreneurship Monitor project is an annual assessment of the entrepreneurial activity, aspirations, and attitudes of individuals across a wide range of countries. 
+- The Global Entrepreneurship Monitor project is an annual assessment of the entrepreneurial activity, aspirations, and attitudes of individuals across a wide range of countries. 
 
-- 
+- Only 10 countries at first, now covering 75% of world population and 89% of world GDP  
+
+- GEM is being used is regularly refered to in research, including in OECD reports. 
+
+- GEM uses primary data collection which results in massive comprehensive datasets. That is the 2001-2010 multi-year APS Database covers over 1.3 million observations over 85 countries.  
+
+- APS or Adult Population Survey (at least 2000 sample size) looks at activity, attitudes and aspirations.  
+
+- NES or National Expert Survey looks at 9 entrepreneurial framework conditions (4 national experts for each)
+
+
 
 ## Estimation Strategy
 
@@ -49,9 +73,13 @@ X4 Control Variable | Perceived Opportunities
 
 ## Explaining Way of Teaching
 
-*How is it measured*
+In the absence of indicator directly aligned with our research design, we turned to an item of the NES survey as a proxy, D01:
 
+"In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative"
 
+But there is a clear lack of consistency in the data.
+
+Many flaws : scale, methodology for collection (poor time management, personal connections)
 
 
 ## Variation in how well Education encourages Self Confidence in OECD Countries
