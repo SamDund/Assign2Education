@@ -228,6 +228,132 @@ ggplot(Wdf2,aes(x = Year, y = WayofTeaching, colour = Country, group = Country))
 
 ```
 
+## Variation in Fear Perception in OECD Countries
+
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
+
+# Library required packages
+library(googleVis)
+library(countrycode)
+library(repmis)
+
+
+# Import GEM data frame
+PercentFear <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_FearFail.csv", header = TRUE, cache = FALSE, na.strings = "-")
+
+## Add country codes and place new column at beginning of the data frame
+# Create a vector of country codes
+F2 <- countrycode(PercentFear$Country, "country.name", "iso2c")
+
+# Create a new column and insert the country code vector
+PercentFear$new.col <- F2
+
+# Reorder columns so country code is first
+F3 <- PercentFear[,c(15,1:14)]
+
+# Rename first column
+F4 <- plyr::rename(x = F3, 
+                   replace = c("new.col" = "iso2c"))
+
+# Remove X's in D4 year columns
+names(F4) <- gsub("X", "", names(F4))                    
+  
+# Set columns as numeric
+F4[,"2001"] <- as.numeric(F4[,"2001"])
+F4[,"2002"] <- as.numeric(F4[,"2002"])
+F4[,"2003"] <- as.numeric(F4[,"2003"])
+F4[,"2004"] <- as.numeric(F4[,"2004"])
+F4[,"2005"] <- as.numeric(F4[,"2005"])
+F4[,"2006"] <- as.numeric(F4[,"2006"])
+F4[,"2007"] <- as.numeric(F4[,"2007"])
+F4[,"2008"] <- as.numeric(F4[,"2008"])
+F4[,"2009"] <- as.numeric(F4[,"2009"])
+F4[,"2010"] <- as.numeric(F4[,"2010"])
+F4[,"2011"] <- as.numeric(F4[,"2011"])
+F4[,"2012"] <- as.numeric(F4[,"2012"])
+F4[,"2013"] <- as.numeric(F4[,"2013"])
+
+# Save cleaned df
+Fear1 <- F4
+
+# Generate a new column with mean of all other columns
+F4$mean <- rowMeans(subset(F4, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
+                                          "2009", "2010", "2011", "2012", "2013")), na.rm = TRUE)
+
+# Drop year columns, leaving only mean column
+F4$'2001' <- NULL
+F4$'2002' <- NULL
+F4$'2003' <- NULL
+F4$'2004' <- NULL
+F4$'2005' <- NULL
+F4$'2006' <- NULL
+F4$'2007' <- NULL
+F4$'2008' <- NULL
+F4$'2009' <- NULL
+F4$'2010' <- NULL
+F4$'2011' <- NULL
+F4$'2012' <- NULL
+F4$'2013' <- NULL
+
+# Create 
+F4[, 3] <- round(log(F4[, 3]), digits = 2)
+```
+
+```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
+
+# Plot perceived opportunties map
+FF_map <- gvisGeoChart(F4, locationvar = 'iso2c',
+                      colorvar = 'mean',
+                      options = list(
+                        colors = "['#ece7f2', '#2b8cbe']"
+))
+
+# Duplicate F4 (perceived opportunities) df
+DroppedF4 <- F4
+
+# Drop iso2c in Dropped4
+DroppedF4$iso2c <- NULL
+
+# Print the table
+print(FF_map, tag = 'chart')
+
+```
+
+## Variation in Fear of Failure
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+library("ggplot2")
+library("reshape2")
+
+# Create country vector to subset
+myvars2 <- c('US','FR','DE','JP','GB')
+
+# Subset Opp2
+Fear2 <- subset(Fear1, iso2c %in% myvars2)
+
+# Melt Opp2 df
+Fear3 <- melt(data = Fear2,
+                  id.vars = c("Country", "iso2c"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010"))
+
+# Edit column names
+names(Fear3) <- gsub("value", "FearFail", names(Fear3))
+names(Fear3) <- gsub("variable", "Year", names(Fear3))
+
+Fear3$iso2c <- NULL
+``` 
+
+```{r echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+# Create plot
+ggplot(Fear3,aes(x = Year, y = FearFail, colour = Country, group = Country)) + geom_line()
+
+```
+
+
+## Regression Results
+
+We decided to ignore country-specific effects because the change in the intercept resulting from fixed effects was small and the slope of the fixed effects and OLS models are very similar.
 
 ```{r, echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 
