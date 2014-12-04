@@ -106,14 +106,39 @@ In order to trace specifically how supportive of one's self-confidence a given e
 Regarding this statement, the experts surveyed had to state whether it is:  
 
 
-1 completely false
-2 somewhat false
-3 neither true nor false
-4 somewhat true
-5 completely true
+1 completely false  
+2 somewhat false  
+3 neither true nor false  
+4 somewhat true  
+5 completely true  
+  
+97 do not know  
+98 not applicable  
 
-97 do not know
-98 not applicable
+After searching through many potential data sources about education and finding no indicators suitable to trace our causal chain, we were forced to use that one item of a survey however low quality it might be.  
+
+As a matter of fact, there are many reasons for which we should be concerned about that data and its quality.  
+
+First, it was not always collected which makes any measure hard to follow through time, it is only since 2009 and 2011 that the NES was made compulsory.
+
+Second, the National Expert Surveys are very subjective data. For each entrepreneurial framework condition, that is:  
+
+1. Finance  
+2. Government policies  
+3. Government programs  
+4. Entrepreneurial Education and Training  
+5. Research and Development Transfer (R & D)  
+6. Commercial and professional infrastructure  
+7. Internal Market openness  
+8. Physical infrastructure and services  
+9. Cultural and social norms  
+
+Only four experts per framework condition are consulted in each country participating.  
+
+Third, the collection of data could arguably be improved. Indeed, it is outsourced by GEM Coordination Team to national teams which seem to manage the time allowed for collection poorly ???METHODOLOGY NES REPORT HERE MAIN BIB ??? . The national teams also tend to rely solely on their own personal networks. Which does not guarantee to get the best experts on each topic.  
+
+
+Fourth, as a result of the flows above mentioned, we observe a lot of variation from year to year up to 0.73 on a scale from 1 to 5, that is up to 14.6% (UK 2007 / UK 2009). Which is far from what one would expect. Indeed, it seems very doubtful to say that the way of teaching in any country varies so much over time. Educational reforms are much more rare and one should on the contrary expect to see much more stability, almost a constant over a decade.
 
 
 
