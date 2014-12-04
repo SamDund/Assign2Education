@@ -83,7 +83,6 @@ Opp_map <- gvisGeoChart(D4, locationvar = 'iso2c',
                         colors = "['#fff7bc', '#d95f0e']"
 ))
 
-print(Opp_map, tag = 'chart')
 
 ```
 
@@ -110,10 +109,13 @@ D4 %>% ggvis(~mean, fill := "#2c7fb8") %>% layer_histograms(width = 0.2)
 ```{r}
 library(googleVis)
 
+
 set.seed(123)
 Dropped4=data.frame(A=rpois(100, 20),
              B=rpois(100, 5),
              C=rpois(100, 50))
+
+
 print( 
   gvisHistogram(Dropped4, options=list(
     legend="{ position: 'top', maxLines: 2 }",
@@ -121,6 +123,9 @@ print(
     width=600, gvis.plot.tag = 'chart'),
     chartid="Histogram")
 )
+
+print(Opp_map, tag = 'chart')
+
 ```
 
 ```{r}
