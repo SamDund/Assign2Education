@@ -447,7 +447,7 @@ ggplot(Fear3,aes(x = Year, y = FearFail, colour = Country, group = Country)) + g
 
 - "Percentage of 18-64 population who see good opportunities to start a firm in the area where they live"  
 
-- Since we look at average individual self-esteem in every OECD country, we believe it is appropriate to look at the opportunities perceived by the average 18-64-year-old individual in these countries.
+- Since we look at average individual self-confidence in every OECD country, we believe it is appropriate to look at the opportunities perceived by the average 18-64-year-old individual in these countries.
 
 
 
