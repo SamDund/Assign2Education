@@ -6,132 +6,52 @@ date: "December 2, 2014"
 output: ioslides_presentation
 ---
 
-## From Education to Entrepreneurship
+## Research Interest
 
 *Text from Thierry*
 
-## Varying Perceptions of Good Opportunities to Start a Business in OECD Countries
 
-```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
-
-# Library required packages
-library(googleVis)
-library(countrycode)
-library(repmis)
+## Causal Chain
 
 
-# Import GEM data frame
-PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE, na.strings = "-")
 
-## Add country codes and place new column at beginning of the data frame
-# Create a vector of country codes
-D2 <- countrycode(PerceivedOpportunities$Country, "country.name", "iso2c")
+## Where our intuition came from
 
-# Create a new column and insert the country code vector
-PerceivedOpportunities$new.col <- D2
-
-# Reorder columns so country code is first
-D3 <- PerceivedOpportunities[,c(15,1:14)]
-
-# Rename first column
-D4 <- plyr::rename(x = D3, 
-                   replace = c("new.col" = "iso2c"))
-
-# Remove X's in D4 year columns
-names(D4) <- gsub("X", "", names(D4))                    
-  
-# Set columns as numeric
-D4[,"2001"] <- as.numeric(D4[,"2001"])
-D4[,"2002"] <- as.numeric(D4[,"2002"])
-D4[,"2003"] <- as.numeric(D4[,"2003"])
-D4[,"2004"] <- as.numeric(D4[,"2004"])
-D4[,"2005"] <- as.numeric(D4[,"2005"])
-D4[,"2006"] <- as.numeric(D4[,"2006"])
-D4[,"2007"] <- as.numeric(D4[,"2007"])
-D4[,"2008"] <- as.numeric(D4[,"2008"])
-D4[,"2009"] <- as.numeric(D4[,"2009"])
-D4[,"2010"] <- as.numeric(D4[,"2010"])
-D4[,"2011"] <- as.numeric(D4[,"2011"])
-D4[,"2012"] <- as.numeric(D4[,"2012"])
-D4[,"2013"] <- as.numeric(D4[,"2013"])
-
-# Save cleaned df
-Opp1 <- D4
-
-# Generate a new column with mean of all other columns
-D4$mean <- rowMeans(subset(D4, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
-                                          "2009", "2010", "2011", "2012", "2013")), na.rm = TRUE)
-
-# Drop year columns, leaving only mean column
-D4$'2001' <- NULL
-D4$'2002' <- NULL
-D4$'2003' <- NULL
-D4$'2004' <- NULL
-D4$'2005' <- NULL
-D4$'2006' <- NULL
-D4$'2007' <- NULL
-D4$'2008' <- NULL
-D4$'2009' <- NULL
-D4$'2010' <- NULL
-D4$'2011' <- NULL
-D4$'2012' <- NULL
-D4$'2013' <- NULL
-
-# Create 
-D4[, 3] <- round(log(D4[, 3]), digits = 2)
-```
-
-```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
-
-# Plot perceived opportunties map
-Opp_map <- gvisGeoChart(D4, locationvar = 'iso2c',
-                      colorvar = 'mean',
-                      options = list(
-                        colors = "['#ece7f2', '#2b8cbe']"
-))
-
-# Duplicate D4 (perceived opportunities) df
-Dropped4 <- D4
-
-# Drop iso2c in Dropped4
-Dropped4$iso2c <- NULL
-
-# Print the table
-print(Opp_map, tag = 'chart')
-
-```
-
-## Variation in Perceived Opportunities to Start a Business
-```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
-library("ggplot2")
-library("reshape2")
-
-# Create country vector to subset
-myvars2 <- c('US','FR','DE','JP','GB')
-
-# Subset Opp2
-Opp2 <- subset(Opp1, iso2c %in% myvars2)
-
-# Melt Opp2 df
-Opp3 <- melt(data = Opp2,
-                  id.vars = c("Country", "iso2c"),
-                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
-                                   "2007", "2008", "2009", "2010"))
-
-# Edit column names
-names(Opp3) <- gsub("value", "PerceivedOpportunities", names(Opp3))
-names(Opp3) <- gsub("variable", "Year", names(Opp3))
-
-Opp3$iso2c <- NULL
-``` 
-
-```{r echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
-
-# Create plot
-ggplot(Opp3,aes(x = Year, y = PerceivedOpportunities, colour = Country, group = Country)) + geom_line()
+Variable | France | UK
+-------------|---------------|---------
+Fear of Failure (GEM 2012) | 43% | 36%
+Perceived Capabilities (GEM 2012) | 36% | 47%
+Sense of belonging (PISA 2012) | 47% | 79%
 
 
-```
+## What is PISA
+
+- PISA: "Programme for International Student Assessment is a triennial international survey which aims to evaluate education systems worldwide by testing the skills and knowledge of 15 year old students."
+
+- Data availability prevented us from using PISA data for this project
+
+## What is GEM
+
+- GEM: Global Entrepreneurship Monitor project is an annual assessment of the entrepreneurial activity, aspirations, and attitudes of individuals across a wide range of countries. 
+
+- 
+
+## Estimation Strategy
+
+Variable | Indicator 
+-------------|---------------
+Y Dependent Vaiable | Rate of Entrepreneurship (Intention, Nascent, Established)
+X1 Explanatory Variable | Way of Teaching
+X2 Control Variable | Perceived Capabilities
+X3 Control Variable | Fear of Failure / Perceived Opportunities
+X4 Control Variable | Perceived Opportunities
+
+
+## Explaining Way of Teaching
+
+*How is it measured*
+
+
 
 
 ## Variation in how well Education encourages Self Confidence in OECD Countries
@@ -224,6 +144,132 @@ Wdf2 <- subset(Wdf, iso2c %in% myvars2)
 
 # Create plot
 ggplot(Wdf2,aes(x = Year, y = WayofTeaching, colour = Country, group = Country)) + geom_line()
+
+
+```
+
+## Perceived Capabilities
+
+*What about it*
+
+## Perceived Capabilities
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
+
+# Library required packages
+library(googleVis)
+library(countrycode)
+library(repmis)
+
+
+# Import GEM data frame
+PerceivedCapabilities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEM_PerceivedCapabilities.csv", header = TRUE, cache = FALSE, na.strings = "-")
+
+## Add country codes and place new column at beginning of the data frame
+# Create a vector of country codes
+C2 <- countrycode(PerceivedCapabilities$Country, "country.name", "iso2c")
+
+# Create a new column and insert the country code vector
+PerceivedCapabilities$new.col <- C2
+
+# Reorder columns so country code is first
+C3 <- PerceivedCapabilities[,c(15,1:14)]
+
+# Rename first column
+C4 <- plyr::rename(x = C3, 
+                   replace = c("new.col" = "iso2c"))
+
+# Remove X's in D4 year columns
+names(C4) <- gsub("X", "", names(C4))                    
+  
+# Set columns as numeric
+C4[,"2001"] <- as.numeric(C4[,"2001"])
+C4[,"2002"] <- as.numeric(C4[,"2002"])
+C4[,"2003"] <- as.numeric(C4[,"2003"])
+C4[,"2004"] <- as.numeric(C4[,"2004"])
+C4[,"2005"] <- as.numeric(C4[,"2005"])
+C4[,"2006"] <- as.numeric(C4[,"2006"])
+C4[,"2007"] <- as.numeric(C4[,"2007"])
+C4[,"2008"] <- as.numeric(C4[,"2008"])
+C4[,"2009"] <- as.numeric(C4[,"2009"])
+C4[,"2010"] <- as.numeric(C4[,"2010"])
+C4[,"2011"] <- as.numeric(C4[,"2011"])
+C4[,"2012"] <- as.numeric(C4[,"2012"])
+C4[,"2013"] <- as.numeric(C4[,"2013"])
+
+# Save cleaned df
+Cap1 <- C4
+
+# Generate a new column with mean of all other columns
+C4$mean <- rowMeans(subset(C4, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
+                                          "2009", "2010", "2011", "2012", "2013")), na.rm = TRUE)
+
+# Drop year columns, leaving only mean column
+C4$'2001' <- NULL
+C4$'2002' <- NULL
+C4$'2003' <- NULL
+C4$'2004' <- NULL
+C4$'2005' <- NULL
+C4$'2006' <- NULL
+C4$'2007' <- NULL
+C4$'2008' <- NULL
+C4$'2009' <- NULL
+C4$'2010' <- NULL
+C4$'2011' <- NULL
+C4$'2012' <- NULL
+C4$'2013' <- NULL
+
+# Create 
+C4[, 3] <- round(log(C4[, 3]), digits = 2)
+```
+
+```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
+
+# Plot perceived opportunties map
+Cap1_map <- gvisGeoChart(C4, locationvar = 'iso2c',
+                      colorvar = 'mean',
+                      options = list(
+                        colors = "['#ece7f2', '#2b8cbe']"
+))
+
+# Duplicate D4 (perceived capabilities) df
+Cap4 <- C4
+
+# Drop iso2c in Dropped4
+C4$iso2c <- NULL
+
+# Print the table
+print(Cap1_map, tag = 'chart')
+
+```
+
+## Variation in Perceived Opportunities to Start a Business
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+library("ggplot2")
+library("reshape2")
+
+# Create country vector to subset
+myvars2 <- c('US','FR','DE','JP','GB')
+
+# Subset Cap4
+Cap5 <- subset(Cap4, iso2c %in% myvars2)
+
+# Melt Opp2 df
+Cap6 <- melt(data = Cap5,
+                  id.vars = c("Country", "iso2c"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010"))
+
+# Edit column names
+names(Cap6) <- gsub("value", "Capabilities", names(Cap6))
+names(Cap6) <- gsub("variable", "Year", names(Cap6))
+
+Cap6$iso2c <- NULL
+``` 
+
+```{r echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+# Create plot
+ggplot(Cap6,aes(x = Year, y = PerceivedCapabilities, colour = Country, group = Country)) + geom_line()
 
 
 ```
@@ -350,6 +396,129 @@ ggplot(Fear3,aes(x = Year, y = FearFail, colour = Country, group = Country)) + g
 
 ```
 
+## Varying Perceptions of Good Opportunities to Start a Business in OECD Countries
+
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
+
+# Library required packages
+library(googleVis)
+library(countrycode)
+library(repmis)
+
+
+# Import GEM data frame
+PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE, na.strings = "-")
+
+## Add country codes and place new column at beginning of the data frame
+# Create a vector of country codes
+D2 <- countrycode(PerceivedOpportunities$Country, "country.name", "iso2c")
+
+# Create a new column and insert the country code vector
+PerceivedOpportunities$new.col <- D2
+
+# Reorder columns so country code is first
+D3 <- PerceivedOpportunities[,c(15,1:14)]
+
+# Rename first column
+D4 <- plyr::rename(x = D3, 
+                   replace = c("new.col" = "iso2c"))
+
+# Remove X's in D4 year columns
+names(D4) <- gsub("X", "", names(D4))                    
+  
+# Set columns as numeric
+D4[,"2001"] <- as.numeric(D4[,"2001"])
+D4[,"2002"] <- as.numeric(D4[,"2002"])
+D4[,"2003"] <- as.numeric(D4[,"2003"])
+D4[,"2004"] <- as.numeric(D4[,"2004"])
+D4[,"2005"] <- as.numeric(D4[,"2005"])
+D4[,"2006"] <- as.numeric(D4[,"2006"])
+D4[,"2007"] <- as.numeric(D4[,"2007"])
+D4[,"2008"] <- as.numeric(D4[,"2008"])
+D4[,"2009"] <- as.numeric(D4[,"2009"])
+D4[,"2010"] <- as.numeric(D4[,"2010"])
+D4[,"2011"] <- as.numeric(D4[,"2011"])
+D4[,"2012"] <- as.numeric(D4[,"2012"])
+D4[,"2013"] <- as.numeric(D4[,"2013"])
+
+# Save cleaned df
+Opp1 <- D4
+
+# Generate a new column with mean of all other columns
+D4$mean <- rowMeans(subset(D4, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
+                                          "2009", "2010", "2011", "2012", "2013")), na.rm = TRUE)
+
+# Drop year columns, leaving only mean column
+D4$'2001' <- NULL
+D4$'2002' <- NULL
+D4$'2003' <- NULL
+D4$'2004' <- NULL
+D4$'2005' <- NULL
+D4$'2006' <- NULL
+D4$'2007' <- NULL
+D4$'2008' <- NULL
+D4$'2009' <- NULL
+D4$'2010' <- NULL
+D4$'2011' <- NULL
+D4$'2012' <- NULL
+D4$'2013' <- NULL
+
+# Create 
+D4[, 3] <- round(log(D4[, 3]), digits = 2)
+```
+
+```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
+
+# Plot perceived opportunties map
+Opp_map <- gvisGeoChart(D4, locationvar = 'iso2c',
+                      colorvar = 'mean',
+                      options = list(
+                        colors = "['#ece7f2', '#2b8cbe']"
+))
+
+# Duplicate D4 (perceived opportunities) df
+Dropped4 <- D4
+
+# Drop iso2c in Dropped4
+Dropped4$iso2c <- NULL
+
+# Print the table
+print(Opp_map, tag = 'chart')
+
+```
+
+## Variation in Perceived Opportunities to Start a Business
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+library("ggplot2")
+library("reshape2")
+
+# Create country vector to subset
+myvars2 <- c('US','FR','DE','JP','GB')
+
+# Subset Opp2
+Opp2 <- subset(Opp1, iso2c %in% myvars2)
+
+# Melt Opp2 df
+Opp3 <- melt(data = Opp2,
+                  id.vars = c("Country", "iso2c"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010"))
+
+# Edit column names
+names(Opp3) <- gsub("value", "PerceivedOpportunities", names(Opp3))
+names(Opp3) <- gsub("variable", "Year", names(Opp3))
+
+Opp3$iso2c <- NULL
+``` 
+
+```{r echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+# Create plot
+ggplot(Opp3,aes(x = Year, y = PerceivedOpportunities, colour = Country, group = Country)) + geom_line()
+
+
+```
+
 
 ## Regression Results
 
@@ -366,7 +535,7 @@ CompleteData <- repmis::source_data("https://raw.githubusercontent.com/SamDund/A
 CompleteData_omit <- na.omit(CompleteData)
 
 # Run a RE regression
-Z1 <- zelig(PercentIntention ~ PercentPerceived + PercentFear*PercentOpportunities + WayofTeaching, data = CompleteData_omit, model = "ls")
+Z1 <- zelig(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CompleteData_omit, model = "ls")
 
 # Set range of PercentPerceived values in simulation
 x.out2 <- setx(Z1, PercentPerceived = 20:70)
