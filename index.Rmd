@@ -5,12 +5,16 @@ date: "December 6, 2014"
 output: html_document
 ---
 
+<br>
+
 ### Key Question 
 To what extent do teaching methods supporting self-confidence affect the rate of entrepreneurship in OECD countries?  
 
-We have drawn on publicly availabile data from the Global Entrepreneurship Monitor (GEM) National Entrepreneurship Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship.   
 
-The following interactive chart can be utilized to see the relationship between the variables we investigated. Among other features, the independent and dependent variables can be selected to see the relationship between each of the variables.  
+We have drawn on publicly availabile data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) National Expert Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship.   
+
+
+The following interactive chart can be utilized to see the relationship between the variables we investigated. Among other features, the independent and dependent variables can be selected to see the relationship between each of the variables.  The variables are defined in detail below.  
 
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 library(ggvis)
@@ -38,22 +42,32 @@ print(R, tag = 'chart')
 ```
 
 
+<br>
 
-### Selected Variables  
+### Variables:  
 
-
-As indicated in the chart, our analysis investigated the variation among OECD countries in each of the following variables.  
-
-
-Variable | Indicator 
--------------|---------------
-Y Dependent Variable | Rate of Entrepreneurship (Intention, Nascent, Established)
-X1 Explanatory Variable | Way of Teaching
-X2 Control Variable | Perceived Capabilities
-X3 Control Variable | Fear of Failure / Perceived Opportunities
-X4 Control Variable | Perceived Opportunities  
+1. **Entrepreneurial Intention**: Percentage of 18-64 population (individuals involved in any stage of entrepenerurial activity excluded) who intend to start a business within three years.  
 
 
+2. **Nascent Entrepreneurship**: Percentage of 18-64 population who are currently a nascent entrepreneur, i.e., actively involved in setting up a business they will own or co-own; this business has not paid salaries, wages, or any other payments to the owners for more than three months.  
+
+
+3. **Established Entrepreneur**: Percentage of 18-64 population who are currently owner-manager of an established business, i.e., owning and managing a running business that has paid sallaries, wages, or any other payments to the owners for more than 42 months.  
+
+
+4. **Way of Teaching**: In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative.  
+
+
+5. **Perceived Capabilities**: Percentage of 18-64 population who believe to have the required skills and knowledge to start a business  
+
+
+6. **Fear of Failure**: Percentage of 18-64 population with positive perceived opportunities who indicate that fear of failure would prevent them from setting up a business.  
+
+
+7. **Perceived Opportunities**: Percentage of 18-64 population who see good opportunities to start a firm in the area where they live
+
+
+<br>
 
 ### Causal Chain  
 
@@ -68,6 +82,8 @@ Our decision to select and investigate these variables was based on the followin
 
 4. Higher rate of entrepreneurship at a country-level  
 
+
+<br>
 
 ### Geographic Variation in our Explanatory Variable  
 
@@ -129,5 +145,26 @@ WT_map <- gvisGeoChart(WT, locationvar = 'iso2c',
 print(WT_map, tag = 'chart')
 
 ```
+
+
+<br>
+
+
+### Statistical Analysis  
+
+The variables indicated above were used to obtain inferential statistics:
+
+Variable | Indicator 
+-------------|---------------
+Y Dependent Variable | Rate of Entrepreneurship (Intention, Nascent, Established)
+X1 Explanatory Variable | Way of Teaching
+X2 Control Variable | Perceived Capabilities
+X3 Control Variable | Fear of Failure / Perceived Opportunities
+X4 Control Variable | Perceived Opportunities  
+
+
+Controlling for country-specific effects, 
+
+
 
 
