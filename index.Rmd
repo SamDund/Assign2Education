@@ -84,20 +84,11 @@ D8 %>%
 
 CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
 
-# Melt CD df
-
-CD2 <- melt(data = CD,
-                  id.vars = c("Country", "Year"),
-                  measure.vars = c("WayofTeaching", "PercentFear", "PercentNascent", "PercentPerceived",
-                                   "PercentOwner", "PercentIntention", "PercentOpportunities"))
-
-
-names(CD2) <- gsub("variable", "Survey Question", names(CD2))
-names(CD2) <- gsub("value", "Response", names(CD2))    
-
-CD3 <- na.omit(CD2)
-
+# Set Year column as a date
 CD$Year <- as.Date(as.character(CD$Year), format = "%Y")
+
+# Dropp X column
+CD$X <- NULL
 
 R <- gvisMotionChart(CD, idvar = "Country", timevar = "Year")
 
