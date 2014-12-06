@@ -1,16 +1,20 @@
 ---
 title: 'From Education to Entrepreneurship'
-author: "Sam"
-date: "November 20, 2014"
+author: "Sam Dundon and Thierry Racaud"
+date: "December 6, 2014"
 output: html_document
 ---
 
-### Under construction, but here's a preview
+**Key Question**
+To what extent do teaching methods supporting self-confidence affect the rate of entrepreneurship in OECD countries?
 
+We have drawn on publicly availabile data from the Global Entrepreneurship Monitor (GEM) National Entrepreneurship Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship. 
+
+The following interactive chart can be utilized to see the relationship between the variables we investigated. Among other features, the independent and dependent variables can be selected to see the relationship between each of the variables.
 
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 library(ggvis)
-library("devtools")
+library(devtools)
 library(googleVis)
 library(countrycode)
 library(repmis)
@@ -19,68 +23,6 @@ library(RJSONIO)
 library(shiny)
 library(httpuv)
 
-# Import GEM data frame
-PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE, na.strings = "-")
-
-## Add country codes and place new column at beginning of the data frame
-# Create a vector of country codes
-
-D2 <- countrycode(PerceivedOpportunities$Country, "country.name", "iso2c")
-
-# Create a new column and insert the country code vector
-PerceivedOpportunities$new.col <- D2
-
-# Reorder columns so country code is first
-D3 <- PerceivedOpportunities[,c(15,1:14)]
-
-# Rename first column
-D4 <- plyr::rename(x = D3, 
-                   replace = c("new.col" = "iso2c"))
-
-# Remove X's in D4 year columns
-names(D4) <- gsub("X", "", names(D4))                    
-                
-
-# Melt D4 df
-D6 <- melt(data = D4,
-                  id.vars = c("Country", "iso2c"),
-                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
-                                   "2007", "2008", "2009", "2010"))
-
-# Change column titles to  year and PerceivedOpportunities
-names(D6) <- gsub("value", "PerceivedOpportunities", names(D6))    
-names(D6) <- gsub("variable", "Year", names(D6))    
-
-
-# Set columns as numeric
-D6[,"PerceivedOpportunities"] <- as.numeric(D6[,"PerceivedOpportunities"])
-
-# Save cleaned df
-D7 <- D6
-
-# Create country vector to subset
-myvars2 <- c('US','FR','DE','JP','GB')
-
-# Subset D6
-D8 <- subset(D6, iso2c %in% myvars2)
-
-
-# Create a scatterplot
-D8 %>% 
-  ggvis(~Year, ~PerceivedOpportunities) %>%
-  layer_points(fill = ~factor(Country)) %>%
-  group_by(Country)  
-
-
-D8 %>%
-  ggvis(~Year, ~PerceivedOpportunities) %>%
-  layer_points(fill = ~factor(Country)) %>%
-  group_by(Country)
-
-
-```
-
-```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE} 
 
 CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
 
@@ -94,3 +36,6 @@ R <- gvisMotionChart(CD, idvar = "Country", timevar = "Year")
 
 print(R, tag = 'chart')
 ```
+
+As indicated in the chart, our analysis investigated the variation among OECD countries in each of the following variables.
+
