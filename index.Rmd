@@ -5,12 +5,12 @@ date: "December 6, 2014"
 output: html_document
 ---
 
-**Key Question**
-To what extent do teaching methods supporting self-confidence affect the rate of entrepreneurship in OECD countries?
+### Key Question 
+To what extent do teaching methods supporting self-confidence affect the rate of entrepreneurship in OECD countries?  
 
-We have drawn on publicly availabile data from the Global Entrepreneurship Monitor (GEM) National Entrepreneurship Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship. 
+We have drawn on publicly availabile data from the Global Entrepreneurship Monitor (GEM) National Entrepreneurship Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship.   
 
-The following interactive chart can be utilized to see the relationship between the variables we investigated. Among other features, the independent and dependent variables can be selected to see the relationship between each of the variables.
+The following interactive chart can be utilized to see the relationship between the variables we investigated. Among other features, the independent and dependent variables can be selected to see the relationship between each of the variables.  
 
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 library(ggvis)
@@ -37,5 +37,97 @@ R <- gvisMotionChart(CD, idvar = "Country", timevar = "Year")
 print(R, tag = 'chart')
 ```
 
-As indicated in the chart, our analysis investigated the variation among OECD countries in each of the following variables.
+
+
+### Selected Variables  
+
+
+As indicated in the chart, our analysis investigated the variation among OECD countries in each of the following variables.  
+
+
+Variable | Indicator 
+-------------|---------------
+Y Dependent Variable | Rate of Entrepreneurship (Intention, Nascent, Established)
+X1 Explanatory Variable | Way of Teaching
+X2 Control Variable | Perceived Capabilities
+X3 Control Variable | Fear of Failure / Perceived Opportunities
+X4 Control Variable | Perceived Opportunities  
+
+
+
+### Causal Chain  
+
+
+Our decision to select and investigate these variables was based on the following causal chain
+
+1. An education system that reinforces self-confidence 
+
+2. Higher degree of individual self-esteem  
+
+3. Higher probability an individual becomes an entrepreneur  
+
+4. Higher rate of entrepreneurship at a country-level  
+
+
+### Geographic Variation in our Explanatory Variable  
+
+As expected, there is significant variation among OECD countries with respect to each of the variables investigated.  The most important of these variables is our explanatory variable, "WayofTeaching".  This is a measure of how well teaching methods support self-confidence in each country.  The following interactive chart displays variation in self confidence with the log of the mean survey response from each country over 2001-2013 timeframe.
+
+
+```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+# Import GEM data frame
+WayofTeaching <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/WayofTeaching", header = TRUE, cache = FALSE, na.strings = "NA")
+
+# Drop unnecessary column 1
+WayofTeaching$X <- NULL
+
+# Change data from long to wide format
+WT <- reshape(WayofTeaching, idvar = c("iso2c", "Country"), timevar = "Year", direction = "wide")
+
+# Delete variable name in Year columns
+names(WT) <- gsub("WayofTeaching.", "", names(WT))
+
+# Duplicate df for future use
+WT2 <- WT
+
+# Generate a new column with mean of all other columns
+WT$mean <- rowMeans(subset(WT, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
+                                          "2009", "2010")), na.rm = TRUE)
+
+# Drop year columns, leaving only mean column
+WT$'2001' <- NULL
+WT$'2002' <- NULL
+WT$'2003' <- NULL
+WT$'2004' <- NULL
+WT$'2005' <- NULL
+WT$'2006' <- NULL
+WT$'2007' <- NULL
+WT$'2008' <- NULL
+WT$'2009' <- NULL
+WT$'2010' <- NULL
+WT$'2011' <- NULL
+WT$'2012' <- NULL
+WT$'2013' <- NULL
+WT$row.names <- NULL
+
+# Create 
+WT[, 3] <- round(log(WT[, 3]), digits = 2)
+```
+
+```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
+library(googleVis)
+
+# Plot
+WT_map <- gvisGeoChart(WT, locationvar = 'iso2c',
+                      colorvar = 'mean',
+                      options = list(
+                        colors = "['#ece7f2', '#2b8cbe']"
+))
+ 
+
+
+print(WT_map, tag = 'chart')
+
+```
+
 

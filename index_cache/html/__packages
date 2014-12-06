@@ -2,3 +2,9 @@ base
 googleVis
 countrycode
 repmis
+ggvis
+devtools
+reshape2
+RJSONIO
+shiny
+httpuv
