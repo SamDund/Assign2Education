@@ -165,6 +165,9 @@ X4 Control Variable | Perceived Opportunities
 
 Controlling for country-specific effects, 
 
+```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
+RG1 <- lm(PercentIntention ~ WayofTeaching + PerceivedCapabilities + (Fear of Failure*PerceivedOpportunities + PerceivedOpportunities, data = CompleteData))
+
 
 
 
