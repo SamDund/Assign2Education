@@ -165,9 +165,34 @@ X4 Control Variable | Perceived Opportunities
 
 Controlling for country-specific effects, 
 
-```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
-RG1 <- lm(PercentIntention ~ WayofTeaching + PerceivedCapabilities + (Fear of Failure*PerceivedOpportunities + PerceivedOpportunities, data = CompleteData))
+```{r echo = FALSE, cache= TRUE, include= FALSE, results= 'asis'}
+RG1 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
 
 
+# Library Zelig (can be buggy if loaded to early)
+library(Zelig)
+library("Amelia")
 
+# Omit omitted data from simulation
+CD_omit <- na.omit(CD)
 
+# Run a least squares regression with Zelig
+Z1 <- zelig(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD_omit, model = "ls")
+
+summary(Z1)
+
+# Impute missing values for regression analysis (Amelia)
+Cimputed <- Amelia::amelia(CD, m = 5, idvars = c("iso2c", "Country"), ts = "Year")
+
+# Create CSV of imputed values
+write.amelia(Cimputed, "Cimputed", separate = TRUE, format = "csv")
+
+# Set working directory to local repository
+setwd('~/Assign2Education/')
+
+# Open csv
+Cimputed <- read.table("Cimputed5.csv", header = TRUE, sep = ",", na.strings = NA)
+
+# Regression equation with imputed values
+Z2 <- zelig(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = Cimputed, model = "ls")
+```

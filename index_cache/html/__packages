@@ -8,3 +8,9 @@ reshape2
 RJSONIO
 shiny
 httpuv
+boot
+MASS
+sandwich
+Zelig
+Rcpp
+Amelia
