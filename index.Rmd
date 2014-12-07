@@ -10,6 +10,9 @@ output: html_document
 ### Key Question 
 To what extent do teaching methods supporting self-confidence affect the rate of entrepreneurship in OECD countries?  
 
+<br>
+
+### Project Overview
 
 We have drawn on publicly availabile data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) National Expert Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship in [OECD (Organisation for Economic Co-operation and Development)](http://www.oecd.org/) countries.   
 
