@@ -7,14 +7,14 @@ output: html_document
 
 <br>
 
-### Key Question 
+### Key Research Question 
 To what extent do teaching methods supporting self-confidence affect the rate of entrepreneurship in OECD countries?  
 
 <br>
 
 ### Project Overview
 
-We have drawn on publicly availabile data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) National Expert Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship in [OECD (Organisation for Economic Co-operation and Development)](http://www.oecd.org/) countries.   
+We have drawn on publicly available data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) National Expert Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship in [OECD (Organisation for Economic Co-operation and Development)](http://www.oecd.org/) countries.   
 
 
 The following interactive chart can be utilized to see the relationship between the variables we investigated (this can be best viewed in a browser such as [Chrome](https://www.google.com/chrome/)). Among other features, the independent and dependent variables can be selected to see the relationship between each of the variables.  The variables are defined in detail below.  
@@ -49,13 +49,13 @@ print(R, tag = 'chart')
 
 ### Variables:  
 
-1. **Entrepreneurial Intention**: Percentage of 18-64 population (individuals involved in any stage of entrepenerurial activity excluded) who intend to start a business within three years.  
+1. **Entrepreneurial Intention**: Percentage of 18-64 population (individuals involved in any stage of entrepreneurial activity excluded) who intend to start a business within three years.  
 
 
 2. **Nascent Entrepreneurship**: Percentage of 18-64 population who are currently a nascent entrepreneur, i.e., actively involved in setting up a business they will own or co-own; this business has not paid salaries, wages, or any other payments to the owners for more than three months.  
 
 
-3. **Established Entrepreneur**: Percentage of 18-64 population who are currently owner-manager of an established business, i.e., owning and managing a running business that has paid sallaries, wages, or any other payments to the owners for more than 42 months.  
+3. **Established Entrepreneur**: Percentage of 18-64 population who are currently owner-manager of an established business, i.e., owning and managing a running business that has paid salaries, wages, or any other payments to the owners for more than 42 months.  
 
 
 4. **Way of Teaching**: In my country, teaching in primary and secondary education encourages creativity, self-sufficiency, and personal initiative.  
@@ -90,7 +90,7 @@ Our decision to select and investigate these variables was based on the followin
 
 ### Geographic Variation in our Explanatory Variable  
 
-As expected, there is significant variation among OECD countries with respect to each of the variables investigated.  The most important of these variables is our explanatory variable, "WayofTeaching".  This is a measure of how well teaching methods support self-confidence in each country.  The following interactive chart displays variation in self confidence with the log of the mean survey response from each country over 2001-2013 timeframe.
+As expected, there is significant variation among OECD countries with respect to each of the variables investigated.  The most important of these variables is our explanatory variable, "WayofTeaching".  This is a measure of how well teaching methods support self-confidence in each country.  The following interactive chart displays variation in self confidence with the log of the mean survey response from each country over 2001-2013 time frame.
 
 
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
@@ -182,7 +182,7 @@ $+$ $0.12Percent Perceived Opportunities - 0.005Percent Fear Failure$ $*$ $Perce
 We can show the relationship between the dependent and explanatory variables in the four simulations below.  The R package Zelig allows us to set parameters for an explanatory variable and simulate 1000 trials of the above equation (more information on the Zelig package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Zelig/index.html).  We chose to simulate values in "Percent Perceived Capabilities" and "Way of Teaching" for this analysis.  A regression output table has also been included below.
 
 
-The simulations labled "Unimputed" were created using only data collected from GEM. This simulation is not possible with missing data, so observations with missing data were omitted.  In an attempt to increase the accuracy of this model, we used the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate this data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Simulations titled "Imputed" were calculated using this imputed data frame.
+The simulations labeled "Unimputed" were created using only data collected from GEM. This simulation is not possible with missing data, so observations with missing data were omitted.  In an attempt to increase the accuracy of this model, we used the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate this data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Simulations titled "Imputed" were calculated using this imputed data frame.
 
 
 
@@ -309,5 +309,5 @@ stargazer::stargazer(Z1, Z2, covariate.labels = labels, dep.var.labels = dlabels
 ### Conclusions  
 
 
-Significant work remains to more clearly understand the extent of the relationship between teaching menthods supporting self-confidence and a country's rate of entrepreneurship.  This research, however, does show that a positive relationship exists.  One clear requirement of further analysis in this field is increased availability and consistency in collected data.  Missing data generates substantial uncertainty and limits our ability to strongly state conclusions.  This will need to be addressed for future projects.   
+Significant work remains to more clearly understand the extent of the relationship between teaching methods supporting self-confidence and a country's rate of entrepreneurship.  This research, however, does show that a positive relationship exists.  One clear requirement of further analysis in this field is increased availability and consistency in collected data.  Missing data generates substantial uncertainty and limits our ability to strongly state conclusions.  This will need to be addressed for future projects.   
 
