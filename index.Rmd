@@ -163,9 +163,23 @@ X3 Control Variable | Fear of Failure / Perceived Opportunities
 X4 Control Variable | Perceived Opportunities  
 
 
-Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between higher self-confidence reinforcement in teaching and our dependent variables selected as indicators of the entrepreneurship rate.  Instead, we found that the Way of Teaching is not significant, and when controlling for country-specific effects, has a negative relationship with our explanatory variables.  Overall, however, we can demonstrate the results of our least square regression equation in the four charts below (omitting the country-specific effects).  We chose to simulate different values in "Percent Perceived Capabilities" and "Way of Teaching" because they are both proxies for self-confidence.
+Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between self-confidence reinforcement in teaching and the  dependent variables we selected as indicators of the entrepreneurship rate.  Instead, we found that when controlling for country-specific effects, the Way of Teaching is not statistically significant and has a negative relationship with our explanatory variables.  
 
-The charts labled "Unimputed" were created using only data collected from GEM. This simulation is not possible with missing data, so observations with missing data were omitted.  To try to address this, we used the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate this data (more information on Amelia can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Simulations titled "Imputed" were calculated using this imputed data frame.
+
+Overall, however, if we omit country-specific effects, we can demonstrate that the Way of Teaching and the Percent Perceived Good Opportunities are statistically significant in the model indicated below.  
+
+<br>
+
+$Percent Perceived Opportunities = -6.82 + 1.03WayofTeaching + 0.10Percent Perceived Capability + 0.21Percent Fear Failure$  
+
+$+$ $0.12Percent Perceived Opportunities - 0.005Percent Fear Failure$ $*$ $Percent Perceived Opportunities$  
+
+<br>
+
+We can show the relationship between the dependent and explanatory variables in the four simulations below.  The R package Zelig allows us to set parameters for an explanatory variable and simulate 1000 trials of the above equation (more information on the Zelig package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Zelig/index.html).  We chose to simulate values in "Percent Perceived Capabilities" and "Way of Teaching" for this analysis.  A regression output table has also been included below.
+
+
+The simulations labled "Unimputed" were created using only data collected from GEM. This simulation is not possible with missing data, so observations with missing data were omitted.  In an attempt to increase the accuracy of this model, we used the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate this data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Simulations titled "Imputed" were calculated using this imputed data frame.
 
 
 
@@ -191,12 +205,6 @@ CD_omitted <- na.omit(CD)
 # Run a least squares regression with Zelig
 Z1 <- zelig(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD_omitted, model = "ls")
 
-# Set range of PercentPerceived values in simulation
-x.out1 <- setx(Z1, PercentPerceived = 9:67)
-
-# Run simulation (default 1000 trials)
-simz1 <- sim(Z1, x = x.out1)
-
 
 ############ Runnig a Zelig regression with imputed data and omitting remaining omitted variables
 
@@ -210,24 +218,35 @@ CI_omitted <- na.omit(CI)
 Z2 <- zelig(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CI_omitted, model = "ls")
 
 
-############ Set range of values for Z1 and Z2
+############ Set range of values for Z1 and Z2 using imputed and not imputed dfs
 
-# Set range of PercentPerceived values in simulation
+####### Simulate Percent Perceived
+
+# Set range of PercentPerceived values in simulation (NOT IMPUTED)
+x.out1 <- setx(Z1, PercentPerceived = 9:67)
+
+# Run simulation (default 1000 trials) (NOT IMPUTED)
+simz1 <- sim(Z1, x = x.out1)
+
+# Set range of PercentPerceived values in siumlation (IMPUTED)
 x.out2 <- setx(Z2, PercentPerceived = 9:67)
 
-# Run simulation (default 1000 trials)
+# Run simulation (default 1000 trials) (IMPUTED)
 simz2 <- sim(Z2, x = x.out2)
 
-# Set range of WayofTeaching values in simulation
+
+####### Simulate Way of Teaching
+
+# Set range of WayofTeaching values in simulation (NOT IMPUTED)
 x.out3 <- setx(Z1, WayofTeaching = 1.353:3.278)
 
-# Run simulation (default 1000 trials)
+# Run simulation (default 1000 trials) (NOT IMPUTED)
 simz3 <- sim(Z1, x = x.out3)
 
-# Set range of WayofTeaching values in simulation
+# Set range of WayofTeaching values in simulation (IMPUTED)
 x.out4 <- setx(Z2, WayofTeaching = 1.128:3.312)
 
-# Run simulation (default 1000 trials)
+# Run simulation (default 1000 trials) (IMPUTED)
 simz4 <- sim(Z2, x = x.out4)
 
 ```
@@ -241,15 +260,51 @@ library("Zelig")
 par(mfrow = c(2, 2))
 
 # Plot simz1 (unimputed)
-plot(simz1, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurship Owner', main = "Unimputed")
+plot(simz1, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurship Owner',
+     main = "Unimputed (Equation 1)")
 
 # Plot simz2 (imputed)
-plot(simz2, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurship Owner', main = "Imputed")
+plot(simz2, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurship Owner',
+     main = "Imputed (Equation 2)")
 
 # Plot simz3 (unimputed)
-plot(simz3, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner', main = "Unimputed")
+plot(simz3, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
+     main = "Unimputed (Equation 1)")
 
 # Plot simz4 (imputed)
-plot(simz4, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner', main = "Imputed")
+plot(simz4, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
+     main = "Imputed (Equation 2)")
 
 ```
+
+```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
+library(stargazer)
+
+# Create regression output table
+labels <- c('Way of Teaching', 'National Level Perceived Capabilities', 'National Level Avg Fear of Failure',
+            'National Level Avg Perceived Good Opportunities', 
+            'National Level Avg Fear of Failure x National Level Avg Perceived Good Opportunities',
+            '(Intercept)')
+
+dlabels <- c('National Level Average Percent Owning a Business')
+
+```
+
+<br>
+
+```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
+
+stargazer::stargazer(Z1, Z2, covariate.labels = labels, dep.var.labels = dlabels,
+                     title = 'Linear Regression Estimates', notes = "Regression equation 1 is unimputed, regression equation 2 is imputed", digits = 2, type = 'html')
+
+
+```
+
+
+<br>
+
+### Conclusions  
+
+
+Significant work remains to more clearly understand the extent of the relationship between teaching menthods supporting self-confidence and a country's rate of entrepreneurship.  This research, however, does show that a positive relationship exists.  One clear requirement of further analysis in this field is increased availability and consistency in collected data.  Missing data generates substantial uncertainty and limits our ability to strongly state conclusions.  This will need to be addressed for future projects.   
+
