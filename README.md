@@ -22,10 +22,10 @@ The core of our output for this project is accessable in the interactive chart a
 Data used to create the website is imported from the main or gh-pages branch using the repmis program (as indicated in the [index.Rmd](https://github.com/SamDund/Assign2Education/blob/gh-pages/index.Rmd) file).  
 
 
-#### Other Relevant Repository Branch Files  
+#### Other Relevant Repository Branch Folders and Files  
 
 
-- Index_sources: This contans an Rmarkdown file with the code used to generate imputed data for the imputed data frame used in two simulations included in the website. 
+- Index_sources: This folder contains an Rmarkdown file with the code used to generate imputed data for the imputed data frame used in two simulations included in the website. 
 
 
 - GEM Data: This is the folder holding the imputed data frame and other data  
