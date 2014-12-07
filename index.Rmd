@@ -29,8 +29,11 @@ library(reshape2)
 library(shiny)
 library(httpuv)
 
-pkgs <- c('repmis', 'ggvis', 'devtools', 'googleVis', 'countrycode', 'reshape2', 'shiny',
-          'httpuv', 'Zelig', 'stargazer', 'Amelia')
+# Create a vector of packages used
+pkgs <- c('repmis', 'ggvis', 'devtools', 'googleVis', 'countrycode', 'reshape2', 'shiny', 'httpuv', 'Zelig',
+          'stargazer', 'Amelia')
+
+# Create citations txt file
 repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 # Import "CompleteData" df from repository
@@ -39,7 +42,7 @@ CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Educ
 # Set Year column as a date
 CD$Year <- as.Date(as.character(CD$Year), format = "%Y")
 
-# Dropp X column
+# Drop X column
 CD$X <- NULL
 
 R <- gvisMotionChart(CD, idvar = "Country", timevar = "Year")

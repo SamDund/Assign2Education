@@ -1,28 +1,43 @@
-### Assignment 3: Data Cleaning and Analysis
+### Assignment 4: gh_pages Branch
 
 #### Sam Dundon and Thierry Racaud
 * * * 
 #### Project Introduction
-This is a data cleaning and analysis overview for Thierry Racaud's thesis titled: "The Country-level Impact of Educational Features on the Rate of Entrepreneurship." The overview has been divided into the following sections:  
+This is a branch of the Assignment2Education repository linked to our [project website](http://samdund.github.io/Assign2Education/).
+
+The website divides our project into the following sections:
 
 1. Research Question  
-2. Estimation Strategy 
-3. Data Collection and Cleaning
-4. Data Analysis  
-5. Outlook   
-    
-The overview includes dynamically linked [citations for R packages](https://raw.githubusercontent.com/SamDund/Assign2Education/master/DataRpackageCitations.bib).
+2. Project Overview
+3. Variables
+4. Causal Chain  
+5. Geographic Variation in our Explanatory Variable
+6. Statistical Analysis
+7. Conclusions  
 
-#### Proposal File
-The data analysis overview is [GEMDataSource.Rmd](https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMDataSource.Rmd).  Please click [here](https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMDataSource.html) to access the html for the RMarkdown file and open it in Chrome or a similar application. 
-
+The core of our output for this project is accessable in the interactive chart at the top of the page.  With this chart, users can choose variables for the x and y axis and see the variation among OECD countries and over time.  This chart was created using googleVis.  Citations for this and other packages used in the creation of the website can be found [here](https://raw.githubusercontent.com/SamDund/Assign2Education/gh-pages/RpackageCitations.bib).  
 
 
-#### Other Repository Contents
-- Proposal: A file with assignment two information including a README, RMarkdown proposal file, knitted PDF and html versions of the proposal file, Main bibliography file dynamically linked to EducProposal.Rmd, and a Bibliography file dynamically linked to EducProposal.Rmd with citations for R and packages
-- Misc: A folder with extra source files used for exploring other R features.  This file will likely be used for the next class assignment
-- Img: A file containing the OECD chart in the EducProposal.Rmd file
-- Other: A project file, cached files, gitignore, .RData, and .Rhistory files
+#### Sources  
+Data used to create the website is imported from the main or gh-pages branch using the repmis program (as indicated in the [index.Rmd](https://github.com/SamDund/Assign2Education/blob/gh-pages/index.Rmd) file).  
+
+
+#### Other Relevant Repository Branch Files  
+
+
+- Index_sources: This contans an Rmarkdown file with the code used to generate imputed data for the imputed data frame used in two simulations included in the website. 
+
+
+- GEM Data: This is the folder holding the imputed data frame and other data  
+
+
+- RpackageCitations: This file provides citations for the R packages used to create the website
+
+- Other: Please refer to the [master branch](https://github.com/SamDund/Assign2Education/tree/master) for other data and supporting documentation.  
+
+
+#### Master Branch  
+Please see the master branch to view other information on this fully reproducable project.  
 
 
 #### Contact
