@@ -14,7 +14,7 @@ To what extent do teaching methods supporting self-confidence affect the rate of
 We have drawn on publicly availabile data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) National Expert Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship in [OECD (Organisation for Economic Co-operation and Development)](http://www.oecd.org/) countries.   
 
 
-The following interactive chart can be utilized to see the relationship between the variables we investigated. Among other features, the independent and dependent variables can be selected to see the relationship between each of the variables.  The variables are defined in detail below.  
+The following interactive chart can be utilized to see the relationship between the variables we investigated (this can be best viewed in a browser such as [Chrome](https://www.google.com/chrome/)). Among other features, the independent and dependent variables can be selected to see the relationship between each of the variables.  The variables are defined in detail below.  
 
 ```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
 library(ggvis)
@@ -163,13 +163,15 @@ X3 Control Variable | Fear of Failure / Perceived Opportunities
 X4 Control Variable | Perceived Opportunities  
 
 
-Our original intention was to conduct a country- the relationship between the way of teaching and the rate of entrepreneurship in each OECD country.  To do so, we should run a fixed effects regression for each country.  When doing so, however, we find that our explanatory variable has a negative coefficient and our regression equation contains a negative slope.  This may be due to a lack of available data, a flawed survey method, or inaccurate expectations.  
+Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between higher self-confidence reinforcement in teaching and our dependent variables selected as indicators of the entrepreneurship rate.  Instead, we found that the Way of Teaching is not significant, and when controlling for country-specific effects, has a negative relationship with our explanatory variables.  Overall, however, we can demonstrate the results of our least square regression equation in the four charts below (omitting the country-specific effects).  We chose to simulate different values in "Percent Perceived Capabilities" and "Way of Teaching" because they are both proxies for self-confidence.
+
+The charts labled "Unimputed" were created using only data collected from GEM. This simulation is not possible with missing data, so observations with missing data were omitted.  To try to address this, we used the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate this data (more information on Amelia can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Simulations titled "Imputed" were calculated using this imputed data frame.
 
 
 
-```{r echo = FALSE, cache= TRUE, include= FALSE, results= 'asis'}
+```{r echo = FALSE, cache= FALSE, include= FALSE}
 
-# Library Zelig (can be buggy if loaded to early)
+# Library Zelig (can be buggy if loaded too early)
 library(Zelig)
 
 # Library Amelia for imputed data
@@ -179,6 +181,7 @@ library(Amelia)
 ############ Running a regression with full df (including omitted variables)
 RG1 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
 
+RG2 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
 
 ############ Running a regression omitting omitted variables
 
@@ -228,6 +231,8 @@ x.out4 <- setx(Z2, WayofTeaching = 1.128:3.312)
 simz4 <- sim(Z2, x = x.out4)
 
 ```
+
+
 
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 library("Zelig")
