@@ -1,27 +1,49 @@
-### Assignment 3: Data Cleaning and Analysis
+### The Impact of Education on Entrepreneurship
 
 #### Sam Dundon and Thierry Racaud
 * * * 
 #### Project Introduction
-This is a data cleaning and analysis overview for Thierry Racaud's thesis titled: "The Country-level Impact of Educational Features on the Rate of Entrepreneurship." The overview has been divided into the following sections:  
+This is a repository for Thierry Racaud's thesis titled: "The Country-level Impact of Educational Features on the Rate of Entrepreneurship." This project has contained several steps, including the development of:
 
-1. Research Question  
-2. Estimation Strategy 
-3. Data Collection and Cleaning
-4. Data Analysis  
-5. Outlook   
-    
-The overview includes dynamically linked [citations for R packages](https://raw.githubusercontent.com/SamDund/Assign2Education/master/DataRpackageCitations.bib).
+1. [Initial Proposal](https://raw.githubusercontent.com/SamDund/Assign2Education/master/Proposal/EducProposal.html)  
 
-#### Proposal File
-The data analysis overview is [GEMDataSource.Rmd](https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMDataSource.Rmd).  Please click [here](https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMDataSource.html) to access the html for the RMarkdown file and open it in Chrome or a similar application. 
 
+2. [Data Collection and Analysis](https://raw.githubusercontent.com/SamDund/Assign2Education/master/Assignment2/GEMDataSource.html)  
+
+
+3. [Project Presentation](https://raw.githubusercontent.com/SamDund/Assign2Education/master/FinalAssignment/Presentation/EdEntrePres.html)  
+
+
+4. [Academic Paper](https://raw.githubusercontent.com/SamDund/Assign2Education/master/FinalAssignment/FromEducationToEntrepreneurship.Rmd)   
+
+
+5. [Project Website](http://samdund.github.io/Assign2Education/)  
+
+
+#### Organization
+Repository folders for the [Proposal](https://github.com/SamDund/Assign2Education/tree/master/Proposal), [Data Collection and Analysis](https://github.com/SamDund/Assign2Education/tree/master/Assignment2), [Final Project](https://github.com/SamDund/Assign2Education/tree/master/FinalAssignment) (presentation and academic paper), and [Website](https://github.com/SamDund/Assign2Education/tree/gh-pages) contain README files on each stage of the project and information on the project's reproducability.
+
+
+#### Citations  
+Literature citations and R package citations are provided as appropriate in each folder and branch indicated above.   
 
 
 #### Other Repository Contents
-- Proposal: A file with assignment two information including a README, RMarkdown proposal file, knitted PDF and html versions of the proposal file, Main bibliography file dynamically linked to EducProposal.Rmd, and a Bibliography file dynamically linked to EducProposal.Rmd with citations for R and packages
-- Misc: A folder with extra source files used for exploring other R features.  This file will likely be used for the next class assignment
-- Img: A file containing the OECD chart in the EducProposal.Rmd file
+- ProjectProposal: A folder of assignment two information including a README, RMarkdown proposal file, knitted PDF and html versions of the project proposal file, Main bibliography file dynamically linked to EducProposal.Rmd, and a Bibliography file dynamically linked to EducProposal.Rmd with citations for R and packages  
+
+
+- DataCleaningandAnalysis: A folder with html and RMarkdown files on the data analysis and cleaning process used as a basis for future stages of the project.
+
+
+- PresentationandPaper:  A RMarkdown file with an initial draft of our final paper, a folder with html and RMarkdown files for an intial presentation of our research results
+
+
+- Misc: A folder with extra source files used for exploring other R features.  
+
+
+- Img: A file containing the OECD chart in the EducProposal.Rmd file  
+
+
 - Other: A project file, cached files, gitignore, .RData, and .Rhistory files
 
 
