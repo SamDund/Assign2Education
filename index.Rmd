@@ -11,7 +11,7 @@ output: html_document
 To what extent do teaching methods supporting self-confidence affect the rate of entrepreneurship in OECD countries?  
 
 
-We have drawn on publicly availabile data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) National Expert Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship.   
+We have drawn on publicly availabile data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) National Expert Survey (NES) and Adult Population Survey (APS) to create graphic visualizations of participants' responses to surveys about entrepreneurship in [OECD (Organisation for Economic Co-operation and Development)](http://www.oecd.org/) countries.   
 
 
 The following interactive chart can be utilized to see the relationship between the variables we investigated. Among other features, the independent and dependent variables can be selected to see the relationship between each of the variables.  The variables are defined in detail below.  
@@ -27,7 +27,7 @@ library(RJSONIO)
 library(shiny)
 library(httpuv)
 
-
+# Import "CompleteData" df from repository
 CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
 
 # Set Year column as a date
@@ -166,33 +166,62 @@ X4 Control Variable | Perceived Opportunities
 Controlling for country-specific effects, 
 
 ```{r echo = FALSE, cache= TRUE, include= FALSE, results= 'asis'}
-RG1 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
-
 
 # Library Zelig (can be buggy if loaded to early)
 library(Zelig)
-library("Amelia")
 
-# Omit omitted data from simulation
-CD_omit <- na.omit(CD)
+# Library Amelia for imputed data
+library(Amelia)
+
+
+############ Running a regression with full df (including omitted variables)
+RG1 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
+
+
+
+############ Running a regression omitting omitted variables
+
+# Generate a df omitting omitted variables
+CD_omitted <- na.omit(CD)
 
 # Run a least squares regression with Zelig
-Z1 <- zelig(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD_omit, model = "ls")
+Z1 <- zelig(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD_omitted, model = "ls")
 
-summary(Z1)
+# Set range of PercentPerceived values in simulation
+x.out1 <- setx(Z1, PercentPerceived = 9:67)
 
-# Impute missing values for regression analysis (Amelia)
-Cimputed <- Amelia::amelia(CD, m = 5, idvars = c("iso2c", "Country"), ts = "Year")
+# Run simulation (default 1000 trials)
+simz1 <- sim(Z1, x = x.out1)
 
-# Create CSV of imputed values
-write.amelia(Cimputed, "Cimputed", separate = TRUE, format = "csv")
+# Plot simulation
 
-# Set working directory to local repository
-setwd('~/Assign2Education/')
 
-# Open csv
-Cimputed <- read.table("Cimputed5.csv", header = TRUE, sep = ",", na.strings = NA)
+
+############ Runnig a Zelig regression with imputed data and omitting remaining omitted variables
+
+# Import csv of df with imputed figures (created in Index_sources/Amelia_source)
+CI <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/gh-pages/Cimputed5.csv", header = TRUE, sep = ",", na.strings = NA)
+
+CI_omitted <- na.omit(CI)
 
 # Regression equation with imputed values
-Z2 <- zelig(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = Cimputed, model = "ls")
+Z2 <- zelig(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CI_omitted, model = "ls")
+
+# Set range of PercentPerceived values in simulation
+x.out2 <- setx(Z2, PercentPerceived = 9:67)
+
+# Run simulation (default 1000 trials)
+simz2 <- sim(Z2, x = x.out2)
+
+
+
+```
+
+```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
+
+par(mfrow = c(1, 2))
+plot(simz1, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurial Intention', main = "Unimputed")
+plot(simz2, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurial Intention', main = "Imputed")
+
+
 ```
