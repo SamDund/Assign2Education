@@ -156,7 +156,6 @@ PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com
 # Import 2010GEM supportive teaching data as a proxy for how favourable to self-confidence a given education system is
 SupportiveTeaching <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/GEMAvgIndicators.csv", header = TRUE, cache = FALSE)
 
-<<<<<<< HEAD
 # Import GEM 2009 supportive teaching data
 setwd('~/Assign2Education/GEMData')
 
@@ -170,8 +169,7 @@ GEM2007 <- read.spss('2007GEMNES.sav', to.data.frame = TRUE)
 GEM2008 <- read.spss('2008GEMNES.sav', to.data.frame = TRUE)
 GEM2009 <- read.spss('2009GEMNESMDS.sav', to.data.frame = TRUE)
 GEM2010 <- read.spss('2010GEMNES.sav', to.data.frame = TRUE)
-=======
->>>>>>> FETCH_HEAD
+
 
 
 
@@ -290,9 +288,8 @@ CPerceivedOpportunities <- plyr::rename(x = CPerceivedOpportunities,
                                                   "value" = "PercentOpportunities"))
 
 
-<<<<<<< HEAD
+
 ### Clean GEM NES Datasets
-=======
 
 ##################### Merge GEM Survey Data  ###################
 
@@ -428,12 +425,12 @@ Clean10 <- plyr::rename(x = Clean10,
                                                   "NES10CRNAME" = "Country"))
 
 
-<<<<<<< HEAD
-#### Merge the data ####
+
 MergedGEM <- merge(CCurrentOwner, CEntreIntention,
                    union("Country", "Year"),
                    all = TRUE)
-=======
+
+
 # Clean and cbind ataframes
 dfs <- ls()[1:max(grep(pattern = 'Clean[0-1]*', x = ls()))]
 
@@ -450,8 +447,6 @@ for (i in dfs){
       cleaned <- rbind(cleaned, temp)
   }
 }
->>>>>>> FETCH_HEAD
-
 
 ## Add country codes and place new column at beginning of the data frame
 
@@ -476,9 +471,7 @@ names(W2) <- gsub("year", "Year", names(W2))
 myvars <- c('MX','CA','US','FR','AU','AT','BE','CL','CZ','DK','EE','FI','DE','HU', 'IS','IE','IL',
             'IT','JP','KR','LU', 'NL','NZ','NO','PL','PT','SK','SI', 'ES','SE','CH','TR','GB','US','GR')
 
-<<<<<<< HEAD
-# Import tempfix for GEM data (created this by copying data frame, editing outide R, and saving .csv in repository)
-=======
+
 # Subset W2 with myvars
 subW2 <- subset(W2, iso2c %in% myvars)
 
@@ -486,7 +479,6 @@ subW2 <- subset(W2, iso2c %in% myvars)
 subW2$row.names <- NULL
 
 write.csv(subW2, file = "WayofTeaching")
->>>>>>> FETCH_HEAD
 
 
 
