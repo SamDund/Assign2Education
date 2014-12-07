@@ -215,7 +215,7 @@ Z1 <- zelig(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*Percen
 ############ Runnig a Zelig regression with imputed data and omitting remaining omitted variables
 
 # Import csv of df with imputed figures (created in Index_sources/Amelia_source)
-CI <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/gh-pages/Cimputed5.csv", header = TRUE, sep = ",", na.strings = NA)
+CI <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/gh-pages/GEMData/Cimputed5.csv", header = TRUE, sep = ",", na.strings = NA)
 
 # Omit variables that could not be imputed by Adelia (b/c of lack of data)
 CI_omitted <- na.omit(CI)
