@@ -5,16 +5,16 @@
 #### Project Introduction
 This is a repository for Thierry Racaud's thesis titled: "The Country-level Impact of Educational Features on the Rate of Entrepreneurship." This project has contained several steps, including the development of:
 
-1. [Initial Proposal](https://raw.githubusercontent.com/SamDund/Assign2Education/master/Proposal/EducProposal.html)  
+1. [Initial Proposal](https://github.com/SamDund/Assign2Education/tree/master/ProjectProposal)  
 
 
-2. [Data Collection and Analysis](https://raw.githubusercontent.com/SamDund/Assign2Education/master/Assignment2/GEMDataSource.html)  
+2. [Data Cleaning and Analysis](https://github.com/SamDund/Assign2Education/tree/master/DataCleaningandAnalysis)  
 
 
-3. [Project Presentation](https://raw.githubusercontent.com/SamDund/Assign2Education/master/FinalAssignment/Presentation/EdEntrePres.html)  
+3. [Project Presentation](https://github.com/SamDund/Assign2Education/tree/master/PresentationandPaper/Presentation)  
 
 
-4. [Academic Paper](https://raw.githubusercontent.com/SamDund/Assign2Education/master/FinalAssignment/FromEducationToEntrepreneurship.Rmd)   
+4. [Academic Paper](https://github.com/SamDund/Assign2Education/tree/master/PresentationandPaper)   
 
 
 5. [Project Website](http://samdund.github.io/Assign2Education/)  
