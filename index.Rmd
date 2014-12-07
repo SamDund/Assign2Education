@@ -26,9 +26,12 @@ library(googleVis)
 library(countrycode)
 library(repmis)
 library(reshape2)
-library(RJSONIO)
 library(shiny)
 library(httpuv)
+
+pkgs <- c('repmis', 'ggvis', 'devtools', 'googleVis', 'countrycode', 'reshape2', 'shiny',
+          'httpuv', 'Zelig', 'stargazer', 'Amelia')
+repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 # Import "CompleteData" df from repository
 CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
