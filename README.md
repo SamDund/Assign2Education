@@ -19,9 +19,7 @@ This is a repository for Thierry Racaud's thesis titled: "The Country-level Impa
 
 5. [Project Website](http://samdund.github.io/Assign2Education/)  
 
-
-#### Organization
-Repository folders for the [Proposal](https://github.com/SamDund/Assign2Education/tree/master/Proposal), [Data Collection and Analysis](https://github.com/SamDund/Assign2Education/tree/master/Assignment2), [Final Project](https://github.com/SamDund/Assign2Education/tree/master/FinalAssignment) (presentation and academic paper), and [Website](https://github.com/SamDund/Assign2Education/tree/gh-pages) contain README files on each stage of the project and information on the project's reproducability.
+Each repository folder contains a README file on each stage of the project and information on the project's reproducability.
 
 
 #### Citations  
