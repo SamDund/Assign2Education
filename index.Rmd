@@ -179,9 +179,8 @@ Overall, however, if we omit country-specific effects, we can demonstrate that t
 
 <br>
 
-$Percent Perceived Opportunities = -6.82 + 1.03WayofTeaching + 0.10Percent Perceived Capability + 0.21Percent Fear Failure$  
-
-$+$ $0.12Percent Perceived Opportunities - 0.005Percent Fear Failure$ $*$ $Percent Perceived Opportunities$  
+$NationalLevelAveragePercentOwningaBusiness = -6.82 + 1.03WayofTeaching + 0.10Percent Perceived Capability +$  
+$0.21Percent Fear Failure$ $+$ $0.12Percent Perceived Opportunities - 0.005Percent Fear Failure$ $*$ $Percent Perceived Opportunities$  
 
 <br>
 
