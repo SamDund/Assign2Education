@@ -42,10 +42,13 @@ CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Educ
 # Set Year column as a date
 CD$Year <- as.Date(as.character(CD$Year), format = "%Y")
 
+CD_copy <- CD
+
 # Drop X column
 CD$X <- NULL
+CD$iso2c <- NULL
 
-R <- gvisMotionChart(CD, idvar = "Country", timevar = "Year")
+R <- gvisMotionChart(CD, idvar = "Country", timevar = "Year", options = list(state='{"showTrails":false};'))
 
 print(R, tag = 'chart')
 ```
@@ -189,7 +192,17 @@ We can show the relationship between the dependent and explanatory variables in 
 
 The simulations labeled "Unimputed" were created using only data collected from GEM. This simulation is not possible with missing data, so observations with missing data were omitted.  In an attempt to increase the accuracy of this model, we used the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate this data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Simulations titled "Imputed" were calculated using this imputed data frame.
 
+```{r echo = FALSE, cache= FALSE, include= FALSE}
 
+# Create country vector to subset
+myvars2 <- c('US','FR','DE','JP','GB')
+
+# Subset CD
+CD_subset <- subset(CD_copy, iso2c %in% myvars2)
+
+
+
+```
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE}
 
