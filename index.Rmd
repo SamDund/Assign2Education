@@ -179,7 +179,7 @@ We have included our findings in a detailed paper available here.  In sum, howev
 
 <br>
 
-```{r echo = FALSE, cache= FALSE, include= FALSE, results='asis'}
+```{r echo = FALSE, cache= FALSE, include= TRUE, results='asis', warning=FALSE}
 
 # Create country vector to subset
 myvars2 <- c('US','FR','DE','JP','GB')
@@ -201,7 +201,7 @@ CD_subset$PercentOpportunities <- NULL
 
 # Create plot of WoT and PercentOwner
 CD_subset %>% 
-  ggvis(~WayofTeaching, ~PercentOwner) %>% 
+  ggvis(x = ~WayofTeaching, y = ~PercentOwner) %>% 
   layer_points(fill = ~factor(Country)) %>%
   group_by(Country) %>%
   layer_model_predictions(model = "lm")
@@ -215,7 +215,7 @@ In addiiton, we can see a positive relationship between the percentage of respon
 <br>
 
 
-```{r echo = FALSE, cache= FALSE, include= FALSE, results='asis'}
+```{r echo = FALSE, cache= FALSE, include= TRUE, results='asis', warning=FALSE}
 
 # Drop unnecesssary columns in copied df
 CD_subset2$X <- NULL
@@ -228,7 +228,7 @@ CD_subset2$WayofTeaching <- NULL
 
 # Create plot of PercentOpp and PercentOwner
 CD_subset2 %>% 
-  ggvis(~PercentOpportunities, ~PercentOwner) %>% 
+  ggvis(x = ~PercentOpportunities, y = ~PercentOwner) %>% 
   layer_points(fill = ~factor(Country)) %>%
   group_by(Country) %>%
   layer_model_predictions(model = "lm")
