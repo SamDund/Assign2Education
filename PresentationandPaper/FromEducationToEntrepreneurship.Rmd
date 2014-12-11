@@ -79,7 +79,7 @@ Over a hundred years have passed since Max Weber tried to explain how religious-
 
 More recently, Davidsson, along with Delmar at first (1992), then alone (1995), then with Wiklund [@davidsson1997values], at his turn, laid a stepping stone by investigating the relationship between structural factors, mainly economic, and cultural factors. As they compared two Swedish regions similar in terms of structure and observed different outcomes, they too concluded that there might be a small cultural effect in attitudes toward start-up activities. Yet, only a few empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.
 
-Rather than trying to trace cultural features at large, we intend to focus on one key cultural institution, that is the education system. Indeed, like many in the education literature tend to assert, we believe that school personnel have an affect on student self-confidence [@Scott1996]. Now in entrepreneurship literature, "self-confidence was found to depend almost exclusively on the individual features of the respective person and his or her integration in social networks " [@OECD2009].  
+Rather than trying to trace cultural features at large, as we mentioned earlier, we intend to focus specifically on one key cultural institution, that is the education system. Indeed, like many in the education literature tend to assert, we believe that school personnel have an affect on students' self-confidence [@Scott1996]. Now in entrepreneurship literature, "self-confidence was found to depend almost exclusively on the individual features of the respective person and his or her integration in social networks " [@OECD2009].  
 
 Still, if we look at the following data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) Adult Population Survey (APS) from 2012 and the OECD PISA (Programme for International Student Assessment) LINK ????? also from 2012, there seem to be different amounts of entrepreneurial self-efficacy between countries. By a country's entrepreneurial self-efficacy we mean the belief that the average individual of that country holds about his or her abilities to succeed as an entrepreneur. Here, the variable "perceived capabilites" has to be understood in a narrow sense, it refers only to the perceived capabilities to start a business. Seemingly the variable "fear of failure" only refers to the fear of failure as an obstacle in starting a business, despite the perceived good opportunities.  
 
@@ -89,9 +89,6 @@ Variable | France | UK
 Fear of Failure (GEM 2012) | 43% | 36%
 Perceived Capabilities (GEM 2012) | 36% | 47%
 
-
-In 2010, 
-Also focused on environmental factors, Freytag and Thurik have studied determinants in a cross-country setting ????? 2010 VERSION MAINBIB ?????.
 
 So, although the research tends to hold self-confidence and also entrepreneurial self-efficacy as individual features, we intend to understand to what extent these individual characteristics are partly shaped at a collective or societal level by looking at the potential impact of education systems and their personnel. Specifically, we expect to find out to what extent positive reinforcement in teaching can impact the rate of entrepreneurship at a country level, especially across OECD countries. Indeed, regarding France and the United Kingdom, many parameters differ between the two education systems but one stands out, that is the positive reinforcement. Indeed, while positive reinforcement is effectively in use throughout the compulsory education system in the UK, but it is much more rarely activitated in France, and only on an voluntary individual teacher's basis. We would like to verify if this has to do with the amount of entrepreneurial self-efficacy mentioned above, in which case this could also affect entrepreneurial intentions, behaviours and actions.  
 
@@ -122,6 +119,9 @@ Another interesting perspective is that of King and Sobel [@Kerry2008], who have
 
 
 
+
+In 2010, 
+Also focused on environmental factors, Freytag and Thurik have studied determinants in a cross-country setting ????? 2010 VERSION MAINBIB ?????.
 
 
 The cross-cultural perspective on teaching and learning proposed by Watkins [@Watkins2010] shall help us compare countries.
