@@ -68,21 +68,14 @@ The entrepreneurial capabilities, which includes business and entrepreneurship e
 The entrepreneurship culture of a given area or population (The OECD refers partially to the Global Entrepreneurship Monitor or GEM data).  
 
 
-Grilo and Thurik’s research [@Grilo2005b] is also often refered to about what determines entrepreneurship engagement levels throughout the European Union and the US.  
+Grilo and Thurik [@Grilo2005b] who looked into what determines entrepreneurship engagement levels throughout the European Union and the US pointed especially at the level of financial support available for entrepreneurs in the country and at administrative complexities.  
 
 
-
-Wennekers, Ulhaner and Thurik have looked more into variation across countries [@Wennekers2002]
-
-Also focused on environmental factors, Freytag and Thurik have studied determinants in a cross-country setting ????? 2010 VERSION MAINBIB ?????.
+Actually, what determines entrepreneurship at a country-level has been long searched already but although structural and environmental factors have been looked at extensively, less has been done regarding cultural or educational factors. Yet, “the relative stability of differences in entrepreneurship across countries suggests that factors other than economic ones are at play” [@Freytag2007] ?????? 2010 VERSION MAIN BIB ?????. Even if “in recent years research has increasingly devoted itself to the subject” [@OECD2009], a lot still needs to be done.  
 
 
+Over a hundred years have passed since Max Weber tried to explain how religious-ethical motivations affect entrepreneurship [@weberprotestant], and today religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” [@OECD2009].  
 
-
-
-Thus, what determines entrepreneurship at a country-level has been long searched already but although structural factors have been looked at extensively, much less has been done regarding cultural or educational factors. Yet, “the relative stability of differences in entrepreneurship across countries suggests that factors other than economic ones are at play” [@Freytag2007] ?????? 2010 VERSION MAIN BIB ?????. Even if “in recent years research has increasingly devoted itself to the subject” [@OECD2009], a lot still needs to be done.
-
-Over a hundred years have passed since Max Weber tried to explain how religious-ethical motivations affect entrepreneurship [@weberprotestant], and today religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” [@OECD2009]. 
 
 More recently, Davidsson, along with Delmar at first (1992), then alone (1995), then with Wiklund [@davidsson1997values], at his turn, laid a stepping stone by investigating the relationship between structural factors, mainly economic, and cultural factors. As they compared two Swedish regions similar in terms of structure and observed different outcomes, they too concluded that there might be a small cultural effect in attitudes toward start-up activities. Yet, only a few empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.
 
@@ -97,7 +90,8 @@ Fear of Failure (GEM 2012) | 43% | 36%
 Perceived Capabilities (GEM 2012) | 36% | 47%
 
 
-
+In 2010, 
+Also focused on environmental factors, Freytag and Thurik have studied determinants in a cross-country setting ????? 2010 VERSION MAINBIB ?????.
 
 So, although the research tends to hold self-confidence and also entrepreneurial self-efficacy as individual features, we intend to understand to what extent these individual characteristics are partly shaped at a collective or societal level by looking at the potential impact of education systems and their personnel. Specifically, we expect to find out to what extent positive reinforcement in teaching can impact the rate of entrepreneurship at a country level, especially across OECD countries. Indeed, regarding France and the United Kingdom, many parameters differ between the two education systems but one stands out, that is the positive reinforcement. Indeed, while positive reinforcement is effectively in use throughout the compulsory education system in the UK, but it is much more rarely activitated in France, and only on an voluntary individual teacher's basis. We would like to verify if this has to do with the amount of entrepreneurial self-efficacy mentioned above, in which case this could also affect entrepreneurial intentions, behaviours and actions.  
 
