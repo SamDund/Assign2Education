@@ -139,30 +139,21 @@ Eventually, to put all these into perspective, along with Gartner [@Gartner1990]
 ### What we intend to do  
 
 
+Henceforth, we expect to find out to what extent the support of students' self-confidence within the education system impacts the rate of entrepreneurship across OECD countries.  
 
 
-
-
-
-### Research Question  
-
-
-To what extent do teaching methods supporting self-confidence impact the rate of entrepreneurship across OECD countries?  
-    
-
-
-
-### Literature Review  
-
-
-
-    
-### Estimation Strategy
-
-#### Causal Chain  
+We expect to observe the following causal chain :
+ 
 
 Education system / Teaching reinforcing self-esteem ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level.
-<br>
+
+
+
+
+
+
+
+
 
 #### Dependent Variables: Explaining the Country-level Rate of Entrepreneurship    
 
