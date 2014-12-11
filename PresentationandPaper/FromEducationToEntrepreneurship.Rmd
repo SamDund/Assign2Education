@@ -74,16 +74,10 @@ This assumption draws from Boyd and Vozikis's ??????? MAIN BIB ???????? stating 
 3 Intentions  
 4 Behaviour
 
-There could even be an incidence of the intention to perform a certain behaviour on the actual performance of that behaviour, which could lead to look into skills, abilities and willpower. It is almost like "individuals would be predisposed to entrepreneurial intentions based upon a combination of both personal and contextual factors" ????? Boyd and Vosikis MAIN BIB ????? but Boyd and Vosikis building upon social psychology research introduce the concept of self-efficacy in Bird's model of entrepreneurial intentionality for "self-efficacy will moderate the relationship between the development of entrepreneurial intentions and the likelihood that these intentions will result in entrepreneurial actions or behaviour".  
+There could even be an incidence of the intention to perform a certain behaviour on the actual performance of that behaviour, which could lead to look into skills, abilities and willpower. It is almost like "individuals would be predisposed to entrepreneurial intentions based upon a combination of both personal and contextual factors" ????? Boyd and Vosikis MAIN BIB ????? but Boyd and Vosikis building upon social psychology research introduce the concept of self-efficacy in Bird's model of entrepreneurial intentionality for "self-efficacy will moderate the relationship between the development of entrepreneurial intentions and the likelihood that these intentions will result in entrepreneurial actions or behaviour". Therefore, we will have to control for this entrepreneurial self-efficacy as we research potential effects of positive reinforcement.  
 
-
-  
-  
-  
     
-    
-    
-King and Sobel [@Kerry2008], among others, have already tried to show how school choice can increase the rate of youth entrepreneurship, but their perspective was slightly different. They  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of educational features. The cross-cultural perspective on teaching and learning proposed by Watkins [@Watkins2010] shall help us compare countries. Cheng and Wong’s study about school effectiveness in East Asia [@Cheng2006] will also help.
+Another interesting perspective is that of King and Sobel [@Kerry2008], who have already tried to show how school choice, and thus a different kind of interactions, can increase the rate of youth entrepreneurship, but their perspective was slightly different. They  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of educational features. The cross-cultural perspective on teaching and learning proposed by Watkins [@Watkins2010] shall help us compare countries. Cheng and Wong’s study about school effectiveness in East Asia [@Cheng2006] will also help.
 
 Further, since self-confidence is considered to rely partly on one’s integration within social networks [@OECD2009], we will refer to cross-cultural studies about individualism and collectivism such as those of Green, Deschamps and Páez [@green2005variation], Pinillos and Reyes ???????? MAIN BIB ??????, Freeman [@freeman1997demographic], Raeff, Greenfield and Quiroz [-@raeff2000conceptualizing]. We will also cite more school-focused research like Yamauchi [@yamauchi1998individualism], Davies and Aurini [@davies2003homeschooling] for these have looked at individualism and collectivism in the classroom and in pedagogy respectively.  
 
