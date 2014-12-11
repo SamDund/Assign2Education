@@ -1,7 +1,7 @@
 ---
 title: "Country-Level Impact of Education on Entrepreneurship"
 author: "Sam Dundon and Thierry Racaud"
-date: "10 décembre 2014"
+date: "10 december 2014"
 output: html_document
 ---
 
@@ -42,34 +42,46 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 
 
-### Why we chose to look into Education to explain Entrepreneurship
+### Why we chose to look into Education to explain Entrepreneurship - What has been done
 
-Whilst it is tempting to look at education systems in a very pragmatic way with ratios of teahers per student, of students per class, we suggest to use another kind of indicators in order to trace the potential long-term investment made by governments. Indeed, we believe that education systems can favour entrepreneurship and, beyond, GDP growth at the country-level, depending on how supportive of students' self-confidence and how socially inclusive they are. We see this process as manyfold but will only focus here on one of the potential causal relations. We want to understand specifically to want extent the support of individual self-confidence within education systems can affect the likelihood to become an entrepreneur, and thus impact the rate of entrepreneurship at the country level.
-
-
-In trying to explore what supports entrepreneurship at the country-level, one should start by refering to what research asserted for that matter. For this purpose, we refer here to the OECD reports availbale online here http://www.oecd.org/std/business-stats/48129925.pdf.
+Whilst it is tempting to look at education systems in a very pragmatic way with ratios of teachers per student, or students per class, we suggest to use another kind of indicators in order to trace the potential long-term investment made by governments. Indeed, we believe that education systems can favour entrepreneurship and, beyond, GDP growth at the country-level, depending on how supportive of students' self-confidence and how socially inclusive they are. We see this process as manyfold but will only focus here on one of the potential causal relations. We want to understand specifically to want extent the support of individual self-confidence within education systems can affect the likelihood to become an entrepreneur, and thus impact the rate of entrepreneurship at the country level.
 
 
+In trying to explore what supports entrepreneurship at the country-level, one should start by refering to what research asserted for that matter. For this purpose, we refer here to the OECD reports available online here http://www.oecd.org/std/business-stats/48129925.pdf. Two main sorts of determinants or favourable conditions have been looked into, that is environmental factors and individual factors. Although we intend to focus more on individual factors, we
+want to mention here the environmental factors as they should be controled for. They actually divide into six broad categories:  
+
+The regulatory framework, which includes administrative burdens, regulations and frameworks, as well as fiscal policy parameters.  
 
 
+The market conditions, which include anti-trust laws, rules for competition, access to foreign markets, degree of public involvement and level of private demand.  
 
 
+The access to finance, which includes access to debt financing, access to venture capital, and stock markets.  
 
 
+The creation and diffusion of knowledge, which include research and development activity, transfer of non-commercial knowledge, co-operation among firms, technology availability and take-up.  
 
 
+The entrepreneurial capabilities, which includes business and entrepreneurship education as well as immigration.  
 
 
+The entrepreneurship culture of a given area or population (The OECD refers partially to the Global Entrepreneurship Monitor or GEM data).  
 
-Of course, what determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. Yet, “the relative stability of differences in entrepreneurship across countries suggests that factors other than economic ones are at play” [@Freytag2007] ?????? 2010 VERSION MAIN BIB ?????. Even if “in recent years research has increasingly devoted itself to the subject” [@OECD2009], a lot still needs to be done.
 
-Over a hundred years have passed since Max Weber tried to explain how religious-ethical motivations affect entrepreneurship [@weberprotestant], and today religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” [@OECD2009]. 
+Grilo and Thurik [@Grilo2005b] who looked into what determines entrepreneurship engagement levels throughout the European Union and the US pointed especially at the level of financial support available for entrepreneurs in the country and at administrative complexities.  
 
-More recently, Davidsson, along with Delmar at first (1992), then alone (1995), then with Wiklund [@davidsson1997values], at his turn, laid a stepping stone by investigating the relationship between structural factors, mainly economic, and cultural factors. As they compared two Swedish regions similar in terms of structure and observed different outcomes, they too concluded that there might be a small cultural effect in attitudes toward start-up activities. Yet, only a few empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.
 
-Rather than trying to trace cultural features at large, we intend to focus on one key cultural institution, that is the education system. Indeed, like many in the education literature tend to assert, we believe that school personnel have an affect on student self-confidence [@Scott1996]. Now in entrepreneurship literature, "self-confidence was found to depend almost exclusively on the individual features of the respective person and his or her integration in social networks " [@OECD2009].  
+Actually, what determines entrepreneurship at a country-level has been long searched already but although structural and environmental factors have been looked at extensively, less has been done regarding cultural or educational factors. Yet, “the relative stability of differences in entrepreneurship across countries suggests that factors other than economic ones are at play” [@Freytag2007] ?????? 2010 VERSION MAIN BIB ?????. Even if “in recent years research has increasingly devoted itself to the subject” [@OECD2009], a lot still needs to be done.  
 
-Still, if we look at the following data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) Adult Population Survey (APS) from 2012 and the OECD PISA (Programme for International Student Assessment) LINK ????? also from 2012, there seem to be different amounts of entrepreneurial self-efficacy between countries. By a country's entrepreneurial self-efficacy we mean the belief that the average individual of that country holds about his or her abilities to succeed as an entrepreneur. Here, the variable "perceived capabilites" has to be understood in a narrow sense, it refers only to the perceived capabilities to start a business. Seemingly the variable "fear of failure" only refers to the fear of failure as an obstacle in starting a business, despite the perceived good opportunities.  
+
+Over a hundred years have passed since Max Weber tried to explain how religious-ethical motivations affect entrepreneurship [@weberprotestant], and today religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” [@OECD2009].  
+
+
+More recently, Davidsson, along with Delmar at first (1992), then alone (1995), then with Wiklund [@davidsson1997values], at his turn, laid a stepping stone by investigating the relationship between structural factors, mainly economic, and cultural factors. As they compared two Swedish regions similar in terms of structure and observed different outcomes, they too concluded that there might be a small cultural effect in attitudes toward start-up activities. In 2010, Freytag and Thurik ????? 2010 VERSION MAINBIB ????? have also studied determinants of entrepreneurship in a cross-country setting and pointed at cultural features. Their results showed that "country specific (cultural) variables seem to explain the preference for entrepreneurship" and self-employment. Yet, not so many empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.
+
+Rather than trying to trace cultural features at large, as we mentioned earlier, we intend to focus specifically on one key cultural institution, that is the education system. Indeed, like many in the education literature tend to assert, we believe that school personnel have an affect on students' self-confidence [@Scott1996]. Now in entrepreneurship literature, "self-confidence was found to depend almost exclusively on the individual features of the respective person and his or her integration in social networks " [@OECD2009].  
+
+Still, if we look at the following data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) Adult Population Survey (APS) from 2012, there seem to be different amounts of entrepreneurial self-efficacy between countries. By a country's entrepreneurial self-efficacy we mean the belief that the average individual of that country holds about his or her abilities to succeed as an entrepreneur. Here, the variable "perceived capabilites" has to be understood in a narrow sense, it refers only to the perceived capabilities to start a business. Seemingly the variable "fear of failure" only refers to the fear of failure as an obstacle in starting a business, despite the perceived good opportunities.  
 
 
 Variable | France | UK
@@ -78,12 +90,13 @@ Fear of Failure (GEM 2012) | 43% | 36%
 Perceived Capabilities (GEM 2012) | 36% | 47%
 
 
+So, although the research tends to hold self-confidence and also entrepreneurial self-efficacy as individual features, we intend to understand to what extent these individual characteristics are partly shaped at a collective or societal level by looking at the potential impact of education systems and their personnel.
 
 
-So, although the research tends to hold self-confidence and also entrepreneurial self-efficacy as individual features, we intend to understand to what extent these individual characteristics are partly shaped at a collective or societal level by looking at the potential impact of education systems and their personnel. Specifically, we expect to find out to what extent positive reinforcement in teaching can impact the rate of entrepreneurship at a country level, especially across OECD countries. Indeed, regarding France and the United Kingdom, many parameters differ between the two education systems but one stands out, that is the positive reinforcement. Indeed, while positive reinforcement is effectively in use throughout the compulsory education system in the UK, but it is much more rarely activitated in France, and only on an voluntary individual teacher's basis. We would like to verify if this has to do with the amount of entrepreneurial self-efficacy mentioned above, in which case this could also affect entrepreneurial intentions, behaviours and actions.  
+Specifically, we expect to find out to what extent positive reinforcement in teaching can impact the rate of entrepreneurship at a country level, especially across OECD countries. Indeed, regarding France and the United Kingdom, many parameters differ between the two education systems but one stands out, that is the positive reinforcement. Indeed, while positive reinforcement is effectively in use throughout the compulsory education system in the UK, it is much more rarely activitated in France, and only on an voluntary individual teacher's basis. We would like to verify if this has to do with the amount of entrepreneurial self-efficacy mentioned above, in which case this could also affect entrepreneurial intentions, behaviours and actions.  
 
 
-This assumption draws from Boyd and Vozikis's ??????? MAIN BIB ???????? stating how entrepreneurial intentions are at least partially the result of thought processes, which " underlie the creation of formal business plans, opportunity analysis, and goal-directed behaviour". Boyd and Vosikis also assert that individual self-efficacy "influences the development of both entrepreneurial intentions and actions or behaviours". To assert this, they rely on Fishbein and Ajzen 1975 ?????? MAIN BIB ???????? who illustrate the relation between beliefs and behaviour as follows:  
+This assumption draws from Boyd and Vozikis's ??????? MAIN BIB ???????? stating how entrepreneurial intentions are at least partially the result of thought processes, which "underlie the creation of formal business plans, opportunity analysis, and goal-directed behaviour". Boyd and Vosikis also assert that individual self-efficacy "influences the development of both entrepreneurial intentions and actions or behaviours". To assert this, they rely on Fishbein and Ajzen 1975 ?????? MAIN BIB ???????? who illustrate the relation between beliefs and behaviour as follows:  
 
 1 Beliefs  
 2 Attitudes  
@@ -93,7 +106,7 @@ This assumption draws from Boyd and Vozikis's ??????? MAIN BIB ???????? stating 
 There could even be an incidence of the intention to perform a certain behaviour on the actual performance of that behaviour, which could lead to look into skills, abilities and willpower. It is almost like "individuals would be predisposed to entrepreneurial intentions based upon a combination of both personal and contextual factors" ????? Boyd and Vosikis MAIN BIB ????? but Boyd and Vosikis building upon social psychology research introduce the concept of self-efficacy in Bird's model of entrepreneurial intentionality for "self-efficacy will moderate the relationship between the development of entrepreneurial intentions and the likelihood that these intentions will result in entrepreneurial actions or behaviour". Therefore, we will have to control for this entrepreneurial self-efficacy as we research potential effects of positive reinforcement.  
 
    
-Now, since self-confidence is considered to rely partly on one's integration within social networks [@OECD2009]    
+Now, since self-confidence is considered to rely partly on one's integration within social networks [@OECD2009] we should ideally be looking into the collectivism or individualism at play across education systems, the more so as there is visibly something at stake on that side too as this table shows :  
    
    
 Variable | France | UK
@@ -101,13 +114,15 @@ Variable | France | UK
 Sense of belonging (PISA 2012) | 47% | 79%  
 
    
-
+The lack of suitable data as well as the fact that OECD PISA tends to focus on different aspects of education systems for every triennal survey lead us to give up on this. But we still think that should be included in a future research on that topic.  
    
-   
-Another interesting perspective is that of King and Sobel [@Kerry2008], who have already tried to show how school choice, and thus a different kind of interactions, can increase the rate of youth entrepreneurship, but their perspective was slightly different. They  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of educational features.
+
+Of course, we also looked into other studies connecting educational features and entrepreneurship. As a matter of fact, most of the research tends to focus specifically on entrepreneurial education, whatever its form, as it is expected partly to support the entrepreneurial self-efficacy ??????? Boyd and Vosikis MAIN BIB ??????????? . One slightly different and interesting perspective is that of King and Sobel [@Kerry2008], who have already tried to show how school choice, and thus a different kind of interactions, can increase the rate of youth entrepreneurship, but their perspective was still not directly in lign with our research design. They  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of educational features.  
 
 
 
+
+????????????????????????????????????????????????????????????????????????????????????????????  
 
 
 
@@ -115,33 +130,36 @@ The cross-cultural perspective on teaching and learning proposed by Watkins [@Wa
 
 Cheng and Wong’s study about school effectiveness in East Asia [@Cheng2006] will also help.  
 
-
-  
-Besides potential educational effects on self-confidence and social capital, we will need to control for all classic entrepreneurship determinants. Therefore, we will quote Grilo and Thurik’s research [@Grilo2005b] about what determines entrepreneurship engagement levels throughout the European Union and the US, Wennekers, Ulhaner and Thurik’s about variation across countries [@Wennekers2002], Freytag and Thurik about determinants in a cross-country setting ????? 2010 VERSION MAINBIB ?????.
-
 Eventually, to put all these into perspective, along with Gartner [@Gartner1990] we will have a closer look at entrepreneurship’s underlying meanings in research and, with Acs, Desai and Klapper [@Acs2008], we will ask ourselves what “entrepreneurship” data really shows.
 
-
-
-### Research Question  
-
-
-To what extent do teaching methods supporting self-confidence impact the rate of entrepreneurship across OECD countries?  
-    
+?????????????????????????????????????????????????????????????????????????????????????????????
 
 
 
-### Literature Review  
+### What we intend to do  
+
+
+Now, having attempted to show how determinants of entrepreneurship have been looked into, having mentioned how education has been related to entrepreneurship so far, we need to assert here our very research design. What we expect to find out is to what extent the support of students' self-confidence within the education system impacts the rate of entrepreneurship across OECD countries.  
+
+
+We expect to observe the following causal chain :
+ 
+
+---> Education system reinforcing self-confidence  
+
+---> Higher degree of individual self-confidence  
+
+---> Higher probability an individual will become an entrepreneur  
+
+---> higher rate of entrepreneurship at a country-level.  
+
+
+Here, when we mention that an education system reinforces self-confidence, we mean that teachers practice positive reinforcement when interacting with students. This entails providing feedback that will help the students maintain their level of motivation as well as their level of self-esteem. Supporting students' taking initiatives, encouraging creativity will also be part of this self-confidence reinforcement.
+
+Ideally we would have also liked to add the social dimension to it, meaning that students that are socially included may have a slightly higher degree of self-confidence, as we saw suggested in the literature.
 
 
 
-    
-### Estimation Strategy
-
-#### Causal Chain  
-
-Education system / Teaching reinforcing self-esteem ---> higher degree of individual self-esteem ---> higher probability an individual will become an entrepreneur ---> higher rate of entrepreneurship at a country-level.
-<br>
 
 #### Dependent Variables: Explaining the Country-level Rate of Entrepreneurship    
 
