@@ -179,7 +179,7 @@ We have included our findings in a detailed paper available here.  In sum, howev
 
 <br>
 
-```{r echo = FALSE, cache= FALSE, include= TRUE}
+```{r echo = FALSE, cache= FALSE, include= FALSE, results='asis'}
 
 # Create country vector to subset
 myvars2 <- c('US','FR','DE','JP','GB')
@@ -215,7 +215,7 @@ In addiiton, we can see a positive relationship between the percentage of respon
 <br>
 
 
-```{r echo = FALSE, cache= FALSE, include= TRUE}
+```{r echo = FALSE, cache= FALSE, include= FALSE, results='asis'}
 
 # Drop unnecesssary columns in copied df
 CD_subset2$X <- NULL
