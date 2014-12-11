@@ -175,6 +175,72 @@ X3 Control Variable | Fear of Failure / Perceived Opportunities
 X4 Control Variable | Perceived Opportunities  
 
 
+We have included our findings in a detailed paper available here.  In sum, however, the most statistically significant and important findings from our analysis are that there is some evidence of a postitive relationship between higher levels of self-confidence reinforcement in teaching (a higher "WayofTeaching" score) and the rate of people owning their own business.  This can be seen in the chart below.  As we can see, however, when we add a trendline for each country the relationship becomes less certain.  For example, in the case of the United States and the United Kingdom, the country-specific trend line has a decreasing slope.  We believe this may be due to inconsistency in the survey and that a larger data set would allow us to more accurately describe the relationship between these variables.
+
+<br>
+
+```{r echo = FALSE, cache= FALSE, include= TRUE}
+
+# Create country vector to subset
+myvars2 <- c('US','FR','DE','JP','GB')
+
+# Subset CD
+CD_subset <- subset(CD_copy, iso2c %in% myvars2)
+
+CD_subset2 <- subset(CD_copy, iso2c %in% myvars2)
+
+# Remove unecessary columns
+CD_subset$X <- NULL
+CD_subset$iso2c <- NULL
+CD_subset$PercentFear <- NULL
+CD_subset$PercentNascent <- NULL
+CD_subset$PercentPerceived <- NULL
+CD_subset$PercentIntention <- NULL
+CD_subset$PercentOpportunities <- NULL
+
+
+# Create plot of WoT and PercentOwner
+CD_subset %>% 
+  ggvis(~WayofTeaching, ~PercentOwner) %>% 
+  layer_points(fill = ~factor(Country)) %>%
+  group_by(Country) %>%
+  layer_model_predictions(model = "lm")
+```
+
+<br>
+
+
+In addiiton, we can see a positive relationship between the percentage of respondents who believe there are opportunities to establish their own business (the percentage of people perceiving opportunities) and the rate of business ownership as reported in the survey.  This relationship can be seen in the following chart.  Similar to our findings above, this chart seems to show an overall positive relationship, but looking at country-specific factors, we can see that data from Japan indicates a negative slope.  We believe access to additional data would allow us to more accurately describe the relationship between these variables and then to investigate why these differences exist.   
+
+<br>
+
+
+```{r echo = FALSE, cache= FALSE, include= TRUE}
+
+# Drop unnecesssary columns in copied df
+CD_subset2$X <- NULL
+CD_subset2$iso2c <- NULL
+CD_subset2$PercentFear <- NULL
+CD_subset2$PercentNascent <- NULL
+CD_subset2$PercentPerceived <- NULL
+CD_subset2$PercentIntention <- NULL
+CD_subset2$WayofTeaching <- NULL
+
+# Create plot of PercentOpp and PercentOwner
+CD_subset2 %>% 
+  ggvis(~PercentOpportunities, ~PercentOwner) %>% 
+  layer_points(fill = ~factor(Country)) %>%
+  group_by(Country) %>%
+  layer_model_predictions(model = "lm")
+
+
+```
+
+
+
+
+(Take this for the paper)
+
 Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between self-confidence reinforcement in teaching and the  dependent variables we selected as indicators of the entrepreneurship rate.  Instead, we found that when controlling for country-specific effects, the Way of Teaching is not statistically significant and has a negative relationship with our explanatory variables.  
 
 
@@ -191,18 +257,6 @@ We can show the relationship between the dependent and explanatory variables in 
 
 
 The simulations labeled "Unimputed" were created using only data collected from GEM. This simulation is not possible with missing data, so observations with missing data were omitted.  In an attempt to increase the accuracy of this model, we used the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate this data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Simulations titled "Imputed" were calculated using this imputed data frame.
-
-```{r echo = FALSE, cache= FALSE, include= FALSE}
-
-# Create country vector to subset
-myvars2 <- c('US','FR','DE','JP','GB')
-
-# Subset CD
-CD_subset <- subset(CD_copy, iso2c %in% myvars2)
-
-
-
-```
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE}
 
