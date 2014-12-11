@@ -42,7 +42,7 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 
 
-### Why we chose to look into Education to explain Entrepreneurship
+### Why we chose to look into Education to explain Entrepreneurship - What has been done
 
 Whilst it is tempting to look at education systems in a very pragmatic way with ratios of teachers per student, or students per class, we suggest to use another kind of indicators in order to trace the potential long-term investment made by governments. Indeed, we believe that education systems can favour entrepreneurship and, beyond, GDP growth at the country-level, depending on how supportive of students' self-confidence and how socially inclusive they are. We see this process as manyfold but will only focus here on one of the potential causal relations. We want to understand specifically to want extent the support of individual self-confidence within education systems can affect the likelihood to become an entrepreneur, and thus impact the rate of entrepreneurship at the country level.
 
@@ -117,25 +117,30 @@ Sense of belonging (PISA 2012) | 47% | 79%
 The lack of suitable data as well as the fact that OECD PISA tends to focus on different aspects of education systems for every triennal survey lead us to give up on this. But we still think that should be included in a future research on that topic.  
    
 
-Of course, we also looked into other studies connecting educational features and entrepreneurship. As a matter of fact, most of the research tends to focus specifically on entrepreneurial education, whatever its form, as it is expected partly to support the entrepreneurial self-efficacy ??????? Boyd and Vosikis MAIN BIB ??????????? . One slightly different and interesting perspective is that of King and Sobel [@Kerry2008], who have already tried to show how school choice, and thus a different kind of interactions, can increase the rate of youth entrepreneurship, but their perspective was still not directly in lign with our research design. They  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of educational features.
+Of course, we also looked into other studies connecting educational features and entrepreneurship. As a matter of fact, most of the research tends to focus specifically on entrepreneurial education, whatever its form, as it is expected partly to support the entrepreneurial self-efficacy ??????? Boyd and Vosikis MAIN BIB ??????????? . One slightly different and interesting perspective is that of King and Sobel [@Kerry2008], who have already tried to show how school choice, and thus a different kind of interactions, can increase the rate of youth entrepreneurship, but their perspective was still not directly in lign with our research design. They  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of educational features.  
 
 
 
 
-
+???????????????????????????????????????????????????????????????????????????
 In 2010, 
 Also focused on environmental factors, Freytag and Thurik have studied determinants in a cross-country setting ????? 2010 VERSION MAINBIB ?????.
-
 
 The cross-cultural perspective on teaching and learning proposed by Watkins [@Watkins2010] shall help us compare countries.
 
 Cheng and Wong’s study about school effectiveness in East Asia [@Cheng2006] will also help.  
 
-
-  
-
-
 Eventually, to put all these into perspective, along with Gartner [@Gartner1990] we will have a closer look at entrepreneurship’s underlying meanings in research and, with Acs, Desai and Klapper [@Acs2008], we will ask ourselves what “entrepreneurship” data really shows.
+
+????????????????????????????????????????????????????????????????????????????????????
+
+
+
+### What we intend to do  
+
+
+
+
 
 
 
