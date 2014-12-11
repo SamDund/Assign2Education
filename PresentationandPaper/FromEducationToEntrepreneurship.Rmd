@@ -1,7 +1,7 @@
 ---
 title: "Country-Level Impact of Education on Entrepreneurship"
 author: "Sam Dundon and Thierry Racaud"
-date: "29 novembre 2014"
+date: "10 décembre 2014"
 output: html_document
 ---
 
@@ -36,32 +36,43 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 
 
-### Policy Relevance
-
-
-The process of allocating public funds for education is an opportunity to make calculated long-term investments in a nation's populace. The rationale for decisions made during this process, however, is often difficult to understand. That is, while many claims have been made in entrepreneurship literature regarding the importance of cultural and educational factors - not just structural and economic factors - in determining individual and societal tendencies to start a business, these factors are often not included in the decision-making process. Actually, only a few empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.  
+### Abstract
 
 
 
 
-### Research Question  
+
+### Why we chose to look into Education to explain Entrepreneurship
 
 
-To what extent do the behavioural characteristics of education systems - individualistic, group-oriented, reinforcing self-confidence - affect the rate of entrepreneurship across OECD countries?  
-    
+The process of allocating public funds for education is an opportunity to make calculated long-term investments in a nation's populace. The rationale for decisions made during this process, however, is often difficult to understand. That is, while many claims have been made in entrepreneurship literature regarding the importance of cultural and educational factors - not just structural and economic factors - in determining individual and societal tendencies to start a business, these factors are often not included in the decision-making process.   
 
+Of course, what determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. Yet, “the relative stability of differences in entrepreneurship across countries suggests that factors other than economic ones are at play” [@Freytag2007] ?????? 2010 VERSION MAIN BIB ?????. Even if “in recent years research has increasingly devoted itself to the subject” [@OECD2009], a lot still needs to be done.
 
+Over a hundred years have passed since Max Weber tried to explain how religious-ethical motivations affect entrepreneurship [@weberprotestant], and today religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” [@OECD2009].
 
-### Literature Review  
-
-
-What determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. Still, “the relative stability of differences in entrepreneurship across countries suggests that factors other than economic ones are at play” [@Freytag2007] ?????? 2010 VERSION MAIN BIB ?????. Even if “in recent years research has increasingly devoted itself to the subject” [@OECD2009], a lot still needs to be done, as the few studies that explored the relationship between attitudes and foundation activities barely searched what determined these attitudes.
-
-Over a hundred years has passed since Max Weber tried to explain how religious-ethical motivations affect entrepreneurship [@weberprotestant], and religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” [@OECD2009].
+Actually, only a few empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.
 
 Despite various claims of the existence of a cultural effect, few empirical studies have actually been carried out. It took a few decades more before Davidsson, along with Delmar at first (1992), then alone (1995), then with Wiklund [@davidsson1997values], at his turn, laid a stepping stone by investigating the relationship between structural factors, mainly economic, and cultural factors. As they compared two Swedish regions similar in terms of structure and observed different outcomes, they concluded that there might be a small cultural effect in attitudes toward start-up activities.
 
-Rather than trying to trace cultural patterns at large, we intend to focus on one key cultural institution, that is the education system. Indeed, like many in the education literature tend to assert, we believe that school personnel have an affect on student self-confidence [@Scott1996]. Now in entrepreneurship literature, "self-confidence was found to depend almost exclusively on the individual features of the respective person and his or her integration into social networks" [@OECD2009]. Yet, we intend to understand to what extent these individual characteristics are partly shaped through education systems and their personnel's attitudes.
+Rather than trying to trace cultural patterns at large, we intend to focus on one key cultural institution, that is the education system. Indeed, like many in the education literature tend to assert, we believe that school personnel have an affect on student self-confidence [@Scott1996]. Now in entrepreneurship literature, "self-confidence was found to depend almost exclusively on the individual features of the respective person ????????????and his or her integration into social networks????????" [@OECD2009].  
+
+Still, if we look at the following data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) Adult Population Survey (APS) from 2012 and the OECD PISA (Programme for International Student Assessment) LINK ????? also from 2012, there seem to be different amounts of entrepreneurial self-efficacy ?????and collectivism????? between countries. By a country's entrepreneurial self-efficacy we mean the belief that the average individual of that country holds about his or her abilities to succeed as an entrepreneur. Here, the variable "perceived capabilites" has to be understood in a narrow sense, it refers only to the perceived capabilities to start a business.  Seemingly the variable "fear of failure" only refers to the fear of failure as an obstacle that would prevent the people surveyed from starting a business, despite the good opportunities they may perceive.  
+
+
+Variable | France | UK
+-------------|---------------|---------
+Fear of Failure (GEM 2012) | 43% | 36%
+Perceived Capabilities (GEM 2012) | 36% | 47%
+Sense of belonging (PISA 2012) | 47% | 79%
+
+
+So, although the research tends to hold self-confidence but also entrepreneurial self-efficacy as an individual feature, we intend to understand to what extent these individual characteristics are partly shaped at a collective societal level, and more specifically through education systems and their personnel's attitudes. Indeed, in the education literature, .....
+
+
+
+
+
 
 King and Sobel [@Kerry2008], among others, have already tried to show how school choice can increase the rate of youth entrepreneurship, but their perspective was slightly different. They  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of educational features. The cross-cultural perspective on teaching and learning proposed by Watkins [@Watkins2010] shall help us compare countries. Cheng and Wong’s study about school effectiveness in East Asia [@Cheng2006] will also help.
 
@@ -70,6 +81,23 @@ Further, since self-confidence is considered to rely partly on one’s integrati
 Besides potential educational effects on self-confidence and social capital, we will need to control for all classic entrepreneurship determinants. Therefore, we will quote Grilo and Thurik’s research [@Grilo2005b] about what determines entrepreneurship engagement levels throughout the European Union and the US, Wennekers, Ulhaner and Thurik’s about variation across countries [@Wennekers2002], Freytag and Thurik about determinants in a cross-country setting ????? 2010 VERSION MAINBIB ?????.
 
 Eventually, to put all these into perspective, along with Gartner [@Gartner1990] we will have a closer look at entrepreneurship’s underlying meanings in research and, with Acs, Desai and Klapper [@Acs2008], we will ask ourselves what “entrepreneurship” data really shows.
+
+
+
+
+Entrepreneurial self-efficacy has been widely called upon to explain both entrepreneurial intentions and actions. Especially by Boyd and Vozikis
+
+
+### Research Question  
+
+
+To what extent do teaching methods supporting self-confidence impact the rate of entrepreneurship across OECD countries?  
+    
+
+
+
+### Literature Review  
+
 
 
     
