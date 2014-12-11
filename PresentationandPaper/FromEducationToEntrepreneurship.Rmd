@@ -44,8 +44,22 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 ### Why we chose to look into Education to explain Entrepreneurship
 
+Whilst it is tempting to look at education systems in a very pragmatic way with ratios of teahers per student, of students per class, we suggest to use another kind of indicators in order to trace the potential long-term investment made by governments. Indeed, we believe that education systems can favour entrepreneurship and, beyond, GDP growth at the country-level, depending on how supportive of students' self-confidence and how socially inclusive they are. We see this process as manyfold but will only focus here on one of the potential causal relations. We want to understand specifically to want extent the support of individual self-confidence within education systems can affect the likelihood to become an entrepreneur, and thus impact the rate of entrepreneurship at the country level.
 
-The process of allocating public funds for education is an opportunity to make calculated long-term investments in a nation's populace. The rationale for decisions made during this process, however, is often difficult to understand. That is, while many claims have been made in entrepreneurship literature regarding the importance of cultural and educational factors - not just structural and economic factors - in determining individual and societal tendencies to start a business, these factors are often not included in the decision-making process.   
+
+In trying to explore what supports entrepreneurship at the country-level, one should start by refering to what research asserted for that matter. For this purpose, we refer here to the OECD reports availbale online here http://www.oecd.org/std/business-stats/48129925.pdf.
+
+
+
+
+
+
+
+
+
+
+
+
 
 Of course, what determines entrepreneurship at a country-level has been long searched already but although economic, demographic or geographic factors have been looked at extensively, much less has been done regarding cultural or educational factors. Yet, “the relative stability of differences in entrepreneurship across countries suggests that factors other than economic ones are at play” [@Freytag2007] ?????? 2010 VERSION MAIN BIB ?????. Even if “in recent years research has increasingly devoted itself to the subject” [@OECD2009], a lot still needs to be done.
 
