@@ -139,7 +139,7 @@ Eventually, to put all these into perspective, along with Gartner [@Gartner1990]
 ### What we intend to do  
 
 
-Henceforth, we expect to find out to what extent the support of students' self-confidence within the education system impacts the rate of entrepreneurship across OECD countries.  
+Now, having attempted to show how determinants of entrepreneurship have been looked into, having mentioned how education has been related to entrepreneurship so far, we need to assert here our very research design. What we expect to find out is to what extent the support of students' self-confidence within the education system impacts the rate of entrepreneurship across OECD countries.  
 
 
 We expect to observe the following causal chain :
@@ -154,9 +154,9 @@ We expect to observe the following causal chain :
 ---> higher rate of entrepreneurship at a country-level.  
 
 
+Here, when we mention that an education system reinforces self-confidence, we mean that teachers practice positive reinforcement when interacting with students. This entails providing feedback that will help the students maintain their level of motivation as well as their level of self-esteem. Supporting students' taking initiatives, encouraging creativity will also be part of this self-confidence reinforcement.
 
-
-
+Ideally we would have also liked to add the social dimension to it, meaning that students that are socially included may have a slightly higher degree of self-confidence, as we saw suggested in the literature.
 
 
 
