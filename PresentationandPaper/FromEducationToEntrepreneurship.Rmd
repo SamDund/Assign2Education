@@ -1,7 +1,7 @@
 ---
 title: "Country-Level Impact of Education on Entrepreneurship"
 author: "Sam Dundon and Thierry Racaud"
-date: "10 décembre 2014"
+date: "10 december 2014"
 output: html_document
 ---
 
@@ -44,10 +44,36 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 ### Why we chose to look into Education to explain Entrepreneurship
 
-Whilst it is tempting to look at education systems in a very pragmatic way with ratios of teahers per student, of students per class, we suggest to use another kind of indicators in order to trace the potential long-term investment made by governments. Indeed, we believe that education systems can favour entrepreneurship and, beyond, GDP growth at the country-level, depending on how supportive of students' self-confidence and how socially inclusive they are. We see this process as manyfold but will only focus here on one of the potential causal relations. We want to understand specifically to want extent the support of individual self-confidence within education systems can affect the likelihood to become an entrepreneur, and thus impact the rate of entrepreneurship at the country level.
+Whilst it is tempting to look at education systems in a very pragmatic way with ratios of teachers per student, or students per class, we suggest to use another kind of indicators in order to trace the potential long-term investment made by governments. Indeed, we believe that education systems can favour entrepreneurship and, beyond, GDP growth at the country-level, depending on how supportive of students' self-confidence and how socially inclusive they are. We see this process as manyfold but will only focus here on one of the potential causal relations. We want to understand specifically to want extent the support of individual self-confidence within education systems can affect the likelihood to become an entrepreneur, and thus impact the rate of entrepreneurship at the country level.
 
 
-In trying to explore what supports entrepreneurship at the country-level, one should start by refering to what research asserted for that matter. For this purpose, we refer here to the OECD reports availbale online here http://www.oecd.org/std/business-stats/48129925.pdf.
+In trying to explore what supports entrepreneurship at the country-level, one should start by refering to what research asserted for that matter. For this purpose, we refer here to the OECD reports available online here http://www.oecd.org/std/business-stats/48129925.pdf. Two main sorts of determinants or favourable conditions have been looked into, that is environmental factors and individual factors. Although we intend to focus more on individual factors, we
+want to mention here the environmental factors as they should be controled for. They actually divide into six broad categories:  
+
+The regulatory framework, which includes administrative burdens, regulations and frameworks, as well as fiscal policy parameters.  
+
+
+The market conditions, which include anti-trust laws, rules for competition, access to foreign markets, degree of public involvement and level of private demand.  
+
+
+The access to finance, which includes access to debt financing, access to venture capital, and stock markets.  
+
+
+The creation and diffusion of knowledge, which include research and development activity, transfer of non-commercial knowledge, co-operation among firms, technology availability and take-up.  
+
+
+The entrepreneurial capabilities, which includes business and entrepreneurship education as well as immigration.  
+
+
+The entrepreneurship culture of a given area or population (The OECD refers partially to the Global Entrepreneurship Monitor or GEM data).  
+
+
+
+
+
+
+
+
 
 
 
