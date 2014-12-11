@@ -77,7 +77,7 @@ Actually, what determines entrepreneurship at a country-level has been long sear
 Over a hundred years have passed since Max Weber tried to explain how religious-ethical motivations affect entrepreneurship [@weberprotestant], and today religion may be less effective in justifying why some are more likely to start businesses than others. Still, that was a founding stone and it is now widely admitted that “cultural features influence attitudes towards start-ups and that these attitudes, in turn, have an impact on start-up activities” [@OECD2009].  
 
 
-More recently, Davidsson, along with Delmar at first (1992), then alone (1995), then with Wiklund [@davidsson1997values], at his turn, laid a stepping stone by investigating the relationship between structural factors, mainly economic, and cultural factors. As they compared two Swedish regions similar in terms of structure and observed different outcomes, they too concluded that there might be a small cultural effect in attitudes toward start-up activities. Yet, only a few empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.
+More recently, Davidsson, along with Delmar at first (1992), then alone (1995), then with Wiklund [@davidsson1997values], at his turn, laid a stepping stone by investigating the relationship between structural factors, mainly economic, and cultural factors. As they compared two Swedish regions similar in terms of structure and observed different outcomes, they too concluded that there might be a small cultural effect in attitudes toward start-up activities. In 2010, Freytag and Thurik ????? 2010 VERSION MAINBIB ????? have also studied determinants of entrepreneurship in a cross-country setting and pointed at cultural features. Their results showed that "country specific (cultural) variables seem to explain the preference for entrepreneurship" and self-employment. Yet, only a few empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.
 
 Rather than trying to trace cultural features at large, as we mentioned earlier, we intend to focus specifically on one key cultural institution, that is the education system. Indeed, like many in the education literature tend to assert, we believe that school personnel have an affect on students' self-confidence [@Scott1996]. Now in entrepreneurship literature, "self-confidence was found to depend almost exclusively on the individual features of the respective person and his or her integration in social networks " [@OECD2009].  
 
@@ -122,9 +122,9 @@ Of course, we also looked into other studies connecting educational features and
 
 
 
-???????????????????????????????????????????????????????????????????????????
-In 2010, 
-Also focused on environmental factors, Freytag and Thurik have studied determinants in a cross-country setting ????? 2010 VERSION MAINBIB ?????.
+???????????????????????????????????????????????????????????????????????????  
+
+
 
 The cross-cultural perspective on teaching and learning proposed by Watkins [@Watkins2010] shall help us compare countries.
 
