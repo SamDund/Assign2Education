@@ -1,13 +1,10 @@
 ---
 title: "Country-Level Impact of Education on Entrepreneurship"
 author: "Sam Dundon and Thierry Racaud"
-date: "10 december 2014"
+date: "10 December 2014"
 linestretch: 2 
 output: pdf_document
 ---
-
-
-* * * 
 
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
@@ -30,19 +27,14 @@ library(ggplot2)
 pkgs <- c('repmis', 'ggvis', 'devtools', 'googleVis', 'countrycode', 'reshape2', 'shiny', 'httpuv', 'Zelig',
           'stargazer', 'Amelia', 'ggplot2')
 
+
 # Create citations txt file
 repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 
 # Import WayofTeaching data
 wot <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/WayofTeaching", header = TRUE, cache = FALSE, na.strings = "NA")
 
-
 ```
-
-
-*Introduction to Collaborative Social Science Data Analysis*
-
-(The impact of self confidence on entrepreneurship.)
 
 
 
@@ -51,28 +43,27 @@ wot <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Edu
 
 
 
+### Why we Chose to Look into Education to Explain Entrepreneurship - What Has Been Done
 
-### Why we chose to look into Education to explain Entrepreneurship - What has been done
-
-Whilst it is tempting to look at education systems in a very pragmatic way with ratios of teachers per student, or number of students per class, we suggest to use another kind of indicators in order to trace the potential long-term investment made by governments. Indeed, we believe that education systems can favour entrepreneurship and, beyond, GDP growth at the country-level, depending on how supportive of students' self-confidence and how socially inclusive they are. We see this process as manyfold but will only focus here on one of the potential causal relations. We want to understand specifically to want extent the support of individual self-confidence within education systems can affect the likelihood to become an entrepreneur, and thus impact the rate of entrepreneurship at the country level.
-
-
-In trying to explore what supports entrepreneurship at the country-level, one should start by refering to what research asserted for that matter. For this purpose, we refer here to the OECD reports available online here http://www.oecd.org/std/business-stats/48129925.pdf. Two main sorts of determinants or favourable conditions have been looked into, that is environmental factors and individual factors. Although we intend to focus more on individual factors, we
-want to mention here the environmental factors as they should be controled for. They actually divide into six broad categories:  
-
-**The regulatory framework**, which includes administrative burdens, regulations and frameworks, as well as fiscal policy parameters.  
+Whilst it is tempting to look at education systems in a very pragmatic way with ratios of teachers per student, or number of students per class, we suggest to use another kind of indicator in order to trace the potential long-term investment made by governments. Indeed, we believe that education systems can favour entrepreneurship and, beyond, GDP growth at the country-level, depending on how supportive of students' self-confidence and how socially inclusive they are. We see this process as many-fold but will only focus here on one of the potential causal relations. We want to understand specifically to want extent the support of individual self-confidence within education systems can affect the likelihood to become an entrepreneur, and thus impact the rate of entrepreneurship at the country level.  
 
 
-**The market conditions**, which include anti-trust laws, rules for competition, access to foreign markets, degree of public involvement and level of private demand.  
+In trying to explore what supports entrepreneurship at the country-level, one should start by referring to what research asserted for that matter. For this purpose, we refer here to the Organisation for Economic Co-Operation and Development (OECD) list of indicator for entrepreneurial determinants available [here](http://www.oecd.org/std/business-stats/48129925.pdf). Two main sorts of determinants or favourable conditions, environmental factors and individual factors, have been identified and researched. Although we intend to focus more on individual factors, we want to mention here the environmental factors as they should be controlled for in our analysis. They have been divided into six broad categories by the OECD:  
 
 
-**The access to finance**, which includes access to debt financing, access to venture capital, and stock markets.  
+**The regulatory framework**: Including administrative burdens, regulations and frameworks, as well as fiscal policy parameters.  
 
 
-**The creation and diffusion of knowledge**, which include research and development activity, transfer of non-commercial knowledge, co-operation among firms, technology availability and take-up.  
+**The market conditions**: Including anti-trust laws, rules for competition, access to foreign markets, the degree of public involvement and level of private demand.  
 
 
-**The entrepreneurial capabilities**, which includes business and entrepreneurship education as well as immigration.  
+**The access to finance**: Including access to debt financing, access to venture capital, and stock markets.  
+
+
+**The creation and diffusion of knowledge**: Including research and development activity, the transfer of non-commercial knowledge, co-operation among firms, technology availability, and take-up.  
+
+
+**The entrepreneurial capabilities**: Including business and entrepreneurship education as well as immigration.  
 
 
 **The entrepreneurship culture** of a population.  
@@ -91,7 +82,7 @@ More recently, Davidsson, along with Delmar at first (1992), then alone (1995), 
 
 Rather than trying to trace cultural features at large, as we mentioned earlier, we intend to focus specifically on one key cultural institution, that is the education system. Indeed, like many in the education literature tend to assert, we believe that school personnel have an affect on students' self-confidence [@Scott1996] which is key as "individuals who decide to start a new business exhibit more confidence than those who do not"  ??????? Robin M. Hogarth and Natalia Karelaia 2011 Entrepreneurial success and failure MAIN BIB ?????????. Now in entrepreneurship literature, "self-confidence was found to depend almost exclusively on the individual features of the respective person and his or her integration in social networks " [@OECD2009].  
 
-Still, if we look at the following data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) Adult Population Survey (APS) from 2012, there seem to be different amounts of self-confidence and entrepreneurial self-efficacy between countries. By a country's entrepreneurial self-efficacy we mean the belief that the average individual of that country holds about his or her abilities to succeed as an entrepreneur. Here, the variable "perceived capabilites" has to be understood in a narrow sense, it refers only to the perceived capabilities to start a business. Seemingly the variable "fear of failure" only refers to the fear of failure as an obstacle in starting a business, despite the perceived good opportunities.  
+Still, if we look at the following data from the [Global Entrepreneurship Monitor (GEM)](http://www.gemconsortium.org) Adult Population Survey (APS) from 2012, there seem to be different amounts of self-confidence and entrepreneurial self-efficacy between countries. By a country's entrepreneurial self-efficacy we mean the belief that the average individual of that country holds about his or her abilities to succeed as an entrepreneur. Here, the variable "perceived capabilities" has to be understood in a narrow sense, it refers only to the perceived capabilities to start a business. Seemingly the variable "fear of failure" only refers to the fear of failure as an obstacle in starting a business, despite the perceived good opportunities.  
 
 
 Variable | France | UK
@@ -103,7 +94,7 @@ Perceived Capabilities (GEM 2012) | 36% | 47%
 So, although the research tends to hold self-confidence and also entrepreneurial self-efficacy as individual features, we intend to understand to what extent these individual characteristics are partly shaped at a collective or societal level by looking at the potential impact of education systems and their personnel.
 
 
-Specifically, we expect to find out to what extent positive reinforcement in teaching can impact the rate of entrepreneurship at a country level, especially across OECD countries. Indeed, regarding France and the United Kingdom, many parameters differ between the two education systems but one stands out, that is the positive reinforcement. Indeed, while positive reinforcement is effectively in use throughout the compulsory education system in the UK, it is much more rarely activitated in France, and only on an voluntary individual teacher's basis.  
+Specifically, we expect to find out to what extent positive reinforcement in teaching can impact the rate of entrepreneurship at a country level, especially across OECD countries. Indeed, regarding France and the United Kingdom, many parameters differ between the two education systems but one stands out, that is the positive reinforcement. Indeed, while positive reinforcement is effectively in use throughout the compulsory education system in the UK, it is much more rarely activated in France, and only on an voluntary individual teacher's basis.  
 
 
 Our focus on the education systems stems partly from experience and from Inglehart research ????????? MAIN BIB 2000 ???????? . Indeed, we understand the period between 0 and 20 years of age to be a defining time in terms of personal values and personality construction, thus compulsory education, generally between 6 and 16 years of age, can prove of key importance in the building up of one's self-confidence. We would like to verify if this has to do with the amount of entrepreneurial self-efficacy mentioned above, in which case this could also affect entrepreneurial intentions, behaviours and actions. This assumption draws from Boyd and Vozikis's ??????? MAIN BIB ???????? stating how entrepreneurial intentions are at least partially the result of thought processes, which "underlie the creation of formal business plans, opportunity analysis, and goal-directed behaviour". Boyd and Vosikis also assert that individual self-efficacy "influences the development of both entrepreneurial intentions and actions or behaviours". To assert this, they rely on Fishbein and Ajzen 1975 ?????? MAIN BIB ???????? who illustrate the relation between beliefs and behaviour as follows:  
@@ -117,7 +108,7 @@ Our focus on the education systems stems partly from experience and from Ingleha
 There could even be an incidence of the intention to perform a certain behaviour on the actual performance of that behaviour, which could lead to look into skills, abilities and willpower. It is almost like "individuals would be predisposed to entrepreneurial intentions based upon a combination of both personal and contextual factors" ????? Boyd and Vosikis MAIN BIB ????? but Boyd and Vosikis building upon social psychology research introduce the concept of self-efficacy in Bird's model of entrepreneurial intentionality for "self-efficacy will moderate the relationship between the development of entrepreneurial intentions and the likelihood that these intentions will result in entrepreneurial actions or behaviour". Therefore, we will have to control for this entrepreneurial self-efficacy as we research potential effects of positive reinforcement.  
 
     
-Eventually, this goes without saying, we also looked into other studies connecting educational features and entrepreneurship. As a matter of fact, most of the research tends to focus specifically on entrepreneurial education, whatever its form, as it is expected partly to support the entrepreneurial self-efficacy ??????? Boyd and Vosikis MAIN BIB ??????????? . One slightly different and interesting perspective is that of King and Sobel [@Kerry2008], who have already tried to show how school choice, and thus a different kind of interactions with students, can increase the rate of youth entrepreneurship but their perspective was still not directly in lign with our research design, they  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes.
+Eventually, this goes without saying, we also looked into other studies connecting educational features and entrepreneurship. As a matter of fact, most of the research tends to focus specifically on entrepreneurial education, whatever its form, as it is expected partly to support the entrepreneurial self-efficacy ??????? Boyd and Vosikis MAIN BIB ??????????? . One slightly different and interesting perspective is that of King and Sobel [@Kerry2008], who have already tried to show how school choice, and thus a different kind of interactions with students, can increase the rate of youth entrepreneurship but their perspective was still not directly in line with our research design, they  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes.
 
 
 
@@ -162,7 +153,7 @@ Drawing from the literature, we expect to observe the following causal chain :
 Here, when we mention that an education system reinforces self-confidence, we mean that teachers use positive reinforcement when interacting with students. This entails providing feedback that will help the students maintain their level of motivation as well as their level of self-esteem. This also includes supporting students taking initiatives and encouraging their creativity.  
 
 
-The support of students' self-confidence within education systems as we just defined it can also affect the students' entrepreneurial self-efficacy, that should be controled for. To do so, we will look at the average perceived entrepreneurial capabilities and fear of failure in starting a business across the population at the country-level.  
+The support of students' self-confidence within education systems as we just defined it can also affect the students' entrepreneurial self-efficacy, that should be controlled for. To do so, we will look at the average perceived entrepreneurial capabilities and fear of failure in starting a business across the population at the country-level.  
 
 
 Ideally, since the literature suggests that self-confidence depends partly on one's integration within social networks [@OECD2009], we should be looking into the collectivism or individualism at play across education systems, the more so as there is visibly something at stake on that side too :  
@@ -173,13 +164,13 @@ Variable | France | UK
 Sense of belonging (PISA 2012) | 47% | 79%  
 
    
-The lack of suitable data as well as the fact that OECD PISA (Programme for International Student Assessment) tends to focus on different aspects of education systems for every triennal survey, lead us to give up on this for the time being. But we still think that should be included in a future research on that topic.  
+The lack of suitable data as well as the fact that OECD PISA (Programme for International Student Assessment) tends to focus on different aspects of education systems for every triennial survey, lead us to give up on this for the time being. But we still think that should be included in a future research on that topic.  
 
 
 Regarding potential control variables, we should normally consider including at least the main environmental determinants of entrepreneurship but the lack of consistency in the data at hand for our explanatory variables made us use a summary of those as a proxy. We chose to use the level of good opportunities to start a business perceived on average across the population of the given country.  
 
 
-As we attempt to measure the impact of education systems' support of students' self-confidence on the rate of entrepreneurship at the country-level, we expect to observe different effects depending if we consider entrepreneurial intentions only or we also look into actual entrepreneurial activities. Even in measuring the impact on activities, we could potentially observe different effects between nascent and established entrepreneurship. Therefore, we will consider the three measures of entrepreneursip separately:  
+As we attempt to measure the impact of education systems' support of students' self-confidence on the rate of entrepreneurship at the country-level, we expect to observe different effects depending if we consider entrepreneurial intentions only or we also look into actual entrepreneurial activities. Even in measuring the impact on activities, we could potentially observe different effects between nascent and established entrepreneurship. Therefore, we will consider the three measures of entrepreneurship separately:  
 
 
 1 Entrepreneurial Intentions  
@@ -193,17 +184,16 @@ Having explained what lead us into this specific research design, we will now pr
 
   
 
-
 *Data Sources*  
 
 
-To complete a quantitative analysis of the impact of educational factors -- specifically the encouragement of creatitivity, self-sufficiency, and personal initiative  -- on the country-level rate of entrepreneurship, we have drawn on publicly available data from the Global Entrepreneurship Monitor (GEM) National Expert Survey (NES) and Adult Population Survey (APS).  
+To complete a quantitative analysis of the impact of educational factors -- specifically the encouragement of creativity, self-sufficiency, and personal initiative  -- on the country-level rate of entrepreneurship, we have drawn on publicly available data from the Global Entrepreneurship Monitor (GEM) National Expert Survey (NES) and Adult Population Survey (APS).  
 
 
 The Global Entrepreneurship Monitor project is an annual assessment of the entrepreneurial activity, aspirations, and attitudes of individuals across a wide range of countries.  The countries covered have grown from a low of ten to covering 75% of world population and 89% of world GDP by 2013.  The 2001-2010 multi-year APS data base, for example, contains over 1.3 million observations of a total of 85 countries.  This data is often cited in academic research, including reports by the Organisation for Economic Co-operation and Development.    
 
 
-The NES is structured around nine entrepreneurial framework contitions evaluated by thirty-six experts in each surveyed country.  These nine entrepreneurial framework conditions are included below (a minimum of four experts must be interviewed on each of the framework conditions).  
+The NES is structured around nine entrepreneurial framework conditions evaluated by thirty-six experts in each surveyed country.  These nine entrepreneurial framework conditions are included below (a minimum of four experts must be interviewed on each of the framework conditions).  
 
 
 1. Finance  
@@ -216,8 +206,7 @@ The NES is structured around nine entrepreneurial framework contitions evaluated
 8. Physical infrastructure and services  
 9. Cultural and social norms  
 
-
-The APS is a questionnaire distrubuted to a minimum of 2,000 adults in each participating country.  The survey is created by a central GEM team, but the implementation is managed by national teams that compete for the role of implementing the survey.  Experts are chosen based on experience and specialization and are expected to represent the entire country (including urban and rural areas).  
+The APS is a questionnaire distributed to a minimum of 2,000 adults in each participating country.  The survey is created by a central GEM team, but the implementation is managed by national teams that compete for the role of implementing the survey.  Experts are chosen based on experience and specialization and are expected to represent the entire country (including urban and rural areas).  
 
 <br>
 
@@ -225,6 +214,7 @@ The APS is a questionnaire distrubuted to a minimum of 2,000 adults in each part
 
 
 After reviewing the available data, we decided to select the following variables for our analysis.  
+
 
 Source | Indicator 
 -------------|---------------
@@ -271,13 +261,41 @@ The APS data represent the national-level average of values between 1 and 100 th
 (98. Not applicable)  
 
 
-The process of importing, cleaning, and analyzing all of the data used in this project is fully documented and reproducable by referencing our GitHub repository.
+Additional information on the GEM data used for this research can be seen in the descriptive statistics table included below.  
+
+```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis', warning=FALSE}
+
+# Import df of dependent and independent variables
+CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
+
+CD1 <- CD
+
+# Remove uncessesary column
+CD1$X <- NULL
+
+# Set Year as factor
+CD1[,"Year"] <- as.factor(CD1[,"Year"])
+
+# Rename column
+names(CD) <- gsub("PercentPerceived", "PerceivedCapability", names(CD))
+names(CD1) <- gsub("PercentPerceived", "PerceivedCapability", names(CD1))
+
+
+```
+
+\begin{singlespace}
+```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis', warning=FALSE}
+
+# Generate descriptive statistics table
+stargazer(CD1, type = "latex")
+```
+\end{singlespace}
 
 
 **Analytical Framework**  
 
 
-To understand the impact of educational factors -- specifically the encouragement of creatitivity, self-sufficiency, and personal initiative  -- on the country-level rate of entrepreneurship we built our model as outlined in the table below.
+To understand the impact of educational factors -- specifically the encouragement of creativity, self-sufficiency, and personal initiative  -- on the country-level rate of entrepreneurship we built our model as outlined in the table below.
 
 
 Variable | Indicator 
@@ -289,32 +307,87 @@ X3 Control Variable | Fear of Failure / Perceived Opportunities
 X4 Control Variable | Perceived Opportunities  
 
 
+ 
+Therefore, we built three regression equations to examine the impact of our explanatory variable on the rate of entrepreneurship (as measured by survey responses on the percentage of nascent entrepreneurs, established business owners, and respondents with the intention of becoming an entrepreneur).  These three regression equations are as follows:  
 
-
-Data on our explanatory variable, Way of Teaching, is available on the GEM website for the years 2001-2010.  To illustrate the distribution of this data, we have created the following histogram.  As shown in the histogram, the largest density of scores is approximately 2.3, which lies between the "somewhat false" and "neither true or false" categories.  This is not a whole number because the scores given by each of the 4 experts surveyed for each frameork condition are averaged to create a national-level number.  As discussed later in this paper, this presents some difficulties in drawing substantive conclusions from this data.  Namely, a large number of indifferent responses complicate the process of determining the influence we would like to analyze.
+Data on our explanatory variable, Way of Teaching, is available on the GEM website for the years 2001-2010.  To illustrate the distribution of this data, we have created the following histogram.  As shown in the histogram, the largest density of scores is approximately 2.3, which lies between the "somewhat false" and "neither true or false" categories.  This is not a whole number because the scores given by each of the 4 experts surveyed for each framework condition are averaged to create a national-level number.  As discussed later in this paper, this presents some difficulties in drawing substantive conclusions from this data.  Namely, a large number of indifferent responses complicate the process of determining the influence we would like to analyze.
 
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis', warning=FALSE}
 
-# Library ggplot2
-library("ggplot2")
-
 # Create a histogram showing the distribution of Way of Teaching
-qplot(WayofTeaching, data = wot, geom = "histogram", binwidth = .10)
+Q <- qplot(WayofTeaching, data = wot, geom = "histogram", binwidth = .05)
 
+Q + theme_bw()
 ```
 
 
-Starting with this explanatory variable, as mentioned earlier, we expected to observe different effects depending on the kind of entrepreneurship we looked at:  
+In addition to understanding the density of each recorded "Way of Teaching" indicator, it is also helpful to examine the differences in this indicator among OECD countries.  To see this, we have created a figure showing the distribution of the average "Way of Teaching" value over the 2001-2010 period for the OECD countries included in the surveys.  This figure is included below.
+
+```{r echo =FALSE, cache=FALSE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+# Import GEM data frame
+WayofTeaching <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/WayofTeaching", header = TRUE, cache = FALSE, na.strings = "NA")
+
+# Drop unnecessary column 1
+WayofTeaching$X <- NULL
+
+# Change data from long to wide format
+WT <- reshape(WayofTeaching, idvar = c("iso2c", "Country"), timevar = "Year", direction = "wide")
+
+# Delete variable name in Year columns
+names(WT) <- gsub("WayofTeaching.", "", names(WT))
+
+# Duplicate df for future use
+WT2 <- WT
+
+# Generate a new column with mean of all other columns
+WT$mean <- rowMeans(subset(WT, select = c("2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008",
+                                          "2009", "2010")), na.rm = TRUE)
+
+# Drop year columns, leaving only mean column
+WT$'2001' <- NULL
+WT$'2002' <- NULL
+WT$'2003' <- NULL
+WT$'2004' <- NULL
+WT$'2005' <- NULL
+WT$'2006' <- NULL
+WT$'2007' <- NULL
+WT$'2008' <- NULL
+WT$'2009' <- NULL
+WT$'2010' <- NULL
+WT$'2011' <- NULL
+WT$'2012' <- NULL
+WT$'2013' <- NULL
+WT$row.names <- NULL
+
+# Create 
+WT[, 3] <- round(log(WT[, 3]), digits = 2)
+```
+
+```{r echo = FALSE, cache= TRUE, include= TRUE, results= 'asis'}
+library(googleVis)
 
 
-1 Entrepreneurial Intentions  
+# Plot
+WT_map <- gvisGeoChart(WT, locationvar = 'iso2c',
+                      colorvar = 'mean',
+                      options = list(
+                        colors = "['#ece7f2', '#2b8cbe']"
+))
+ 
+```
 
-2 Nascent Entrepreneurship  
-
-3 Established Entrepreneurship  
 
 
-Therefore, we built three regression equations to examine the impact of our explanatory variable on the rate of entrepreneurship (as measured by survey responses on the percentage of nascent entrepreneurs, established business owners, and respondents with the intention of becoming an entrepreneur).  These three regression equations are as follows:  
+image: ![Way of Teaching](https://raw.githubusercontent.com/SamDund/Assign2Education/master/PresentationandPaper/images/WoTmap.png)
+
+
+
+
+
+
+
+
+Starting with this explanatory variable, we built three regression equations to examine the impact of our explanatory variable on the rate of entrepreneurship (as measured by survey responses on the percentage of nascent entrepreneurs, established business owners, and respondents with the intention of becoming an entrepreneur).  These three regression equations are as follows:  
 
 
 1. $PercentEntreIntention = \beta_1WayofTeaching  + \beta_2PerceivedCabability + \beta_3PerceivedOpportunities$   
@@ -330,8 +403,14 @@ Therefore, we built three regression equations to examine the impact of our expl
 
 
 The interaction term $\beta_5FearFailure*PerceivedOpportunities$ was added to the regression because the survey question regarding "Fear of Failure" was only proposed to survey respondents who indicated they do perceive opportunities to start a business.  
-  
-Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between self-confidence reinforcement in teaching and the dependent variables we selected as indicators of the entrepreneurship rate.  Instead, we found that when controlling for country-specific effects, the Way of Teaching is not statistically significant when using "Nascent Entrepreur" or "Business Owner" as a dependent variable, has a negative coefficient in these regression equations.  This relationship can be seen in the following regression output table.  This regression output was generated using a simple least square regression model.
+
+
+
+-------------------------
+
+
+
+Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between self-confidence reinforcement in teaching and the dependent variables we selected as indicators of the entrepreneurship rate.  Instead, we found that when controlling for country-specific effects, the Way of Teaching is not statistically significant when using "Nascent Entrepreneur" or "Business Owner" as a dependent variable, has a negative coefficient in these regression equations.  This relationship can be seen in table 4 below.  This regression output was generated using a simple least square regression model.
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE}
 
@@ -341,18 +420,16 @@ library(Zelig)
 # Library Amelia for imputed data
 library(Amelia)
 
-# Import df of dependent and independent variables
-CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
-
 
 ############ Running a regression with full df (including omitted variables)
-RG1 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
+RG1 <- lm(PercentIntention ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
 
-RG2 <- lm(PercentNascent ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
+RG2 <- lm(PercentNascent ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
 
-RG3 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
+RG3 <- lm(PercentOwner ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
 ```
 
+\begin{singlespace}
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 
 # Create vector of lables
@@ -369,22 +446,22 @@ stargazer::stargazer(RG1, RG2, RG3,
                      font.size =  "scriptsize", type = 'latex', no.space = TRUE)
 
 ```
+\end{singlespace}
 
-
-To more clearly demonstrate the relationship between the "Way of Teaching" and our dependent variables, we have omitted the country-specific effects and generated simulations to show demonstrate the outcome of 1000 trials of our regression equation.  Before doing so, however, we ran another set of regressions to determine which equation we would like to examine more closely.  A regression output table with these results has been included below.
+To more clearly demonstrate the relationship between the "Way of Teaching" and our dependent variables, we have omitted the country-specific effects and generated simulations to show demonstrate the outcome of 1000 trials of our regression equation.  Before doing so, however, we ran another set of regressions to determine which equation we would like to examine more closely.  The results can be seen in table 5 below.
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
 
 # Run three regression equations again (omitting country-specific effects)
-RG4 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
+RG4 <- lm(PercentIntention ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
 
-RG5 <- lm(PercentNascent ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
+RG5 <- lm(PercentNascent ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
 
-RG6 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
+RG6 <- lm(PercentOwner ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
 
 ```
 
-<br>
+\begin{singlespace}
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 
 # Regression output table with country-specific effects
@@ -394,12 +471,14 @@ stargazer::stargazer(RG4, RG5, RG6,
                      font.size =  "scriptsize", type = 'latex', no.space = TRUE)
 
 ```
+\end{singlespace}
+
+Given the positive relationship between the "Way of Teaching" and "Entrepreneurship Owner" we decided to use this equation for our simulations.   In an effort to address data availability issues, we also decided to run a second model including imputed data generated by the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate imputed data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Equation  titled "Imputed" were calculated using this imputed data frame.
 
 
-Given the positive relationship between the "Way of Teaching" and "Entrepreneurship Owner" we decided to use this equation for our simulations.   Given the prevelence of omitted data in our data frame, we decided to attempt to increase the accuracy of this model by using the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate imputed data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Equation  titled "Imputed" were calculated using this imputed data frame.
+To generate the simulations, we decided to use the R package Zelig.  This package allows us to set parameters for an explanatory variable and simulate trials of the above equation (more information on the Zelig package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Zelig/index.html).  We chose to simulate values in our explanatory variable "Way of Teaching" and "Perceived Capabilities" for this analysis.  One important aspect of the Zelig package is that observations with omitted variables will be omitted from the calculation.  For this reason, there is some variation between the coefficients for the Zelig model and the model in the preceding regression output chart.  
 
-
-To generate the simulations, we decided to use the R package Zelig.  This package allows us to set parameters for an explanatory variable and simulate trials of the above equation (more information on the Zelig package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Zelig/index.html).  We chose to simulate values in "Percent Perceived Capabilities" and "Way of Teaching" for this analysis.  A regression output table and our simulation results are included below.  Given our data characteristics and the available models in the Zelig package, we used a "Least Squares Regression for Continuous Dependent Variables."
+Given our data characteristics and the available models in the Zelig package, we used a "Least Squares Regression for Continuous Dependent Variables." A regression output table and our simulation results are included below.  
 
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
@@ -410,7 +489,7 @@ To generate the simulations, we decided to use the R package Zelig.  This packag
 CD_omitted <- na.omit(CD)
 
 # Run a least squares regression with Zelig
-Z1 <- zelig(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD_omitted, model = "ls")
+Z1 <- zelig(PercentOwner ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities, data = CD_omitted, model = "ls")
 
 
 ############ Runnig a Zelig regression with imputed data and omitting remaining omitted variables
@@ -421,22 +500,24 @@ CI <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Educ
 # Omit variables that could not be imputed by Adelia (b/c of lack of data)
 CI_omitted <- na.omit(CI)
 
+names(CI_omitted) <- gsub("PercentPerceived", "PerceivedCapability", names(CI_omitted))
+
 # Regression equation with imputed values
-Z2 <- zelig(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CI_omitted, model = "ls")
+Z2 <- zelig(PercentOwner ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities, data = CI_omitted, model = "ls")
 
 
 ############ Set range of values for Z1 and Z2 using imputed and not imputed dfs
 
 ####### Simulate Percent Perceived
 
-# Set range of PercentPerceived values in simulation (NOT IMPUTED)
-x.out1 <- setx(Z1, PercentPerceived = 9:67)
+# Set range of PerceivedCapabilities values in simulation (NOT IMPUTED)
+x.out1 <- setx(Z1, PerceivedCapability = 9:67)
 
 # Run simulation (default 1000 trials) (NOT IMPUTED)
 simz1 <- sim(Z1, x = x.out1)
 
-# Set range of PercentPerceived values in siumlation (IMPUTED)
-x.out2 <- setx(Z2, PercentPerceived = 9:67)
+# Set range of PerceivedCapability values in siumlation (IMPUTED)
+x.out2 <- setx(Z2, PerceivedCapability = 9:67)
 
 # Run simulation (default 1000 trials) (IMPUTED)
 simz2 <- sim(Z2, x = x.out2)
@@ -458,6 +539,7 @@ simz4 <- sim(Z2, x = x.out4)
 
 ```
 
+\begin{singlespace}
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 
 # Set new vector for dependent variable label
@@ -466,25 +548,18 @@ dlabels_2 <- c('Entrepreneurship Owner')
 
 # Regression output table with country-specific effects
 stargazer::stargazer(Z1, Z2,
-                     title = 'Linear Regression Estimates omitting Country-specific Effects',
+                     title = 'Least Squares Regression for Continuous Dependent Variables',
                      covariate.labels = labels_1, dep.var.labels = dlabels_2, digits = 2,
                      font.size =  "small", type = 'latex', no.space = TRUE,
                      notes = "Regression equation 1 is unimputed, regression equation 2 is imputed")
 ```
+\end{singlespace}
 
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 library("Zelig")
 
 # Set layout
 par(mfrow = c(2, 2))
-
-# Plot simz1 (unimputed)
-plot(simz1, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurship Owner',
-     main = "Unimputed (Equation 1)")
-
-# Plot simz2 (imputed)
-plot(simz2, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurship Owner',
-     main = "Imputed (Equation 2)")
 
 # Plot simz3 (unimputed)
 plot(simz3, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
@@ -494,8 +569,96 @@ plot(simz3, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
 plot(simz4, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
      main = "Imputed (Equation 2)")
 
+# Plot simz1 (unimputed)
+plot(simz1, xlab = 'Percent Perceived Capabilities', ylab = 'Percent Entrepreneurship Owner',
+     main = "Unimputed (Equation 1)")
+
+# Plot simz2 (imputed)
+plot(simz2, xlab = 'Percent Perceived Capabilities', ylab = 'Percent Entrepreneurship Owner',
+     main = "Imputed (Equation 2)")
+
 ```
 
+
+As we can see from the regression output table, using the Amelia program to generate additional data expanded the observations analyzed from 172 to 318, and increased the statistical significance of our explanatory variable.  In addition, the positive slope of this equation is consistent with what we expected after our analysis of existing literature on this topic.  In addition, this process reduced the variance in our simulation results, suggesting it improved the accuracy of this model.  Despite this, we have several concerns regarding the reliability of existing GEM data (which will be discussed later in this paper), which makes us question the effectiveness of using this data to generate additional observations.
+
+
+
+Perceived opportunities
+
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
+
+# Library required packages
+library(googleVis)
+library(countrycode)
+library(repmis)
+library("ggplot2")
+library("reshape2")
+
+
+# Import GEM data frame
+PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE, na.strings = "-")
+
+## Add country codes and place new column at beginning of the data frame
+# Create a vector of country codes
+D2 <- countrycode(PerceivedOpportunities$Country, "country.name", "iso2c")
+
+# Create a new column and insert the country code vector
+PerceivedOpportunities$new.col <- D2
+
+# Reorder columns so country code is first
+D3 <- PerceivedOpportunities[,c(15,1:14)]
+
+# Rename first column
+D4 <- plyr::rename(x = D3, 
+                   replace = c("new.col" = "iso2c"))
+
+# Remove X's in D4 year columns
+names(D4) <- gsub("X", "", names(D4))                    
+  
+# Set columns as numeric
+D4[,"2001"] <- as.numeric(D4[,"2001"])
+D4[,"2002"] <- as.numeric(D4[,"2002"])
+D4[,"2003"] <- as.numeric(D4[,"2003"])
+D4[,"2004"] <- as.numeric(D4[,"2004"])
+D4[,"2005"] <- as.numeric(D4[,"2005"])
+D4[,"2006"] <- as.numeric(D4[,"2006"])
+D4[,"2007"] <- as.numeric(D4[,"2007"])
+D4[,"2008"] <- as.numeric(D4[,"2008"])
+D4[,"2009"] <- as.numeric(D4[,"2009"])
+D4[,"2010"] <- as.numeric(D4[,"2010"])
+D4[,"2011"] <- as.numeric(D4[,"2011"])
+D4[,"2012"] <- as.numeric(D4[,"2012"])
+D4[,"2013"] <- as.numeric(D4[,"2013"])
+
+
+# Create country vector to subset
+myvars2 <- c('US','FR','DE','JP','GB')
+
+# Subset Opp2
+Opp2 <- subset(D4, iso2c %in% myvars2)
+
+# Melt Opp2 df
+Opp3 <- melt(data = Opp2,
+                  id.vars = c("Country", "iso2c"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010"))
+
+# Edit column names
+names(Opp3) <- gsub("value", "PerceivedOpportunities", names(Opp3))
+names(Opp3) <- gsub("variable", "Year", names(Opp3))
+
+Opp3$iso2c <- NULL
+``` 
+
+
+```{r echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+# Create plot
+G1 <- ggplot(Opp3,aes(x = Year, y = PerceivedOpportunities, colour = Country, group = Country)) + geom_line()
+
+G1 + ggtitle("Perceived Opportunities Over Time") + theme_bw()
+```
 
 
 
