@@ -61,7 +61,6 @@ The NES is structured around nine entrepreneurial framework contitions evaluated
 8. Physical infrastructure and services  
 9. Cultural and social norms  
 
-
 The APS is a questionnaire distrubuted to a minimum of 2,000 adults in each participating country.  The survey is created by a central GEM team, but the implementation is managed by national teams that compete for the role of implementing the survey.  Experts are chosen based on experience and specialization and are expected to represent the entire country (including urban and rural areas).  
 
 <br>
@@ -70,6 +69,7 @@ The APS is a questionnaire distrubuted to a minimum of 2,000 adults in each part
 
 
 After reviewing the available data, we decided to select the following variables for our analysis.  
+
 
 Source | Indicator 
 -------------|---------------
@@ -138,13 +138,13 @@ names(CD1) <- gsub("PercentPerceived", "PerceivedCapability", names(CD1))
 
 ```
 
-
+\begin{singlespace}
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis', warning=FALSE}
 
 # Generate descriptive statistics table
 stargazer(CD1, type = "latex")
 ```
-
+\end{singlespace}
 
 
 **Analytical Framework**  
@@ -161,8 +161,6 @@ X2 Control Variable | Perceived Capabilities
 X3 Control Variable | Fear of Failure / Perceived Opportunities
 X4 Control Variable | Perceived Opportunities  
 
-
-..........(Describe why we use the rate of entrepreneurship indicators we chose)  
 
 
 Data on our explanatory variable, Way of Teaching, is available on the GEM website for the years 2001-2010.  To illustrate the distribution of this data, we have created the following histogram.  As shown in the histogram, the largest density of scores is approximately 2.3, which lies between the "somewhat false" and "neither true or false" categories.  This is not a whole number because the scores given by each of the 4 experts surveyed for each frameork condition are averaged to create a national-level number.  As discussed later in this paper, this presents some difficulties in drawing substantive conclusions from this data.  Namely, a large number of indifferent responses complicate the process of determining the influence we would like to analyze.
@@ -265,7 +263,7 @@ The interaction term $\beta_5FearFailure*PerceivedOpportunities$ was added to th
 
 
 
-Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between self-confidence reinforcement in teaching and the dependent variables we selected as indicators of the entrepreneurship rate.  Instead, we found that when controlling for country-specific effects, the Way of Teaching is not statistically significant when using "Nascent Entrepreur" or "Business Owner" as a dependent variable, has a negative coefficient in these regression equations.  This relationship can be seen in the following regression output table.  This regression output was generated using a simple least square regression model.
+Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between self-confidence reinforcement in teaching and the dependent variables we selected as indicators of the entrepreneurship rate.  Instead, we found that when controlling for country-specific effects, the Way of Teaching is not statistically significant when using "Nascent Entrepreur" or "Business Owner" as a dependent variable, has a negative coefficient in these regression equations.  This relationship can be seen in table 4 below.  This regression output was generated using a simple least square regression model.
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE}
 
@@ -284,6 +282,7 @@ RG2 <- lm(PercentNascent ~ WayofTeaching + PerceivedCapability + PercentFear*Per
 RG3 <- lm(PercentOwner ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
 ```
 
+\begin{singlespace}
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 
 # Create vector of lables
@@ -300,9 +299,9 @@ stargazer::stargazer(RG1, RG2, RG3,
                      font.size =  "scriptsize", type = 'latex', no.space = TRUE)
 
 ```
+\end{singlespace}
 
-
-To more clearly demonstrate the relationship between the "Way of Teaching" and our dependent variables, we have omitted the country-specific effects and generated simulations to show demonstrate the outcome of 1000 trials of our regression equation.  Before doing so, however, we ran another set of regressions to determine which equation we would like to examine more closely.  A regression output table with these results has been included below.
+To more clearly demonstrate the relationship between the "Way of Teaching" and our dependent variables, we have omitted the country-specific effects and generated simulations to show demonstrate the outcome of 1000 trials of our regression equation.  Before doing so, however, we ran another set of regressions to determine which equation we would like to examine more closely.  The results can be seen in table 5 below.
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
 
@@ -315,7 +314,7 @@ RG6 <- lm(PercentOwner ~ WayofTeaching + PerceivedCapability + PercentFear*Perce
 
 ```
 
-<br>
+\begin{singlespace}
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 
 # Regression output table with country-specific effects
@@ -325,7 +324,7 @@ stargazer::stargazer(RG4, RG5, RG6,
                      font.size =  "scriptsize", type = 'latex', no.space = TRUE)
 
 ```
-
+\end{singlespace}
 
 Given the positive relationship between the "Way of Teaching" and "Entrepreneurship Owner" we decided to use this equation for our simulations.   In an effort to address data availability issues, we also decided to run a second model including imputed data generated by the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate imputed data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Equation  titled "Imputed" were calculated using this imputed data frame.
 
@@ -392,7 +391,8 @@ x.out4 <- setx(Z2, WayofTeaching = 1.128:3.312)
 simz4 <- sim(Z2, x = x.out4)
 
 ```
- 
+
+\begin{singlespace}
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 
 # Set new vector for dependent variable label
@@ -403,10 +403,10 @@ dlabels_2 <- c('Entrepreneurship Owner')
 stargazer::stargazer(Z1, Z2,
                      title = 'Least Squares Regression for Continuous Dependent Variables',
                      covariate.labels = labels_1, dep.var.labels = dlabels_2, digits = 2,
-                     font.size =  "scriptsize", type = 'latex', no.space = TRUE,
+                     font.size =  "small", type = 'latex', no.space = TRUE,
                      notes = "Regression equation 1 is unimputed, regression equation 2 is imputed")
 ```
-
+\end{singlespace}
 
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 library("Zelig")
