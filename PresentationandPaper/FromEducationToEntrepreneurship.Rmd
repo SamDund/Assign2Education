@@ -105,18 +105,7 @@ This assumption draws from Boyd and Vozikis's ??????? MAIN BIB ???????? stating 
 
 There could even be an incidence of the intention to perform a certain behaviour on the actual performance of that behaviour, which could lead to look into skills, abilities and willpower. It is almost like "individuals would be predisposed to entrepreneurial intentions based upon a combination of both personal and contextual factors" ????? Boyd and Vosikis MAIN BIB ????? but Boyd and Vosikis building upon social psychology research introduce the concept of self-efficacy in Bird's model of entrepreneurial intentionality for "self-efficacy will moderate the relationship between the development of entrepreneurial intentions and the likelihood that these intentions will result in entrepreneurial actions or behaviour". Therefore, we will have to control for this entrepreneurial self-efficacy as we research potential effects of positive reinforcement.  
 
-   
-Now, since self-confidence is considered to rely partly on one's integration within social networks [@OECD2009] we should ideally be looking into the collectivism or individualism at play across education systems, the more so as there is visibly something at stake on that side too as this table shows :  
-   
-   
-Variable | France | UK
--------------|---------------|---------
-Sense of belonging (PISA 2012) | 47% | 79%  
-
-   
-The lack of suitable data as well as the fact that OECD PISA tends to focus on different aspects of education systems for every triennal survey lead us to give up on this. But we still think that should be included in a future research on that topic.  
-   
-
+    
 Of course, we also looked into other studies connecting educational features and entrepreneurship. As a matter of fact, most of the research tends to focus specifically on entrepreneurial education, whatever its form, as it is expected partly to support the entrepreneurial self-efficacy ??????? Boyd and Vosikis MAIN BIB ??????????? . One slightly different and interesting perspective is that of King and Sobel [@Kerry2008], who have already tried to show how school choice, and thus a different kind of interactions with students, can increase the rate of youth entrepreneurship but their perspective was still not directly in lign with our research design, they  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes.
 
 
@@ -158,17 +147,28 @@ Drawing from the literature, we expect to observe the following causal chain :
 ---> higher rate of entrepreneurship at a country-level.  
 
 
-Here, when we mention that an education system reinforces self-confidence, we mean that teachers use positive reinforcement when interacting with students. This entails providing feedback that will help the students maintain their level of motivation as well as their level of self-esteem. This also entails supporting students' taking initiatives, encouraging creativity will also be part of this self-confidence reinforcement.  
+Here, when we mention that an education system reinforces self-confidence, we mean that teachers use positive reinforcement when interacting with students. This entails providing feedback that will help the students maintain their level of motivation as well as their level of self-esteem. This also entails supporting students taking initiatives, encouraging creativity.  
 
 
-The support of students' self-confidence within education systems as we just defined it can also affect the students' entrepreneurial self-efficacy, which should be controled for. Which we will do by looking into average perceived entrepreneurial capabilities and fear of failure  
-
-indeed an effective explanatory variable, we will need to control for the entrepreneurial self-efficacy
+The support of students' self-confidence within education systems as we just defined it can also affect the students' entrepreneurial self-efficacy, that should be controled for. To do so, we will look at average perceived entrepreneurial capabilities and fear of failure in starting a business across the population at the country-level.  
 
 
+Ideally, since the literature suggests that self-confidence depends partly on one's integration within social networks [@OECD2009], we should ideally be looking into the collectivism or individualism at play across education systems, the more so as there is visibly something at stake on that side too :  
+   
+   
+Variable | France | UK
+-------------|---------------|---------
+Sense of belonging (PISA 2012) | 47% | 79%  
+
+   
+The lack of suitable data as well as the fact that OECD PISA tends to focus on different aspects of education systems for every triennal survey, lead us to give up on this. But we still think that should be included in a future research on that topic.  
 
 
-Ideally we would have also liked to add the social dimension to it, meaning that students that are socially included may have a slightly higher degree of self-confidence, as we saw suggested in the literature.
+Regarding potential control variables, we should normally consider including at least the main environmental determinants of entrepreneurship but the lack of consistency in the data at hand for our explanatory variables made us use a summary of those as a proxy. We chose to use the level of good opportunities to start a business perceived on average across the population of the given country.  
+
+
+We will now present our quantitative methodology and the indicators we used in greater detail.    
+
 
 #### Dependent Variables: Explaining the Country-level Rate of Entrepreneurship    
 
