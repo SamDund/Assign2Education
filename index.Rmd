@@ -3,7 +3,6 @@ title: 'From Education to Entrepreneurship'
 author: "Sam Dundon and Thierry Racaud"
 date: "December 6, 2014"
 output: html_document
-theme: Cosmo
 ---
 
 <br>
