@@ -3,6 +3,7 @@ title: 'From Education to Entrepreneurship'
 author: "Sam Dundon and Thierry Racaud"
 date: "December 6, 2014"
 output: html_document
+theme: Cosmo
 ---
 
 <br>
@@ -243,4 +244,11 @@ CD_subset2 %>%
 
 
 Significant work remains to more clearly understand the extent of the relationship between teaching methods supporting self-confidence and a country's rate of entrepreneurship.  This research, however, does show that a positive relationship exists.  One clear requirement of further analysis in this field is increased availability and consistency in collected data.  Missing data generates substantial uncertainty and limits our ability to strongly state conclusions.  This will need to be addressed for future projects.   
+
+
+### More information  
+
+
+For more information about our project, including an academic paper on the topic, please see our [GitHub repository](https://github.com/SamDund/Assign2Education)
+
 
