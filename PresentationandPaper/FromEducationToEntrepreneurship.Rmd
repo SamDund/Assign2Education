@@ -154,7 +154,7 @@ Here, when we mention that an education system reinforces self-confidence, we me
 The support of students' self-confidence within education systems as we just defined it can also affect the students' entrepreneurial self-efficacy, that should be controled for. To do so, we will look at average perceived entrepreneurial capabilities and fear of failure in starting a business across the population at the country-level.  
 
 
-Ideally, since the literature suggests that self-confidence depends partly on one's integration within social networks [@OECD2009], we should ideally be looking into the collectivism or individualism at play across education systems, the more so as there is visibly something at stake on that side too :  
+Ideally, since the literature suggests that self-confidence depends partly on one's integration within social networks [@OECD2009], we should be looking into the collectivism or individualism at play across education systems, the more so as there is visibly something at stake on that side too :  
    
    
 Variable | France | UK
@@ -162,7 +162,7 @@ Variable | France | UK
 Sense of belonging (PISA 2012) | 47% | 79%  
 
    
-The lack of suitable data as well as the fact that OECD PISA tends to focus on different aspects of education systems for every triennal survey, lead us to give up on this. But we still think that should be included in a future research on that topic.  
+The lack of suitable data as well as the fact that OECD PISA tends to focus on different aspects of education systems for every triennal survey, lead us to give up on this for the time being. But we still think that should be included in a future research on that topic.  
 
 
 Regarding potential control variables, we should normally consider including at least the main environmental determinants of entrepreneurship but the lack of consistency in the data at hand for our explanatory variables made us use a summary of those as a proxy. We chose to use the level of good opportunities to start a business perceived on average across the population of the given country.  
