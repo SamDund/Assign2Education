@@ -160,6 +160,51 @@ Starting with this explanatory variable, we built three regression equations to 
   $+ \beta_4FearFailure + \beta_5FearFailure*PerceivedOpportunities$ 
 
 
-The interaction term $\beta_5FearFailure*PerceivedOpportunities$ was added to the regression because the survey question regarding "Fear of Failure" was only proposed to survey respondents who indicated they do perceive opportunities
+The interaction term $\beta_5FearFailure*PerceivedOpportunities$ was added to the regression because the survey question regarding "Fear of Failure" was only proposed to survey respondents who indicated they do perceive opportunities to start a business.  
+
+
+
+
+
+
+
+
+
+
+
+
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE}
+
+# Import df of dependent and independent variables
+CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
+
+
+# Run linear regression R1
+R1 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear + PercentOpportunities + PercentFear*PercentOpportunities + Country, data = CD)
+
+
+# Run linear regression R2
+R2 <- lm(PercentNascent ~ WayofTeaching + PercentPerceived + PercentFear + PercentOpportunities + PercentFear*PercentOpportunities + Country, data = CD)
+
+
+# Run linear regression R3
+R3 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear + PercentOpportunities + PercentFear*PercentOpportunities + Country, data = CD)
+
+ 
+```
+
+```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE} 
+
+# Library Stargazer for regression output tables
+library(stargazer)
+
+# Create regression output table
+labels <- c('National Level Avg Perceived Capabilities', 'National Level Avg Fear of Failure',
+            'Annual GDP Growth', 'National Level Avg Perceived Good Opportunities', 'National Level Avg Fear of Failure x National Level Avg Perceived Good Opportunities','(Intercept)')
+
+dlables <- c('National Level Average Percent Entrepreneurial Intention', 'National Level Nascent Entrepreneural Activity', 'National Level Average Percent Owning a Business')
+
+stargazer::stargazer(R1, R2, R3, covariate.labels = labels, dep.var.labels = dlables,
+                     title = 'Linear Regression Estimates', digits = 2, type = 'html')
 
 
