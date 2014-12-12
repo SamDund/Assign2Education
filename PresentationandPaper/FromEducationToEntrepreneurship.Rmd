@@ -93,7 +93,7 @@ Perceived Capabilities (GEM 2012) | 36% | 47%
 So, although the research tends to hold self-confidence and also entrepreneurial self-efficacy as individual features, we intend to understand to what extent these individual characteristics are partly shaped at a collective or societal level by looking at the potential impact of education systems and their personnel.
 
 
-Specifically, we expect to find out to what extent positive reinforcement in teaching can impact the rate of entrepreneurship at a country level, especially across OECD countries. Indeed, regarding France and the United Kingdom, many parameters differ between the two education systems but one stands out, that is the positive reinforcement. Indeed, while positive reinforcement is effectively in use throughout the compulsory education system in the UK, it is much more rarely activitated in France, and only on an voluntary individual teacher's basis. We would like to verify if this has to do with the amount of entrepreneurial self-efficacy mentioned above, in which case this could also affect entrepreneurial intentions, behaviours and actions.  
+Specifically, we expect to find out to what extent positive reinforcement in teaching can impact the rate of entrepreneurship at a country level, especially across OECD countries. Indeed, regarding France and the United Kingdom, many parameters differ between the two education systems but one stands out, that is the positive reinforcement. Indeed, while positive reinforcement is effectively in use throughout the compulsory education system in the UK, it is much more rarely activitated in France, and only on an voluntary individual teacher's basis. Drawing from Inglehart research ????????? MAIN BIB 2000 ????????, we understand the period between 0 and 20 years of age to be a defining time in terms of personal values and personality construction, thus compulsory education, generally between 6 and 16 years of age, can prove of key importance in the building up of one's self-confidence. We would like to verify if this has to do with the amount of entrepreneurial self-efficacy mentioned above, in which case this could also affect entrepreneurial intentions, behaviours and actions.  
 
 
 This assumption draws from Boyd and Vozikis's ??????? MAIN BIB ???????? stating how entrepreneurial intentions are at least partially the result of thought processes, which "underlie the creation of formal business plans, opportunity analysis, and goal-directed behaviour". Boyd and Vosikis also assert that individual self-efficacy "influences the development of both entrepreneurial intentions and actions or behaviours". To assert this, they rely on Fishbein and Ajzen 1975 ?????? MAIN BIB ???????? who illustrate the relation between beliefs and behaviour as follows:  
@@ -117,7 +117,11 @@ Sense of belonging (PISA 2012) | 47% | 79%
 The lack of suitable data as well as the fact that OECD PISA tends to focus on different aspects of education systems for every triennal survey lead us to give up on this. But we still think that should be included in a future research on that topic.  
    
 
-Of course, we also looked into other studies connecting educational features and entrepreneurship. As a matter of fact, most of the research tends to focus specifically on entrepreneurial education, whatever its form, as it is expected partly to support the entrepreneurial self-efficacy ??????? Boyd and Vosikis MAIN BIB ??????????? . One slightly different and interesting perspective is that of King and Sobel [@Kerry2008], who have already tried to show how school choice, and thus a different kind of interactions, can increase the rate of youth entrepreneurship, but their perspective was still not directly in lign with our research design. They  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes. We believe there is a more widely spread systematic effect of educational features.  
+Of course, we also looked into other studies connecting educational features and entrepreneurship. As a matter of fact, most of the research tends to focus specifically on entrepreneurial education, whatever its form, as it is expected partly to support the entrepreneurial self-efficacy ??????? Boyd and Vosikis MAIN BIB ??????????? . One slightly different and interesting perspective is that of King and Sobel [@Kerry2008], who have already tried to show how school choice, and thus a different kind of interactions with students, can increase the rate of youth entrepreneurship but their perspective was still not directly in lign with our research design, they  asserted that a more business-like environment in K-12 education was the key, which was favoured by voucher programmes.
+
+
+
+
 
 
 
@@ -139,7 +143,7 @@ Eventually, to put all these into perspective, along with Gartner [@Gartner1990]
 ### What we intend to do  
 
 
-Now, having attempted to show how determinants of entrepreneurship have been looked into, having mentioned how education has been related to entrepreneurship so far, we need to assert here our very research design. What we expect to find out is to what extent the support of students' self-confidence within the education system impacts the rate of entrepreneurship across OECD countries.  
+Now, having explained how determinants of entrepreneurship have been looked into, having mentioned how education has been related to entrepreneurship so far, we need to assert here our very research design. What we expect to find out is to what extent the support of students' self-confidence within the education system impacts the rate of entrepreneurship across OECD countries.  
 
 
 We expect to observe the following causal chain :
@@ -154,7 +158,7 @@ We expect to observe the following causal chain :
 ---> higher rate of entrepreneurship at a country-level.  
 
 
-Here, when we mention that an education system reinforces self-confidence, we mean that teachers practice positive reinforcement when interacting with students. This entails providing feedback that will help the students maintain their level of motivation as well as their level of self-esteem. Supporting students' taking initiatives, encouraging creativity will also be part of this self-confidence reinforcement.
+Here, when we mention that an education system reinforces self-confidence, we mean that teachers use positive reinforcement when interacting with students. This entails providing feedback that will help the students maintain their level of motivation as well as their level of self-esteem. This also entails supporting students' taking initiatives, encouraging creativity will also be part of this self-confidence reinforcement.
 
 Ideally we would have also liked to add the social dimension to it, meaning that students that are socially included may have a slightly higher degree of self-confidence, as we saw suggested in the literature.
 
