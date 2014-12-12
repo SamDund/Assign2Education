@@ -3,7 +3,7 @@
 #### Sam Dundon and Thierry Racaud
 * * * 
 #### Project Introduction
-This is a branch of the Assignment2Education repository linked to our [project website](http://samdund.github.io/Assign2Education/).
+This is a branch of the Assign2Education repository linked to our [project website](http://samdund.github.io/Assign2Education/).
 
 The website divides our project into the following sections:
 
