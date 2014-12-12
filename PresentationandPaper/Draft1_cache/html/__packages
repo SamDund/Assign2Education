@@ -1,0 +1,17 @@
+base
+ggvis
+devtools
+googleVis
+countrycode
+repmis
+reshape2
+shiny
+httpuv
+ggplot2
+boot
+MASS
+sandwich
+Zelig
+stargazer
+Rcpp
+Amelia

@@ -198,11 +198,18 @@ WT_map <- gvisGeoChart(WT, locationvar = 'iso2c',
                         colors = "['#ece7f2', '#2b8cbe']"
 ))
  
-
-
-
-
 ```
+
+
+
+image: ![Way of Teaching](https://raw.githubusercontent.com/SamDund/Assign2Education/master/PresentationandPaper/images/WoTmap.png)
+
+
+
+
+
+
+
 
 Starting with this explanatory variable, we built three regression equations to examine the impact of our explanatory variable on the rate of entrepreneurship (as measured by survey responses on the percentage of nascent entrepreneurs, established business owners, and respondents with the intention of becoming an entrepreneur).  These three regression equations are as follows:  
 
@@ -227,24 +234,7 @@ The interaction term $\beta_5FearFailure*PerceivedOpportunities$ was added to th
 
 
 
-Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between self-confidence reinforcement in teaching and the dependent variables we selected as indicators of the entrepreneurship rate.  Instead, we found that when controlling for country-specific effects, the Way of Teaching is not statistically significant and has a negative relationship with our explanatory variables.  This relationship can be seen in the following regression output table.
-
-
-
-
-Overall, however, if we omit country-specific effects, we can demonstrate that the Way of Teaching and the Percent Perceived Good Opportunities are statistically significant in the model indicated below.  
-
-<br>
-
-$NationalLevelAveragePercentOwningaBusiness = -6.82 + 1.03WayofTeaching + 0.10Percent Perceived Capability +$  
-$0.21Percent Fear Failure$ $+$ $0.12Percent Perceived Opportunities - 0.005Percent Fear Failure$ $*$ $Percent Perceived Opportunities$  
-
-<br>
-
-We can show the relationship between the dependent and explanatory variables in the four simulations below.  The R package Zelig allows us to set parameters for an explanatory variable and simulate 1000 trials of the above equation (more information on the Zelig package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Zelig/index.html).  We chose to simulate values in "Percent Perceived Capabilities" and "Way of Teaching" for this analysis.  A regression output table has also been included below.
-
-
-The simulations labeled "Unimputed" were created using only data collected from GEM. This simulation is not possible with missing data, so observations with missing data were omitted.  In an attempt to increase the accuracy of this model, we used the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate this data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Simulations titled "Imputed" were calculated using this imputed data frame.
+Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between self-confidence reinforcement in teaching and the dependent variables we selected as indicators of the entrepreneurship rate.  Instead, we found that when controlling for country-specific effects, the Way of Teaching is not statistically significant when using "Nascent Entrepreur" or "Business Owner" as a dependent variable, has a negative coefficient in these regression equations.  This relationship can be seen in the following regression output table.  This regression output was generated using a simple least square regression model.
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE}
 
@@ -259,9 +249,63 @@ CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Educ
 
 
 ############ Running a regression with full df (including omitted variables)
-RG1 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
+RG1 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
 
-RG2 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
+RG2 <- lm(PercentNascent ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
+
+RG3 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
+```
+
+```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
+
+# Create vector of lables
+labels_1 <- c('Way of Teaching', 'Perceived Capabilities', 'Fear of Failure', 'Perceived Good Opportunities', 
+             'Fear of Failure x Perceived Good Opportunities')
+
+dlabels_1 <- c('Entrepreneurial Intention', 'Nascent Entrepreneur', 'Entrepreneurship Owner')
+
+
+# Regression output table with country-specific effects
+stargazer::stargazer(RG1, RG2, RG3,
+                     title = 'Linear Regression Estimates with Country-specific Effects',
+                     covariate.labels = labels_1, dep.var.labels = dlabels_1, digits = 2,
+                     font.size =  "scriptsize", type = 'latex', no.space = TRUE)
+
+```
+
+
+To more clearly demonstrate the relationship between the "Way of Teaching" and our dependent variables, we have omitted the country-specific effects and generated simulations to show demonstrate the outcome of 1000 trials of our regression equation.  Before doing so, however, we ran another set of regressions to determine which equation we would like to examine more closely.  A regression output table with these results has been included below.
+
+```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
+
+# Run three regression equations again (omitting country-specific effects)
+RG4 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
+
+RG5 <- lm(PercentNascent ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
+
+RG6 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
+
+```
+
+<br>
+```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
+
+# Regression output table with country-specific effects
+stargazer::stargazer(RG4, RG5, RG6,
+                     title = 'Linear Regression Estimates omitting Country-specific Effects',
+                     covariate.labels = labels_1, dep.var.labels = dlabels_1, digits = 2,
+                     font.size =  "scriptsize", type = 'latex', no.space = TRUE)
+
+```
+
+
+Given the positive relationship between the "Way of Teaching" and "Entrepreneurship Owner" we decided to use this equation for our simulations.   Given the prevelence of omitted data in our data frame, we decided to attempt to increase the accuracy of this model by using the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate imputed data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Equation  titled "Imputed" were calculated using this imputed data frame.
+
+
+To generate the simulations, we decided to use the R package Zelig.  This package allows us to set parameters for an explanatory variable and simulate trials of the above equation (more information on the Zelig package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Zelig/index.html).  We chose to simulate values in "Percent Perceived Capabilities" and "Way of Teaching" for this analysis.  A regression output table and our simulation results are included below.  Given our data characteristics and the available models in the Zelig package, we used a "Least Squares Regression for Continuous Dependent Variables."
+
+
+```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
 
 ############ Running a regression omitting omitted variables
 
@@ -317,7 +361,19 @@ simz4 <- sim(Z2, x = x.out4)
 
 ```
 
+```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 
+# Set new vector for dependent variable label
+dlabels_2 <- c('Entrepreneurship Owner')
+
+
+# Regression output table with country-specific effects
+stargazer::stargazer(Z1, Z2,
+                     title = 'Linear Regression Estimates omitting Country-specific Effects',
+                     covariate.labels = labels_1, dep.var.labels = dlabels_2, digits = 2,
+                     font.size =  "small", type = 'latex', no.space = TRUE,
+                     notes = "Regression equation 1 is unimputed, regression equation 2 is imputed")
+```
 
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 library("Zelig")
@@ -343,28 +399,6 @@ plot(simz4, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
 
 ```
 
-```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
-library(stargazer)
-
-# Create regression output table
-labels <- c('Way of Teaching', 'National Level Perceived Capabilities', 'National Level Avg Fear of Failure',
-            'National Level Avg Perceived Good Opportunities', 
-            'National Level Avg Fear of Failure x National Level Avg Perceived Good Opportunities',
-            '(Intercept)')
-
-dlabels <- c('National Level Average Percent Owning a Business')
-
-```
-
-<br>
-
-```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
-
-stargazer::stargazer(Z1, Z2,
-                     title = 'Linear Regression Estimates', notes = "Regression equation 1 is unimputed, regression equation 2 is imputed", digits = 2, type = 'latex')
-
-
-```
 
 
 
@@ -374,38 +408,6 @@ stargazer::stargazer(Z1, Z2,
 
 
 
-```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE}
 
-# Import df of dependent and independent variables
-CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
-
-
-# Run linear regression R1
-R1 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear + PercentOpportunities + PercentFear*PercentOpportunities + Country, data = CD)
-
-
-# Run linear regression R2
-R2 <- lm(PercentNascent ~ WayofTeaching + PercentPerceived + PercentFear + PercentOpportunities + PercentFear*PercentOpportunities + Country, data = CD)
-
-
-# Run linear regression R3
-R3 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear + PercentOpportunities + PercentFear*PercentOpportunities + Country, data = CD)
-
- 
-```
-
-```{r echo = FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE} 
-
-# Library Stargazer for regression output tables
-library(stargazer)
-
-# Create regression output table
-labels <- c('National Level Avg Perceived Capabilities', 'National Level Avg Fear of Failure',
-            'Annual GDP Growth', 'National Level Avg Perceived Good Opportunities', 'National Level Avg Fear of Failure x National Level Avg Perceived Good Opportunities','(Intercept)')
-
-dlables <- c('National Level Average Percent Entrepreneurial Intention', 'National Level Nascent Entrepreneural Activity', 'National Level Average Percent Owning a Business')
-
-stargazer::stargazer(R1, R2, R3, covariate.labels = labels, dep.var.labels = dlables,
-                     title = 'Linear Regression Estimates', digits = 2, type = 'html')
 
 
