@@ -27,10 +27,6 @@ Data used to create the website is imported from the main or gh-pages branch usi
 
 - Index_sources: This folder contains an Rmarkdown file with the code used to generate imputed data for the imputed data frame used in two simulations included in the website. 
 
-
-- GEM Data: This is the folder holding the imputed data frame and other data  
-
-
 - RpackageCitations: This file provides citations for the R packages used to create the website
 
 - Other: Please refer to the [master branch](https://github.com/SamDund/Assign2Education/tree/master) for other data and supporting documentation.  
