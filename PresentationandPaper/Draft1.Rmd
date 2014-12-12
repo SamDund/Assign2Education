@@ -514,3 +514,11 @@ G1 + ggtitle("Perceived Opportunities Over Time") + theme_bw()
 ```
 
 
+
+
+### Abstract
+
+The process of allocating public funds for education is an opportunity to make calculated long-term investments in a nation's populace. The rationale for decisions made during this process, however, is often difficult to understand. That is, while many claims have been made in entrepreneurship literature regarding the importance of cultural and educational factors - not just structural and economic factors - in determining individual and societal tendencies to start a business, these factors are often not included in the decision-making process. Actually, only a few empirical studies have been carried out on this topic and most of them focused on which attitudes were favourable to starting a business, while almost none explored what determined these dispositions.
+We believe that education systems can favour entrepreneurship and, beyond, GDP growth at the country-level, depending on how supportive of students' self-confidence and how socially inclusive they are. We see this process as many-fold but we only focus here on one of the potential causal relations. We want to understand specifically to want extent the support of individual self-confidence within education systems can affect the likelihood to become an entrepreneur, and thus impact the rate of entrepreneurship at the country level. We use the Global Entrepreneurship Monitor data, both the Adult Population Survey (APS) and the National Expert Survey (NES) to characterise the features of education systems across OECD countries from 2001 until 2010. We control for the average entrepreneurial self-efficacy across the population as well as for the perceived opportunities to start a business. Due to scarce data, due to some flaws in the collection, we cannot ascertain here that the causal chain we look into actually takes place but we firmly believe that is a need for another type of indicators to deepen the research in that direction.
+
+
