@@ -3,6 +3,8 @@ title: "Draft1"
 author: "Sam"
 date: "December 11, 2014"
 output: pdf_document
+linestretch: 1.5
+
 ---
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
@@ -114,7 +116,35 @@ The APS data represent the national-level average of values between 1 and 100 th
 (98. Not applicable)  
 
 
-The process of importing, cleaning, and analyzing all of the data used in this project is fully documented and reproducable by referencing our GitHub repository.
+Additional information on the GEM data used for this research can be seen in the descriptive statistics table included below.  
+
+```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis', warning=FALSE}
+
+# Import df of dependent and independent variables
+CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
+
+CD1 <- CD
+
+# Remove uncessesary column
+CD1$X <- NULL
+
+# Set Year as factor
+CD1[,"Year"] <- as.factor(CD1[,"Year"])
+
+# Rename column
+names(CD) <- gsub("PercentPerceived", "PerceivedCapability", names(CD))
+names(CD1) <- gsub("PercentPerceived", "PerceivedCapability", names(CD1))
+
+
+```
+
+
+```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis', warning=FALSE}
+
+# Generate descriptive statistics table
+stargazer(CD1, type = "latex")
+```
+
 
 
 **Analytical Framework**  
@@ -140,8 +170,9 @@ Data on our explanatory variable, Way of Teaching, is available on the GEM websi
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis', warning=FALSE}
 
 # Create a histogram showing the distribution of Way of Teaching
-qplot(WayofTeaching, data = wot, geom = "histogram", binwidth = .10)
+Q <- qplot(WayofTeaching, data = wot, geom = "histogram", binwidth = .05)
 
+Q + theme_bw()
 ```
 
 
@@ -244,16 +275,13 @@ library(Zelig)
 # Library Amelia for imputed data
 library(Amelia)
 
-# Import df of dependent and independent variables
-CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
-
 
 ############ Running a regression with full df (including omitted variables)
-RG1 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
+RG1 <- lm(PercentIntention ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
 
-RG2 <- lm(PercentNascent ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
+RG2 <- lm(PercentNascent ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
 
-RG3 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
+RG3 <- lm(PercentOwner ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
 ```
 
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
@@ -279,11 +307,11 @@ To more clearly demonstrate the relationship between the "Way of Teaching" and o
 ```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
 
 # Run three regression equations again (omitting country-specific effects)
-RG4 <- lm(PercentIntention ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
+RG4 <- lm(PercentIntention ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
 
-RG5 <- lm(PercentNascent ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
+RG5 <- lm(PercentNascent ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
 
-RG6 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
+RG6 <- lm(PercentOwner ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
 
 ```
 
@@ -299,10 +327,12 @@ stargazer::stargazer(RG4, RG5, RG6,
 ```
 
 
-Given the positive relationship between the "Way of Teaching" and "Entrepreneurship Owner" we decided to use this equation for our simulations.   Given the prevelence of omitted data in our data frame, we decided to attempt to increase the accuracy of this model by using the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate imputed data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Equation  titled "Imputed" were calculated using this imputed data frame.
+Given the positive relationship between the "Way of Teaching" and "Entrepreneurship Owner" we decided to use this equation for our simulations.   In an effort to address data availability issues, we also decided to run a second model including imputed data generated by the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate imputed data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Equation  titled "Imputed" were calculated using this imputed data frame.
 
 
-To generate the simulations, we decided to use the R package Zelig.  This package allows us to set parameters for an explanatory variable and simulate trials of the above equation (more information on the Zelig package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Zelig/index.html).  We chose to simulate values in "Percent Perceived Capabilities" and "Way of Teaching" for this analysis.  A regression output table and our simulation results are included below.  Given our data characteristics and the available models in the Zelig package, we used a "Least Squares Regression for Continuous Dependent Variables."
+To generate the simulations, we decided to use the R package Zelig.  This package allows us to set parameters for an explanatory variable and simulate trials of the above equation (more information on the Zelig package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Zelig/index.html).  We chose to simulate values in our explanatory variable "Way of Teaching" and "Perceived Capabilities" for this analysis.  One important aspect of the Zelig package is that observations with omitted variables will be omitted from the calculation.  For this reason, there is some variation between the coefficients for the Zelig model and the model in the preceeding regression output chart.  
+
+Given our data characteristics and the available models in the Zelig package, we used a "Least Squares Regression for Continuous Dependent Variables." A regression output table and our simulation results are included below.  
 
 
 ```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
@@ -313,7 +343,7 @@ To generate the simulations, we decided to use the R package Zelig.  This packag
 CD_omitted <- na.omit(CD)
 
 # Run a least squares regression with Zelig
-Z1 <- zelig(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD_omitted, model = "ls")
+Z1 <- zelig(PercentOwner ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities, data = CD_omitted, model = "ls")
 
 
 ############ Runnig a Zelig regression with imputed data and omitting remaining omitted variables
@@ -324,22 +354,24 @@ CI <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Educ
 # Omit variables that could not be imputed by Adelia (b/c of lack of data)
 CI_omitted <- na.omit(CI)
 
+names(CI_omitted) <- gsub("PercentPerceived", "PerceivedCapability", names(CI_omitted))
+
 # Regression equation with imputed values
-Z2 <- zelig(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CI_omitted, model = "ls")
+Z2 <- zelig(PercentOwner ~ WayofTeaching + PerceivedCapability + PercentFear*PercentOpportunities + PercentOpportunities, data = CI_omitted, model = "ls")
 
 
 ############ Set range of values for Z1 and Z2 using imputed and not imputed dfs
 
 ####### Simulate Percent Perceived
 
-# Set range of PercentPerceived values in simulation (NOT IMPUTED)
-x.out1 <- setx(Z1, PercentPerceived = 9:67)
+# Set range of PerceivedCapabilities values in simulation (NOT IMPUTED)
+x.out1 <- setx(Z1, PerceivedCapability = 9:67)
 
 # Run simulation (default 1000 trials) (NOT IMPUTED)
 simz1 <- sim(Z1, x = x.out1)
 
-# Set range of PercentPerceived values in siumlation (IMPUTED)
-x.out2 <- setx(Z2, PercentPerceived = 9:67)
+# Set range of PerceivedCapability values in siumlation (IMPUTED)
+x.out2 <- setx(Z2, PerceivedCapability = 9:67)
 
 # Run simulation (default 1000 trials) (IMPUTED)
 simz2 <- sim(Z2, x = x.out2)
@@ -360,7 +392,7 @@ x.out4 <- setx(Z2, WayofTeaching = 1.128:3.312)
 simz4 <- sim(Z2, x = x.out4)
 
 ```
-
+ 
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 
 # Set new vector for dependent variable label
@@ -369,25 +401,18 @@ dlabels_2 <- c('Entrepreneurship Owner')
 
 # Regression output table with country-specific effects
 stargazer::stargazer(Z1, Z2,
-                     title = 'Linear Regression Estimates omitting Country-specific Effects',
+                     title = 'Least Squares Regression for Continuous Dependent Variables',
                      covariate.labels = labels_1, dep.var.labels = dlabels_2, digits = 2,
-                     font.size =  "small", type = 'latex', no.space = TRUE,
+                     font.size =  "scriptsize", type = 'latex', no.space = TRUE,
                      notes = "Regression equation 1 is unimputed, regression equation 2 is imputed")
 ```
+
 
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 library("Zelig")
 
 # Set layout
 par(mfrow = c(2, 2))
-
-# Plot simz1 (unimputed)
-plot(simz1, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurship Owner',
-     main = "Unimputed (Equation 1)")
-
-# Plot simz2 (imputed)
-plot(simz2, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurship Owner',
-     main = "Imputed (Equation 2)")
 
 # Plot simz3 (unimputed)
 plot(simz3, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
@@ -397,17 +422,95 @@ plot(simz3, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
 plot(simz4, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
      main = "Imputed (Equation 2)")
 
+# Plot simz1 (unimputed)
+plot(simz1, xlab = 'Percent Perceived Capabilities', ylab = 'Percent Entrepreneurship Owner',
+     main = "Unimputed (Equation 1)")
+
+# Plot simz2 (imputed)
+plot(simz2, xlab = 'Percent Perceived Capabilities', ylab = 'Percent Entrepreneurship Owner',
+     main = "Imputed (Equation 2)")
+
 ```
 
 
+As we can see from the regression output table, using the Amelia program to generate additional data expanded the observations analyzed from 172 to 318, and increased the statistical significance of our explantory variable.  In addition, the positive slope of this equation is consistent with what we expected after our analysis of existing literature on this topic.  In addition, this process reduced the variance in our simulation results, suggesting it improved the accuracy of this model.  Despite this, we have several concerns regarding the reliability of existing GEM data (which will be discussed later in this paper), which makes us question the effectiveness of using this data to generate additional observations.
 
 
 
+Perceived opportunities
+
+```{r echo =FALSE, cache=TRUE, include=FALSE, results='asis'}
+
+# Library required packages
+library(googleVis)
+library(countrycode)
+library(repmis)
+library("ggplot2")
+library("reshape2")
 
 
+# Import GEM data frame
+PerceivedOpportunities <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/PerceivedOpportunities.csv", header = TRUE, cache = FALSE, na.strings = "-")
+
+## Add country codes and place new column at beginning of the data frame
+# Create a vector of country codes
+D2 <- countrycode(PerceivedOpportunities$Country, "country.name", "iso2c")
+
+# Create a new column and insert the country code vector
+PerceivedOpportunities$new.col <- D2
+
+# Reorder columns so country code is first
+D3 <- PerceivedOpportunities[,c(15,1:14)]
+
+# Rename first column
+D4 <- plyr::rename(x = D3, 
+                   replace = c("new.col" = "iso2c"))
+
+# Remove X's in D4 year columns
+names(D4) <- gsub("X", "", names(D4))                    
+  
+# Set columns as numeric
+D4[,"2001"] <- as.numeric(D4[,"2001"])
+D4[,"2002"] <- as.numeric(D4[,"2002"])
+D4[,"2003"] <- as.numeric(D4[,"2003"])
+D4[,"2004"] <- as.numeric(D4[,"2004"])
+D4[,"2005"] <- as.numeric(D4[,"2005"])
+D4[,"2006"] <- as.numeric(D4[,"2006"])
+D4[,"2007"] <- as.numeric(D4[,"2007"])
+D4[,"2008"] <- as.numeric(D4[,"2008"])
+D4[,"2009"] <- as.numeric(D4[,"2009"])
+D4[,"2010"] <- as.numeric(D4[,"2010"])
+D4[,"2011"] <- as.numeric(D4[,"2011"])
+D4[,"2012"] <- as.numeric(D4[,"2012"])
+D4[,"2013"] <- as.numeric(D4[,"2013"])
 
 
+# Create country vector to subset
+myvars2 <- c('US','FR','DE','JP','GB')
+
+# Subset Opp2
+Opp2 <- subset(D4, iso2c %in% myvars2)
+
+# Melt Opp2 df
+Opp3 <- melt(data = Opp2,
+                  id.vars = c("Country", "iso2c"),
+                  measure.vars = c("2001", "2002", "2003", "2004", "2005", "2006",
+                                   "2007", "2008", "2009", "2010"))
+
+# Edit column names
+names(Opp3) <- gsub("value", "PerceivedOpportunities", names(Opp3))
+names(Opp3) <- gsub("variable", "Year", names(Opp3))
+
+Opp3$iso2c <- NULL
+``` 
 
 
+```{r echo =FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE, error=FALSE, message=FALSE}
+
+# Create plot
+G1 <- ggplot(Opp3,aes(x = Year, y = PerceivedOpportunities, colour = Country, group = Country)) + geom_line()
+
+G1 + ggtitle("Perceived Opportunities Over Time") + theme_bw()
+```
 
 
