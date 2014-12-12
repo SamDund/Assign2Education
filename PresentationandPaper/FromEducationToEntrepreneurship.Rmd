@@ -168,8 +168,22 @@ The lack of suitable data as well as the fact that OECD PISA tends to focus on d
 Regarding potential control variables, we should normally consider including at least the main environmental determinants of entrepreneurship but the lack of consistency in the data at hand for our explanatory variables made us use a summary of those as a proxy. We chose to use the level of good opportunities to start a business perceived on average across the population of the given country.  
 
 
-We will now present our quantitative methodology and the indicators we used in greater detail.    
+As we attempt to measure the impact of education systems' support of students' self-confidence on the rate of entrepreneurship at the country-level, we expect to observe different effects depending if we consider entrepreneurial intentions only or we also look into actual entrepreneurial activities. Even in measuring the impact on activities, we could potentially observe different effects between nascent and established entrepreneurship. Therefore, we will consider the three measures of entrepreneursip separately:  
 
+
+1 Entrepreneurial Intentions  
+
+2 Nascent Entrepreneurship  
+
+3 Established Entrepreneurship  
+
+
+Having explained what lead us into this specific research design, we will now present our methodology for a quantitative analysis and the indicators that we used in greater detail.    
+  
+  
+  
+  
+  
 
 #### Dependent Variables: Explaining the Country-level Rate of Entrepreneurship    
 
