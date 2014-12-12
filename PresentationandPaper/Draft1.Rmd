@@ -163,8 +163,6 @@ Starting with this explanatory variable, we built three regression equations to 
 The interaction term $\beta_5FearFailure*PerceivedOpportunities$ was added to the regression because the survey question regarding "Fear of Failure" was only proposed to survey respondents who indicated they do perceive opportunities to start a business.  
 
 
-(Take this for the paper)
-
 Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between self-confidence reinforcement in teaching and the  dependent variables we selected as indicators of the entrepreneurship rate.  Instead, we found that when controlling for country-specific effects, the Way of Teaching is not statistically significant and has a negative relationship with our explanatory variables.  
 
 
@@ -296,7 +294,7 @@ dlabels <- c('National Level Average Percent Owning a Business')
 
 ```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
 
-stargazer::stargazer(Z1, Z2, covariate.labels = labels, dep.var.labels = dlabels,
+stargazer::stargazer(Z1, Z2,
                      title = 'Linear Regression Estimates', notes = "Regression equation 1 is unimputed, regression equation 2 is imputed", digits = 2, type = 'latex')
 
 
@@ -330,7 +328,7 @@ R3 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear + Percent
  
 ```
 
-```{r echo = FALSE, cache=TRUE, include=TRUE, results='asis', warning=FALSE} 
+```{r echo = FALSE, cache=TRUE, include=FALSE, results='asis', warning=FALSE} 
 
 # Library Stargazer for regression output tables
 library(stargazer)
