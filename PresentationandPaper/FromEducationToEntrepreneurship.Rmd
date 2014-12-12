@@ -4,6 +4,7 @@ author: "Sam Dundon and Thierry Racaud"
 date: "10 December 2014"
 linestretch: 2 
 output: pdf_document
+bibliography: Main.bib
 ---
 
 
@@ -48,25 +49,26 @@ wot <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Edu
 Whilst it is tempting to look at education systems in a very pragmatic way with ratios of teachers per student, or number of students per class, we suggest to use another kind of indicator in order to trace the potential long-term investment made by governments. Indeed, we believe that education systems can favour entrepreneurship and, beyond, GDP growth at the country-level, depending on how supportive of students' self-confidence and how socially inclusive they are. We see this process as many-fold but will only focus here on one of the potential causal relations. We want to understand specifically to want extent the support of individual self-confidence within education systems can affect the likelihood to become an entrepreneur, and thus impact the rate of entrepreneurship at the country level.  
 
 
+
 In trying to explore what supports entrepreneurship at the country-level, one should start by referring to what research asserted for that matter. For this purpose, we refer here to the Organisation for Economic Co-Operation and Development (OECD) list of indicator for entrepreneurial determinants available [here](http://www.oecd.org/std/business-stats/48129925.pdf). Two main sorts of determinants or favourable conditions, environmental factors and individual factors, have been identified and researched. Although we intend to focus more on individual factors, we want to mention here the environmental factors as they should be controlled for in our analysis. They have been divided into six broad categories by the OECD:  
 
 
-**The regulatory framework**: Including administrative burdens, regulations and frameworks, as well as fiscal policy parameters.  
+- **The regulatory framework**: Including administrative burdens, regulations and frameworks, as well as fiscal policy parameters.  
 
 
-**The market conditions**: Including anti-trust laws, rules for competition, access to foreign markets, the degree of public involvement and level of private demand.  
+- **The market conditions**: Including anti-trust laws, rules for competition, access to foreign markets, the degree of public involvement and level of private demand.  
 
 
-**The access to finance**: Including access to debt financing, access to venture capital, and stock markets.  
+- **The access to finance**: Including access to debt financing, access to venture capital, and stock markets.  
 
 
-**The creation and diffusion of knowledge**: Including research and development activity, the transfer of non-commercial knowledge, co-operation among firms, technology availability, and take-up.  
+- **The creation and diffusion of knowledge**: Including research and development activity, the transfer of non-commercial knowledge, co-operation among firms, technology availability, and take-up.  
 
 
-**The entrepreneurial capabilities**: Including business and entrepreneurship education as well as immigration.  
+- **The entrepreneurial capabilities**: Including business and entrepreneurship education as well as immigration.  
 
 
-**The entrepreneurship culture** of a population.  
+- **The entrepreneurship culture** of a population.  
 
 
 Grilo and Thurik [@Grilo2005b] who looked into what determines entrepreneurship engagement levels throughout the European Union and the US pointed especially at the level of financial support available for entrepreneurs in the country and also at administrative complexities.  
