@@ -90,7 +90,7 @@ Our decision to select and investigate these variables was based on the followin
 
 1. An education system that reinforces self-confidence 
 
-2. Higher degree of individual self-esteem  
+2. Higher degree of individual self-confidence  
 
 3. Higher probability an individual becomes an entrepreneur  
 
@@ -177,7 +177,7 @@ X3 Control Variable | Fear of Failure / Perceived Opportunities
 X4 Control Variable | Perceived Opportunities  
 
 
-We have included our findings in a detailed paper available here.  In sum, however, the most statistically significant and important findings from our analysis are that there is some evidence of a postitive relationship between higher levels of self-confidence reinforcement in teaching (a higher "WayofTeaching" score) and the rate of people owning their own business.  This can be seen in the chart below.  As we can see, however, when we add a trendline for each country the relationship becomes less certain.  For example, in the case of the United States and the United Kingdom, the country-specific trend line has a decreasing slope.  We believe this may be due to inconsistency in the survey and that a larger data set would allow us to more accurately describe the relationship between these variables.
+We have included our findings in a detailed paper available [here](https://github.com/SamDund/Assign2Education/tree/master/PresentationandPaper).  In sum, however, the most statistically significant and important findings from our analysis are that there is some evidence of a postitive relationship between higher levels of self-confidence reinforcement in teaching (a higher "WayofTeaching" score) and the rate of people owning their own business.  This can be seen in the chart below.  As we can see, however, when we add a trendline for each country the relationship becomes less certain.  For example, in the case of the United States and the United Kingdom, the country-specific trend line has a decreasing slope.  We believe this may be due to inconsistency in the survey and that a larger data set would allow us to more accurately describe the relationship between these variables.
 
 <br>
 
