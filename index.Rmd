@@ -30,8 +30,7 @@ library(shiny)
 library(httpuv)
 
 # Create a vector of packages used
-pkgs <- c('repmis', 'ggvis', 'devtools', 'googleVis', 'countrycode', 'reshape2', 'shiny', 'httpuv', 'Zelig',
-          'stargazer', 'Amelia')
+pkgs <- c('repmis', 'ggvis', 'devtools', 'googleVis', 'countrycode', 'reshape2', 'shiny', 'httpuv')
 
 # Create citations txt file
 repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
