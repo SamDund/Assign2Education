@@ -289,7 +289,6 @@ X3 Control Variable | Fear of Failure / Perceived Opportunities
 X4 Control Variable | Perceived Opportunities  
 
 
-..........(Describe why we use the rate of entrepreneurship indicators we chose)  
 
 
 Data on our explanatory variable, Way of Teaching, is available on the GEM website for the years 2001-2010.  To illustrate the distribution of this data, we have created the following histogram.  As shown in the histogram, the largest density of scores is approximately 2.3, which lies between the "somewhat false" and "neither true or false" categories.  This is not a whole number because the scores given by each of the 4 experts surveyed for each frameork condition are averaged to create a national-level number.  As discussed later in this paper, this presents some difficulties in drawing substantive conclusions from this data.  Namely, a large number of indifferent responses complicate the process of determining the influence we would like to analyze.
@@ -305,7 +304,17 @@ qplot(WayofTeaching, data = wot, geom = "histogram", binwidth = .10)
 ```
 
 
-Starting with this explanatory variable, we built three regression equations to examine the impact of our explanatory variable on the rate of entrepreneurship (as measured by survey responses on the percentage of nascent entrepreneurs, established business owners, and respondents with the intention of becoming an entrepreneur).  These three regression equations are as follows:  
+Starting with this explanatory variable, as mentioned earlier, we expected to observe different effects depending on the kind of entrepreneurship we looked at:  
+
+
+1 Entrepreneurial Intentions  
+
+2 Nascent Entrepreneurship  
+
+3 Established Entrepreneurship  
+
+
+Therefore, we built three regression equations to examine the impact of our explanatory variable on the rate of entrepreneurship (as measured by survey responses on the percentage of nascent entrepreneurs, established business owners, and respondents with the intention of becoming an entrepreneur).  These three regression equations are as follows:  
 
 
 1. $PercentEntreIntention = \beta_1WayofTeaching  + \beta_2PerceivedCabability + \beta_3PerceivedOpportunities$   
