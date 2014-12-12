@@ -39,6 +39,8 @@ repmis::LoadandCite(pkgs, file= 'RpackageCitations.bib')
 # Import "CompleteData" df from repository
 CD <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/master/GEMData/CompleteData.csv", header = TRUE, na.strings = "NA")
 
+names(CD) <- gsub("PercentPerceived", "PerceivedCapability", names(CD))
+
 # Set Year column as a date
 CD$Year <- as.Date(as.character(CD$Year), format = "%Y")
 
@@ -203,8 +205,7 @@ CD_subset$PercentOpportunities <- NULL
 CD_subset %>% 
   ggvis(x = ~WayofTeaching, y = ~PercentOwner) %>% 
   layer_points(fill = ~factor(Country)) %>%
-  group_by(Country) %>%
-  layer_model_predictions(model = "lm")
+  group_by(Country)
 ```
 
 <br>
@@ -222,161 +223,21 @@ CD_subset2$X <- NULL
 CD_subset2$iso2c <- NULL
 CD_subset2$PercentFear <- NULL
 CD_subset2$PercentNascent <- NULL
-CD_subset2$PercentPerceived <- NULL
+CD_subset2$PercentOpportunity <- NULL
 CD_subset2$PercentIntention <- NULL
 CD_subset2$WayofTeaching <- NULL
 
+names(CD_subset2) <- gsub("PercentPerceived", "PerceivedCapability", names(CD_subset2))
+
 # Create plot of PercentOpp and PercentOwner
 CD_subset2 %>% 
-  ggvis(x = ~PercentOpportunities, y = ~PercentOwner) %>% 
+  ggvis(x = ~PerceivedCapability, y = ~PercentOwner) %>% 
   layer_points(fill = ~factor(Country)) %>%
-  group_by(Country) %>%
-  layer_model_predictions(model = "lm")
+  group_by(Country)
 
 
 ```
 
-
-
-
-(Take this for the paper)
-
-Based on a review of academic literature and expectations from other data analysis, we expected to see a statistically significant positive relationship between self-confidence reinforcement in teaching and the  dependent variables we selected as indicators of the entrepreneurship rate.  Instead, we found that when controlling for country-specific effects, the Way of Teaching is not statistically significant and has a negative relationship with our explanatory variables.  
-
-
-Overall, however, if we omit country-specific effects, we can demonstrate that the Way of Teaching and the Percent Perceived Good Opportunities are statistically significant in the model indicated below.  
-
-<br>
-
-$NationalLevelAveragePercentOwningaBusiness = -6.82 + 1.03WayofTeaching + 0.10Percent Perceived Capability +$  
-$0.21Percent Fear Failure$ $+$ $0.12Percent Perceived Opportunities - 0.005Percent Fear Failure$ $*$ $Percent Perceived Opportunities$  
-
-<br>
-
-We can show the relationship between the dependent and explanatory variables in the four simulations below.  The R package Zelig allows us to set parameters for an explanatory variable and simulate 1000 trials of the above equation (more information on the Zelig package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Zelig/index.html).  We chose to simulate values in "Percent Perceived Capabilities" and "Way of Teaching" for this analysis.  A regression output table has also been included below.
-
-
-The simulations labeled "Unimputed" were created using only data collected from GEM. This simulation is not possible with missing data, so observations with missing data were omitted.  In an attempt to increase the accuracy of this model, we used the R program Amelia to generate an imputed data frame.  This program uses statistical inference to generate this data (more information on the Amelia package can be found on the program's [CRAN page](http://cran.r-project.org/web/packages/Amelia/index.html)).  Simulations titled "Imputed" were calculated using this imputed data frame.
-
-```{r echo = FALSE, cache= FALSE, include= FALSE}
-
-# Library Zelig (can be buggy if loaded too early)
-library(Zelig)
-
-# Library Amelia for imputed data
-library(Amelia)
-
-
-############ Running a regression with full df (including omitted variables)
-RG1 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD)
-
-RG2 <- lm(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities + Country, data = CD)
-
-############ Running a regression omitting omitted variables
-
-# Generate a df omitting omitted variables
-CD_omitted <- na.omit(CD)
-
-# Run a least squares regression with Zelig
-Z1 <- zelig(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CD_omitted, model = "ls")
-
-
-############ Runnig a Zelig regression with imputed data and omitting remaining omitted variables
-
-# Import csv of df with imputed figures (created in Index_sources/Amelia_source)
-CI <- repmis::source_data("https://raw.githubusercontent.com/SamDund/Assign2Education/gh-pages/GEMData/Cimputed5.csv", header = TRUE, sep = ",", na.strings = NA)
-
-# Omit variables that could not be imputed by Adelia (b/c of lack of data)
-CI_omitted <- na.omit(CI)
-
-# Regression equation with imputed values
-Z2 <- zelig(PercentOwner ~ WayofTeaching + PercentPerceived + PercentFear*PercentOpportunities + PercentOpportunities, data = CI_omitted, model = "ls")
-
-
-############ Set range of values for Z1 and Z2 using imputed and not imputed dfs
-
-####### Simulate Percent Perceived
-
-# Set range of PercentPerceived values in simulation (NOT IMPUTED)
-x.out1 <- setx(Z1, PercentPerceived = 9:67)
-
-# Run simulation (default 1000 trials) (NOT IMPUTED)
-simz1 <- sim(Z1, x = x.out1)
-
-# Set range of PercentPerceived values in siumlation (IMPUTED)
-x.out2 <- setx(Z2, PercentPerceived = 9:67)
-
-# Run simulation (default 1000 trials) (IMPUTED)
-simz2 <- sim(Z2, x = x.out2)
-
-
-####### Simulate Way of Teaching
-
-# Set range of WayofTeaching values in simulation (NOT IMPUTED)
-x.out3 <- setx(Z1, WayofTeaching = 1.353:3.278)
-
-# Run simulation (default 1000 trials) (NOT IMPUTED)
-simz3 <- sim(Z1, x = x.out3)
-
-# Set range of WayofTeaching values in simulation (IMPUTED)
-x.out4 <- setx(Z2, WayofTeaching = 1.128:3.312)
-
-# Run simulation (default 1000 trials) (IMPUTED)
-simz4 <- sim(Z2, x = x.out4)
-
-```
-
-
-
-```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
-library("Zelig")
-
-# Set layout
-par(mfrow = c(2, 2))
-
-# Plot simz1 (unimputed)
-plot(simz1, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurship Owner',
-     main = "Unimputed (Equation 1)")
-
-# Plot simz2 (imputed)
-plot(simz2, xlab = 'Percent Perceived Opportunities', ylab = 'Percent Entrepreneurship Owner',
-     main = "Imputed (Equation 2)")
-
-# Plot simz3 (unimputed)
-plot(simz3, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
-     main = "Unimputed (Equation 1)")
-
-# Plot simz4 (imputed)
-plot(simz4, xlab = 'Way of Teaching', ylab = 'Percent Entrepreneurship Owner',
-     main = "Imputed (Equation 2)")
-
-```
-
-```{r echo = FALSE, cache= FALSE, include= FALSE, results= 'asis'}
-library(stargazer)
-
-# Create regression output table
-labels <- c('Way of Teaching', 'National Level Perceived Capabilities', 'National Level Avg Fear of Failure',
-            'National Level Avg Perceived Good Opportunities', 
-            'National Level Avg Fear of Failure x National Level Avg Perceived Good Opportunities',
-            '(Intercept)')
-
-dlabels <- c('National Level Average Percent Owning a Business')
-
-```
-
-<br>
-
-```{r echo = FALSE, cache= FALSE, include= TRUE, results= 'asis'}
-
-stargazer::stargazer(Z1, Z2, covariate.labels = labels, dep.var.labels = dlabels,
-                     title = 'Linear Regression Estimates', notes = "Regression equation 1 is unimputed, regression equation 2 is imputed", digits = 2, type = 'html')
-
-
-```
-
-
-<br>
 
 ### Conclusions  
 
